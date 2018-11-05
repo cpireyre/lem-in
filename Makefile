@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+         #
+#    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/11/05 16:23:43 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/11/05 17:29:24 by tboissel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ $(LIBFT): force
 
 $(NAME): $(DEPS) $(LIBFT) $(OBJ)
 	$(CC) $(CFLAGS) $(BFLAGS) $(OBJ) $(INCLUDE) $(DEBUG) -o $@
-	ctags -R # for ease of navigation with vim
+#	ctags -R # for ease of navigation with vim
 
 clean:
 	$(MAKE) clean -C $(LIBDIR)
@@ -45,7 +45,7 @@ clean:
 fclean: clean
 	make fclean -C libft/
 	$(RM) $(PROGRAM)
-	$(RM) tags
+#	$(RM) tags
 
 re: fclean all
 
