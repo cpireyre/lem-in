@@ -6,22 +6,22 @@
 #    By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/11/05 14:27:32 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/11/05 16:23:43 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		:=	gcc
 RM		:=	rm -f
-CFLAGS	:=	-Wall -Wextra -Werror -O0
+CFLAGS	:=	-Wall -Wextra -Werror
 LIBDIR	:=	./libft
 LIBFT	:=	$(LIBDIR)/libft.a
 BFLAGS	:=	-I$(LIBDIR)/
 DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
 INCLUDE	:=	-lft -L$(LIBDIR)/
-NAME	:=	lem_in
+NAME	:=	lem-in
 
-C_FILES		:=	burp.c
-H_FILES		:=	burp.h
+C_FILES		:=	parse.c
+H_FILES		:=	
 OBJ			:=	$(C_FILES:.c=.o)
 
 DEPS		=	$(H_FILES) Makefile 
@@ -36,6 +36,7 @@ $(LIBFT): force
 
 $(NAME): $(DEPS) $(LIBFT) $(OBJ)
 	$(CC) $(CFLAGS) $(BFLAGS) $(OBJ) $(INCLUDE) $(DEBUG) -o $@
+	ctags -R # for ease of navigation with vim
 
 clean:
 	$(MAKE) clean -C $(LIBDIR)
@@ -49,10 +50,14 @@ fclean: clean
 re: fclean all
 
 force:
-	@true
+	@true # to shut up libft Makefile
 
-run:
+run: $(NAME)
+	./lem_in # arguments go here
 
-urn:
+urn: run # typos will happen
+
+test: $(NAME)
+	sh ./tests/test_basic_parse.sh
 
 .PHONY: all, re, clean, fclean, force, run, urn
