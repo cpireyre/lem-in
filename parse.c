@@ -6,11 +6,10 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:07:17 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/06 15:30:21 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/06 16:13:53 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "lem_in.h"
 
 /*
@@ -92,25 +91,4 @@ void	print_list(t_list **head)
 		ft_putendl((char*)ptr->content);
 		ptr = ptr->next;
 	}
-}
-
-int		main(void)
-{
-	t_list		*arg;
-	char		*l;
-	t_lemin		lemin;
-
-	l = NULL;
-	arg = NULL;
-	while (ft_gnl(0, &l))
-		ft_lstappend(&arg, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
-	if (!(arg))
-		ft_exit("empty list\n");
-	if (!(store_ants(&arg, &lemin)))
-		ft_exit("Not a number of ants\n");
-	arg = arg->next;
-	ft_putendl("initial check(s) done. printing list now:");
-	print_list(&arg);
-	ft_lstdel(&arg, &ft_bzero);
-	return (0);
 }
