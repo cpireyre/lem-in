@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:07:17 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/06 13:46:05 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/06 15:30:21 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 ** return (true) quand on trouve line type x-y et rien derriere;
 */
 
-t_bool		store_ants(t_list **head, t_lemin *lemin)
+t_bool	store_ants(t_list **head, t_lemin *lemin)
 {
 	t_list	*ptr;
 
@@ -44,33 +44,33 @@ t_bool		store_ants(t_list **head, t_lemin *lemin)
 */
 
 /*
-t_bool		store_rooms(t_list **head, t_lemin *lemin)
-{
-	t_list *ptr;
-	t_byte type;
-
-	ptr = *head;
-	while (ptr)
-	{
-		type = NORMAL;
-		if (((char *)(ptr->content))[0] == '#')
-		{
-			if (((char *)(ptr->content))[1] != '#')
-			{
-				ptr = ptr->next;
-				continue;
-			}
-			else
-			{
-				if (ft_strcmp((char*)(ptr->content), "##start"))
-					type = START;
-				else if (ft_strcmp((char*)(ptr->content), "##end"))
-					type = END;
-				ptr = ptr->next;
-			}
-		}
-	}
-}
+** t_bool		store_rooms(t_list **head, t_lemin *lemin)
+** {
+** 	t_list *ptr;
+** 	t_byte type;
+**
+** 	ptr = *head;
+** 	while (ptr)
+** 	{
+** 		type = NORMAL;
+** 		if (((char *)(ptr->content))[0] == '#')
+** 		{
+** 			if (((char *)(ptr->content))[1] != '#')
+** 			{
+** 				ptr = ptr->next;
+** 				continue;
+** 			}
+** 			else
+** 			{
+** 				if (ft_strcmp((char*)(ptr->content), "##start"))
+** 					type = START;
+** 				else if (ft_strcmp((char*)(ptr->content), "##end"))
+** 					type = END;
+** 				ptr = ptr->next;
+** 			}
+** 		}
+** 	}
+** }
 */
 
 /*
@@ -97,13 +97,13 @@ void	print_list(t_list **head)
 int		main(void)
 {
 	t_list		*arg;
-	char		*line;
+	char		*l;
 	t_lemin		lemin;
 
-	line = NULL;
+	l = NULL;
 	arg = NULL;
-	while (ft_gnl(0, &line))
-		ft_lstappend(&arg, ft_lstnew(line, sizeof(char) * (ft_strlen(line) + 1)));
+	while (ft_gnl(0, &l))
+		ft_lstappend(&arg, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
 	if (!(arg))
 		ft_exit("empty list\n");
 	if (!(store_ants(&arg, &lemin)))
