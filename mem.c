@@ -27,7 +27,23 @@ void	free_list(t_list **head)
 	}
 }
 
+void	free_rooms(t_rooms **head)
+{
+	t_rooms	*tmp;
+	t_rooms	*ptr;
+
+	ptr = *head;
+	while (ptr)
+	{
+		tmp = ptr->next;
+		ft_strdel((char**)&ptr->name);
+		free(ptr);
+		ptr = tmp;
+	}
+}
+	
 void	free_lemin(t_lemin *addr)
 {
+	free_rooms(&(addr)->rooms);
 	free(addr);
 }
