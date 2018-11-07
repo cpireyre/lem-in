@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:07:17 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/06 16:13:53 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/07 07:55:49 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ t_bool	store_ants(t_list **head, t_lemin *lemin)
 	if (ft_isint((char*)ptr->content))
 	{
 		lemin->ants = ft_atoi((char*)ptr->content);
+		if (DEBUG)
+			ft_printf("DEBUG: Stored %d ants.\n", lemin->ants);
 		return (true);
 	}
 	else

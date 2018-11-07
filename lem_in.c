@@ -6,11 +6,18 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 15:41:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/07 07:46:35 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/07 08:05:17 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+
+void	quit_lem_in(t_list **lst, t_lemin *env, const char *err, int status)
+{
+	free_list(lst);
+	free_lemin(env);
+	ft_exit(err, status);
+}
 
 int		main(void)
 {
@@ -24,11 +31,9 @@ int		main(void)
 	while (ft_gnl(0, &l))
 		ft_lstappend(&arg, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
 	if (!(arg))
-		ft_putendl("Empty list.\n");
+		quit_lem_in(&arg, lemin, "No arguments.", EXIT_FAILURE);
 	if (!(store_ants(&arg, lemin)))
-		ft_putendl("Invalid number of ants.\n");
+		quit_lem_in(&arg, lemin, "Invalid number of ants.", EXIT_FAILURE);
 	print_list(&arg);
-	free_list(&arg);
-	free_lemin(lemin);
-	return (0);
+	quit_lem_in(&arg, lemin, "", EXIT_SUCCESS);
 }
