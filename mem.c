@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 15:42:13 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/06 16:10:10 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/07 07:47:36 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ void	free_list(t_list **head)
 
 void	free_lemin(t_lemin *addr)
 {
-	(void)addr;
+	free(addr);
 }

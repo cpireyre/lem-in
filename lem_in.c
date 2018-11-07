@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 15:41:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/06 17:09:18 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/07 07:46:35 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ int		main(void)
 	while (ft_gnl(0, &l))
 		ft_lstappend(&arg, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
 	if (!(arg))
-		ft_printf("empty list\n");
+		ft_putendl("Empty list.\n");
 	if (!(store_ants(&arg, lemin)))
-		ft_printf("Invalid number of ants.\n");
+		ft_putendl("Invalid number of ants.\n");
 	print_list(&arg);
 	free_list(&arg);
-	free(lemin);
+	free_lemin(lemin);
 	return (0);
 }
