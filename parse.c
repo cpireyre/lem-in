@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:07:17 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/07 07:55:49 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/07 12:48:25 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 /*
 ** Add room:
 ** creer un maillon t_rooms avec:
-** typeroom = type;
-** room_name = room_line - 2 derniers blocs
+** type = type;
+** name = room_line - 2 derniers blocs
 ** return (false) si nom commence par L
 ** Verifier qu'un nom n'est pas deja used par un autre maillon,
 **  return(false) sinon
@@ -37,6 +37,27 @@ t_bool	store_ants(t_list **head, t_lemin *lemin)
 	}
 	else
 		return (false);
+}
+
+t_rooms	*new_room(char *input, t_byte type)
+{
+	t_rooms	*new;
+
+	new = ft_memalloc(sizeof(t_rooms));
+	new->name = ft_strdup(input);
+	new->type = type;
+	new->next = NULL;
+	return (new);
+}
+
+t_bool	add_room(t_rooms **map, char *input, t_byte type)
+{
+	t_rooms *new;
+
+	new = new_room(input, type);
+	new->next = *map;
+	*map = new;
+	return (true);
 }
 
 /*
@@ -83,14 +104,3 @@ t_bool	store_ants(t_list **head, t_lemin *lemin)
 ** Verifier que x et y sont des noms salles e
 */
 
-void	print_list(t_list **head)
-{
-	t_list	*ptr;
-
-	ptr = *head;
-	while (ptr)
-	{
-		ft_putendl((char*)ptr->content);
-		ptr = ptr->next;
-	}
-}

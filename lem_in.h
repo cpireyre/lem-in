@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/07 08:23:31 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/07 12:38:02 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 
 typedef struct		s_rooms
 {
-	char			*room_name;
-	t_byte			typeroom;
+	char			*name;
+	t_byte			type;
 	struct s_rooms	*next;
 }					t_rooms;
 
@@ -49,7 +49,7 @@ void				print_list(t_list **head);
 **	parse.c
 */
 
-t_bool				add_room(t_rooms *map, char *input, t_byte type);
+t_bool				add_room(t_rooms **map, char *input, t_byte type);
 
 /*
 **	mem.c
