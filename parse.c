@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:07:17 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/08 11:25:52 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/08 11:44:13 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,20 @@ t_bool	store_ants(t_list **head, t_lemin *lemin)
 		return (false);
 }
 
+t_bool	room_already_exists(t_rooms *map, char *room)
+{
+	map = map->next;
+	while (map)
+	{
+		if (map->name == room)
+			return (true);
+		map = map->next;
+		if (DEBUG)
+			ft_printf("\"%s\" already exists.\n", room);
+	}
+	return (false);
+}
+
 t_bool	add_room(t_rooms **map, char *input, t_byte type)
 {
 	t_rooms *new;
@@ -50,6 +64,8 @@ t_bool	add_room(t_rooms **map, char *input, t_byte type)
 		ft_strdel(&room_name);
 		return (false);
 	}
+	if (*map && room_already_exists((*map), room_name))
+		return (false);
 	new = new_room(room_name, type);
 	new->next = *map;
 	*map = new;
