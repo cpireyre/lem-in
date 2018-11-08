@@ -6,32 +6,36 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 08:06:24 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/08 08:49:56 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/08 10:22:36 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static t_bool	room_is_valid(const char *name)
+t_bool	check_room_coordinate(char **name)
+{
+	while (ft_isdigit(**name))
+		(*name)--;
+	if (**name == '-' || **name == '+')
+		(*name)--;
+	(*name)++;
+	if (!ft_isint(*name))
+		return (false);
+	(*name)--;
+	if (**name != ' ')
+		return (false);
+	return (true);
+}
+
+static t_bool	room_is_valid(char *name)
 {
 	if (name[0] == 'L' || name[0] == '#')
 		return (false);
 	name += ft_strlen(name) - 1;
-	while (ft_isdigit(*name))
-		name--;
-	name++;
-	if (!ft_isint(name))
+	if (!check_room_coordinate(&name))
 		return (false);
 	name--;
-	if (*name != ' ')
-		return (false);
-	while (ft_isdigit(*name))
-		name--;
-	name++;
-	if (!ft_isint(name))
-		return (false);
-	name--;
-	if (*name != ' ')
+	if (!check_room_coordinate(&name))
 		return (false);
 	return (true);
 }
@@ -47,7 +51,7 @@ static t_rooms	*new_room(char *name_ptr, t_byte type)
 	return (new);
 }
 
-static char	*get_room_name(const char *input)
+static char	*get_room_name(char *input)
 {
 	if (room_is_valid(input))
 	{
