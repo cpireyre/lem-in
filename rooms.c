@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 08:06:24 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/08 11:22:59 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/08 14:05:52 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_bool	check_room_coordinate(char **name)
 
 t_bool	room_is_valid(char *name)
 {
-	if (name[0] == 'L' || name[0] == '#')
+	if (name[0] == 'L' || name[0] == '#' || ft_strchr(name, '-'))
 		return (false);
 	name += ft_strlen(name) - 1;
 	if (!check_room_coordinate(&name))
@@ -56,7 +56,7 @@ char	*get_room_name(char *input)
 	size_t	i;
 	char	*name;
 
-	i = ft_strlen(input) - 1;
+	i = ft_strlen(input);
 	if (room_is_valid(input))
 	{
 		while (!ft_isspace(input[i]))
@@ -64,9 +64,8 @@ char	*get_room_name(char *input)
 		i--;
 		while (!ft_isspace(input[i]))
 			i--;
-		i--;
 		name = ft_strnew(i);
-		name = ft_strncpy(name, input, i + 1);
+		name = ft_strncpy(name, input, i);
 		if (DEBUG)
 			ft_printf("DEBUG: Room \"%s\" sounds OK.\n", input);
 		return (name);

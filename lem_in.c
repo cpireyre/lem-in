@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 15:41:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/08 10:32:10 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/08 15:00:50 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,9 @@ int		main(void)
 	ptr = usr_in->next;
 	if (!(store_ants(&usr_in, lemin)))
 		quit_lem_in(&usr_in, lemin, "Invalid number of ants.", EXIT_FAILURE);
-	while (ptr)
-	{
-		add_room(&lemin->rooms, (char*)(ptr->content), 1);
-		ptr = ptr->next;
-	}
+	store_rooms(&ptr, lemin);
+	print_rooms(lemin->rooms);
+	store_pipes(&ptr, lemin);
 	print_list(&usr_in);
 	if (DEBUG)
 		print_rooms(lemin->rooms);

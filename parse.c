@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:07:17 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/08 11:44:13 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/08 15:31:24 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ t_bool	store_ants(t_list **head, t_lemin *lemin)
 	{
 		lemin->ants = ft_atoi((char*)ptr->content);
 		if (DEBUG)
-			ft_printf("DEBUG: Stored %d ants.\n", lemin->ants);
+			ft_printf("DEBUG: Stored %d ant%c.\n", lemin->ants, \
+					lemin->ants > 1 ? 's' : 0);
 		return (true);
 	}
 	else
@@ -41,14 +42,15 @@ t_bool	store_ants(t_list **head, t_lemin *lemin)
 
 t_bool	room_already_exists(t_rooms *map, char *room)
 {
-	map = map->next;
 	while (map)
 	{
-		if (map->name == room)
+		if (!ft_strcmp(map->name, room))
+		{
+			if (DEBUG)
+				ft_printf("\"%s\" already exists.\n", room);
 			return (true);
+		}
 		map = map->next;
-		if (DEBUG)
-			ft_printf("\"%s\" already exists.\n", room);
 	}
 	return (false);
 }
@@ -72,46 +74,31 @@ t_bool	add_room(t_rooms **map, char *input, t_byte type)
 	return (true);
 }
 
-/*
-** TODO:
-** add_room(lemin->rooms, (char *)ptr->content, type);
-*/
+void	store_rooms(t_list **ptr, t_lemin *lemin)
+{
+	t_byte type;
 
-/*
-** t_bool		store_rooms(t_list **head, t_lemin *lemin)
-** {
-** 	t_list *ptr;
-** 	t_byte type;
-**
-** 	ptr = *head;
-** 	while (ptr)
-** 	{
-** 		type = NORMAL;
-** 		if (((char *)(ptr->content))[0] == '#')
-** 		{
-** 			if (((char *)(ptr->content))[1] != '#')
-** 			{
-** 				ptr = ptr->next;
-** 				continue;
-** 			}
-** 			else
-** 			{
-** 				if (ft_strcmp((char*)(ptr->content), "##start"))
-** 					type = START;
-** 				else if (ft_strcmp((char*)(ptr->content), "##end"))
-** 					type = END;
-** 				ptr = ptr->next;
-** 			}
-** 		}
-** 	}
-** }
-*/
-
-/*
-** store pipes:
-** roomsize = sizelist (lemin->rooms)
-** malloc lemin->pipes tab[roomsize][roomsize]
-** remplir diagonale avec les types
-** tant qu'on a le format x-y
-** Verifier que x et y sont des noms salles e
-*/
+	while ((*ptr))
+	{
+		type = NORMAL;
+		if (((char *)((*ptr)->content))[0] == '#')
+		{
+			if (((char *)((*ptr)->content))[1] != '#')
+			{
+				(*ptr) = (*ptr)->next;
+				continue ;
+			}
+			else
+			{
+				if (!ft_strcmp((char*)((*ptr)->content), "##start"))
+					type = START;
+				else if (!ft_strcmp((char*)((*ptr)->content), "##end"))
+					type = END;
+				(*ptr) = (*ptr)->next;
+			}
+		}
+		if (add_room(&lemin->rooms, (char *)((*ptr)->content), type) == false)
+			return ;
+		(*ptr) = (*ptr)->next;
+	}
+}
