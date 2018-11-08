@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 15:41:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/07 12:44:06 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/08 08:49:07 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	quit_lem_in(t_list **lst, t_lemin *env, const char *err, int status)
 int		main(void)
 {
 	t_list		*usr_in;
+	t_list		*ptr;
 	char		*l;
 	t_lemin		*lemin;
 
@@ -33,13 +34,16 @@ int		main(void)
 		ft_lstappend(&usr_in, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
 	if (!(usr_in))
 		quit_lem_in(&usr_in, lemin, "No arguments.", EXIT_FAILURE);
+	ptr = usr_in->next;
 	if (!(store_ants(&usr_in, lemin)))
 		quit_lem_in(&usr_in, lemin, "Invalid number of ants.", EXIT_FAILURE);
-	add_room(&lemin->rooms, "aa", 2);
-	add_room(&lemin->rooms, "b", 2);
-	add_room(&lemin->rooms, "c", 5);
+	while (ptr)
+	{
+		add_room(&lemin->rooms, (char*)(ptr->content), 1);
+		ptr = ptr->next;
+	}
 	print_list(&usr_in);
-	ft_printf("%s", lemin->rooms->next->name);
-	print_rooms(lemin->rooms);
+	if  (DEBUG)
+		print_rooms(lemin->rooms);
 	quit_lem_in(&usr_in, lemin, "", EXIT_SUCCESS);
 }

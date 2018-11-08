@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/07 12:38:02 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/08 08:27:18 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ typedef struct		s_lemin
 	int				**pipes;
 }					t_lemin;
 
+/*
+**	parse.c
+*/
+
 t_bool				store_ants(t_list **head, t_lemin *lemin);
 
 /*
@@ -46,7 +50,7 @@ void				print_rooms(t_rooms	*map);
 void				print_list(t_list **head);
 
 /*
-**	parse.c
+**	rooms.c
 */
 
 t_bool				add_room(t_rooms **map, char *input, t_byte type);

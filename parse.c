@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:07:17 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/07 12:48:25 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/08 08:06:43 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,6 @@ t_bool	store_ants(t_list **head, t_lemin *lemin)
 	}
 	else
 		return (false);
-}
-
-t_rooms	*new_room(char *input, t_byte type)
-{
-	t_rooms	*new;
-
-	new = ft_memalloc(sizeof(t_rooms));
-	new->name = ft_strdup(input);
-	new->type = type;
-	new->next = NULL;
-	return (new);
-}
-
-t_bool	add_room(t_rooms **map, char *input, t_byte type)
-{
-	t_rooms *new;
-
-	new = new_room(input, type);
-	new->next = *map;
-	*map = new;
-	return (true);
 }
 
 /*
