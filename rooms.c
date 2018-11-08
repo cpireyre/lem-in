@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 08:06:24 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/08 10:22:36 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/08 11:22:59 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_bool	check_room_coordinate(char **name)
 	return (true);
 }
 
-static t_bool	room_is_valid(char *name)
+t_bool	room_is_valid(char *name)
 {
 	if (name[0] == 'L' || name[0] == '#')
 		return (false);
@@ -40,7 +40,7 @@ static t_bool	room_is_valid(char *name)
 	return (true);
 }
 
-static t_rooms	*new_room(char *name_ptr, t_byte type)
+t_rooms	*new_room(char *name_ptr, t_byte type)
 {
 	t_rooms	*new;
 
@@ -51,13 +51,25 @@ static t_rooms	*new_room(char *name_ptr, t_byte type)
 	return (new);
 }
 
-static char	*get_room_name(char *input)
+char	*get_room_name(char *input)
 {
+	size_t	i;
+	char	*name;
+
+	i = ft_strlen(input) - 1;
 	if (room_is_valid(input))
 	{
+		while (!ft_isspace(input[i]))
+			i--;
+		i--;
+		while (!ft_isspace(input[i]))
+			i--;
+		i--;
+		name = ft_strnew(i);
+		name = ft_strncpy(name, input, i + 1);
 		if (DEBUG)
 			ft_printf("DEBUG: Room \"%s\" sounds OK.\n", input);
-		return (ft_strdup(input));
+		return (name);
 	}
 	else
 	{
@@ -66,21 +78,3 @@ static char	*get_room_name(char *input)
 		return (NULL);
 	}
 }
-
-t_bool	add_room(t_rooms **map, char *input, t_byte type)
-{
-	t_rooms *new;
-	char	*room_name;
-
-	room_name = get_room_name(input);
-	if (!room_name)
-	{
-		ft_strdel(&room_name);
-		return (false);
-	}
-	new = new_room(room_name, type);
-	new->next = *map;
-	*map = new;
-	return (true);
-}
-

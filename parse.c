@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:07:17 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/08 08:06:43 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/08 11:25:52 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,23 @@ t_bool	store_ants(t_list **head, t_lemin *lemin)
 	}
 	else
 		return (false);
+}
+
+t_bool	add_room(t_rooms **map, char *input, t_byte type)
+{
+	t_rooms *new;
+	char	*room_name;
+
+	room_name = get_room_name(input);
+	if (!room_name)
+	{
+		ft_strdel(&room_name);
+		return (false);
+	}
+	new = new_room(room_name, type);
+	new->next = *map;
+	*map = new;
+	return (true);
 }
 
 /*
@@ -82,4 +99,3 @@ t_bool	store_ants(t_list **head, t_lemin *lemin)
 ** tant qu'on a le format x-y
 ** Verifier que x et y sont des noms salles e
 */
-

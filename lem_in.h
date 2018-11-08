@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/08 08:27:18 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/08 11:24:29 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct		s_lemin
 */
 
 t_bool				store_ants(t_list **head, t_lemin *lemin);
+t_bool				add_room(t_rooms **map, char *input, t_byte type);
 
 /*
 **	print.c
@@ -53,7 +54,10 @@ void				print_list(t_list **head);
 **	rooms.c
 */
 
-t_bool				add_room(t_rooms **map, char *input, t_byte type);
+t_bool	check_room_coordinate(char **name);
+t_bool	room_is_valid(char *name);
+t_rooms	*new_room(char *name_ptr, t_byte type);
+char	*get_room_name(char *input);
 
 /*
 **	mem.c

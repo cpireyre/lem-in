@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 08:20:47 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/08 10:32:25 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/08 11:25:23 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	print_list(t_list **head)
 	}
 }
 
-void	print_rooms(t_rooms	*map)
+void	print_rooms(t_rooms *map)
 {
 	int		i;
 
@@ -32,7 +32,7 @@ void	print_rooms(t_rooms	*map)
 	while (map)
 	{
 		if (DEBUG)
-			ft_putstr("DEBUG: ");;
+			ft_putstr("DEBUG: ");
 		ft_printf("Room %d: %s, type %hhu.\n", ++i, map->name, map->type);
 		map = map->next;
 	}

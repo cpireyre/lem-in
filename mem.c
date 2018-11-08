@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 15:42:13 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/08 10:26:05 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/08 11:25:40 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	free_rooms(t_rooms **head)
 		ptr = tmp;
 	}
 }
-	
+
 void	free_lemin(t_lemin *addr)
 {
 	free_rooms(&(addr)->rooms);
