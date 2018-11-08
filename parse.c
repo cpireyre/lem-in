@@ -34,7 +34,10 @@ t_bool	store_ants(t_list **head, t_lemin *lemin)
 		if (DEBUG)
 			ft_printf("DEBUG: Stored %d ant%c.\n", lemin->ants, \
 					lemin->ants > 1 ? 's' : 0);
-		return (true);
+		if (lemin->ants >= 0)
+			return (true);
+		else
+			return (false);
 	}
 	else
 		return (false);

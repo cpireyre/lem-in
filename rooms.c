@@ -29,7 +29,7 @@ t_bool	check_room_coordinate(char **name)
 
 t_bool	room_is_valid(char *name)
 {
-	if (name[0] == 'L' || name[0] == '#' || ft_strchr(name, '-'))
+	if (name[0] == 'L' || name[0] == '#')
 		return (false);
 	name += ft_strlen(name) - 1;
 	if (!check_room_coordinate(&name))
@@ -66,7 +66,13 @@ char	*get_room_name(char *input)
 			i--;
 		name = ft_strnew(i);
 		name = ft_strncpy(name, input, i);
-		return (name);
+		if (ft_strchr(name, '-'))
+		{
+			ft_strdel(&name);
+			return (NULL);
+		}
+		else
+			return (name);
 	}
 	else
 		return (NULL);

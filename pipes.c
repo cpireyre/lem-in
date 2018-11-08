@@ -87,7 +87,8 @@ void	fill_tab_pipes(t_lemin *lemin, t_list **ptr)
 			return ;
 		}
 		first_room_place = find_name_list(split[0], lemin->rooms);
-		second_room_place = find_name_list(split[1], lemin->rooms);
+		if (first_room_place != -1)
+			second_room_place = find_name_list(split[1], lemin->rooms);
 		if (first_room_place == -1 || second_room_place == -1)
 		{
 			free_split(split);
