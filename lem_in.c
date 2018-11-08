@@ -39,6 +39,8 @@ int		main(void)
 		quit_lem_in(&usr_in, lemin, "Invalid number of ants.", EXIT_FAILURE);
 	store_rooms(&ptr, lemin);
 	print_rooms(lemin->rooms);
+	if (DEBUG)
+		ft_printf("DEBUG: All rooms are stored. Processing pipes.\n");
 	store_pipes(&ptr, lemin);
 	print_list(&usr_in);
 	if (DEBUG)

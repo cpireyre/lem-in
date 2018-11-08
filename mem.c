@@ -49,6 +49,8 @@ void	free_split(char **split)
 	char	**tmp;
 	char	**ptr;
 
+	if (!split)
+		return ;
 	tmp = split;
 	ptr = split;
 	while (*split)
@@ -63,6 +65,6 @@ void	free_split(char **split)
 void	free_lemin(t_lemin *addr)
 {
 	free_rooms(&(addr)->rooms);
-	//free_split(addr->pipes);
+	free_split(addr->pipes);
 	free(addr);
 }

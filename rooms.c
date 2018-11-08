@@ -66,14 +66,8 @@ char	*get_room_name(char *input)
 			i--;
 		name = ft_strnew(i);
 		name = ft_strncpy(name, input, i);
-		if (DEBUG)
-			ft_printf("DEBUG: Room \"%s\" sounds OK.\n", input);
 		return (name);
 	}
 	else
-	{
-		if (DEBUG)
-			ft_printf("DEBUG: \"%s\" is not a valid room name.\n", input);
 		return (NULL);
-	}
 }

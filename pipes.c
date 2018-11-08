@@ -68,13 +68,7 @@ int		count_split(char **split)
 
 	i = 0;
 	while (split[i])
-	{
-		ft_putnbr_endl(i);
-		printf("split[%d] = %s\n", i, split[i]);
 		i++;
-		ft_putnbr_endl(i);
-	}
-	printf("i = %d\n", i);
 	return (i + 1);
 }
 
@@ -88,18 +82,21 @@ void	fill_tab_pipes(t_lemin *lemin, t_list **ptr)
 	{
 		split = ft_strsplit((char *)(*ptr)->content, '-');
 		if (count_split(split) != 2)
+		{
+			free_split(split);
 			return ;
+		}
 		first_room_place = find_name_list(split[0], lemin->rooms);
 		second_room_place = find_name_list(split[1], lemin->rooms);
 		if (first_room_place == -1 || second_room_place == -1)
+		{
+			free_split(split);
 			return ;
-//		if (split && split[0] && split[1] && !split[2])
-//		{
-			lemin->pipes[first_room_place][second_room_place] = CONNECTED;
-			lemin->pipes[second_room_place][first_room_place] = CONNECTED;
-//		}
-//		free_split(split);
+		}
+		lemin->pipes[first_room_place][second_room_place] = CONNECTED;
+		lemin->pipes[second_room_place][first_room_place] = CONNECTED;
 		*ptr = (*ptr)->next;
+		free_split(split);
 	}
 }
 
@@ -110,9 +107,9 @@ void	store_pipes(t_list **ptr, t_lemin *lemin)
 
 	i = -1;
 	nb_rooms = ft_size_list(lemin->rooms);
-	lemin->pipes = ft_memalloc(sizeof(int*) * nb_rooms);
+	lemin->pipes = ft_memalloc(sizeof(char*) * (nb_rooms + 1));
 	while (++i < nb_rooms)
-		lemin->pipes[i] = ft_memalloc(sizeof(int) * nb_rooms);
+		lemin->pipes[i] = ft_memalloc(sizeof(char) * (nb_rooms + 1));
 	fill_diagonal_types(lemin);
 	fill_tab_pipes(lemin, ptr);
 }
