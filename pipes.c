@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:04:50 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/08 15:43:13 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/08 17:19:02 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,22 @@ int		find_name_list(char *name, t_rooms *rooms)
 	return (-1);
 }
 
+int		count_split(char **split)
+{
+	int		i;
+
+	i = 0;
+	while (split[i])
+	{
+		ft_putnbr_endl(i);
+		printf("split[%d] = %s\n", i, split[i]);
+		i++;
+		ft_putnbr_endl(i);
+	}
+	printf("i = %d\n", i);
+	return (i + 1);
+}
+
 void	fill_tab_pipes(t_lemin *lemin, t_list **ptr)
 {
 	int		first_room_place;
@@ -71,8 +87,12 @@ void	fill_tab_pipes(t_lemin *lemin, t_list **ptr)
 	while (*ptr)
 	{
 		split = ft_strsplit((char *)(*ptr)->content, '-');
+		if (count_split(split) != 2)
+			return ;
 		first_room_place = find_name_list(split[0], lemin->rooms);
 		second_room_place = find_name_list(split[1], lemin->rooms);
+		if (first_room_place == -1 || second_room_place == -1)
+			return ;
 //		if (split && split[0] && split[1] && !split[2])
 //		{
 			lemin->pipes[first_room_place][second_room_place] = CONNECTED;
