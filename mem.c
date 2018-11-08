@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 15:42:13 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/08 08:48:31 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/08 10:26:05 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	free_rooms(t_rooms **head)
 	{
 		tmp = ptr->next;
 		if (DEBUG)
-			ft_printf("Freeing room \"%s\".\n", (char*)ptr->name);
+			ft_printf("DEBUG: Freeing room \"%s\".\n", (char*)ptr->name);
 		ft_strdel((char**)&ptr->name);
 		free(ptr);
 		ptr = tmp;

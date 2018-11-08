@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 15:41:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/08 08:49:07 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/08 10:32:10 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		main(void)
 		ptr = ptr->next;
 	}
 	print_list(&usr_in);
-	if  (DEBUG)
+	if (DEBUG)
 		print_rooms(lemin->rooms);
 	quit_lem_in(&usr_in, lemin, "", EXIT_SUCCESS);
 }
