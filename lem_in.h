@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/08 11:24:29 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/08 11:57:34 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ void				print_list(t_list **head);
 **	rooms.c
 */
 
-t_bool	check_room_coordinate(char **name);
-t_bool	room_is_valid(char *name);
-t_rooms	*new_room(char *name_ptr, t_byte type);
-char	*get_room_name(char *input);
+t_bool				check_room_coordinate(char **name);
+t_bool				room_is_valid(char *name);
+t_rooms				*new_room(char *name_ptr, t_byte type);
+char				*get_room_name(char *input);
 
 /*
 **	mem.c
