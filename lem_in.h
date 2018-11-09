@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/09 09:49:23 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/09 11:04:31 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ typedef struct		s_rooms
 	struct s_rooms	*next;
 }					t_rooms;
 
+typedef struct		s_paths
+{
+	int				*scout;
+	struct s_paths	*next;
+	struct s_paths  *prev;
+}					t_paths;
+
 typedef struct		s_lemin
 {
 	char			*start_name;
@@ -36,6 +43,10 @@ typedef struct		s_lemin
 	int				ants;
 	t_rooms			*rooms;
 	char			**pipes;
+	int				end_links;
+	int				map_size;
+	t_paths			*paths;
+	int				*visited_rooms;
 }					t_lemin;
 
 /*
@@ -83,5 +94,14 @@ void				free_split(char **split);
 
 int					ft_size_list(t_rooms *rooms);
 int					count_split(char **split);
+
+/*
+**	algo.c
+*/
+t_bool				algo(t_lemin *lemin);
+int					get_end_links(t_lemin *lemin);
+void				create_first_path(t_lemin *lemin);
+t_bool				scout(t_lemin *lemin);
+int					ft_get_nb_separations(t_lemin *lemin);
 
 #endif

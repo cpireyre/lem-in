@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 15:41:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/09 09:34:12 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/09 10:02:30 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int		main(void)
 	if (DEBUG)
 		ft_printf("DEBUG: All rooms are stored. Processing pipes.\n");
 	store_pipes(&ptr, lemin);
+	algo(lemin);
 	print_list(&usr_in);
-	ft_printf("start_name = %s\nend_name = %s\n", lemin->start_name, lemin->end_name);
 	if (DEBUG)
 		print_rooms(lemin->rooms);
 	quit_lem_in(&usr_in, lemin, "", EXIT_SUCCESS);

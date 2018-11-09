@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   count.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 07:55:45 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/09 07:56:13 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/09 10:15:27 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ int		count_split(char **split)
 	i = 0;
 	while (split[i])
 		i++;
-	return (i + 1);
+	return (i);
 }

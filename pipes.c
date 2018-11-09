@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipes.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:04:50 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/09 07:56:13 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/09 10:18:57 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void	store_pipes(t_list **ptr, t_lemin *lemin)
 	lemin->pipes = ft_memalloc(sizeof(char*) * (nb_rooms + 1));
 	while (++i < nb_rooms)
 		lemin->pipes[i] = ft_memalloc(sizeof(char) * (nb_rooms + 1));
+	lemin->map_size = nb_rooms;
 	fill_diagonal_types(lemin);
 	fill_tab_pipes(lemin, ptr);
 }
