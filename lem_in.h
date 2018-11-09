@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/09 12:33:13 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/09 14:53:48 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_bool				store_special_rooms(t_lemin *lemin, char *name, t_byte t);
 
 void				print_rooms(t_rooms	*map);
 void				print_list(t_list **head);
-void				print_paths(t_paths *path);
+void				print_paths(t_paths *path, int len);
 
 /*
 **	rooms.c
@@ -105,7 +105,7 @@ int					get_end_links(t_lemin *lemin);
 void				create_first_path(t_lemin *lemin);
 t_bool				scout(t_lemin *lemin);
 int					ft_get_nb_separations(t_lemin *lemin);
-void				create_following_path(t_paths **path);
+void				create_following_path(t_paths **path, t_lemin *lemin);
 void				scout_progress(t_lemin *lemin, int separation);
 
 #endif
