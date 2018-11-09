@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lem-in.h                                           :+:      :+:    :+:   */
+/*   lem_in.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/09 07:57:01 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/09 09:49:23 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct		s_rooms
 
 typedef struct		s_lemin
 {
+	char			*start_name;
+	char			*end_name;
 	int				ants;
 	t_rooms			*rooms;
 	char			**pipes;
@@ -41,8 +43,9 @@ typedef struct		s_lemin
 */
 
 t_bool				store_ants(t_list **head, t_lemin *lemin);
-t_bool				add_room(t_rooms **map, char *input, t_byte type);
+t_bool				add_room(t_lemin **lemin, char *input, t_byte type);
 void				store_rooms(t_list **head, t_lemin *lemin);
+t_bool				store_special_rooms(t_lemin *lemin, char *name, t_byte t);
 
 /*
 **	print.c

@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:07:17 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/09 08:29:06 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/09 09:34:33 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_bool	room_already_exists(t_rooms *map, char *room)
 	return (false);
 }
 
-t_bool	add_room(t_rooms **map, char *input, t_byte type)
+t_bool	add_room(t_lemin **lemin, char *input, t_byte type)
 {
 	t_rooms *new;
 	char	*room_name;
@@ -71,11 +71,31 @@ t_bool	add_room(t_rooms **map, char *input, t_byte type)
 		ft_strdel(&room_name);
 		return (false);
 	}
-	if (*map && room_already_exists((*map), room_name))
+	if ((*lemin)->rooms && room_already_exists((*lemin)->rooms, room_name))
 		return (false);
 	new = new_room(room_name, type);
-	new->next = *map;
-	*map = new;
+	if (type == START || type == END)
+		if (!store_special_rooms(*lemin, room_name, type))
+			return (false);
+	new->next = (*lemin)->rooms;
+	(*lemin)->rooms = new;
+	return (true);
+}
+
+t_bool	store_special_rooms(t_lemin *lemin, char *name, t_byte type)
+{
+	if (type == END)
+	{
+		if (lemin->end_name)
+			return (false);
+		lemin->end_name = ft_strdup(name);
+	}
+	else if (type == START)
+	{
+		if (lemin->start_name)
+			return (false);
+		lemin->start_name = ft_strdup(name);
+	}
 	return (true);
 }
 
@@ -102,7 +122,7 @@ void	store_rooms(t_list **ptr, t_lemin *lemin)
 				(*ptr) = (*ptr)->next;
 			}
 		}
-		if (add_room(&lemin->rooms, (char *)((*ptr)->content), type) == false)
+		if (add_room(&lemin, (char *)((*ptr)->content), type) == false)
 			return ;
 		(*ptr) = (*ptr)->next;
 	}
