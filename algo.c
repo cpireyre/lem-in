@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 09:50:20 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/09 11:07:37 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/09 12:08:52 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,27 @@ t_bool		algo(t_lemin *lemin)
 	return (true);
 }
 
+void		create_following_path(t_paths **path)
+{
+	t_paths	*new;
+
+	new = ft_memalloc(sizeof(t_paths));
+	new->scout = ft_memalloc(sizeof((*path)->scout));
+	ft_memcpy(new, (*path)->scout, sizeof((*path)->scout));
+	new->prev = (*path);
+	new->next = NULL;
+	(*path)->next = new;
+}
+
 t_bool		scout(t_lemin *lemin)
 {
 	int		separations;
 
-	while (lemin->paths)
-	{
+	//while (lemin->paths)
+	//{
 		separations = ft_get_nb_separations(lemin);
-		lemin->paths = lemin->paths->next;
-	}
+		//lemin->paths = lemin->paths->next;
+	//}
 	return (false);
 }
 
@@ -65,6 +77,7 @@ void		create_first_path(t_lemin *lemin)
 	lemin->visited_rooms = ft_memalloc(sizeof(int) * lemin->map_size);
 	lemin->paths->scout[0] = i;
 	lemin->visited_rooms[0] = i;
+	lemin->paths->prev = NULL;
 	if (DEBUG)
 		ft_printf("scout[0] = %d\n", lemin->paths->scout[0]);
 }

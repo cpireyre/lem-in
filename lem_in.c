@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 15:41:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/09 10:02:30 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/09 12:07:49 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int		main(void)
 	t_list		*ptr;
 	char		*l;
 	t_lemin		*lemin;
+	t_paths		*tmp;
 
 	l = NULL;
 	usr_in = NULL;
@@ -47,7 +48,11 @@ int		main(void)
 		ft_printf("DEBUG: All rooms are stored. Processing pipes.\n");
 	store_pipes(&ptr, lemin);
 	algo(lemin);
+	tmp = lemin->paths;
+	print_paths(tmp);
 	print_list(&usr_in);
+	create_following_path(&lemin->paths);
+	print_paths(tmp);
 	if (DEBUG)
 		print_rooms(lemin->rooms);
 	quit_lem_in(&usr_in, lemin, "", EXIT_SUCCESS);

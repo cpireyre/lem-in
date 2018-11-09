@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 08:20:47 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/09 08:35:38 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/09 12:04:45 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,35 @@ void	print_list(t_list **head)
 	{
 		ft_putendl((char*)ptr->content);
 		ptr = ptr->next;
+	}
+}
+
+int		tablen(int *tab)
+{
+	return (*tab ? 1 + tablen(++tab) : 0);
+}
+
+void	print_paths(t_paths *path)
+{
+	t_paths	*tmp;
+	int		len;
+
+	ft_putendl("Printing paths.");
+	ft_printf("scout[0] = %d\n", path->scout[0]);
+	while (path)
+	{
+		len = tablen(path->scout);
+		ft_print_int_tab(path->scout, len);
+		tmp = path;
+		path = path->next;
+	}
+	path = tmp;
+	ft_putendl("And backwards:");
+	while (path)
+	{
+		len = tablen(path->scout);
+		ft_print_int_tab(path->scout, len);
+		path = path->prev;
 	}
 }
 
