@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 08:20:47 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/09 15:08:11 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/09 15:09:12 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	print_paths(t_paths *path, int len)
 	t_paths	*tmp;
 
 	ft_putendl("Printing paths.");
-	ft_printf("scout[0] = %d\n", path->scout[0]);
 	while (path)
 	{
 		ft_print_int_tab(path->scout, len);

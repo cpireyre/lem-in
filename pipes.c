@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:04:50 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/09 10:18:57 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/09 16:40:32 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	fill_tab_pipes(t_lemin *lemin, t_list **ptr)
 			free_split(split);
 			return ;
 		}
+		printf("split[0] = %s    split[1] = %s\n", split[0], split[1]);
 		first_room_place = find_name_list(split[0], lemin->rooms);
 		if (first_room_place != -1)
 			second_room_place = find_name_list(split[1], lemin->rooms);
