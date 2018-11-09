@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 15:41:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/08 15:00:50 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/09 08:52:58 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@ int		main(void)
 	lemin = ft_memalloc(sizeof(t_lemin));
 	lemin->rooms = NULL;
 	while (ft_gnl(0, &l))
+	{
+		if (!ft_isascii(l[0]))
+			break ;
 		ft_lstappend(&usr_in, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
+	}
 	if (!(usr_in))
 		quit_lem_in(&usr_in, lemin, "No arguments.", EXIT_FAILURE);
 	ptr = usr_in->next;
