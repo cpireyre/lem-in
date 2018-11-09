@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 08:20:47 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/09 08:03:20 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/09 08:35:38 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	print_rooms(t_rooms *map)
 			room_type = "NORMAL";
 		if (DEBUG)
 			ft_putstr("DEBUG: ");
-		ft_printf("Room %d: %s, type %s.\n", ++i, map->name, room_type);
+		ft_printf("Room %d: \"%s\", type %s.\n", ++i, map->name, room_type);
 		map = map->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:07:17 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/08 15:31:24 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/09 08:29:06 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_bool	room_already_exists(t_rooms *map, char *room)
 		if (!ft_strcmp(map->name, room))
 		{
 			if (DEBUG)
-				ft_printf("\"%s\" already exists.\n", room);
+				ft_printf("DEBUG: \"%s\" already exists.\n", room);
 			return (true);
 		}
 		map = map->next;
@@ -66,6 +66,8 @@ t_bool	add_room(t_rooms **map, char *input, t_byte type)
 	room_name = get_room_name(input);
 	if (!room_name)
 	{
+		if (DEBUG)
+			ft_printf("DEBUG: \"%s\" invalid somehow.\n", input);
 		ft_strdel(&room_name);
 		return (false);
 	}
