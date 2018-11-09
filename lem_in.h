@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/09 12:00:51 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/09 12:33:13 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,6 @@ void				create_first_path(t_lemin *lemin);
 t_bool				scout(t_lemin *lemin);
 int					ft_get_nb_separations(t_lemin *lemin);
 void				create_following_path(t_paths **path);
+void				scout_progress(t_lemin *lemin, int separation);
 
 #endif

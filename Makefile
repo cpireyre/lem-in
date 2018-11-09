@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/11/09 12:01:35 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/11/09 12:18:50 by tboissel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS	:=	-Wall -Wextra -Werror
 LIBDIR	:=	./libft
 LIBFT	:=	$(LIBDIR)/libft.a
 BFLAGS	:=	-I$(LIBDIR)/
-DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
+#DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
 INCLUDE	:=	-lft -L$(LIBDIR)/
 NAME	:=	lem-in
 

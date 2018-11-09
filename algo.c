@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 09:50:20 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/09 12:08:52 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/09 12:48:03 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ t_bool		algo(t_lemin *lemin)
 	if (!(lemin->end_links = get_end_links(lemin)))
 		return (false);
 	create_first_path(lemin);
-	(scout(lemin));
+	//while (something)
+		(scout(lemin));
 	return (true);
 }
 
@@ -25,6 +26,7 @@ void		create_following_path(t_paths **path)
 {
 	t_paths	*new;
 
+	printf("Create following\n");
 	new = ft_memalloc(sizeof(t_paths));
 	new->scout = ft_memalloc(sizeof((*path)->scout));
 	ft_memcpy(new, (*path)->scout, sizeof((*path)->scout));
@@ -36,13 +38,48 @@ void		create_following_path(t_paths **path)
 t_bool		scout(t_lemin *lemin)
 {
 	int		separations;
+	t_paths *tmp;
+	int		i;
 
-	//while (lemin->paths)
-	//{
+	tmp = lemin->paths;
+//	while (tmp)
+//	{
 		separations = ft_get_nb_separations(lemin);
-		//lemin->paths = lemin->paths->next;
-	//}
+		i = separations;
+		while (separations--)
+			create_following_path(&tmp);
+		tmp = tmp->next;
+		while (separations++ < i - 1)
+			scout_progress(lemin, separations);
+		printf("lemin->paths->scout[0] = %d   lemin->paths->scout[1] = %d\n", lemin->paths->scout[0], lemin->paths->scout[1]);
+//	}
 	return (false);
+}
+
+void	scout_progress(t_lemin *lemin, int separation)
+{
+	int	i;
+	int	j;
+	int	row;
+
+	i = 0;
+	j = 0;
+	row = 0;
+	while (lemin->paths->scout[i++])
+		;
+	i--;
+	row = lemin->paths->scout[i - 1];
+	while (j < lemin->map_size)
+	{
+		if (lemin->pipes[j][row] == CONNECTED)
+		{	
+			lemin->paths->scout[i] = j;
+			separation--;
+		}
+		if (separation == 0)
+			return;
+		j++;
+	}
 }
 
 int			ft_get_nb_separations(t_lemin *lemin)
