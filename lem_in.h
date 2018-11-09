@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/09 14:53:48 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/09 17:22:25 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,6 @@ t_bool				scout(t_lemin *lemin);
 int					ft_get_nb_separations(t_lemin *lemin);
 void				create_following_path(t_paths **path, t_lemin *lemin);
 void				scout_progress(t_lemin *lemin, int separation);
+void				add_room_visited_list(t_lemin *lemin, int i);
 
 #endif

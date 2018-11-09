@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 09:50:20 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/09 17:09:38 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/09 17:29:07 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,22 @@ void	scout_progress(t_lemin *lemin, int separation)
 			separation--;
 		}
 		if (separation == -1)
+		{
+			add_room_visited_list(lemin, i);
 			return;
+		}
 		j++;
 	}
+}
+
+void		add_room_visited_list(t_lemin *lemin, int i)
+{
+	int		j;
+
+	j = 0;
+	while (lemin->visited_rooms[j] != -1)
+		j++;
+	lemin->visited_rooms[j] = lemin->paths->scout[i];
 }
 
 int			ft_get_nb_separations(t_lemin *lemin)
@@ -113,7 +126,6 @@ int			ft_get_nb_separations(t_lemin *lemin)
 	i = -1;
 	while (++i < lemin->map_size)
 	{
-		printf("i = %d   row = %i\n", i, row);
 		if (lemin->pipes[i][row] == CONNECTED)
 			res++;
 	}
@@ -133,6 +145,7 @@ void		create_first_path(t_lemin *lemin)
 	lemin->paths->scout = ft_memalloc(sizeof(int) * (lemin->map_size + 1));
 	ft_memset(lemin->paths->scout, -1, sizeof(int) * (lemin->map_size));
 	lemin->visited_rooms = ft_memalloc(sizeof(int) * lemin->map_size);
+	ft_memset(lemin->visited_rooms, -1, sizeof(int) * (lemin->map_size));
 	lemin->paths->scout[0] = i;
 	lemin->visited_rooms[0] = i;
 	lemin->paths->prev = NULL;
