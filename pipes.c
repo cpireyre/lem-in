@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:04:50 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/08 17:19:02 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/09 07:56:13 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,6 @@
 ** tant qu'on a le format x-y
 ** Verifier que x et y sont des noms salles e
 */
-
-int		ft_size_list(t_rooms *rooms)
-{
-	int	i;
-
-	i = 0;
-	while (rooms && ++i)
-		rooms = rooms->next;
-	return (i);
-}
 
 void	fill_diagonal_types(t_lemin *lemin)
 {
@@ -60,16 +50,6 @@ int		find_name_list(char *name, t_rooms *rooms)
 		rooms = rooms->next;
 	}
 	return (-1);
-}
-
-int		count_split(char **split)
-{
-	int		i;
-
-	i = 0;
-	while (split[i])
-		i++;
-	return (i + 1);
 }
 
 void	fill_tab_pipes(t_lemin *lemin, t_list **ptr)

@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/11/08 17:21:17 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/11/09 07:57:26 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,12 @@ CFLAGS	:=	-Wall -Wextra -Werror
 LIBDIR	:=	./libft
 LIBFT	:=	$(LIBDIR)/libft.a
 BFLAGS	:=	-I$(LIBDIR)/
-DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
+#DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
 INCLUDE	:=	-lft -L$(LIBDIR)/
 NAME	:=	lem-in
 
-C_FILES		:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c
+C_FILES		:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c \
+	count.c
 H_FILES		:=	lem_in.h
 OBJ			:=	$(C_FILES:.c=.o)
 

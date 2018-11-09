@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/08 15:29:25 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/09 07:57:01 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,12 @@ void				store_pipes(t_list **ptr, t_lemin *lemin);
 void				free_lemin(t_lemin *addr);
 void				free_list(t_list **strings);
 void				free_split(char **split);
+
+/*
+**	count.c
+*/
+
+int					ft_size_list(t_rooms *rooms);
+int					count_split(char **split);
 
 #endif
