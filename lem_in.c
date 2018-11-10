@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 15:41:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/09 12:13:59 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/10 17:09:13 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int		main(void)
 	}
 	if (!(usr_in))
 		quit_lem_in(&usr_in, lemin, "ERROR: No arguments.", EXIT_FAILURE);
-	ptr = usr_in->next;
 	if (!(store_ants(&usr_in, lemin)))
 		quit_lem_in(&usr_in, lemin, "ERROR: Invalid number of ants.", EXIT_FAILURE);
+	ptr = usr_in->next;
 	store_rooms(&ptr, lemin);
 	if (!lemin->rooms || !map_has_in_out(lemin))
 		quit_lem_in(&usr_in, lemin, "ERROR: Map is empty or lacks start or end room.", EXIT_FAILURE);

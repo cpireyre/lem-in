@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:07:17 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/09 09:34:33 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/10 17:07:12 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,16 @@
 
 t_bool	store_ants(t_list **head, t_lemin *lemin)
 {
-	t_list	*ptr;
-
-	ptr = *head;
-	if (ft_isint((char*)ptr->content))
+	while (((char*)(*head)->content)[0] == '#')
 	{
-		lemin->ants = ft_atoi((char*)ptr->content);
+		if (ft_strequ((char*)(*head)->content, "##start") 
+				|| ft_strequ((char*)(*head)->content, "##end"))
+			return (false);
+		(*head) = (*head)->next;
+	}
+	if (ft_isint((char*)(*head)->content))
+	{
+		lemin->ants = ft_atoi((char*)(*head)->content);
 		if (DEBUG)
 			ft_printf("DEBUG: Stored %d ant%c.\n", lemin->ants, \
 					lemin->ants > 1 ? 's' : 0);
