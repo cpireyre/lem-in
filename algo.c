@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 09:50:20 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/09 17:29:07 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/10 11:50:55 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_bool		algo(t_lemin *lemin)
 	if (!(lemin->end_links = get_end_links(lemin)))
 		return (false);
 	create_first_path(lemin);
+	scout(lemin);
+	scout(lemin);
 	scout(lemin);
 	return (true);
 }
@@ -53,23 +55,28 @@ t_bool		scout(t_lemin *lemin)
 	int		i;
 	
 		separations = ft_get_nb_separations(lemin);
-		i = separations;
-		while (separations-- != 1)
+		if (separations != 1)
 		{
-			create_following_path(&lemin->paths, lemin);
-			lemin->paths = lemin->paths->next;
+			i = separations;
+			while (separations-- != 1)
+			{
+				create_following_path(&lemin->paths, lemin);
+				lemin->paths = lemin->paths->next;
+			}
+			separations = -1;
+			while (lemin->paths->prev)
+				lemin->paths = lemin->paths->prev;
+			while (++separations < i)
+			{
+				scout_progress(lemin, separations);
+				if (lemin->paths->next)
+					lemin->paths = lemin->paths->next;	
+				print_paths(lemin->paths, lemin->map_size);
+			}
 		}
-		separations = -1;
 		while (lemin->paths->prev)
 			lemin->paths = lemin->paths->prev;
-		while (++separations < i)
-		{
-			scout_progress(lemin, separations);
-			if (lemin->paths->next)
-				lemin->paths = lemin->paths->next;	
-			print_paths(lemin->paths, lemin->map_size);
-		}
-	return (false);
+		return (true);
 }
 
 void	scout_progress(t_lemin *lemin, int separation)
@@ -78,18 +85,16 @@ void	scout_progress(t_lemin *lemin, int separation)
 	int	j;
 	int	row;
 
-	ft_printf("APPEL separation = %d\n", separation);
 	j = 0;
 	row = 0;
 	i = -1;
 	while (lemin->paths->scout[++i] != -1)
-		ft_printf("val = %d\n", lemin->paths->scout[i]);
+		;
 	row = lemin->paths->scout[i - 1];
 	while (j < lemin->map_size)
 	{
 		if (lemin->pipes[row][j] == CONNECTED)
 		{
-			ft_printf("scout[i] = %d\n", lemin->paths->scout[i]);
 			lemin->paths->scout[i] = j;
 			separation--;
 		}
@@ -128,9 +133,10 @@ int			ft_get_nb_separations(t_lemin *lemin)
 	{
 		if (lemin->pipes[i][row] == CONNECTED)
 			res++;
+		printf("res = %d\n", res);
 	}
 	if (DEBUG)
-		ft_printf("nb_separations %d = %d\n", lemin->paths->scout[i], res);
+		ft_printf("nb_separations %d = %d\n", row, res);
 	return (res);
 }
 
@@ -144,7 +150,7 @@ void		create_first_path(t_lemin *lemin)
 	lemin->paths = ft_memalloc(sizeof(t_paths));
 	lemin->paths->scout = ft_memalloc(sizeof(int) * (lemin->map_size + 1));
 	ft_memset(lemin->paths->scout, -1, sizeof(int) * (lemin->map_size));
-	lemin->visited_rooms = ft_memalloc(sizeof(int) * lemin->map_size);
+	lemin->visited_rooms = ft_memalloc(sizeof(int) * lemin->map_size + 1);
 	ft_memset(lemin->visited_rooms, -1, sizeof(int) * (lemin->map_size));
 	lemin->paths->scout[0] = i;
 	lemin->visited_rooms[0] = i;
