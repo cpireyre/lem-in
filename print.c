@@ -29,7 +29,7 @@ void	print_paths(t_paths *path, int len)
 {
 	t_paths	*tmp;
 
-	ft_putendl("Printing paths.");
+	ft_putendl("DEBUG: Printing paths.");
 	while (path)
 	{
 		ft_print_int_tab(path->scout, len);
@@ -37,12 +37,13 @@ void	print_paths(t_paths *path, int len)
 		path = path->next;
 	}
 	path = tmp;
-	ft_putendl("And backwards:");
+	ft_putendl("DEBUG: And backwards:");
 	while (path)
 	{
 		ft_print_int_tab(path->scout, len);
 		path = path->prev;
 	}
+	ft_putendl("DEBUG: Done printing paths.");
 }
 
 void	print_rooms(t_rooms *map)

@@ -27,7 +27,8 @@ void		create_following_path(t_paths **path, t_lemin *lemin)
 {
 	t_paths	*new;
 
-	printf("Create following\n");
+	if (DEBUG)
+		ft_printf("DEBUG: Updating path.\n");
 	new = ft_memalloc(sizeof(t_paths));
 	new->scout = ft_memalloc((lemin->map_size + 1) * sizeof(int));
 	ft_memset(new->scout, -1, sizeof(int) * (lemin->map_size));
@@ -136,7 +137,11 @@ int			ft_get_nb_separations(t_lemin *lemin)
 		printf("res = %d\n", res);
 	}
 	if (DEBUG)
+<<<<<<< HEAD
 		ft_printf("nb_separations %d = %d\n", row, res);
+=======
+		ft_printf("DEBUG: nb_separations %d = %d\n", lemin->paths->scout[i], res);
+>>>>>>> 705f1b8adc6795297ecb7a5aecbcdb036a1e9d3b
 	return (res);
 }
 
@@ -156,7 +161,7 @@ void		create_first_path(t_lemin *lemin)
 	lemin->visited_rooms[0] = i;
 	lemin->paths->prev = NULL;
 	if (DEBUG)
-		ft_printf("scout[0] = %d\n", lemin->paths->scout[0]);
+		ft_printf("DEBUG: scout[0] = %d\n", lemin->paths->scout[0]);
 }
 
 int			get_end_links(t_lemin *lemin)
@@ -175,12 +180,9 @@ int			get_end_links(t_lemin *lemin)
 		i++;
 	}
 	while (++j < lemin->map_size)
-	{
-		printf("pipes = %d\n", lemin->pipes[i][j]);
 		if (lemin->pipes[i][j] == CONNECTED)
 			res++;
-	}
 	if (DEBUG)
-		printf("end_links = %d\n", res);
+		ft_printf("DEBUG: end_links = %d\n", res);
 	return (res);
 }
