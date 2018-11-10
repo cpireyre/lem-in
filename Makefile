@@ -37,7 +37,7 @@ $(LIBFT): force
 
 $(NAME): $(DEPS) $(LIBFT) $(OBJ)
 	$(CC) $(CFLAGS) $(BFLAGS) $(OBJ) $(INCLUDE) $(DEBUG) -o $@
-	ctags -R # for ease of navigation with vim
+	#ctags -R # for ease of navigation with vim
 
 clean:
 	$(MAKE) clean -C $(LIBDIR)
