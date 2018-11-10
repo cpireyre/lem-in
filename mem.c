@@ -44,6 +44,33 @@ void	free_rooms(t_rooms **head)
 	}
 }
 
+void	free_paths(t_paths *addr)
+{
+	t_paths	*tmp;
+	int	i;
+
+	if (!addr)
+	{
+		if (DEBUG)
+			ft_putendl("DEBUG: Paths pointer is NULL.");
+		return ;
+	}
+	i = 0;
+	while (addr->prev)
+	{
+		tmp = addr->prev;
+		free(addr->scout);
+		free(addr);
+		if (DEBUG)
+			ft_printf("DEBUG: Freeing path %d.\n", i++);
+		addr = tmp;
+	}
+	free(addr->scout);
+	free(addr);
+	if (DEBUG)
+		ft_printf("DEBUG: Freeing path %d.\n", i++);
+}
+
 void	free_split(char **split)
 {
 	char	**tmp;
@@ -66,6 +93,8 @@ void	free_lemin(t_lemin *addr)
 {
 	free(addr->start_name);
 	free(addr->end_name);
+	free(addr->visited_rooms);
+	free_paths(addr->paths);
 	free_rooms(&(addr)->rooms);
 	free_split(addr->pipes);
 	free(addr);
