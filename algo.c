@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 09:50:20 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/10 16:04:02 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/10 16:13:49 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,40 +36,28 @@ void		create_following_path(t_paths **path, t_lemin *lemin)
 	(*path)->next = new;
 }
 
-int	debug_size_list(t_paths *paths)
-{
-	int res = 0;
-
-	while (paths)
-	{
-		paths = paths->next;
-		res++;
-	}
-	return (res);
-}
-
 t_bool		scout(t_lemin *lemin)
 {
 	int		separations;
 	int		i;
-	
-		separations = ft_get_nb_separations(lemin);
-		i = separations;
-		while (separations-- != 1)
-		{
-			create_following_path(&lemin->paths, lemin);
+
+	separations = ft_get_nb_separations(lemin);
+	i = separations;
+	while (separations-- != 1)
+	{
+		create_following_path(&lemin->paths, lemin);
+		lemin->paths = lemin->paths->next;
+	}
+	separations = -1;
+	while (lemin->paths->prev)
+		lemin->paths = lemin->paths->prev;
+	while (++separations < i)
+	{
+		scout_progress(lemin, separations);
+		if (lemin->paths->next)
 			lemin->paths = lemin->paths->next;
-		}
-		separations = -1;
-		while (lemin->paths->prev)
-			lemin->paths = lemin->paths->prev;
-		while (++separations < i)
-		{
-			scout_progress(lemin, separations);
-			if (lemin->paths->next)
-				lemin->paths = lemin->paths->next;	
-			print_paths(lemin->paths, lemin->map_size);
-		}
+		print_paths(lemin->paths, lemin->map_size);
+	}
 	return (false);
 }
 
@@ -95,7 +83,7 @@ void	scout_progress(t_lemin *lemin, int separation)
 		if (separation == -1)
 		{
 			add_room_visited_list(lemin, i);
-			return;
+			return ;
 		}
 		j++;
 	}
@@ -129,14 +117,14 @@ int			ft_get_nb_separations(t_lemin *lemin)
 			res++;
 	}
 	if (DEBUG)
-		ft_printf("DEBUG: nb_separations %d = %d\n", lemin->paths->scout[i], res);
+		ft_printf("DEBUG: Path splits in %d.\n", lemin->paths->scout[i], res);
 	return (res);
 }
 
 void		create_first_path(t_lemin *lemin)
 {
 	int		i;
-	
+
 	i = 0;
 	while (lemin->pipes[i][i] != START)
 		i++;
@@ -150,27 +138,4 @@ void		create_first_path(t_lemin *lemin)
 	lemin->paths->prev = NULL;
 	if (DEBUG)
 		ft_printf("DEBUG: scout[0] = %d\n", lemin->paths->scout[0]);
-}
-
-int			get_end_links(t_lemin *lemin)
-{
-	int		i;
-	int		j;
-	int		res;
-
-	res = 0;
-	j = -1;
-	i = 0;
-	while (lemin->pipes[i][i])
-	{
-		if (lemin->pipes[i][i] == END)
-			break;
-		i++;
-	}
-	while (++j < lemin->map_size)
-		if (lemin->pipes[i][j] == CONNECTED)
-			res++;
-	if (DEBUG)
-		ft_printf("DEBUG: end_links = %d\n", res);
-	return (res);
 }

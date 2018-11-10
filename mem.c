@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 15:42:13 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/09 09:48:46 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/10 16:10:52 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	free_rooms(t_rooms **head)
 
 void	free_paths(t_paths *addr)
 {
-	t_paths	*tmp;
-	int	i;
+	t_paths		*tmp;
+	int			i;
 
 	if (!addr)
 	{

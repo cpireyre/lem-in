@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 08:20:47 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/09 15:09:12 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/10 16:10:12 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	print_list(t_list **head)
 		ptr = ptr->next;
 	}
 }
-
 
 void	print_paths(t_paths *path, int len)
 {
