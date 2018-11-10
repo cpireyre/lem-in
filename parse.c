@@ -72,7 +72,10 @@ t_bool	add_room(t_lemin **lemin, char *input, t_byte type)
 		return (false);
 	}
 	if ((*lemin)->rooms && room_already_exists((*lemin)->rooms, room_name))
+	{
+		ft_strdel(&room_name);
 		return (false);
+	}
 	new = new_room(room_name, type);
 	if (type == START || type == END)
 		if (!store_special_rooms(*lemin, room_name, type))
