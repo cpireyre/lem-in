@@ -1,0 +1,26 @@
+#   /-[5bis]-[4bis]-[3bis]-[2bis]--[1bis]\
+# [end]--[3]---[2]--[1]--[start]_________/
+5
+3 4 1
+2bis 10 0
+1bis 13 0
+##start
+#shitty useless comment
+start 14 1
+5bis 3 0
+##end
+end 1 1
+4bis 5 0
+3bis 8 0
+1 11 1
+2 8 1
+start-1
+1bis-start
+2-1
+2bis-1bis
+3bis-2bis
+end-3
+5bis-end
+3-2
+4bis-3bis
+4bis-5bis

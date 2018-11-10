@@ -1,0 +1,30 @@
+#
+#     [B1]--[B2]--[B3]
+#     /       \       \
+# [start]       \      [end]
+#     \           \    /
+#     [A1]--[A2]--[A3]
+#
++12
+A1 3 2
+A2 1 2
+A3 2 1
+##end
+end 4 1
+B2 3 0
+#commentaire
+B3 1 0
+##start
+start 0 1
+B1 0 3
+#start pipe
+A1-A2
+A2-A3
+A1-start
+#autre commentaire
+end-A3
+A3-B2
+start-B1
+B2-B1
+B3-end
+B2-B3
