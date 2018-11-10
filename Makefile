@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/11/10 16:04:31 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/11/10 16:50:46 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined
 INCLUDE	:=	-lft -L$(LIBDIR)/
 NAME	:=	lem-in
 
-C_FILES		:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c algo.c\
-	count.c
+C_FILES		:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c algo.c \
+	count.c paths.c
 H_FILES		:=	lem_in.h
 OBJ			:=	$(C_FILES:.c=.o)
 
