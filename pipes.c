@@ -90,7 +90,10 @@ void	store_pipes(t_list **ptr, t_lemin *lemin)
 	nb_rooms = ft_size_list(lemin->rooms);
 	lemin->pipes = ft_memalloc(sizeof(char*) * (nb_rooms + 1));
 	while (++i < nb_rooms)
+	{
 		lemin->pipes[i] = ft_memalloc(sizeof(char) * (nb_rooms + 1));
+		ft_memset(lemin->pipes[i], NORMAL, sizeof(char) * (nb_rooms + 1));
+	}
 	lemin->map_size = nb_rooms;
 	fill_diagonal_types(lemin);
 	fill_tab_pipes(lemin, ptr);
