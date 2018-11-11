@@ -26,6 +26,17 @@
 ** }
 */
 
+/*
+**	what you want here, is a function that takes:
+**	(int **c_matrix, int room, int **ignore, t_path **path)
+**	it reads the connection matrix, filling out the connections
+**	between the current and adjacent rooms, while ignoring and
+**	updating the ignore array.
+**	when you find a hit in the matrix, recur?
+**	when you find a previously-seen room, quit (return false).
+**	when you find end, return true.
+*/
+
 t_bool		bfs(t_lemin *lemin)
 {
 	int	i;
