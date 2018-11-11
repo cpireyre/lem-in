@@ -59,7 +59,7 @@ int		main(void)
 		ft_printf("DEBUG: All rooms are stored. Processing pipes.\n");
 	store_pipes(&ptr, lemin);
 	bfs(lemin);
-	print_list(&usr_in);
+	print_list(&tmp);
 	if (DEBUG)
 		print_rooms(lemin->rooms);
 	quit_lem_in(&tmp, lemin, "", EXIT_SUCCESS);

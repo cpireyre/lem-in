@@ -111,8 +111,17 @@ void				pluck_path(t_paths **path);
 **	algo.c
 */
 
+t_bool		bfs(t_lemin *lemin);
 t_bool				algo(t_lemin *lemin);
 t_bool				scout(t_lemin *lemin);
 void				scout_progress(t_lemin *lemin, int separation);
+
+/*
+**	bfs.c
+*/
+
+int	find_start_row(char **connection_matrix);
+void	print_adjacent_rooms(char **connection_matrix, int current);
+int	*store_following_rooms(char **connection_matrix, int current, int *ignore);
 
 #endif

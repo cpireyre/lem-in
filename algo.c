@@ -12,15 +12,52 @@
 
 #include "lem_in.h"
 
-t_bool		algo(t_lemin *lemin)
+/*
+** t_bool		algo(t_lemin *lemin)
+** {
+** 	if (!(lemin->end_links = get_end_links(lemin)))
+** 		return (false);
+** 	create_first_path(lemin);
+** 	scout(lemin);
+** 	scout(lemin);
+** 	scout(lemin);
+** 	scout(lemin);
+** 	return (true);
+** }
+*/
+
+t_bool		bfs(t_lemin *lemin)
 {
-	if (!(lemin->end_links = get_end_links(lemin)))
-		return (false);
-	create_first_path(lemin);
-	scout(lemin);
-	scout(lemin);
-	scout(lemin);
-	scout(lemin);
+	int	i;
+	t_rooms	*ptr;
+	int	*ignore;
+	t_paths	*path_tmp;
+
+	i = 0;
+	ptr = lemin->rooms;
+	ignore = ft_memalloc(sizeof(int) * lemin->map_size);
+	path_tmp = NULL;
+	while (ptr)
+	{
+		if (DEBUG)
+		{
+			ft_printf("DEBUG: \"%s\" is connected to...\n", ptr->name);
+			print_adjacent_rooms(lemin->pipes, i);
+		}
+		lemin->paths = ft_memalloc(sizeof(t_paths));
+		if (path_tmp)
+			lemin->paths->prev = path_tmp;
+		else
+			lemin->paths->prev = NULL;
+		lemin->paths->scout = store_following_rooms(lemin->pipes, i, ignore);
+		if (DEBUG)
+			print_paths(lemin->paths, lemin->map_size);
+		ignore[i] = 1;
+		i++;
+		ptr = ptr->next;
+		path_tmp = lemin->paths;
+		lemin->paths = lemin->paths->next;
+	}
 	return (true);
 }
 
