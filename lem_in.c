@@ -31,6 +31,7 @@ int		main(void)
 {
 	t_list		*usr_in;
 	t_list		*ptr;
+	t_list		*tmp;
 	char		*l;
 	t_lemin		*lemin;
 
@@ -44,6 +45,7 @@ int		main(void)
 			break ;
 		ft_lstappend(&usr_in, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
 	}
+	tmp = usr_in;
 	if (!(usr_in))
 		quit_lem_in(&usr_in, lemin, "ERROR: No arguments.", EXIT_FAILURE);
 	if (!(store_ants(&usr_in, lemin)))
@@ -56,9 +58,9 @@ int		main(void)
 	if (DEBUG)
 		ft_printf("DEBUG: All rooms are stored. Processing pipes.\n");
 	store_pipes(&ptr, lemin);
-	algo(lemin);
+	bfs(lemin);
 	print_list(&usr_in);
 	if (DEBUG)
 		print_rooms(lemin->rooms);
-	quit_lem_in(&usr_in, lemin, "", EXIT_SUCCESS);
+	quit_lem_in(&tmp, lemin, "", EXIT_SUCCESS);
 }
