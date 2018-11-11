@@ -127,6 +127,8 @@ void	store_rooms(t_list **ptr, t_lemin *lemin)
 				else if (!ft_strcmp((char*)((*ptr)->content), "##end"))
 					type = END;
 				(*ptr) = (*ptr)->next;
+				while (((char *)((*ptr)->content))[0] == '#')
+					(*ptr) = (*ptr)->next;
 			}
 		}
 		if (add_room(&lemin, (char *)((*ptr)->content), type) == false)
