@@ -78,7 +78,7 @@ void		create_following_path(t_paths **path, t_lemin *lemin)
 		new = ft_memalloc(sizeof(t_paths));
 		new->scout = ft_memalloc((lemin->map_size + 1) * sizeof(int));
 		ft_memset(new->scout, -1, sizeof(int) * (lemin->map_size));
-		ft_memcpy(new->scout, (*path)->scout, lemin->map_size * sizeof(int));
+		ft_memcpy(new->scout, (*path)->scout, sizeof(int) * lemin->map_size);
 		new->prev = (*path);
 		new->next = NULL;
 		(*path)->next = new;
