@@ -29,6 +29,7 @@ void	print_paths(t_paths *path, int len)
 	t_paths	*tmp;
 
 	ft_putendl("DEBUG: Printing paths.");
+	tmp = NULL;
 	while (path)
 	{
 		ft_print_int_tab(path->scout, len);

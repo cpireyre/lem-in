@@ -22,6 +22,15 @@
 # define END		3
 # define NORMAL		1
 
+typedef struct		s_tree
+{
+	void			*content;
+	size_t			content_size;
+	struct s_tree	*parent;
+	struct s_tree	*siblings;
+	struct s_tree	*children;
+}					t_tree;
+
 typedef struct		s_rooms
 {
 	char			*name;
@@ -111,7 +120,7 @@ void				pluck_path(t_paths **path);
 **	algo.c
 */
 
-t_bool		bfs(t_lemin *lemin);
+t_bool				bfs(t_lemin *lemin);
 t_bool				algo(t_lemin *lemin);
 t_bool				scout(t_lemin *lemin);
 void				scout_progress(t_lemin *lemin, int separation);
@@ -131,5 +140,14 @@ void	free_adjacent(void *ptr, size_t size);
 */
 
 void	ft_lst_dequeue(t_list **queue, void (*del)(void *, size_t));
+
+/*
+**	tree.c
+*/
+
+t_tree	*ft_tree_new(void const *content, size_t content_size);
+void	ft_tree_addsibling(t_tree **tree, t_tree *sibling);
+void	ft_tree_addchild(t_tree **tree, t_tree *child);
+void	ft_tree_free(t_tree **tree);
 
 #endif
