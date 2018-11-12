@@ -17,7 +17,8 @@ t_bool	bfs(t_lemin *lemin)
 	t_list	**adjacency_list;
 
 	adjacency_list = build_adjacency_list(lemin);
-	print_adjacency_list(adjacency_list);
+	if (DEBUG)
+		print_adjacency_list(adjacency_list);
 	free_adjacency_list(adjacency_list);
 	return (true);
 }

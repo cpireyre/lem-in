@@ -54,9 +54,11 @@ int		main(void)
 	store_rooms(&ptr, lemin);
 	if (!lemin->rooms || !map_has_in_out(lemin))
 		quit_lem_in(&usr_in, lemin, "ERROR: Map is empty or lacks start or end room.", EXIT_FAILURE);
-	print_rooms(lemin->rooms);
 	if (DEBUG)
+	{
+		print_rooms(lemin->rooms);
 		ft_printf("DEBUG: All rooms are stored. Processing pipes.\n");
+	}
 	store_pipes(&ptr, lemin);
 	bfs(lemin);
 	print_list(&tmp);

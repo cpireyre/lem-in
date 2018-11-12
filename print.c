@@ -51,6 +51,8 @@ void	print_rooms(t_rooms *map)
 	char	*room_type;
 
 	i = -1;
+	if (DEBUG)
+		ft_putendl("DEBUG: Printing rooms.");
 	while (map)
 	{
 		if (map->type == END)
@@ -61,7 +63,7 @@ void	print_rooms(t_rooms *map)
 			room_type = "NORMAL";
 		if (DEBUG)
 			ft_putstr("DEBUG: ");
-		ft_printf("Room %d: \"%s\", type %s.\n", ++i, map->name, room_type);
+		ft_printf("\tRoom %d: \"%s\", type %s.\n", ++i, map->name, room_type);
 		map = map->next;
 	}
 }

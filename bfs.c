@@ -47,7 +47,7 @@ void	print_adjacency_list(t_list **list)
 	while (list[i])
 	{
 		ptr = list[i];
-		ft_printf("Printing children of room %d:\n", i);
+		ft_printf("DEBUG: Printing children of room %d:\n", i);
 		ft_lstiter(ptr, &print_int_node);
 		i++;
 	}
@@ -55,6 +55,8 @@ void	print_adjacency_list(t_list **list)
 
 void	free_adjacent(void *ptr, size_t size)
 {
+	if (DEBUG)
+		ft_printf("\t\t...freeing room %d.\n", *(int*)ptr);
 	free(ptr);
 	(void)size;
 }
@@ -64,8 +66,12 @@ void	free_adjacency_list(t_list **list)
 	int	i;
 
 	i = 0;
+	if (DEBUG)
+		ft_putendl("DEBUG: Freeing adjacency list:");
 	while (list[i])
 	{
+		if (DEBUG)
+			ft_printf("\tFreeing list %d...\n", i);
 		ft_lstdel(&list[i], &free_adjacent);
 		i++;
 	}
