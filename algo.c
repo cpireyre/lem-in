@@ -12,117 +12,12 @@
 
 #include "lem_in.h"
 
-/*
-** t_bool		algo(t_lemin *lemin)
-** {
-** 	if (!(lemin->end_links = get_end_links(lemin)))
-** 		return (false);
-** 	create_first_path(lemin);
-** 	scout(lemin);
-** 	scout(lemin);
-** 	scout(lemin);
-** 	scout(lemin);
-** 	return (true);
-** }
-*/
-
-/*
-**	what you want here, is a function that takes:
-**	(int **c_matrix, int room, int **ignore, t_path **path)
-**	it reads the connection matrix, filling out the connections
-**	between the current and adjacent rooms, while ignoring and
-**	updating the ignore array.
-**	when you find a hit in the matrix, recur?
-**	when you find a previously-seen room, quit (return false).
-**	when you find end, return true.
-*/
-
-t_bool		bfs(t_lemin *lemin)
+t_bool	bfs(t_lemin *lemin)
 {
-	int	i;
-	t_rooms	*ptr;
-	int	*ignore;
-	t_paths	*path_tmp;
+	t_list	**adjacency_list;
 
-	i = 0;
-	ptr = lemin->rooms;
-	ignore = ft_memalloc(sizeof(int) * lemin->map_size);
-	path_tmp = NULL;
-	while (ptr)
-	{
-		if (DEBUG)
-		{
-			ft_printf("DEBUG: \"%s\" is connected to...\n", ptr->name);
-			print_adjacent_rooms(lemin->pipes, i);
-		}
-		lemin->paths = ft_memalloc(sizeof(t_paths));
-		if (path_tmp)
-			lemin->paths->prev = path_tmp;
-		else
-			lemin->paths->prev = NULL;
-		lemin->paths->scout = store_following_rooms(lemin->pipes, i, ignore);
-		if (DEBUG)
-			print_paths(lemin->paths, lemin->map_size);
-		ignore[i] = 1;
-		i++;
-		ptr = ptr->next;
-		path_tmp = lemin->paths;
-		lemin->paths = lemin->paths->next;
-	}
+	adjacency_list = build_adjacency_list(lemin);
+	print_adjacency_list(adjacency_list);
+	free_adjacency_list(adjacency_list);
 	return (true);
-}
-
-t_bool		scout(t_lemin *lemin)
-{
-	int		separations;
-	int		i;
-
-	separations = ft_get_nb_separations(lemin);
-	i = separations;
-	if (DEBUG)
-		ft_printf("DEBUG: separations = %d\n", i);
-	while (separations-- > -1)
-	{
-		create_following_path(&lemin->paths, lemin);
-		lemin->paths = lemin->paths->next;
-	}
-	separations = -1;
-	while (lemin->paths->prev)
-		lemin->paths = lemin->paths->prev;
-	while (++separations < i)
-	{
-		scout_progress(lemin, separations);
-		if (lemin->paths->next)
-			lemin->paths = lemin->paths->next;
-		print_paths(lemin->paths, lemin->map_size);
-	}
-	return (false);
-}
-
-void		scout_progress(t_lemin *lemin, int separation)
-{
-	int	i;
-	int	j;
-	int	row;
-
-	j = 0;
-	row = 0;
-	i = -1;
-	while (lemin->paths->scout[++i] != -1)
-		;
-	row = lemin->paths->scout[i - 1];
-	while (j < lemin->map_size)
-	{
-		if (lemin->pipes[row][j] == CONNECTED)
-		{
-			lemin->paths->scout[i] = j;
-			separation--;
-		}
-		if (separation == -1)
-		{
-			add_room_visited_list(lemin, i);
-			return ;
-		}
-		j++;
-	}
 }

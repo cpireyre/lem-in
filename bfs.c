@@ -1,56 +1,73 @@
 #include "lem_in.h"
 
-int	count_size_map(char **connection_matrix)
+void	make_one_list(char *connections, t_list **current_room)
 {
 	int	i;
 
 	i = 0;
-	while (connection_matrix[i])
-		i++;
-	return (i);
-}
-
-int	find_start_row(char **connection_matrix)
-{
-	int	j;
-
-	j = 0;
-	while (connection_matrix[j][j] != START)
-		j++;
-	return (j);
-}
-	
-void	print_adjacent_rooms(char **connection_matrix, int current)
-{
-	int	i;
-
-	i = 0;
-	while (connection_matrix[current][i] != 0)
+	while (connections[i])
 	{
-		if (connection_matrix[current][i] == CONNECTED)
-			ft_printf("\t...room %d.\n", i);
-		i++;
-	}
-	return ;
-}
-
-int	*store_following_rooms(char **connection_matrix, int current, int *ignore)
-{
-	int	*adjacent_rooms;
-	int	j;
-	int	i;
-
-	i = 0;
-	j = 0;
-	adjacent_rooms = ft_memalloc(count_size_map(connection_matrix) * sizeof(int) + 1);
-	while (connection_matrix[current][i] != 0)
-	{
-		if (connection_matrix[current][i] == CONNECTED)
+		if (connections[i] == CONNECTED)
 		{
-			adjacent_rooms[j] = ignore[i] ? 0 : i;
-			j++;
+			ft_lstappend(current_room, ft_lstnew(&i, sizeof(int)));
 		}
 		i++;
 	}
-	return (adjacent_rooms);
+}
+
+
+t_list	**build_adjacency_list(t_lemin *lemin)
+{
+	t_list	**adjacency_list;
+	t_list	**ptr;
+	int	i;
+
+	adjacency_list = ft_memalloc(sizeof(t_list*) * (lemin->map_size + 1));
+	ptr = adjacency_list;
+	i = 0;
+	while (lemin->pipes[i])
+	{
+		make_one_list(lemin->pipes[i], &adjacency_list[i]);
+		i++;
+	}
+	return (ptr);
+}
+
+void	print_int_node(t_list *ptr)
+{
+	ft_printf("\t...room %d.\n", *(int*)(ptr->content));
+}
+
+void	print_adjacency_list(t_list **list)
+{
+	t_list	*ptr;
+	int	i;
+
+	i = 0;
+	while (list[i])
+	{
+		ptr = list[i];
+		ft_printf("Printing children of room %d:\n", i);
+		ft_lstiter(ptr, &print_int_node);
+		i++;
+	}
+}
+
+void	free_adjacent(void *ptr, size_t size)
+{
+	free(ptr);
+	(void)size;
+}
+
+void	free_adjacency_list(t_list **list)
+{
+	int	i;
+
+	i = 0;
+	while (list[i])
+	{
+		ft_lstdel(&list[i], &free_adjacent);
+		i++;
+	}
+	free(list);
 }

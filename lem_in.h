@@ -120,8 +120,9 @@ void				scout_progress(t_lemin *lemin, int separation);
 **	bfs.c
 */
 
-int	find_start_row(char **connection_matrix);
-void	print_adjacent_rooms(char **connection_matrix, int current);
-int	*store_following_rooms(char **connection_matrix, int current, int *ignore);
+void	make_one_list(char *connections, t_list **current_room);
+void	print_adjacency_list(t_list **list);
+t_list	**build_adjacency_list(t_lemin *lemin);
+void	free_adjacency_list(t_list **list);
 
 #endif
