@@ -21,7 +21,7 @@ INCLUDE	:=	-lft -L$(LIBDIR)/
 NAME	:=	lem-in
 
 C_FILES		:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c algo.c \
-	count.c paths.c bfs.c
+	count.c paths.c bfs.c queue.c
 H_FILES		:=	lem_in.h
 OBJ			:=	$(C_FILES:.c=.o)
 
