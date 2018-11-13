@@ -27,8 +27,8 @@ typedef struct		s_tree
 	void			*content;
 	size_t			content_size;
 	struct s_tree	*parent;
-	struct s_tree	*siblings;
-	struct s_tree	*children;
+	struct s_tree	*sibling;
+	struct s_tree	*child;
 }					t_tree;
 
 typedef struct		s_rooms
