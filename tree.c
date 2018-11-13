@@ -8,7 +8,7 @@ t_tree	*ft_tree_new(void const *content, size_t content_size)
 		return (NULL);
 	new->parent = NULL;
 	new->siblings = NULL;
-	new->children = NULL;
+	new->child = NULL;
 	if (!content)
 	{
 		new->content = NULL;
@@ -28,22 +28,29 @@ void	ft_tree_addsibling(t_tree **tree, t_tree *sibling)
 {
 	if (sibling)
 	{
+		sibling->parent = (*tree)->parent;
 		sibling->siblings = (*tree);
 		(*tree) = sibling;
 	}
 }
 
-/*void	ft_tree_addchild(t_tree **tree, t_tree *child)*/
-
+void	ft_tree_addchild(t_tree **tree, t_tree *child)
+{
+	if (!(*tree)->child)
+	{
+		child->parent = *tree;
+		(*tree)->child = child;
+	}
+	else
+		ft_tree_addsibling(&(*tree)->child, child);
+}
 
 void	ft_tree_free(t_tree **tree)
 {
 	if (!tree || !(*tree))
 		return ;
-	while ((*tree)->parent)
-		(*tree) = (*tree)->parent;
 	ft_tree_free(&(*tree)->siblings);
-	ft_tree_free(&(*tree)->children);
+	ft_tree_free(&(*tree)->child);
 	free((*tree)->content);
 	ft_memdel((void**)tree);
 }
