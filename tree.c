@@ -7,7 +7,7 @@ t_tree	*ft_tree_new(void const *content, size_t content_size)
 	if (!(new = (t_tree*)ft_memalloc(sizeof(t_tree))))
 		return (NULL);
 	new->parent = NULL;
-	new->siblings = NULL;
+	new->sibling = NULL;
 	new->child = NULL;
 	if (!content)
 	{
@@ -29,7 +29,7 @@ void	ft_tree_addsibling(t_tree **tree, t_tree *sibling)
 	if (sibling)
 	{
 		sibling->parent = (*tree)->parent;
-		sibling->siblings = (*tree);
+		sibling->sibling = (*tree);
 		(*tree) = sibling;
 	}
 }
@@ -49,7 +49,7 @@ void	ft_tree_free(t_tree **tree)
 {
 	if (!tree || !(*tree))
 		return ;
-	ft_tree_free(&(*tree)->siblings);
+	ft_tree_free(&(*tree)->sibling);
 	ft_tree_free(&(*tree)->child);
 	free((*tree)->content);
 	ft_memdel((void**)tree);
