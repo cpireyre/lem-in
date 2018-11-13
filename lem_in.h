@@ -132,7 +132,7 @@ void				scout_progress(t_lemin *lemin, int separation);
 void	make_one_list(char *connections, t_list **current_room);
 void	print_adjacency_list(t_list **list);
 t_list	**build_adjacency_list(t_lemin *lemin);
-void	free_adjacency_list(t_list **list);
+void	free_adjacency_list(t_list **list, int size);
 void	free_adjacent(void *ptr, size_t size);
 
 /*

@@ -112,7 +112,7 @@ t_bool	bfs(t_lemin *lemin)
 	while (solution->parent)
 		solution = solution->parent;
 	ft_tree_free(&solution);
-	free_adjacency_list(adjacency_list);
+	free_adjacency_list(adjacency_list, lemin->map_size);
 	free(visited_rooms);
 	return (true);
 }
