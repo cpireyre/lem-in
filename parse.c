@@ -68,6 +68,9 @@ t_bool	add_room(t_lemin **lemin, char *input, t_byte type)
 	char	*room_name;
 
 	room_name = get_room_name(input);
+	if (type == START || type == END)
+		if (!store_special_rooms(*lemin, room_name, type))
+			return (false);
 	if (!room_name)
 	{
 		if (DEBUG)
@@ -81,9 +84,6 @@ t_bool	add_room(t_lemin **lemin, char *input, t_byte type)
 		return (false);
 	}
 	new = new_room(room_name, type);
-	if (type == START || type == END)
-		if (!store_special_rooms(*lemin, room_name, type))
-			return (false);
 	new->next = (*lemin)->rooms;
 	(*lemin)->rooms = new;
 	return (true);
@@ -94,13 +94,19 @@ t_bool	store_special_rooms(t_lemin *lemin, char *name, t_byte type)
 	if (type == END)
 	{
 		if (lemin->end_name)
-			return (false);
+		{
+				free(name);
+				return (false);
+		}
 		lemin->end_name = ft_strdup(name);
 	}
 	else if (type == START)
 	{
 		if (lemin->start_name)
-			return (false);
+		{
+				free(name);
+				return (false);
+		}
 		lemin->start_name = ft_strdup(name);
 	}
 	return (true);
