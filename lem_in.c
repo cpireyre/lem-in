@@ -53,7 +53,7 @@ int		main(void)
 	ptr = usr_in->next;
 	store_rooms(&ptr, lemin);
 	if (!lemin->rooms || !map_has_in_out(lemin))
-		quit_lem_in(&usr_in, lemin, "ERROR: Map is empty or lacks start or end room.", EXIT_FAILURE);
+		quit_lem_in(&usr_in, lemin, "ERROR: Map error.", EXIT_FAILURE);
 	if (DEBUG)
 	{
 		print_rooms(lemin->rooms);
