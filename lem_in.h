@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/10 18:03:37 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/14 13:15:59 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,6 @@
 # define END		3
 # define NORMAL		1
 
-typedef struct		s_tree
-{
-	void			*content;
-	size_t			content_size;
-	struct s_tree	*parent;
-	struct s_tree	*sibling;
-	struct s_tree	*child;
-}					t_tree;
 
 typedef struct		s_rooms
 {
@@ -140,14 +132,5 @@ void	free_adjacent(void *ptr, size_t size);
 */
 
 void	ft_lst_dequeue(t_list **queue, void (*del)(void *, size_t));
-
-/*
-**	tree.c
-*/
-
-t_tree	*ft_tree_new(void const *content, size_t content_size);
-void	ft_tree_addsibling(t_tree **tree, t_tree *sibling);
-void	ft_tree_addchild(t_tree **tree, t_tree *child);
-void	ft_tree_free(t_tree **tree);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/11/10 16:50:46 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/11/14 13:14:50 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ INCLUDE	:=	-lft -L$(LIBDIR)/
 NAME	:=	lem-in
 
 C_FILES		:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c algo.c \
-	count.c paths.c bfs.c queue.c tree.c
+	count.c paths.c bfs.c queue.c 
 H_FILES		:=	lem_in.h
 OBJ			:=	$(C_FILES:.c=.o)
 
