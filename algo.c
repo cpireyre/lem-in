@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 09:50:20 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/10 17:28:26 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/14 16:16:30 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ t_tree	*get_tree_by_room_id(t_tree *start, int room)
 	else if (*(int*)start->content == room)
 		return (start);
 	else if (get_tree_by_room_id(start->sibling, room))
-		return (start->sibling);
+		return ((get_tree_by_room_id(start->sibling, room)));
 	else if (get_tree_by_room_id(start->child, room))
-		return (start->child);
+		return (get_tree_by_room_id(start->child, room));
 	else
 		return (NULL);
 }
@@ -78,11 +78,13 @@ void	bfs_process_queue(t_list **queue, t_list **adjacency_list,
 	t_list	*tmp;
 
 	room_to_visit = *(int*)(*queue)->content;
+	ft_printf("looking for %d\n", room_to_visit);
 	if (*(int*)(*solution)->content != room_to_visit)
+	{
+		while ((*solution)->parent)
+			(*solution) = (*solution)->parent;
 		(*solution) = get_tree_by_room_id(*solution, room_to_visit);
-	if (*solution)
-		if (DEBUG)
-			ft_printf("DEBUG: ---------> Found %d!\n", *(int*)(*solution)->content);
+	}
 	adjacent_rooms = adjacency_list[room_to_visit];
 	while (adjacent_rooms)
 	{
