@@ -77,9 +77,6 @@ void	fill_tab_pipes(t_lemin *lemin, t_list **ptr)
 		}
 		lemin->pipes[first_room_place][second_room_place] = CONNECTED;
 		lemin->pipes[second_room_place][first_room_place] = CONNECTED;
-		if (DEBUG)
-			ft_printf("DEBUG: Hooking up rooms \"%s\" and \"%s\".\n", \
-			split[0], split[1]);
 		*ptr = (*ptr)->next;
 		free_split(split);
 	}

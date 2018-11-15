@@ -133,4 +133,17 @@ void	free_adjacent(void *ptr, size_t size);
 
 void	ft_lst_dequeue(t_list **queue, void (*del)(void *, size_t));
 
+/*
+**	edmonds_karp.c
+*/
+
+t_list	**edmonds_karp(t_lemin *lemin);
+
+/*
+**	tool.c
+*/
+
+int		get_start_id(char **matrix);
+int		get_end_id(char **matrix);
+
 #endif

@@ -41,8 +41,8 @@ int		main(void)
 	lemin->rooms = NULL;
 	while (ft_gnl(0, &l))
 	{
-		if (!ft_isascii(l[0]))
-			break ;
+		if (ft_strchr(l, '\r'))
+			ft_printf("wtf");
 		ft_lstappend(&usr_in, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
 	}
 	tmp = usr_in;
@@ -60,9 +60,8 @@ int		main(void)
 		ft_printf("DEBUG: All rooms are stored. Processing pipes.\n");
 	}
 	store_pipes(&ptr, lemin);
-	bfs(lemin);
+	t_list	**solution = edmonds_karp(lemin);
+	free(solution);
 	print_list(&tmp);
-	if (DEBUG)
-		print_rooms(lemin->rooms);
 	quit_lem_in(&tmp, lemin, "", EXIT_SUCCESS);
 }
