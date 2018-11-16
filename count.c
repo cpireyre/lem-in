@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 07:55:45 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/10 17:25:03 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/16 16:51:42 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int		ft_get_nb_separations(t_lemin *lemin)
 	row = lemin->paths->scout[i];
 	i = -1;
 	if (DEBUG)
-		ft_printf("DEBUG: row = %d\n",  row);
+		ft_printf("DEBUG: row = %d\n", row);
 	while (++i < lemin->map_size)
 	{
 		ft_printf("lemin->pipes[%d][%d] = %d\n", i, row, lemin->pipes[i][row]);

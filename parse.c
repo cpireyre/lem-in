@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:07:17 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/10 17:07:12 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/16 16:53:03 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_bool	store_ants(t_list **head, t_lemin *lemin)
 {
 	while (((char*)(*head)->content)[0] == '#')
 	{
-		if (ft_strequ((char*)(*head)->content, "##start") 
+		if (ft_strequ((char*)(*head)->content, "##start")
 				|| ft_strequ((char*)(*head)->content, "##end"))
 			return (false);
 		(*head) = (*head)->next;
@@ -95,8 +95,8 @@ t_bool	store_special_rooms(t_lemin *lemin, char *name, t_byte type)
 	{
 		if (lemin->end_name)
 		{
-				free(name);
-				return (false);
+			free(name);
+			return (false);
 		}
 		lemin->end_name = ft_strdup(name);
 	}
@@ -104,8 +104,8 @@ t_bool	store_special_rooms(t_lemin *lemin, char *name, t_byte type)
 	{
 		if (lemin->start_name)
 		{
-				free(name);
-				return (false);
+			free(name);
+			return (false);
 		}
 		lemin->start_name = ft_strdup(name);
 	}

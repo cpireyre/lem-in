@@ -6,20 +6,20 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:04:50 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/09 16:40:32 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/16 16:46:01 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 /*
-** store pipes:
-** roomsize = sizelist (lemin->rooms)
-** malloc lemin->pipes tab[roomsize][roomsize]
-** remplir diagonale avec les types
-** tant qu'on a le format x-y
-** Verifier que x et y sont des noms salles e
-*/
+ ** store pipes:
+ ** roomsize = sizelist (lemin->rooms)
+ ** malloc lemin->pipes tab[roomsize][roomsize]
+ ** remplir diagonale avec les types
+ ** tant qu'on a le format x-y
+ ** Verifier que x et y sont des noms salles e
+ */
 
 void	fill_diagonal_types(t_lemin *lemin)
 {

@@ -1,16 +1,16 @@
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 09:50:20 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/14 16:16:30 by cpireyre         ###   ########.fr       */
+/*   Created: 2018/11/16 16:47:03 by cpireyre          #+#    #+#             */
+/*   Updated: 2018/11/16 16:50:52 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
-
 
 t_bool	is_queued(t_list *queue, int room)
 {
@@ -30,7 +30,7 @@ void	walk_tree_back(t_tree *solution, int end_id)
 	while (solution)
 	{
 		if (DEBUG)
-				ft_printf("\t...now in room %d.\n", *(int*)solution->content);
+			ft_printf("\t...now in room %d.\n", *(int*)solution->content);
 		solution = solution->parent;
 	}
 }
@@ -49,8 +49,8 @@ t_tree	*get_tree_by_room_id(t_tree *start, int room)
 		return (NULL);
 }
 
-void	bfs_process_queue(t_list **queue, t_list **adjacency_list, 
-				t_bool **visited_addr, t_tree **solution)
+void	bfs_process_queue(t_list **queue, t_list **adjacency_list,
+		t_bool **visited_addr, t_tree **solution)
 {
 	t_list	*adjacent_rooms;
 	int		room_to_visit;
