@@ -6,11 +6,12 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 15:41:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/10 17:09:13 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/16 17:31:49 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+#include "graph.h"
 
 void	quit_lem_in(t_list **lst, t_lemin *env, const char *err, int status)
 {
@@ -61,7 +62,7 @@ int		main(void)
 	}
 	store_pipes(&ptr, lemin);
 	t_list	**solution = edmonds_karp(lemin);
-	free(solution);
+	free_graph(solution, lemin->map_size);
 	print_list(&tmp);
 	quit_lem_in(&tmp, lemin, "", EXIT_SUCCESS);
 }

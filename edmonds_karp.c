@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:52 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/16 16:50:35 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/16 16:59:31 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,6 @@ t_list	**edmonds_karp(t_lemin *lemin)
 		max_flow += 1;
 		free(path);
 	}
-	if (DEBUG)
-		ft_printf("DEBUG: \t\tEdmonds-Karp is finished. Max flow in this network is %d. Motherfuckers.\n", max_flow);
+	ft_printf("DEBUG: \t\tEdmonds-Karp is finished. Max flow in this network is %d. Motherfuckers.\n", max_flow);
 	return (max_flow_network);
 }

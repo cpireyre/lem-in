@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:50 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/16 16:46:51 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/16 17:33:08 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,6 @@ void	free_edge(void *ptr, size_t size)
 	edge = (t_edge*)ptr;
 	if (DEBUG)
 		ft_printf("\t\t...freeing edge between (s) %d and (t) %d.\n", edge->source, edge->sink);
-	if (edge->rev)
-		free_edge((void*)edge->rev, size);
 	free(edge);
 	(void)size;
 }
