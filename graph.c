@@ -91,8 +91,6 @@ void	free_edge(void *ptr, size_t size)
 	t_edge	*edge;
 
 	edge = (t_edge*)ptr;
-	if (DEBUG)
-		ft_printf("\t\t...freeing edge between %d and %d.\n", edge->source, edge->sink);
 	free(edge);
 	(void)size;
 }
@@ -102,16 +100,10 @@ void	free_graph(t_list **graph, int size)
 	int	i;
 
 	i = 0;
-	if (DEBUG)
-		ft_putendl("DEBUG: Freeing graph :");
 	while (i < size)
 	{
 		if (graph[i])
-		{
-			if (DEBUG)
-				ft_printf("\tFreeing graph %d...\n", i);
 			ft_lstdel(&graph[i], &free_edge);
-		}
 		i++;
 	}
 	free(graph);

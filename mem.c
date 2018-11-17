@@ -36,8 +36,6 @@ void	free_rooms(t_rooms **head)
 	while (ptr)
 	{
 		tmp = ptr->next;
-		if (DEBUG)
-			ft_printf("DEBUG: Freeing room \"%s\".\n", (char*)ptr->name);
 		ft_strdel((char**)&ptr->name);
 		free(ptr);
 		ptr = tmp;
