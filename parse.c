@@ -118,6 +118,8 @@ void	store_rooms(t_list **ptr, t_lemin *lemin)
 
 	while ((*ptr))
 	{
+		if (!*(char*)((*ptr)->content))
+			return ;
 		type = NORMAL;
 		if (((char *)((*ptr)->content))[0] == '#')
 		{

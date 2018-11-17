@@ -92,7 +92,7 @@ void	free_edge(void *ptr, size_t size)
 
 	edge = (t_edge*)ptr;
 	if (DEBUG)
-		ft_printf("\t\t...freeing edge between (s) %d and (t) %d.\n", edge->source, edge->sink);
+		ft_printf("\t\t...freeing edge between %d and %d.\n", edge->source, edge->sink);
 	free(edge);
 	(void)size;
 }

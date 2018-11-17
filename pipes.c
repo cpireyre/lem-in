@@ -65,7 +65,7 @@ void	fill_tab_pipes(t_lemin *lemin, t_list **ptr)
 		{
 			free_split(split);
 			*ptr = (*ptr)->next;
-			continue ;
+			break ;
 		}
 		first_room_place = find_name_list(split[0], lemin->rooms);
 		if (first_room_place != -1)
@@ -73,7 +73,7 @@ void	fill_tab_pipes(t_lemin *lemin, t_list **ptr)
 		if (first_room_place == -1 || second_room_place == -1)
 		{
 			free_split(split);
-			return ;
+			break ;
 		}
 		lemin->pipes[first_room_place][second_room_place] = CONNECTED;
 		lemin->pipes[second_room_place][first_room_place] = CONNECTED;
@@ -82,12 +82,14 @@ void	fill_tab_pipes(t_lemin *lemin, t_list **ptr)
 	}
 }
 
-void	store_pipes(t_list **ptr, t_lemin *lemin)
+t_bool	store_pipes(t_list **ptr, t_lemin *lemin)
 {
 	int	nb_rooms;
 	int	i;
+	t_bool	has_one_pipe;
 
 	i = -1;
+	has_one_pipe = false;
 	nb_rooms = ft_size_list(lemin->rooms);
 	lemin->pipes = ft_memalloc(sizeof(char*) * (nb_rooms + 1));
 	while (++i < nb_rooms)
@@ -98,4 +100,8 @@ void	store_pipes(t_list **ptr, t_lemin *lemin)
 	lemin->map_size = nb_rooms;
 	fill_diagonal_types(lemin);
 	fill_tab_pipes(lemin, ptr);
+	while (--i >= 0 && !has_one_pipe)
+		if (!has_one_pipe)
+			has_one_pipe = !(!ft_strchr(lemin->pipes[i], CONNECTED));
+	return (has_one_pipe);
 }

@@ -60,7 +60,8 @@ int		main(void)
 		print_rooms(lemin->rooms);
 		ft_printf("DEBUG: All rooms are stored. Processing pipes.\n");
 	}
-	store_pipes(&ptr, lemin);
+	if (!store_pipes(&ptr, lemin))
+		quit_lem_in(&usr_in, lemin, "ERROR: No pipes.", EXIT_FAILURE);
 	t_list	**solution = edmonds_karp(lemin);
 	free_graph(solution, lemin->map_size);
 	print_list(&tmp);

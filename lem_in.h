@@ -15,7 +15,7 @@
 
 # include "libft.h"
 
-# define DEBUG		0
+# define DEBUG		1
 
 # define CONNECTED	4
 # define START		2
@@ -80,7 +80,7 @@ char				*get_room_name(char *input);
  **	pipes.c
  */
 
-void				store_pipes(t_list **ptr, t_lemin *lemin);
+t_bool				store_pipes(t_list **ptr, t_lemin *lemin);
 
 /*
  **	mem.c
