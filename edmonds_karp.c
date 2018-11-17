@@ -76,22 +76,20 @@ t_edge		**breadth_first_search(t_list **graph, int source, int sink, int size)
 	return (path);
 }
 
-t_list	**edmonds_karp(t_lemin *lemin)
+int		edmonds_karp(t_list ***max_flow_network, t_lemin *lemin)
 {
-	t_list	**max_flow_network;
 	t_edge	**path;
 	t_edge	*edge;
 	int		source;
 	int		sink;
 	int		max_flow;
 
-	max_flow_network = build_graph(lemin);
 	source = get_start_id(lemin->pipes);
 	sink = get_end_id(lemin->pipes);
 	max_flow = 0;
 	if (DEBUG)
 		ft_printf("DEBUG: \t\tCommencing Edmonds-Karp.\n");
-	while ((path = breadth_first_search(max_flow_network, source, sink, lemin->map_size)))
+	while ((path = breadth_first_search(*max_flow_network, source, sink, lemin->map_size)))
 	{
 		if (DEBUG)
 			ft_printf("Updating residual network:\n");
@@ -111,6 +109,7 @@ t_list	**edmonds_karp(t_lemin *lemin)
 		max_flow += 1;
 		free(path);
 	}
-	ft_printf("DEBUG: \t\tEdmonds-Karp is finished. Max flow in this network is %d. Motherfuckers.\n", max_flow);
-	return (max_flow_network);
+	if (DEBUG)
+			ft_printf("DEBUG: \t\tEdmonds-Karp is finished. Max flow in this network is %d. Motherfuckers.\n", max_flow);
+	return (max_flow);
 }

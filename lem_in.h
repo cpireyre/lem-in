@@ -137,7 +137,7 @@ void	ft_lst_dequeue(t_list **queue, void (*del)(void *, size_t));
  **	edmonds_karp.c
  */
 
-t_list	**edmonds_karp(t_lemin *lemin);
+int		edmonds_karp(t_list ***max_flow_network, t_lemin *lemin);
 
 /*
  **	tool.c
@@ -145,5 +145,11 @@ t_list	**edmonds_karp(t_lemin *lemin);
 
 int		get_start_id(char **matrix);
 int		get_end_id(char **matrix);
+
+/*
+**	sender.c
+*/
+
+void	send_one_ant(t_list **graph, int start, int end, t_lemin *lemin);
 
 #endif
