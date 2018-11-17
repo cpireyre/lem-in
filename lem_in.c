@@ -41,27 +41,23 @@ int		main(void)
 	lemin = ft_memalloc(sizeof(t_lemin));
 	lemin->rooms = NULL;
 	while (ft_gnl(0, &l))
-	{
-		if (ft_strchr(l, '\r'))
-			ft_printf("wtf");
 		ft_lstappend(&usr_in, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
-	}
 	tmp = usr_in;
 	if (!(usr_in))
-		quit_lem_in(&usr_in, lemin, "ERROR: No arguments.", EXIT_FAILURE);
+		quit_lem_in(&tmp, lemin, "ERROR: No arguments.\n", EXIT_FAILURE);
 	if (!(store_ants(&usr_in, lemin)))
-		quit_lem_in(&usr_in, lemin, "ERROR: Invalid number of ants.", EXIT_FAILURE);
+		quit_lem_in(&tmp, lemin, "ERROR: Invalid number of ants.\n", EXIT_FAILURE);
 	ptr = usr_in->next;
 	store_rooms(&ptr, lemin);
 	if (!lemin->rooms || !map_has_in_out(lemin))
-		quit_lem_in(&usr_in, lemin, "ERROR: Map error.", EXIT_FAILURE);
+		quit_lem_in(&tmp, lemin, "ERROR: Map error.\n", EXIT_FAILURE);
 	if (DEBUG)
 	{
 		print_rooms(lemin->rooms);
 		ft_printf("DEBUG: All rooms are stored. Processing pipes.\n");
 	}
 	if (!store_pipes(&ptr, lemin))
-		quit_lem_in(&usr_in, lemin, "ERROR: No pipes.", EXIT_FAILURE);
+		quit_lem_in(&tmp, lemin, "ERROR: No pipes.\n", EXIT_FAILURE);
 	t_list	**solution = edmonds_karp(lemin);
 	free_graph(solution, lemin->map_size);
 	print_list(&tmp);
