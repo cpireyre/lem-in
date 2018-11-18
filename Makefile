@@ -22,8 +22,8 @@ NAME	:=	lem-in
 
 C_FILES		:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c \
 	count.c graph.c edmonds_karp.c \
-	sender.c
-H_FILES		:=	lem_in.h
+	sender.c main.c
+H_FILES		:=	lem_in.h graph.h
 OBJ			:=	$(C_FILES:.c=.o)
 
 DEPS		=	$(H_FILES) Makefile 

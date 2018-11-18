@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "lem_in.h"
-#include "graph.h"
 
 void	quit_lem_in(t_list **lst, t_lemin *env, const char *err, int status)
 {
@@ -28,45 +27,33 @@ t_bool	map_has_in_out(t_lemin *lemin)
 	return (lemin->start_name && lemin->end_name);
 }
 
-int		main(void)
+t_list	*stdin_to_list(void)
 {
-	t_list		*usr_in;
-	t_list		*ptr;
-	t_list		*tmp;
-	char		*l;
-	t_lemin		*lemin;
+		t_list		*usr_in;
+		char	*l;
 
-	l = NULL;
-	usr_in = NULL;
-	lemin = ft_memalloc(sizeof(t_lemin));
-	lemin->rooms = NULL;
-	while (ft_gnl(0, &l))
-		ft_lstappend(&usr_in, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
-	tmp = usr_in;
-	if (!(usr_in))
-		quit_lem_in(&tmp, lemin, "ERROR: No arguments.\n", EXIT_FAILURE);
-	if (!(store_ants(&usr_in, lemin)))
-		quit_lem_in(&tmp, lemin, "ERROR: Invalid number of ants.\n", EXIT_FAILURE);
-	ptr = usr_in->next;
-	store_rooms(&ptr, lemin);
-	if (!lemin->rooms || !map_has_in_out(lemin))
-		quit_lem_in(&tmp, lemin, "ERROR: Map error.\n", EXIT_FAILURE);
-	if (DEBUG)
-	{
-		print_rooms(lemin->rooms);
-		ft_printf("DEBUG: All rooms are stored. Processing pipes.\n");
-	}
-	if (!store_pipes(&ptr, lemin))
-		quit_lem_in(&tmp, lemin, "ERROR: No pipes.\n", EXIT_FAILURE);
-	t_list	**solution = build_graph(lemin);
-	int	max_flow = edmonds_karp(&solution, lemin->start_id, lemin->end_id, lemin->map_size);
-	ft_lstiter(tmp, &print_node_string);
-	if (max_flow)
-	{
-			ft_putchar('\n');
-			ft_printf("\t\tMax flow here is %d.\n", max_flow);
-			send_one_ant(solution, lemin->start_id, lemin->end_id, lemin);
-	}
-	free_graph(solution, lemin->map_size);
-	quit_lem_in(&tmp, lemin, "", EXIT_SUCCESS);
+		l = NULL;
+		usr_in = NULL;
+		while (ft_gnl(0, &l))
+				ft_lstappend(&usr_in, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
+		return (usr_in);
+}
+
+void	parse(t_list **usr_in, t_list **tmp, t_lemin *lemin)
+{
+		if (!(*usr_in))
+				quit_lem_in(tmp, lemin, "ERROR: No arguments.\n", EXIT_FAILURE);
+		if (!(store_ants(usr_in, lemin)))
+				quit_lem_in(tmp, lemin, "ERROR: Invalid number of ants.\n", EXIT_FAILURE);
+		*usr_in = (*usr_in)->next;
+		store_rooms(usr_in, lemin);
+		if (!lemin->rooms || !map_has_in_out(lemin))
+				quit_lem_in(tmp, lemin, "ERROR: Map error.\n", EXIT_FAILURE);
+		if (DEBUG)
+		{
+				print_rooms(lemin->rooms);
+				ft_printf("DEBUG: All rooms are stored. Processing pipes.\n");
+		}
+		if (!store_pipes(usr_in, lemin))
+				quit_lem_in(tmp, lemin, "ERROR: No pipes.\n", EXIT_FAILURE);
 }

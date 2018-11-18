@@ -102,4 +102,14 @@ int		edmonds_karp(t_list ***max_flow_network, int s, int t, int size);
 
 void	send_one_ant(t_list **graph, int start, int end, t_lemin *lemin);
 
+/*
+**	lem_in.c
+*/
+
+
+void	quit_lem_in(t_list **lst, t_lemin *env, const char *err, int status);
+t_bool	map_has_in_out(t_lemin *lemin);
+t_list	*stdin_to_list(void);
+void	parse(t_list **usr_in, t_list **tmp, t_lemin *lemin);
+
 #endif
