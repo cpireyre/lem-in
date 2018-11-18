@@ -30,24 +30,16 @@ typedef struct		s_rooms
 	struct s_rooms	*next;
 }					t_rooms;
 
-typedef struct		s_paths
-{
-	int				*scout;
-	struct s_paths	*next;
-	struct s_paths	*prev;
-}					t_paths;
-
 typedef struct		s_lemin
 {
+	int				start_id;
+	int				end_id;
+	int				map_size;
 	char			*start_name;
 	char			*end_name;
 	int				ants;
 	t_rooms			*rooms;
 	char			**pipes;
-	int				end_links;
-	int				map_size;
-	t_paths			*paths;
-	int				*visited_rooms;
 }					t_lemin;
 
 /*
@@ -64,8 +56,7 @@ t_bool				store_special_rooms(t_lemin *lemin, char *name, t_byte t);
  */
 
 void				print_rooms(t_rooms	*map);
-void				print_list(t_list **head);
-void				print_paths(t_paths *path, int len);
+void				print_node_string(t_list *node);
 
 /*
  **	rooms.c
@@ -87,8 +78,10 @@ t_bool				store_pipes(t_list **ptr, t_lemin *lemin);
  */
 
 void				free_lemin(t_lemin *addr);
-void				free_list(t_list **strings);
+void	free_string(void *string, size_t size);
 void				free_split(char **split);
+void	free_node(void *ptr, size_t size);
+void	free_rooms(t_rooms **head);
 
 /*
  **	count.c
@@ -96,55 +89,12 @@ void				free_split(char **split);
 
 int					ft_size_list(t_rooms *rooms);
 int					count_split(char **split);
-int					ft_get_nb_separations(t_lemin *lemin);
-int					get_end_links(t_lemin *lemin);
-
-/*
- **	paths.c
- */
-
-void				create_first_path(t_lemin *lemin);
-void				create_following_path(t_paths **path, t_lemin *lemin);
-void				add_room_visited_list(t_lemin *lemin, int i);
-void				pluck_path(t_paths **path);
-
-/*
- **	algo.c
- */
-
-t_bool				bfs(t_lemin *lemin);
-t_bool				algo(t_lemin *lemin);
-t_bool				scout(t_lemin *lemin);
-void				scout_progress(t_lemin *lemin, int separation);
-
-/*
- **	bfs.c
- */
-
-void	make_one_list(char *connections, t_list **current_room);
-void	print_adjacency_list(t_list **list);
-t_list	**build_adjacency_list(t_lemin *lemin);
-void	free_adjacency_list(t_list **list, int size);
-void	free_adjacent(void *ptr, size_t size);
-
-/*
- **	queue.c
- */
-
-void	ft_lst_dequeue(t_list **queue, void (*del)(void *, size_t));
 
 /*
  **	edmonds_karp.c
  */
 
-int		edmonds_karp(t_list ***max_flow_network, t_lemin *lemin);
-
-/*
- **	tool.c
- */
-
-int		get_start_id(char **matrix);
-int		get_end_id(char **matrix);
+int		edmonds_karp(t_list ***max_flow_network, int s, int t, int size);
 
 /*
 **	sender.c

@@ -21,7 +21,7 @@
  ** Verifier que x et y sont des noms salles e
  */
 
-void	fill_diagonal_types(t_lemin *lemin)
+static void	fill_diagonal_types(t_lemin *lemin)
 {
 	t_rooms	*tmp;
 	int		i;
@@ -37,7 +37,7 @@ void	fill_diagonal_types(t_lemin *lemin)
 	lemin->rooms = tmp;
 }
 
-int		find_name_list(char *name, t_rooms *rooms)
+static int		find_name_list(char *name, t_rooms *rooms)
 {
 	int	i;
 
@@ -52,10 +52,9 @@ int		find_name_list(char *name, t_rooms *rooms)
 	return (-1);
 }
 
-void	fill_tab_pipes(t_lemin *lemin, t_list **ptr)
+static void	fill_tab_pipes(t_lemin *lemin, t_list **ptr)
 {
-	int		first_room_place;
-	int		second_room_place;
+	int		rooms_to_connect[2];
 	char	**split;
 
 	while (*ptr)
@@ -67,19 +66,29 @@ void	fill_tab_pipes(t_lemin *lemin, t_list **ptr)
 			*ptr = (*ptr)->next;
 			break ;
 		}
-		first_room_place = find_name_list(split[0], lemin->rooms);
-		if (first_room_place != -1)
-			second_room_place = find_name_list(split[1], lemin->rooms);
-		if (first_room_place == -1 || second_room_place == -1)
+		rooms_to_connect[0] = find_name_list(split[0], lemin->rooms);
+		if (rooms_to_connect[0] != -1)
+			rooms_to_connect[1] = find_name_list(split[1], lemin->rooms);
+		if (rooms_to_connect[0] == -1 || rooms_to_connect[1] == -1)
 		{
 			free_split(split);
 			break ;
 		}
-		lemin->pipes[first_room_place][second_room_place] = CONNECTED;
-		lemin->pipes[second_room_place][first_room_place] = CONNECTED;
+		lemin->pipes[rooms_to_connect[0]][rooms_to_connect[1]] = CONNECTED;
+		lemin->pipes[rooms_to_connect[1]][rooms_to_connect[0]] = CONNECTED;
 		*ptr = (*ptr)->next;
 		free_split(split);
 	}
+}
+
+static int		get_special_id(char **matrix, int to_find)
+{
+	int		i;
+
+	i = 0;
+	while (matrix[i][i] != to_find)
+		i++;
+	return (i);
 }
 
 t_bool	store_pipes(t_list **ptr, t_lemin *lemin)
@@ -100,6 +109,8 @@ t_bool	store_pipes(t_list **ptr, t_lemin *lemin)
 	lemin->map_size = nb_rooms;
 	fill_diagonal_types(lemin);
 	fill_tab_pipes(lemin, ptr);
+	lemin->start_id = get_special_id(lemin->pipes, START);
+	lemin->end_id = get_special_id(lemin->pipes, END);
 	while (--i >= 0 && !has_one_pipe)
 		if (!has_one_pipe)
 			has_one_pipe = !(!ft_strchr(lemin->pipes[i], CONNECTED));

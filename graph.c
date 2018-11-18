@@ -86,14 +86,6 @@ t_list	**build_graph(t_lemin *lemin)
 	return (graph);
 }
 
-void	free_edge(void *ptr, size_t size)
-{
-	t_edge	*edge;
-
-	edge = (t_edge*)ptr;
-	free(edge);
-	(void)size;
-}
 
 void	free_graph(t_list **graph, int size)
 {
@@ -103,7 +95,7 @@ void	free_graph(t_list **graph, int size)
 	while (i < size)
 	{
 		if (graph[i])
-			ft_lstdel(&graph[i], &free_edge);
+			ft_lstdel(&graph[i], &free_node);
 		i++;
 	}
 	free(graph);

@@ -15,7 +15,7 @@
 
 void	quit_lem_in(t_list **lst, t_lemin *env, const char *err, int status)
 {
-	free_list(lst);
+	ft_lstdel(lst, &free_string);
 	free_lemin(env);
 	ft_exit(err, status);
 }
@@ -59,13 +59,13 @@ int		main(void)
 	if (!store_pipes(&ptr, lemin))
 		quit_lem_in(&tmp, lemin, "ERROR: No pipes.\n", EXIT_FAILURE);
 	t_list	**solution = build_graph(lemin);
-	int	max_flow = edmonds_karp(&solution, lemin);
-	print_list(&tmp);
+	int	max_flow = edmonds_karp(&solution, lemin->start_id, lemin->end_id, lemin->map_size);
+	ft_lstiter(tmp, &print_node_string);
 	if (max_flow)
 	{
 			ft_putchar('\n');
 			ft_printf("\t\tMax flow here is %d.\n", max_flow);
-			send_one_ant(solution, get_start_id(lemin->pipes), get_end_id(lemin->pipes), lemin);
+			send_one_ant(solution, lemin->start_id, lemin->end_id, lemin);
 	}
 	free_graph(solution, lemin->map_size);
 	quit_lem_in(&tmp, lemin, "", EXIT_SUCCESS);

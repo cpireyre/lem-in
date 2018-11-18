@@ -12,38 +12,9 @@
 
 #include "lem_in.h"
 
-void	print_list(t_list **head)
+void	print_node_string(t_list *node)
 {
-	t_list	*ptr;
-
-	ptr = *head;
-	while (ptr)
-	{
-		ft_putendl((char*)ptr->content);
-		ptr = ptr->next;
-	}
-}
-
-void	print_paths(t_paths *path, int len)
-{
-	t_paths	*tmp;
-
-	ft_putendl("DEBUG: Printing paths.");
-	tmp = NULL;
-	while (path)
-	{
-		ft_print_int_tab(path->scout, len);
-		tmp = path;
-		path = path->next;
-	}
-	path = tmp;
-	ft_putendl("DEBUG: And backwards:");
-	while (path)
-	{
-		ft_print_int_tab(path->scout, len);
-		path = path->prev;
-	}
-	ft_putendl("DEBUG: Done printing paths.");
+	ft_putendl((char*)node->content);
 }
 
 void	print_rooms(t_rooms *map)

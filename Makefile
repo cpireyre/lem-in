@@ -20,8 +20,8 @@ DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined
 INCLUDE	:=	-lft -L$(LIBDIR)/
 NAME	:=	lem-in
 
-C_FILES		:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c algo.c \
-	count.c paths.c bfs.c queue.c graph.c edmonds_karp.c tool.c \
+C_FILES		:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c \
+	count.c graph.c edmonds_karp.c \
 	sender.c
 H_FILES		:=	lem_in.h
 OBJ			:=	$(C_FILES:.c=.o)

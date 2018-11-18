@@ -12,19 +12,10 @@
 
 #include "lem_in.h"
 
-void	free_list(t_list **head)
+void	free_string(void *string, size_t size)
 {
-	t_list	*tmp;
-	t_list	*ptr;
-
-	ptr = *head;
-	while (ptr)
-	{
-		tmp = ptr->next;
-		ft_strdel((char**)&ptr->content);
-		free(ptr);
-		ptr = tmp;
-	}
+	(void)size;
+	ft_strdel((char**)&string);
 }
 
 void	free_rooms(t_rooms **head)
@@ -40,33 +31,6 @@ void	free_rooms(t_rooms **head)
 		free(ptr);
 		ptr = tmp;
 	}
-}
-
-void	free_paths(t_paths *addr)
-{
-	t_paths		*tmp;
-	int			i;
-
-	if (!addr)
-	{
-		if (DEBUG)
-			ft_putendl("DEBUG: Paths pointer is NULL.");
-		return ;
-	}
-	i = 0;
-	while (addr->prev)
-	{
-		tmp = addr->prev;
-		free(addr->scout);
-		free(addr);
-		if (DEBUG)
-			ft_printf("DEBUG: Freeing path %d.\n", i++);
-		addr = tmp;
-	}
-	free(addr->scout);
-	free(addr);
-	if (DEBUG)
-		ft_printf("DEBUG: Freeing path %d.\n", i++);
 }
 
 void	free_split(char **split)
@@ -87,12 +51,16 @@ void	free_split(char **split)
 	free(ptr);
 }
 
+void	free_node(void *ptr, size_t size)
+{
+	free(ptr);
+	(void)size;
+}
+
 void	free_lemin(t_lemin *addr)
 {
 	free(addr->start_name);
 	free(addr->end_name);
-	free(addr->visited_rooms);
-	free_paths(addr->paths);
 	free_rooms(&(addr)->rooms);
 	free_split(addr->pipes);
 	free(addr);
