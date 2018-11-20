@@ -26,6 +26,7 @@ int		main(void)
 	}
 	else
 		ft_putendl("ERROR");
+	link_graph(&s, lemin->start_id, lemin->end_id);
 	free_graph(s, lemin->map_size);
 	quit_lem_in(&tmp, lemin, "", EXIT_SUCCESS);
 }

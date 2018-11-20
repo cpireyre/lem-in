@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:36 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/16 16:46:38 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/20 10:42:20 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ typedef struct	s_edge
 	int				source;
 	int				sink;
 	struct s_edge	*rev;
+	struct s_edge	*next;
+	struct s_edge	*previous;
 }				t_edge;
 
 void	fill_edge(t_edge *edge, int source, int sink);

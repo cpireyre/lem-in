@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:50 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/16 17:33:08 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/20 10:42:36 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	fill_edge(t_edge *edge, int source, int sink)
 	edge->sink = sink;
 	edge->flow = 0;
 	edge->rev = NULL;
+	edge->next = NULL;
+	edge->previous = NULL;
 }
 
 void	add_connections_to_graph(t_list **vertex, int vertex_nbr, char *connections)

@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/11/16 17:33:18 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/11/20 10:57:37 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ NAME	:=	lem-in
 
 C_FILES		:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c \
 	count.c graph.c edmonds_karp.c \
-	sender.c main.c
+	sender.c main.c traverse.c
 H_FILES		:=	lem_in.h graph.h
 OBJ			:=	$(C_FILES:.c=.o)
 

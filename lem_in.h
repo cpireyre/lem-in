@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/16 16:56:49 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/20 11:06:26 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ typedef struct		s_lemin
 }					t_lemin;
 
 /*
- **	parse.c
- */
+**	parse.c
+*/
 
 t_bool				store_ants(t_list **head, t_lemin *lemin);
 t_bool				add_room(t_lemin **lemin, char *input, t_byte type);
@@ -52,15 +52,15 @@ void				store_rooms(t_list **head, t_lemin *lemin);
 t_bool				store_special_rooms(t_lemin *lemin, char *name, t_byte t);
 
 /*
- **	print.c
- */
+**	print.c
+*/
 
 void				print_rooms(t_rooms	*map);
 void				print_node_string(t_list *node);
 
 /*
- **	rooms.c
- */
+**	rooms.c
+*/
 
 t_bool				check_room_coordinate(char **name);
 t_bool				room_is_valid(char *name);
@@ -68,14 +68,14 @@ t_rooms				*new_room(char *name_ptr, t_byte type);
 char				*get_room_name(char *input);
 
 /*
- **	pipes.c
- */
+**	pipes.c
+*/
 
 t_bool				store_pipes(t_list **ptr, t_lemin *lemin);
 
 /*
- **	mem.c
- */
+**	mem.c
+*/
 
 void				free_lemin(t_lemin *addr);
 void	free_string(void *string, size_t size);
@@ -84,15 +84,15 @@ void	free_node(void *ptr, size_t size);
 void	free_rooms(t_rooms **head);
 
 /*
- **	count.c
- */
+**	count.c
+*/
 
 int					ft_size_list(t_rooms *rooms);
 int					count_split(char **split);
 
 /*
- **	edmonds_karp.c
- */
+**	edmonds_karp.c
+*/
 
 int		edmonds_karp(t_list ***max_flow_network, int s, int t, int size);
 
@@ -106,10 +106,15 @@ void	send_one_ant(t_list **graph, int start, int end, t_lemin *lemin);
 **	lem_in.c
 */
 
-
 void	quit_lem_in(t_list **lst, t_lemin *env, const char *err, int status);
 t_bool	map_has_in_out(t_lemin *lemin);
 t_list	*stdin_to_list(void);
 void	parse(t_list **usr_in, t_list **tmp, t_lemin *lemin);
+
+/*
+**	traverse.c
+*/
+
+void	link_graph(t_list ***graph, int source, int sink);
 
 #endif
