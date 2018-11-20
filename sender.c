@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 14:50:59 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/16 16:47:57 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/20 10:10:39 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	send_one_ant(t_list **graph, int start, int end, t_lemin *lemin)
 	int		lines;
 	t_list	*vertex;
 
+	nvi = start;
 	if (DEBUG)
 		ft_printf("DEBUG: Walking solution path...\n");
 	vertex = graph[start];
