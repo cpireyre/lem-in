@@ -22,7 +22,7 @@ int		main(void)
 			ft_putchar('\n');
 			if (DEBUG)
 					ft_printf("\t\tMax flow here is %d.\n", f);
-			send_one_ant(s, lemin->start_id, lemin->end_id, lemin);
+			send_ants(s, lemin->start_id, lemin->end_id, lemin);
 	}
 	else
 		ft_putendl("ERROR");
