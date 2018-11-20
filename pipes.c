@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:04:50 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/16 16:46:01 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/20 11:11:11 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,11 @@ static void	fill_tab_pipes(t_lemin *lemin, t_list **ptr)
 
 	while (*ptr)
 	{
+		if (((char*)(*ptr)->content)[0] == '#')
+		{
+			(*ptr) = (*ptr)->next;
+			continue ;
+		}
 		split = ft_strsplit((char *)(*ptr)->content, '-');
 		if (count_split(split) != 2)
 		{
