@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 14:50:59 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/20 10:10:39 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/21 08:54:27 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_find_room_name(t_lemin *lemin, int room_nb)
 	return (tmp_rooms->name);
 }
 
-int	next_vertex_id(t_list *vertex)
+int		next_vertex_id(t_list *vertex)
 {
 	t_edge	*edge;
 
@@ -49,10 +49,10 @@ void	send_one_ant(t_list **graph, int start, int end, t_lemin *lemin)
 	lines = 1;
 	while (nvi != end)
 	{
-			nvi = next_vertex_id(vertex);
-			if (DEBUG)
-				ft_printf("(DEBUG: %d)\t", lines++);
-			ft_printf("L1-%s\n", ft_find_room_name(lemin, nvi));
-			vertex = graph[nvi];
+		nvi = next_vertex_id(vertex);
+		if (DEBUG)
+			ft_printf("(DEBUG: %d)\t", lines++);
+		ft_printf("L1-%s\n", ft_find_room_name(lemin, nvi));
+		vertex = graph[nvi];
 	}
 }

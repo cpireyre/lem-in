@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:52 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/16 16:59:31 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/21 08:57:22 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ t_edge		**breadth_first_search(t_list **graph, int source, int sink, int size)
 	return (path);
 }
 
-int		edmonds_karp(t_list ***max_flow_network, int source, int sink, int size)
+int			edmonds_karp(t_list ***max_flow_network, int source, int sink, int size)
 {
 	t_edge	**path;
 	t_edge	*edge;

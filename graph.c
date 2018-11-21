@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:50 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/20 10:42:36 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/21 08:57:36 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ t_list	**build_graph(t_lemin *lemin)
 	hook_up_rev_edges(graph, vertices);
 	return (graph);
 }
-
 
 void	free_graph(t_list **graph, int size)
 {

@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 15:41:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/16 17:31:49 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/21 08:58:01 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,31 +29,31 @@ t_bool	map_has_in_out(t_lemin *lemin)
 
 t_list	*stdin_to_list(void)
 {
-		t_list		*usr_in;
-		char	*l;
+	t_list		*usr_in;
+	char		*l;
 
-		l = NULL;
-		usr_in = NULL;
-		while (ft_gnl(0, &l))
-				ft_lstappend(&usr_in, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
-		return (usr_in);
+	l = NULL;
+	usr_in = NULL;
+	while (ft_gnl(0, &l))
+		ft_lstappend(&usr_in, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
+	return (usr_in);
 }
 
 void	parse(t_list **usr_in, t_list **tmp, t_lemin *lemin)
 {
-		if (!(*usr_in))
-				quit_lem_in(tmp, lemin, "ERROR: No arguments.\n", EXIT_FAILURE);
-		if (!(store_ants(usr_in, lemin)))
-				quit_lem_in(tmp, lemin, "ERROR: Invalid number of ants.\n", EXIT_FAILURE);
-		*usr_in = (*usr_in)->next;
-		store_rooms(usr_in, lemin);
-		if (!lemin->rooms || !map_has_in_out(lemin))
-				quit_lem_in(tmp, lemin, "ERROR: Map error.\n", EXIT_FAILURE);
-		if (DEBUG)
-		{
-				print_rooms(lemin->rooms);
-				ft_printf("DEBUG: All rooms are stored. Processing pipes.\n");
-		}
-		if (!store_pipes(usr_in, lemin))
-				quit_lem_in(tmp, lemin, "ERROR: No pipes.\n", EXIT_FAILURE);
+	if (!(*usr_in))
+		quit_lem_in(tmp, lemin, "ERROR: No arguments.\n", EXIT_FAILURE);
+	if (!(store_ants(usr_in, lemin)))
+		quit_lem_in(tmp, lemin, "ERROR: Invalid number of ants.\n", EXIT_FAILURE);
+	*usr_in = (*usr_in)->next;
+	store_rooms(usr_in, lemin);
+	if (!lemin->rooms || !map_has_in_out(lemin))
+		quit_lem_in(tmp, lemin, "ERROR: Map error.\n", EXIT_FAILURE);
+	if (DEBUG)
+	{
+		print_rooms(lemin->rooms);
+		ft_printf("DEBUG: All rooms are stored. Processing pipes.\n");
+	}
+	if (!store_pipes(usr_in, lemin))
+		quit_lem_in(tmp, lemin, "ERROR: No pipes.\n", EXIT_FAILURE);
 }

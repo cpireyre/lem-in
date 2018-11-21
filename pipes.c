@@ -6,22 +6,22 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:04:50 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/20 11:11:11 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/21 08:58:30 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 /*
- ** store pipes:
- ** roomsize = sizelist (lemin->rooms)
- ** malloc lemin->pipes tab[roomsize][roomsize]
- ** remplir diagonale avec les types
- ** tant qu'on a le format x-y
- ** Verifier que x et y sont des noms salles e
- */
+** store pipes:
+** roomsize = sizelist (lemin->rooms)
+** malloc lemin->pipes tab[roomsize][roomsize]
+** remplir diagonale avec les types
+** tant qu'on a le format x-y
+** Verifier que x et y sont des noms salles e
+*/
 
-static void	fill_diagonal_types(t_lemin *lemin)
+static void		fill_diagonal_types(t_lemin *lemin)
 {
 	t_rooms	*tmp;
 	int		i;
@@ -52,7 +52,7 @@ static int		find_name_list(char *name, t_rooms *rooms)
 	return (-1);
 }
 
-static void	fill_tab_pipes(t_lemin *lemin, t_list **ptr)
+static void		fill_tab_pipes(t_lemin *lemin, t_list **ptr)
 {
 	int		rooms_to_connect[2];
 	char	**split;
@@ -96,10 +96,10 @@ static int		get_special_id(char **matrix, int to_find)
 	return (i);
 }
 
-t_bool	store_pipes(t_list **ptr, t_lemin *lemin)
+t_bool			store_pipes(t_list **ptr, t_lemin *lemin)
 {
-	int	nb_rooms;
-	int	i;
+	int		nb_rooms;
+	int		i;
 	t_bool	has_one_pipe;
 
 	i = -1;
