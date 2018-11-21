@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/11/20 10:57:37 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/11/21 15:15:11 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,12 @@ CFLAGS	:=	-Wall -Wextra -Werror
 LIBDIR	:=	./libft
 LIBFT	:=	$(LIBDIR)/libft.a
 BFLAGS	:=	-I$(LIBDIR)/
-DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
+#DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
 INCLUDE	:=	-lft -L$(LIBDIR)/
 NAME	:=	lem-in
 
 C_FILES		:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c \
-	count.c graph.c edmonds_karp.c \
+	count.c graph.c edmonds_karp.c splitcheck.c \
 	sender.c main.c traverse.c
 H_FILES		:=	lem_in.h graph.h
 OBJ			:=	$(C_FILES:.c=.o)
@@ -55,7 +55,7 @@ force:
 	@true # to shut up libft Makefile
 
 run: $(NAME)
-	./lem_in # arguments go here
+	./lem-in < ./tests/fucked_up
 
 urn: run # typos will happen
 

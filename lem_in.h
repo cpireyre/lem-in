@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/21 12:33:36 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/21 14:48:59 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,10 @@ int					count_split(char **split);
 **	edmonds_karp.c
 */
 
+# include "graph.h"
+
 int					edmonds_karp(t_list ***max_flow_network, int s, int t, int size);
+t_edge				**breadth_first_search(t_list **graph, int source, int sink, int size);
 
 /*
 **	sender.c
@@ -108,6 +111,7 @@ int					edmonds_karp(t_list ***max_flow_network, int s, int t, int size);
 
 t_bool				send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *sender);
 void				send_ants(t_list **graph, t_lemin *lemin);
+int					next_vertex_id(t_list *vertex);
 
 /*
 **	lem_in.c
@@ -123,5 +127,11 @@ void				parse(t_list **usr_in, t_list **tmp, t_lemin *lemin);
 */
 
 void				link_graph(t_list ***graph, int source, int sink);
+
+/*
+**	splitcheck.c
+*/
+
+int		shortest_path_length(t_list ***graph, int source, int sink, int size);
 
 #endif

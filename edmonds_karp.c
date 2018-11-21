@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:52 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/21 08:57:22 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/21 13:44:56 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ t_edge		**breadth_first_search(t_list **graph, int source, int sink, int size)
 	while (queue)
 		bfs_step(&path, &queue, graph, source);
 	if (DEBUG && path[sink])
-		ft_printf("DEBUG: BFS done. path[sink] flows from %d to %d. ", path[sink]->source, path[sink]->sink);
+		ft_printf("DEBUG: BFS done. path[sink] flows from %d to %d.", path[sink]->source, path[sink]->sink);
 	if (!path[sink])
 	{
 		free(path);

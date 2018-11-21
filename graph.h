@@ -6,12 +6,14 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:36 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/21 08:57:48 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/21 14:21:42 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GRAPH_H
 # define GRAPH_H
+
+# include "lem_in.h"
 
 typedef struct	s_edge
 {
