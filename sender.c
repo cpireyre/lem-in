@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 14:50:59 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/21 11:50:09 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/21 12:21:37 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_bool	send_one_ant(t_list *vertex, int end, t_lemin *lemin, int i, t_sender *se
 	nvi = next_vertex_id(vertex);
 	// if (DEBUG)
 	// 	ft_printf("(DEBUG: %d)\t", lines++);
-	ft_printf("L%d-%s ", i + 1, ft_find_room_name(lemin, nvi));
+	ft_printf("L%d-%s%c", i + 1, ft_find_room_name(lemin, nvi), (i + 1 == sender->ants_sent) ? 0 : ' ');
 	sender->ants_position[i] = nvi;
 	if (nvi == end)
 		return (true);
