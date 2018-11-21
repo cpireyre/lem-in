@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 14:50:59 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/21 11:23:17 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/21 11:50:09 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		next_vertex_id(t_list *vertex)
 	return (edge->sink);
 }
 
-t_bool	send_one_ant(t_list *vertex, int start, int end, t_lemin *lemin, int i, t_sender *sender)
+t_bool	send_one_ant(t_list *vertex, int end, t_lemin *lemin, int i, t_sender *sender)
 {
 	int		lines;
 	int		nvi;
@@ -44,7 +44,6 @@ t_bool	send_one_ant(t_list *vertex, int start, int end, t_lemin *lemin, int i, t
 	// if (DEBUG)
 	// 	ft_printf("DEBUG: Walking solution path...\n");
 	lines = 1;
-	(void)start;
 	// if (sender->ants_position[i] == start)
 	// {
 	// 	nvi = start;
@@ -83,7 +82,7 @@ void	send_ants(t_list **graph, int start, int end, t_lemin *lemin)
 		i = sender->ants_arrived - 1;
 		while (++i < sender->ants_sent)
 		{
-			sender->ants_arrived += send_one_ant(graph[sender->ants_position[i]], start, end, lemin, i, sender);
+			sender->ants_arrived += send_one_ant(graph[sender->ants_position[i]], end, lemin, i, sender);
 		}
 		ft_printf("\n");
 	}

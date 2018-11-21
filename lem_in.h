@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/21 10:02:24 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/21 11:50:13 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int					edmonds_karp(t_list ***max_flow_network, int s, int t, int size);
 **	sender.c
 */
 
-t_bool				send_one_ant(t_list *vertex, int start, int end, t_lemin *lemin, int i, t_sender *sender);
+t_bool				send_one_ant(t_list *vertex, int end, t_lemin *lemin, int i, t_sender *sender);
 void				send_ants(t_list **graph, int start, int end, t_lemin *lemin);
 
 /*
