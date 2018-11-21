@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 08:41:56 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/21 10:06:06 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/21 12:33:54 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		main(void)
 		ft_putchar('\n');
 		if (DEBUG)
 			ft_printf("\t\tMax flow here is %d.\n", f);
-		send_ants(s, lemin->start_id, lemin->end_id, lemin);
+		send_ants(s, lemin);
 	}
 	else
 		ft_putendl("ERROR");

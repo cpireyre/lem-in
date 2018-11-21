@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 14:50:59 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/21 11:50:09 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/21 12:34:40 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		next_vertex_id(t_list *vertex)
 	return (edge->sink);
 }
 
-t_bool	send_one_ant(t_list *vertex, int end, t_lemin *lemin, int i, t_sender *sender)
+t_bool	send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *sender)
 {
 	int		lines;
 	int		nvi;
@@ -52,15 +52,15 @@ t_bool	send_one_ant(t_list *vertex, int end, t_lemin *lemin, int i, t_sender *se
 	nvi = next_vertex_id(vertex);
 	// if (DEBUG)
 	// 	ft_printf("(DEBUG: %d)\t", lines++);
-	ft_printf("L%d-%s ", i + 1, ft_find_room_name(lemin, nvi));
+	ft_printf("L%d-%s%c", i + 1, ft_find_room_name(lemin, nvi), (i + 1 == sender->ants_sent) ? 0 : ' ');
 	sender->ants_position[i] = nvi;
-	if (nvi == end)
+	if (nvi == lemin->end_id)
 		return (true);
 	else
 		return (false);
 }
 
-void	send_ants(t_list **graph, int start, int end, t_lemin *lemin)
+void	send_ants(t_list **graph, t_lemin *lemin)
 {
 	int			i;
 	t_sender	*sender;
@@ -70,8 +70,8 @@ void	send_ants(t_list **graph, int start, int end, t_lemin *lemin)
 	sender->ants_position = ft_memalloc(sizeof(int) * lemin->ants);
 	i = -1;
 	while (++i < lemin->ants)
-		sender->ants_position[i] = start;
-	nvi = start;
+		sender->ants_position[i] = lemin->start_id;
+	nvi = lemin->start_id;
 	i = 1;
 	sender->ants_sent = 0;
 	sender->ants_arrived = 0;
@@ -82,9 +82,9 @@ void	send_ants(t_list **graph, int start, int end, t_lemin *lemin)
 		i = sender->ants_arrived - 1;
 		while (++i < sender->ants_sent)
 		{
-			sender->ants_arrived += send_one_ant(graph[sender->ants_position[i]], end, lemin, i, sender);
+			sender->ants_arrived += send_one_ant(graph[sender->ants_position[i]], lemin, i, sender);
 		}
-		ft_printf("\n");
+		ft_putchar('\n');
 	}
 	free(sender->ants_position);
 	free(sender);
