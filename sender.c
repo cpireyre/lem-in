@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 14:50:59 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/21 10:06:03 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/21 11:23:17 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,6 @@ void	send_ants(t_list **graph, int start, int end, t_lemin *lemin)
 		}
 		ft_printf("\n");
 	}
+	free(sender->ants_position);
+	free(sender);
 }
