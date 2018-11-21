@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 14:50:59 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/21 09:58:58 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/21 10:06:03 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ t_bool	send_one_ant(t_list *vertex, int start, int end, t_lemin *lemin, int i, t
 
 void	send_ants(t_list **graph, int start, int end, t_lemin *lemin)
 {
-	int	i;
+	int			i;
 	t_sender	*sender;
-	int	nvi;
+	int			nvi;
 
 	sender = ft_memalloc(sizeof(t_sender));
 	sender->ants_position = ft_memalloc(sizeof(int) * lemin->ants);
