@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/21 08:58:10 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/21 10:02:24 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,13 @@ typedef struct		s_lemin
 	t_rooms			*rooms;
 	char			**pipes;
 }					t_lemin;
+
+typedef struct		s_sender
+{
+	int				ants_sent;
+	int				ants_arrived;
+	int				*ants_position;
+}					t_sender;
 
 /*
 **	parse.c
@@ -99,7 +106,8 @@ int					edmonds_karp(t_list ***max_flow_network, int s, int t, int size);
 **	sender.c
 */
 
-void				send_one_ant(t_list **graph, int start, int end, t_lemin *lemin);
+t_bool				send_one_ant(t_list *vertex, int start, int end, t_lemin *lemin, int i, t_sender *sender);
+void				send_ants(t_list **graph, int start, int end, t_lemin *lemin);
 
 /*
 **	lem_in.c
