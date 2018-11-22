@@ -31,20 +31,17 @@ void	solve(t_lemin *lemin)
 	int			f;
 
 	s = build_graph(lemin);
-	if ((f = shortest_path_length(&s, lemin->start_id, lemin->end_id, lemin->map_size)) <= lemin->ants)
-	{
-		if (DEBUG)
-			ft_printf("DEBUG: Clearly, %d <= %d, and nobody here is retarded.\n", f, lemin->ants);
+	f = shortest_path_length(&s, lemin->start_id, lemin->end_id, lemin->map_size);
+	if (f > 0 && f <= lemin->ants)
 		f = 1 + edmonds_karp(&s, lemin->start_id, lemin->end_id, lemin->map_size);
-	}
-	if (f)
+	if (f > 0)
 	{
 		ft_putchar('\n');
+		link_graph(&s, lemin->start_id, lemin->end_id);
 		send_ants(s, lemin);
 	}
 	else
 		ft_putendl("ERROR");
-	link_graph(&s, lemin->start_id, lemin->end_id);
 	free_graph(s, lemin->map_size);
 }
 

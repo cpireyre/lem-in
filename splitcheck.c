@@ -21,6 +21,8 @@ int		shortest_path_length(t_list ***graph, int source, int sink, int size)
 	t_edge	*edge;
 
 	first_path = breadth_first_search(*graph, source, sink, size);
+	if (!first_path)
+		return (0);
 	edge = first_path[sink];
 	while (edge->source != source)
 	{
@@ -30,8 +32,6 @@ int		shortest_path_length(t_list ***graph, int source, int sink, int size)
 	}
 	edge->flow += 1;
 	edge->rev->flow -= 1;
-	if (!first_path)
-		return (0);
 	len = 0;
 	vertex = (*graph)[source];
 	while (vertex != (*graph)[sink])
