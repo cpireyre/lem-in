@@ -13,10 +13,24 @@
 #include "lem_in.h"
 #include "graph.h"
 
+int		count_path_length(t_list **graph, int source, int sink)
+{
+		int	len;
+		t_list	*vertex;
+
+		len = 0;
+		vertex = (*graph)[source];
+		while (vertex != (*graph)[sink])
+		{
+				len++;
+				vertex = (*graph)[next_vertex_id(vertex)];
+		}
+		return (len);
+}
+
 int		shortest_path_length(t_list ***graph, int source, int sink, int size)
 {
 	int		len;
-	t_list	*vertex;
 	t_edge	**first_path;
 	t_edge	*edge;
 
@@ -32,13 +46,7 @@ int		shortest_path_length(t_list ***graph, int source, int sink, int size)
 	}
 	edge->flow += 1;
 	edge->rev->flow -= 1;
-	len = 0;
-	vertex = (*graph)[source];
-	while (vertex != (*graph)[sink])
-	{
-		len++;
-		vertex = (*graph)[next_vertex_id(vertex)];
-	}
+	len = count_path_length(*graph, source, sink);
 	free(first_path);
 	return (len);
 }
