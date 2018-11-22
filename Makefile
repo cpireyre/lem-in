@@ -47,7 +47,7 @@ clean:
 fclean: clean
 	make fclean -C libft/
 	$(RM) $(NAME)
-#	$(RM) tags
+	$(RM) tags
 
 re: fclean all
 
@@ -55,11 +55,12 @@ force:
 	@true # to shut up libft Makefile
 
 run: $(NAME)
-	./lem-in < ./tests/fucked_up
-
 urn: run # typos will happen
+
+tags: all
+	ctags -R
 
 test: $(NAME)
 	sh ./tests/test_basic_parse.sh
 
-.PHONY: all, re, clean, fclean, force, run, urn
+.PHONY: all, re, clean, fclean, force, run, urn, tags
