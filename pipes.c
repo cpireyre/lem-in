@@ -52,6 +52,24 @@ static int		find_name_list(char *name, t_rooms *rooms)
 	return (-1);
 }
 
+static inline t_bool			is_dash(char to_check)
+{
+		return (to_check == '-');
+}
+
+int				ft_strcountif(const char *str, t_bool (*check)(char))
+{
+		int		count;
+
+		count = 0;
+		while (*str)
+		{
+				count += check(*str);
+				str++;
+		}
+		return (count);
+}
+
 static void		fill_tab_pipes(t_lemin *lemin, t_list **ptr)
 {
 	int		rooms_to_connect[2];
@@ -65,7 +83,7 @@ static void		fill_tab_pipes(t_lemin *lemin, t_list **ptr)
 			continue ;
 		}
 		split = ft_strsplit((char *)(*ptr)->content, '-');
-		if (count_split(split) != 2)
+		if (ft_strcountif(((char*)(*ptr)->content), &is_dash) > 1 || count_split(split) != 2)
 		{
 			free_split(split);
 			*ptr = (*ptr)->next;
