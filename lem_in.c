@@ -27,18 +27,6 @@ t_bool	map_has_in_out(t_lemin *lemin)
 	return (lemin->start_name && lemin->end_name);
 }
 
-t_list	*stdin_to_list(void)
-{
-	t_list		*usr_in;
-	char		*l;
-
-	l = NULL;
-	usr_in = NULL;
-	while (ft_gnl(0, &l))
-		ft_lstappend(&usr_in, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
-	return (usr_in);
-}
-
 void	parse(t_list **usr_in, t_list **tmp, t_lemin *lemin)
 {
 	if (!(*usr_in))

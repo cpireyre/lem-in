@@ -13,6 +13,18 @@
 #include "lem_in.h"
 #include "graph.h"
 
+t_list	*stdin_to_list(void)
+{
+	t_list		*usr_in;
+	char		*l;
+
+	l = NULL;
+	usr_in = NULL;
+	while (ft_gnl(0, &l))
+		ft_lstappend(&usr_in, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
+	return (usr_in);
+}
+
 void	solve(t_lemin *lemin)
 {
 	t_list		**s;
@@ -40,14 +52,16 @@ int		main(void)
 {
 	t_list		*usr_in;
 	t_list		*tmp;
-	t_lemin		*lemin;
+	t_lemin		lemin;
 
-	lemin = ft_memalloc(sizeof(t_lemin));
-	lemin->rooms = NULL;
+	lemin.start_name = NULL;
+	lemin.end_name = NULL;
+	lemin.rooms = NULL;
+	lemin.pipes = NULL;
 	usr_in = stdin_to_list();
 	tmp = usr_in;
-	parse(&usr_in, &tmp, lemin);
+	parse(&usr_in, &tmp, &lemin);
 	ft_lstiter(tmp, &print_node_string);
-	solve(lemin);
-	quit_lem_in(&tmp, lemin, "", EXIT_SUCCESS);
+	solve(&lemin);
+	quit_lem_in(&tmp, &lemin, "", EXIT_SUCCESS);
 }

@@ -63,5 +63,4 @@ void	free_lemin(t_lemin *addr)
 	free(addr->end_name);
 	free_rooms(&(addr)->rooms);
 	free_split(addr->pipes);
-	free(addr);
 }

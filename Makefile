@@ -16,7 +16,7 @@ CFLAGS	:=	-Wall -Wextra -Werror
 LIBDIR	:=	./libft
 LIBFT	:=	$(LIBDIR)/libft.a
 BFLAGS	:=	-I$(LIBDIR)/
-#DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
+DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
 INCLUDE	:=	-lft -L$(LIBDIR)/
 NAME	:=	lem-in
 
@@ -55,6 +55,8 @@ force:
 	@true # to shut up libft Makefile
 
 run: $(NAME)
+	./lem-in < tests/fucked_up
+
 urn: run # typos will happen
 
 tags: all
