@@ -19,11 +19,11 @@ int		count_path_length(t_list **graph, int source, int sink)
 		t_list	*vertex;
 
 		len = 0;
-		vertex = (*graph)[source];
-		while (vertex != (*graph)[sink])
+		vertex = (graph)[source];
+		while (vertex != (graph)[sink])
 		{
 				len++;
-				vertex = (*graph)[next_vertex_id(vertex)];
+				vertex = (graph)[next_vertex_id(vertex)];
 		}
 		return (len);
 }
