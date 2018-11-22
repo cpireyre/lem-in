@@ -76,17 +76,17 @@ t_edge		**breadth_first_search(t_list **graph, int source, int sink, int size)
 	return (path);
 }
 
-int			edmonds_karp(t_list ***max_flow_network, int source, int sink, int size)
+int			edmonds_karp(t_list ***max_flow_network, t_lemin *lemin)
 {
 	t_edge	**path;
 	t_edge	*edge;
 	int		max_flow;
 
 	max_flow = 0;
-	while ((path = breadth_first_search(*max_flow_network, source, sink, size)))
+	while ((path = breadth_first_search(*max_flow_network, lemin->start_id, lemin->end_id, lemin->map_size)))
 	{
-		edge = path[sink];
-		while (edge->source != source)
+		edge = path[lemin->end_id];
+		while (edge->source != lemin->start_id)
 		{
 			edge->flow += 1;
 			edge->rev->flow -= 1;

@@ -1,4 +1,4 @@
-128
+30
 #Here is the number of lines required: 31
 ##start
 Kz_4 2 2

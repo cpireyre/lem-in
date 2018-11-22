@@ -15,7 +15,7 @@
 
 # include "libft.h"
 
-# define DEBUG		1
+# define DEBUG		0
 
 # define CONNECTED	4
 # define START		2
@@ -39,6 +39,7 @@ typedef struct		s_lemin
 	int				ants;
 	t_rooms			*rooms;
 	char			**pipes;
+	int				flow;
 }					t_lemin;
 
 typedef struct		s_sender
@@ -46,6 +47,7 @@ typedef struct		s_sender
 	int				ants_sent;
 	int				ants_arrived;
 	int				*ants_position;
+	int				switch_path;
 }					t_sender;
 
 /*
@@ -102,7 +104,7 @@ int					count_split(char **split);
 
 # include "graph.h"
 
-int					edmonds_karp(t_list ***max_flow_network, int s, int t, int size);
+int					edmonds_karp(t_list ***max_flow_network, t_lemin *lemin);
 t_edge				**breadth_first_search(t_list **graph, int source, int sink, int size);
 
 /*
@@ -133,5 +135,6 @@ void				link_graph(t_list ***graph, int source, int sink);
 */
 
 int		shortest_path_length(t_list ***graph, int source, int sink, int size);
+int		alternate_count(t_edge **path, int source, int sink);
 
 #endif

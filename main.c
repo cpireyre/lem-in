@@ -32,8 +32,9 @@ void	solve(t_lemin *lemin)
 
 	s = build_graph(lemin);
 	f = shortest_path_length(&s, lemin->start_id, lemin->end_id, lemin->map_size);
+	lemin->flow = (f > 0) ? 1 : 0;
 	if (f > 0 && f <= lemin->ants)
-		f = 1 + edmonds_karp(&s, lemin->start_id, lemin->end_id, lemin->map_size);
+			lemin->flow = 1 + edmonds_karp(&s, lemin);
 	if (f > 0)
 	{
 		ft_putchar('\n');
