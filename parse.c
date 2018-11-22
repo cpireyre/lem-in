@@ -112,34 +112,43 @@ t_bool	store_special_rooms(t_lemin *lemin, char *name, t_byte type)
 	return (true);
 }
 
+static inline void	parse_special(t_list **ptr, t_byte *type, char **str)
+{
+		if (!ft_strcmp(*str, "##start"))
+				*type = START;
+		else if (!ft_strcmp(*str, "##end"))
+				*type = END;
+		(*ptr) = (*ptr)->next;
+		*str = (char*)((*ptr)->content);
+		while (*str[0] == '#')
+		{
+				(*ptr) = (*ptr)->next;
+				*str = (char*)((*ptr)->content);
+		}
+}
+
 void	store_rooms(t_list **ptr, t_lemin *lemin)
 {
-	t_byte type;
+		t_byte type;
+		char	*str;
 
-	while ((*ptr))
+	while (*ptr)
 	{
-		if (!*(char*)((*ptr)->content))
+			str = (char*)((*ptr)->content);
+		if (!*str)
 			return ;
 		type = NORMAL;
-		if (((char *)((*ptr)->content))[0] == '#')
+		if (str[0] == '#')
 		{
-			if (((char *)((*ptr)->content))[1] != '#')
+			if (str[1] != '#')
 			{
 				(*ptr) = (*ptr)->next;
 				continue ;
 			}
 			else
-			{
-				if (!ft_strcmp((char*)((*ptr)->content), "##start"))
-					type = START;
-				else if (!ft_strcmp((char*)((*ptr)->content), "##end"))
-					type = END;
-				(*ptr) = (*ptr)->next;
-				while (((char *)((*ptr)->content))[0] == '#')
-					(*ptr) = (*ptr)->next;
-			}
+					parse_special(ptr, &type, &str);
 		}
-		if (add_room(&lemin, (char *)((*ptr)->content), type) == false)
+		if (add_room(&lemin, str, type) == false)
 			return ;
 		(*ptr) = (*ptr)->next;
 	}
