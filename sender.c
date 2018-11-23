@@ -74,7 +74,8 @@ t_bool	send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *sender)
 	}
 	else
 			nvi = next_vertex_id(vertex);
-	ft_printf("L%d-%s%c", i + 1, ft_find_room_name(lemin, nvi), (i + 1 == sender->ants_sent) ? 0 : ' ');
+	ft_printf("L%d-%s", i + 1, ft_find_room_name(lemin, nvi));
+	(i + 1 == sender->ants_sent) ? 0 : ft_putchar(' ');
 	sender->ants_position[i] = nvi;
 	if (nvi == lemin->end_id)
 		return (true);
@@ -88,6 +89,8 @@ void	send_ants(t_list **graph, t_lemin *lemin)
 	t_sender	sender;
 
 	sender.ants_position = ft_memalloc(sizeof(int) * (lemin->ants));
+	sender.path_lengths = ants_per_path(graph, lemin);
+	sender.shortest = ft_array_min(sender.path_lengths, lemin->flow);
 	i = -1;
 	while (++i < lemin->ants)
 		sender.ants_position[i] = lemin->start_id;
@@ -107,5 +110,6 @@ void	send_ants(t_list **graph, t_lemin *lemin)
 		}
 		ft_putchar('\n');
 	}
+	free(sender.path_lengths);
 	free(sender.ants_position);
 }

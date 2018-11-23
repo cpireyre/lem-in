@@ -48,6 +48,8 @@ typedef struct		s_sender
 	int				ants_arrived;
 	int				*ants_position;
 	int				switch_path;
+	int				*path_lengths;
+	int				shortest;
 }					t_sender;
 
 /*
@@ -136,5 +138,13 @@ void				link_graph(t_list ***graph, int source, int sink);
 
 int		shortest_path_length(t_list ***graph, int source, int sink, int size);
 int		alternate_count(t_edge **path, int source, int sink);
+int		count_path_length(t_list **graph, int source, int sink);
+
+/*
+**	paths.c
+*/
+
+int		*ants_per_path(t_list **graph, t_lemin *lemin);
+int		ft_array_min(int *array, int size);
 
 #endif
