@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/24 13:32:36 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/24 14:00:40 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,5 +147,7 @@ int		count_path_length(t_list **graph, int source, int sink);
 
 int		*size_paths(t_list **graph, t_lemin *lemin);
 int		ft_array_min(int *array, int size);
+void	how_many_ants_to_send(t_lemin *lemin, t_sender *sender);
+int		too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_substract);
 
 #endif

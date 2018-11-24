@@ -40,3 +40,52 @@ int		*size_paths(t_list **graph, t_lemin *lemin)
 				ft_printf("\tShortest path appears to be %d edges long.\n", ft_array_min(app, lemin->flow));
 		return (app);
 }
+
+void	how_many_ants_to_send(t_lemin *lemin, t_sender *sender)
+{
+	int	average;
+	int	ants_remaining;
+	int	i;
+	int	ants_average;
+
+	ants_average = lemin->ants / lemin->flow;
+	i = -1;
+	average = 0;
+	ants_remaining = lemin->ants;
+	while (++i < lemin->flow)
+		average += sender->path_lengths[i];
+	average /= lemin->flow;
+	i = -1;
+	while (++i < lemin->flow)
+	{
+		sender->ants_to_send[i] = ants_average - (sender->path_lengths[i] - average);
+		if (sender->ants_to_send[i] < 0)
+			sender->ants_to_send[i] = 0;
+		ants_remaining -= sender->ants_to_send[i];
+	}
+	if (ants_remaining < 0)
+		ants_remaining = too_many_ants_sent(lemin, sender, -ants_remaining);
+	i = -1;
+	while (++i < lemin->flow)
+		ft_printf("in path %d that is %d rooms lomg, we'll send %d ants\n", i, sender->path_lengths[i], sender->ants_to_send[i]);
+	ft_printf("There are %d ants remaining\n", ants_remaining);
+}
+
+int		too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_substract)
+{
+	int	i;
+
+	while (ants_to_substract > 0)
+	{
+		i = -1;
+		while (++i < lemin->flow)
+		{
+			if (sender->ants_to_send[i] > 0)
+			{
+				sender->ants_to_send[i]--;
+				ants_to_substract--;
+			}
+		}		
+	}
+	return (-ants_to_substract);
+}
