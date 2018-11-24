@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 14:50:59 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/21 12:40:49 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/24 13:32:26 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,50 @@ t_bool	send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *sender)
 		return (false);
 }
 
+void	how_many_ants_to_send(t_lemin *lemin, t_sender *sender)
+{
+	int	average;
+	int	ants_remaining;
+	int	i;
+	int	ants_average;
+
+	ants_average = lemin->ants / lemin->flow;
+	i = -1;
+	average = 0;
+	ants_remaining = lemin->ants;
+	while (++i < lemin->flow)
+		average += sender->path_lengths[i];
+	average /= lemin->flow;
+	i = -1;
+	while (++i < lemin->flow)
+	{
+		sender->ants_to_send[i] = ants_average - (sender->path_lengths[i] - average);
+		ft_printf("Path %d is %d rooms long, we'll send %d ants\n", i, sender->path_lengths[i], sender->ants_to_send[i]);
+		if (sender->ants_to_send[i] < 0)
+		{
+			sender->ants_to_send[i] = 0;
+			lemin->flow--;
+		}
+		ants_remaining -= sender->ants_to_send[i];
+	}
+	if (DEBUG)
+	{
+		i = -1;
+		while (++i < lemin->flow)
+			ft_printf("In path %d, we need to send %d ants\n", i, sender->ants_to_send[i]);
+	}
+}
+
 void	send_ants(t_list **graph, t_lemin *lemin)
 {
 	int			i;
 	t_sender	sender;
 
 	sender.ants_position = ft_memalloc(sizeof(int) * (lemin->ants));
-	sender.path_lengths = ants_per_path(graph, lemin);
+	sender.path_lengths = size_paths(graph, lemin);
 	sender.shortest = ft_array_min(sender.path_lengths, lemin->flow);
+	sender.ants_to_send = ft_memalloc(sizeof(int) * lemin->flow);
+	how_many_ants_to_send(lemin, &sender);
 	i = -1;
 	while (++i < lemin->ants)
 		sender.ants_position[i] = lemin->start_id;

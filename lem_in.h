@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/21 14:48:59 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/24 13:32:36 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct		s_lemin
 
 typedef struct		s_sender
 {
+	int				*ants_to_send;
 	int				ants_sent;
 	int				ants_arrived;
 	int				*ants_position;
@@ -144,7 +145,7 @@ int		count_path_length(t_list **graph, int source, int sink);
 **	paths.c
 */
 
-int		*ants_per_path(t_list **graph, t_lemin *lemin);
+int		*size_paths(t_list **graph, t_lemin *lemin);
 int		ft_array_min(int *array, int size);
 
 #endif

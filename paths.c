@@ -12,7 +12,7 @@ int		ft_array_min(int *array, int size)
 		return (min);
 }
 
-int		*ants_per_path(t_list **graph, t_lemin *lemin)
+int		*size_paths(t_list **graph, t_lemin *lemin)
 {
 		int		*app;
 		int		i;
