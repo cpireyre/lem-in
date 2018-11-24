@@ -66,6 +66,8 @@ void	how_many_ants_to_send(t_lemin *lemin, t_sender *sender)
 	if (ants_remaining < 0)
 		ants_remaining = too_many_ants_sent(lemin, sender, -ants_remaining);
 	i = -1;
+	if (ants_remaining)
+		ants_remaining = repart_extra_ants(lemin, sender, average, ants_remaining);
 	while (++i < lemin->flow)
 		ft_printf("in path %d that is %d rooms lomg, we'll send %d ants\n", i, sender->path_lengths[i], sender->ants_to_send[i]);
 	ft_printf("There are %d ants remaining\n", ants_remaining);
@@ -88,4 +90,25 @@ int		too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_substract)
 		}		
 	}
 	return (-ants_to_substract);
+}
+
+int		repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ants_to_add)
+{
+	int	i;
+
+	while (ants_to_add > 0)
+	{
+		i = -1;
+		while (++i < lemin->flow)
+		{
+			if (sender->ants_to_send[i] > 0 && sender->path_lengths[i] < average)
+			{
+				sender->ants_to_send[i]++;
+				ants_to_add--;
+				if (ants_to_add == 0)
+					return (0);
+			}
+		}
+	}
+	return (0);
 }
