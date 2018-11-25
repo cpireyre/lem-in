@@ -6,17 +6,17 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/11/25 09:46:43 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/11/25 10:53:37 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		:=	gcc
 RM		:=	rm -f
-CFLAGS	:=	-Wall -Wextra -Werror -O2
+CFLAGS	:=	-Wall -Wextra -Werror
 LIBDIR	:=	./libft
 LIBFT	:=	$(LIBDIR)/libft.a
 BFLAGS	:=	-I$(LIBDIR)/
-#DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
+DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined -Og
 INCLUDE	:=	-lft -L$(LIBDIR)/
 NAME	:=	lem-in
 
