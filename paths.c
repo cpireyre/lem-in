@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 19:20:41 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 10:10:06 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 11:30:53 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@ int		get_optimal_path(t_sender *sender, t_list *starting_edges, int flow)
 	int		skipping;
 	t_edge	*edge;
 
-	/* int i = -1; */
-	/* while (++i < flow) */
-	/* 	ft_printf("in path %d that is %d rooms long, we'll send %d ants\n", i, sender->path_lengths[i], sender->ants_to_send[i]); */
 	if (reset_sender(sender->ants_to_send, sender->to_skip, flow))
 		sender->to_skip = 0;
 	skipping = 0;
@@ -64,7 +61,7 @@ int		*size_paths(t_list **graph, t_lemin *lemin)
 	t_list	*edges_from_start;
 	t_edge	*edge;
 
-	if (DEBUG)
+	if (DEBUG > 2)
 		ft_printf("DEBUG: Computing number of ants to send per path.\n");
 	app = ft_memalloc(sizeof(int) * lemin->flow);
 	i = 0;
@@ -75,13 +72,13 @@ int		*size_paths(t_list **graph, t_lemin *lemin)
 		if (edge->flow > 0)
 		{
 			app[i] = count_path_length(graph, edge->sink, lemin->end_id);
-			if (DEBUG)
+			if (DEBUG > 1)
 				ft_printf("\tPath %d is %d edges long.\n", i, app[i]);
 			i++;
 		}
 		edges_from_start = edges_from_start->next;
 	}
-	if (DEBUG)
+	if (DEBUG > 2)
 		ft_printf("\tShortest path appears to be %d edges long.\n", ft_array_min(app, lemin->flow));
 	return (app);
 }
@@ -110,18 +107,12 @@ void	how_many_ants_to_send(t_lemin *lemin, t_sender *sender)
 	}
 	if (ants_remaining < 0)
 		ants_remaining = too_many_ants_sent(lemin, sender, -ants_remaining);
-	if (DEBUG)
+	if (DEBUG > 2)
 		ft_printf("DEBUG: %d remaining ants, supposedly.\n", ants_remaining);
 	i = -1;
 	if (ants_remaining)
 		ants_remaining = repart_extra_ants(lemin, sender, average, ants_remaining);
 	sender->real_flow = calculate_real_flow(sender, lemin->flow);
-	if (DEBUG)
-	{
-		while (++i < lemin->flow)
-			ft_printf("in path %d that is %d rooms long, we'll send %d ants\n", i, sender->path_lengths[i], sender->ants_to_send[i]);
-		ft_printf("There are %d ants remaining\n", ants_remaining);
-	}
 }
 
 int		too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_subtract)
@@ -156,7 +147,7 @@ int		repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ants_t
 			{
 				sender->ants_to_send[i]++;
 				ants_to_add--;
-				if (DEBUG)
+				if (DEBUG > 2)
 					ft_printf("DEBUG: ants_to_add = %d", ants_to_add);
 				if (ants_to_add == 0)
 					break ;

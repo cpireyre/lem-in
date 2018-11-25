@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 09:50:15 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 11:27:02 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,15 @@
 
 # include "libft.h"
 
-# define DEBUG		0
+/*
+**	Debug settings:
+**		0: no debug
+**		1: stuff that's relevant right now
+**		2: more stuff, some of it not so important anymore
+**		3 and up: much more than you wanted to know
+*/
+
+# define DEBUG		1
 
 # define CONNECTED	4
 # define START		2
@@ -81,6 +89,7 @@ t_bool				store_special_rooms(t_lemin *lemin, char *name, t_byte t);
 void				print_rooms(t_rooms	*map);
 void				buf_print_list(t_list *node);
 void				print_ant(int i, char *room_name, int ants_sent);
+void				print_paths_info(t_sender *sender, int flow);
 
 /*
  **	rooms.c

@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/11/25 10:53:37 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/11/25 11:06:39 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ test: $(NAME)
 	@sh lem-bench.sh
 	@make big
 	@make super
-	@$(RM) bench.out a.out a
+	@$(RM) bench.out
 
 big: all
 	@echo "\x1b[4mTesting run time on --big...\x1b[0m"
@@ -74,6 +74,7 @@ big: all
 	@grep -m 1 required < a
 	@time ./lem-in < a > a.out
 	@grep L < a.out | wc -l
+	@$(RM) a.out a
 
 super: all
 	@echo "\x1b[4mTesting run time on --big-superposition...\x1b[0m"
@@ -81,5 +82,6 @@ super: all
 	@grep -m 1 required < a
 	@time ./lem-in < a > a.out
 	@grep L < a.out | wc -l
+	@$(RM) a.out a
 	
 .PHONY: all, re, clean, fclean, force, run, urn, tags, thousand, one, big, super, test

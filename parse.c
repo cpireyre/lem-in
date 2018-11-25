@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:07:17 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 09:14:56 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 11:18:52 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_bool				store_ants(t_list **head, t_lemin *lemin)
 	if (ft_isint((char*)(*head)->content))
 	{
 		lemin->ants = ft_atoi((char*)(*head)->content);
-		if (DEBUG)
+		if (DEBUG > 1)
 			ft_printf("DEBUG: Stored %d ant%c.\n", lemin->ants, \
 					lemin->ants > 1 ? 's' : 0);
 		if (lemin->ants >= 0)
@@ -53,7 +53,7 @@ t_bool				room_already_exists(t_rooms *map, char *room)
 	{
 		if (!ft_strcmp(map->name, room))
 		{
-			if (DEBUG)
+			if (DEBUG > 1)
 				ft_printf("DEBUG: \"%s\" already exists.\n", room);
 			return (true);
 		}
@@ -73,7 +73,7 @@ t_bool				add_room(t_lemin **lemin, char *input, t_byte type)
 			return (false);
 	if (!room_name)
 	{
-		if (DEBUG)
+		if (DEBUG > 1)
 			ft_printf("DEBUG: \"%s\" invalid somehow.\n", input);
 		ft_strdel(&room_name);
 		return (false);

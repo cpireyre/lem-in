@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:52 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 09:47:06 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 11:19:33 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void		bfs_step(t_edge ***path, t_list **queue, t_list **graph, int source)
 
 	vertex_no = *(int*)(*queue)->content;
 	current_vertex = graph[vertex_no];
-	if (DEBUG)
+	if (DEBUG > 3)
 		ft_printf("\tVisiting vertex %d.\n", vertex_no);
 	while (current_vertex)
 	{
@@ -44,7 +44,7 @@ void		bfs_step(t_edge ***path, t_list **queue, t_list **graph, int source)
 		{
 			(*path)[edge->sink] = edge;
 			ft_lstappend(queue, ft_lstnew(&edge->sink, sizeof(int)));
-			if (DEBUG)
+			if (DEBUG > 3)
 				ft_printf("\t\tEnqueued vertex %d,\n", edge->sink);
 		}
 		current_vertex = current_vertex->next;
@@ -61,11 +61,11 @@ t_edge		**breadth_first_search(t_list **graph, int source, int sink, int size)
 
 	path = ft_memalloc(sizeof(t_edge*) * size);
 	queue = ft_lstnew(&source, sizeof(int));
-	if (DEBUG)
+	if (DEBUG > 2)
 		ft_putendl("DEBUG: Commencing breadth-first search.");
 	while (queue)
 		bfs_step(&path, &queue, graph, source);
-	if (DEBUG && path[sink])
+	if (DEBUG > 2 && path[sink])
 		ft_printf("DEBUG: BFS done. path[sink] flows from %d to %d.", path[sink]->source, path[sink]->sink);
 	if (!path[sink])
 	{

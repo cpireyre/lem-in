@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 10:14:33 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 09:47:51 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 11:28:22 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	link_path(t_list **graph, t_edge *edge, int sink)
 		}
 		if (destination_vertex)
 		{
-			if (DEBUG)
+			if (DEBUG > 3)
 				ft_printf("\t\tHooked up %d->%d and %d->%d.\n", edge->source, edge->sink, cur_edge->source, cur_edge->sink);
 			cur_edge->previous = edge;
 			edge->next = cur_edge;
@@ -46,14 +46,14 @@ void		link_graph(t_list ***graph, int source, int sink)
 	t_edge	*edge;
 
 	edges_from_start = (*graph)[source];
-	if (DEBUG)
+	if (DEBUG > 1)
 		ft_printf("DEBUG: Linking graph edges...\n");
 	while (edges_from_start)
 	{
 		edge = (t_edge*)edges_from_start->content;
 		if (edge->flow == 1)
 		{
-			if (DEBUG)
+			if (DEBUG > 1)
 				ft_printf("\tPath from %d through %d.\n", source, edge->sink);
 			link_path(*graph, edge, sink);
 		}

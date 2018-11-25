@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 08:20:47 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 08:00:19 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 11:24:05 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	print_rooms(t_rooms *map)
 	char	*room_type;
 
 	i = -1;
-	if (DEBUG)
+	if (DEBUG > 3)
 		ft_putendl("DEBUG: Printing rooms.");
 	while (map)
 	{
@@ -53,9 +53,25 @@ void	print_rooms(t_rooms *map)
 			room_type = "START";
 		else
 			room_type = "NORMAL";
-		if (DEBUG)
+		if (DEBUG > 3)
+		{
 			ft_putstr("DEBUG: ");
-		ft_printf("\tRoom %d: \"%s\", type %s.\n", ++i, map->name, room_type);
+			ft_printf("\tRoom %d: \"%s\", type %s.\n", ++i, map->name, room_type);
+		}
 		map = map->next;
+	}
+}
+
+void	print_paths_info(t_sender *sender, int flow)
+{
+	int i;
+
+	if (DEBUG)
+	{
+		ft_printf("DEBUG: Printing paths information...\n");
+		i =  -1;
+		while (++i < flow)
+			ft_printf("\tIn path %d of length %d, we'll send %d ants.\n", i, \
+				   	sender->path_lengths[i], sender->ants_to_send[i]);
 	}
 }
