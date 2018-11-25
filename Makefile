@@ -6,17 +6,17 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/11/21 15:15:11 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/11/25 08:02:51 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		:=	gcc
 RM		:=	rm -f
-CFLAGS	:=	-Wall -Wextra -Werror
+CFLAGS	:=	-Wall -Wextra -Werror -O2
 LIBDIR	:=	./libft
 LIBFT	:=	$(LIBDIR)/libft.a
 BFLAGS	:=	-I$(LIBDIR)/
-DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
+#DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
 INCLUDE	:=	-lft -L$(LIBDIR)/
 NAME	:=	lem-in
 
@@ -63,6 +63,22 @@ tags: all
 	ctags -R
 
 test: $(NAME)
-	sh ./tests/test_basic_parse.sh
+	@sh lem-bench.sh
+	@make big
+	@make super
 
-.PHONY: all, re, clean, fclean, force, run, urn, tags
+big: all
+	@echo "\x1b[4mTesting run time on --big...\x1b[0m"
+	@./tests/generator --big > a
+	@grep -m 1 required < a
+	@time ./lem-in < a > a.out
+	@grep L < a.out | wc -l
+
+super: all
+	@echo "\x1b[4mTesting run time on --big-superposition...\x1b[0m"
+	@./tests/generator --big-superposition > a
+	@grep -m 1 required < a
+	@time ./lem-in < a > a.out
+	@grep L < a.out | wc -l
+	
+.PHONY: all, re, clean, fclean, force, run, urn, tags, thousand, one, big, super, test
