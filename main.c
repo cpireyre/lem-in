@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 08:41:56 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 08:02:24 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 09:09:54 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	solve(t_lemin *lemin)
 	f = shortest_path_length(&s, lemin->start_id, lemin->end_id, lemin->map_size);
 	lemin->flow = (f > 0) ? 1 : 0;
 	if (f > 0)
-			lemin->flow = 1 + edmonds_karp(&s, lemin);
+		lemin->flow = 1 + edmonds_karp(&s, lemin);
 	if (f > 0)
 	{
 		ft_putchar('\n');

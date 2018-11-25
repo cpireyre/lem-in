@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:04:50 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/21 08:58:30 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 09:31:18 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** Verifier que x et y sont des noms salles e
 */
 
-static void		fill_diagonal_types(t_lemin *lemin)
+static void				fill_diagonal_types(t_lemin *lemin)
 {
 	t_rooms	*tmp;
 	int		i;
@@ -37,7 +37,7 @@ static void		fill_diagonal_types(t_lemin *lemin)
 	lemin->rooms = tmp;
 }
 
-static int		find_name_list(char *name, t_rooms *rooms)
+static int				find_name_list(char *name, t_rooms *rooms)
 {
 	int	i;
 
@@ -52,48 +52,48 @@ static int		find_name_list(char *name, t_rooms *rooms)
 	return (-1);
 }
 
-static inline t_bool			is_dash(char to_check)
+static inline t_bool	is_dash(char to_check)
 {
-		return (to_check == '-');
+	return (to_check == '-');
 }
 
-int				ft_strcountif(const char *str, t_bool (*check)(char))
+int						ft_strcountif(const char *str, t_bool (*check)(char))
 {
-		int		count;
+	int		count;
 
-		count = 0;
-		while (*str)
-		{
-				count += check(*str);
-				str++;
-		}
-		return (count);
+	count = 0;
+	while (*str)
+	{
+		count += check(*str);
+		str++;
+	}
+	return (count);
 }
 
 static inline t_bool	parse_pipes(t_list **ptr, char ***split, t_lemin *lemin)
 {
 	int		rooms_to_connect[2];
 
-		if (ft_strcountif(((char*)(*ptr)->content), &is_dash) > 1 || count_split(*split) != 2)
-		{
-				free_split(*split);
-				*ptr = (*ptr)->next;
-				return (false);
-		}
-		rooms_to_connect[0] = find_name_list(*split[0], lemin->rooms);
-		if (rooms_to_connect[0] != -1)
-				rooms_to_connect[1] = find_name_list((*split)[1], lemin->rooms);
-		if (rooms_to_connect[0] == -1 || rooms_to_connect[1] == -1)
-		{
-				free_split(*split);
-				return (false);
-		}
-		lemin->pipes[rooms_to_connect[0]][rooms_to_connect[1]] = CONNECTED;
-		lemin->pipes[rooms_to_connect[1]][rooms_to_connect[0]] = CONNECTED;
-		return (true);
+	if (ft_strcountif(((char*)(*ptr)->content), &is_dash) > 1 || count_split(*split) != 2)
+	{
+		free_split(*split);
+		*ptr = (*ptr)->next;
+		return (false);
+	}
+	rooms_to_connect[0] = find_name_list(*split[0], lemin->rooms);
+	if (rooms_to_connect[0] != -1)
+		rooms_to_connect[1] = find_name_list((*split)[1], lemin->rooms);
+	if (rooms_to_connect[0] == -1 || rooms_to_connect[1] == -1)
+	{
+		free_split(*split);
+		return (false);
+	}
+	lemin->pipes[rooms_to_connect[0]][rooms_to_connect[1]] = CONNECTED;
+	lemin->pipes[rooms_to_connect[1]][rooms_to_connect[0]] = CONNECTED;
+	return (true);
 }
 
-static void		fill_tab_pipes(t_lemin *lemin, t_list **ptr)
+static void				fill_tab_pipes(t_lemin *lemin, t_list **ptr)
 {
 	char	**split;
 
@@ -106,13 +106,13 @@ static void		fill_tab_pipes(t_lemin *lemin, t_list **ptr)
 		}
 		split = ft_strsplit((char *)(*ptr)->content, '-');
 		if (!parse_pipes(ptr, &split, lemin))
-				break ;
+			break ;
 		*ptr = (*ptr)->next;
 		free_split(split);
 	}
 }
 
-static int		get_special_id(char **matrix, int to_find)
+static int				get_special_id(char **matrix, int to_find)
 {
 	int		i;
 
@@ -122,7 +122,7 @@ static int		get_special_id(char **matrix, int to_find)
 	return (i);
 }
 
-t_bool			store_pipes(t_list **ptr, t_lemin *lemin)
+t_bool					store_pipes(t_list **ptr, t_lemin *lemin)
 {
 	int		nb_rooms;
 	int		i;

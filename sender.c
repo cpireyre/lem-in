@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 14:50:59 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/25 08:03:32 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 09:16:02 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,10 @@ t_bool	send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *sender)
 {
 	int		nvi;
 	t_list	*tmp;
+	t_bool	on_start;
 
 	tmp = vertex;
-	t_bool on_start = (sender->ants_position[i] == lemin->start_id);
+	on_start = (sender->ants_position[i] == lemin->start_id);
 	if (lemin->flow > 1 && on_start)
 		nvi = get_optimal_path(sender, vertex, lemin->flow);
 	else
@@ -87,13 +88,13 @@ void	send_ants(t_list **graph, t_lemin *lemin)
 	while (sender.ants_arrived < lemin->ants)
 	{
 		if (sender.ants_sent < lemin->ants)
-				sender.ants_sent += sender.real_flow;
+			sender.ants_sent += sender.real_flow;
 		i = 0;
 		while (i < sender.ants_sent && i < lemin->ants)
 		{
-				if (sender.ants_position[i] != lemin->end_id)
-						sender.ants_arrived += send_one_ant(graph[sender.ants_position[i]], lemin, i, &sender);
-				i++;
+			if (sender.ants_position[i] != lemin->end_id)
+				sender.ants_arrived += send_one_ant(graph[sender.ants_position[i]], lemin, i, &sender);
+			i++;
 		}
 		ft_putchar('\n');
 	}

@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 08:31:10 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 09:18:35 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LEM_IN_H
 
 # include "libft.h"
+# include "graph.h"
 
 # define DEBUG		0
 
@@ -69,8 +70,8 @@ t_bool				store_special_rooms(t_lemin *lemin, char *name, t_byte t);
 */
 
 void				print_rooms(t_rooms	*map);
-void	buf_print_list(t_list *node);
-void	print_ant(int i, char *room_name, int ants_sent);
+void				buf_print_list(t_list *node);
+void				print_ant(int i, char *room_name, int ants_sent);
 
 /*
 **	rooms.c
@@ -108,8 +109,6 @@ int					count_split(char **split);
 **	edmonds_karp.c
 */
 
-# include "graph.h"
-
 int					edmonds_karp(t_list ***max_flow_network, t_lemin *lemin);
 t_edge				**breadth_first_search(t_list **graph, int source, int sink, int size);
 
@@ -120,7 +119,7 @@ t_edge				**breadth_first_search(t_list **graph, int source, int sink, int size)
 t_bool				send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *sender);
 void				send_ants(t_list **graph, t_lemin *lemin);
 int					next_vertex_id(t_list *vertex);
-int		calculate_real_flow(t_sender *sender, int flow);
+int					calculate_real_flow(t_sender *sender, int flow);
 
 /*
 **	lem_in.c
@@ -141,19 +140,19 @@ void				link_graph(t_list ***graph, int source, int sink);
 **	splitcheck.c
 */
 
-int		shortest_path_length(t_list ***graph, int source, int sink, int size);
-int		alternate_count(t_edge **path, int source, int sink);
-int		count_path_length(t_list **graph, int source, int sink);
+int					shortest_path_length(t_list ***graph, int source, int sink, int size);
+int					alternate_count(t_edge **path, int source, int sink);
+int					count_path_length(t_list **graph, int source, int sink);
 
 /*
 **	paths.c
 */
 
-int		*size_paths(t_list **graph, t_lemin *lemin);
-int		ft_array_min(int *array, int size);
-void	how_many_ants_to_send(t_lemin *lemin, t_sender *sender);
-int		too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_substract);
-int		repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ants_to_add);
-int		get_optimal_path(t_sender *sender, t_list *starting_edges, int flow);
+int					*size_paths(t_list **graph, t_lemin *lemin);
+int					ft_array_min(int *array, int size);
+void				how_many_ants_to_send(t_lemin *lemin, t_sender *sender);
+int					too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_substract);
+int					repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ants_to_add);
+int					get_optimal_path(t_sender *sender, t_list *starting_edges, int flow);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 19:20:41 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 08:31:56 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 09:09:54 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,14 @@ int		get_optimal_path(t_sender *sender, t_list *starting_edges, int flow)
 
 int		ft_array_min(int *array, int size)
 {
-		int		index;
-		int		min;
+	int		index;
+	int		min;
 
-		index = 0;
-		min = array[0];
-		while (++index < size)
-				min = ft_min(min, array[index]);
-		return (min);
+	index = 0;
+	min = array[0];
+	while (++index < size)
+		min = ft_min(min, array[index]);
+	return (min);
 }
 
 int		*size_paths(t_list **graph, t_lemin *lemin)
