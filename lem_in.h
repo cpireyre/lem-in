@@ -31,6 +31,12 @@
 # define END		3
 # define NORMAL		1
 
+# if defined(__APPLE__) && defined(__MACH__)
+#  define ANT_DISPLAY "\x1b[47m\x1b[30m🐜 "
+# else
+#  define ANT_DISPLAY "\033[47m\033[30m🐜 "
+# endif
+
 typedef struct		s_rooms
 {
 	char			*name;
