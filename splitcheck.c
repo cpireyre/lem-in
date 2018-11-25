@@ -6,11 +6,29 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 14:01:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 09:47:11 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 16:14:25 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+
+void	clear_dumb_paths(t_sender *sender, t_list *start, int flow)
+{
+	int		i;
+
+	i = 0;
+	while (i < flow)
+	{
+		if (!sender->ants_to_send[i])
+		{
+			if (DEBUG)
+				ft_printf("DEBUG: Path %d (of flow %d, supposedly) is being cleared out.\n", i, ((t_edge*)(start->content))->flow);
+			((t_edge*)(start->content))->flow = 0;
+		}
+		i++;
+		start = start->next;
+	}
+}
 
 int		count_path_length(t_list **graph, int source, int sink)
 {
