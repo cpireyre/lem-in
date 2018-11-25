@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/11/25 08:02:51 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/11/25 08:35:04 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,6 +66,7 @@ test: $(NAME)
 	@sh lem-bench.sh
 	@make big
 	@make super
+	@$(RM) bench.out a.out a
 
 big: all
 	@echo "\x1b[4mTesting run time on --big...\x1b[0m"
