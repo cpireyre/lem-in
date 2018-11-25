@@ -53,10 +53,7 @@ int		main(int argc, char **argv)
 
 	ft_bzero(&lemin, sizeof(t_lemin));
 	if (!(ft_options(argc, argv) ^ 21264))
-	{
-		ft_putnbr_endl(ft_options(argc, argv));
-		lemin.ant_display = "\x1b[47m\x1b[30m🐜 ";
-	}
+		lemin.ant_display = ANT_DISPLAY;
 	else
 		lemin.ant_display = "L";
 	usr_in = stdin_to_list();
