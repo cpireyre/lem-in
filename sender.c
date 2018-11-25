@@ -53,10 +53,8 @@ int		next_vertex_id(t_list *vertex)
 t_bool	send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *sender)
 {
 	int		nvi;
-	t_list	*tmp;
 	t_bool	on_start;
 
-	tmp = vertex;
 	on_start = (sender->ants_position[i] == lemin->start_id);
 	if (lemin->flow > 1 && on_start)
 		nvi = get_optimal_path(sender, vertex, lemin->flow);
@@ -100,6 +98,7 @@ void	send_ants(t_list **graph, t_lemin *lemin)
 		}
 		ft_putchar('\n');
 	}
+	free(sender.ants_to_send);
 	free(sender.path_lengths);
 	free(sender.ants_position);
 }
