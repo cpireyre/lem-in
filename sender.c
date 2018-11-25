@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 14:50:59 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/25 11:30:14 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 15:45:36 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_bool	send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *sender)
 		nvi = get_optimal_path(sender, vertex, lemin->flow);
 	else
 		nvi = next_vertex_id(vertex);
-	print_ant(i, ft_find_room_name(lemin, nvi), sender->ants_sent);
+	print_ant(i, ft_find_room_name(lemin, nvi), sender->ants_sent, lemin->ant_display);
 	sender->ants_position[i] = nvi;
 	if (nvi == lemin->end_id)
 		return (true);
