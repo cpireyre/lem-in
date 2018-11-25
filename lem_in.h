@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 11:27:02 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 15:44:51 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 **		3 and up: much more than you wanted to know
 */
 
-# define DEBUG		1
+# define DEBUG		0
 
 # define CONNECTED	4
 # define START		2
@@ -48,6 +48,7 @@ typedef struct		s_lemin
 	t_rooms			*rooms;
 	char			**pipes;
 	int				flow;
+	char			*ant_display;
 }					t_lemin;
 
 typedef struct		s_edge
@@ -88,7 +89,7 @@ t_bool				store_special_rooms(t_lemin *lemin, char *name, t_byte t);
 
 void				print_rooms(t_rooms	*map);
 void				buf_print_list(t_list *node);
-void				print_ant(int i, char *room_name, int ants_sent);
+void				print_ant(int i, char *room_name, int ants_sent, char *display);
 void				print_paths_info(t_sender *sender, int flow);
 
 /*

@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 08:41:56 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 09:47:52 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 15:45:06 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,20 @@ void	solve(t_lemin *lemin)
 	free_graph(s, lemin->map_size);
 }
 
-int		main(void)
+int		main(int argc, char **argv)
 {
 	t_list		*usr_in;
 	t_list		*tmp;
 	t_lemin		lemin;
 
 	ft_bzero(&lemin, sizeof(t_lemin));
+	if (!(ft_options(argc, argv) ^ 21264))
+	{
+		ft_putnbr_endl(ft_options(argc, argv));
+		lemin.ant_display = "\x1b[47m\x1b[30m🐜 ";
+	}
+	else
+		lemin.ant_display = "L";
 	usr_in = stdin_to_list();
 	tmp = usr_in;
 	parse(&usr_in, &tmp, &lemin);
