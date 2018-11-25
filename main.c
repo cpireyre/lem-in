@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 08:41:56 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/24 11:53:19 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/25 08:02:24 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,11 @@ int		main(void)
 	t_list		*tmp;
 	t_lemin		lemin;
 
-	lemin.start_name = NULL;
-	lemin.end_name = NULL;
-	lemin.rooms = NULL;
-	lemin.pipes = NULL;
+	ft_bzero(&lemin, sizeof(t_lemin));
 	usr_in = stdin_to_list();
 	tmp = usr_in;
 	parse(&usr_in, &tmp, &lemin);
-	ft_lstiter(tmp, &print_node_string);
+	buf_print_list(tmp);
 	solve(&lemin);
 	quit_lem_in(&tmp, &lemin, "", EXIT_SUCCESS);
 }
