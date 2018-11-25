@@ -6,12 +6,27 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 14:50:59 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/24 13:47:29 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/25 08:03:32 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 #include "graph.h"
+
+int		calculate_real_flow(t_sender *sender, int flow)
+{
+	int	i;
+	int res;
+
+	res = 0;
+	i = -1;
+	while (++i < flow)
+	{
+		if (sender->ants_to_send[i] > 0)
+			res++;
+	}
+	return (res);
+}
 
 char	*ft_find_room_name(t_lemin *lemin, int room_nb)
 {
@@ -40,42 +55,14 @@ t_bool	send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *sender)
 {
 	int		nvi;
 	t_list	*tmp;
-	int		skipped_paths;
 
 	tmp = vertex;
 	t_bool on_start = (sender->ants_position[i] == lemin->start_id);
 	if (lemin->flow > 1 && on_start)
-	{
-			if (sender->switch_path == 0)
-			{
-					nvi = next_vertex_id(vertex);
-					sender->switch_path = 1;
-			}
-			else
-			{
-					skipped_paths = 0;
-					while (tmp && skipped_paths < sender->switch_path)
-					{
-							tmp = tmp->next;
-							if (tmp && ((t_edge*)(tmp->content))->flow == 1)
-									skipped_paths++;
-					}
-					if (!tmp)
-					{
-							sender->switch_path = 1;
-							nvi = next_vertex_id(vertex);
-					}
-					else
-					{
-							nvi = ((t_edge*)(tmp->content))->sink;
-							sender->switch_path += 1;
-					}
-			}
-	}
+		nvi = get_optimal_path(sender, vertex, lemin->flow);
 	else
-			nvi = next_vertex_id(vertex);
-	ft_printf("L%d-%s", i + 1, ft_find_room_name(lemin, nvi));
-	(i + 1 == sender->ants_sent) ? 0 : ft_putchar(' ');
+		nvi = next_vertex_id(vertex);
+	print_ant(i, ft_find_room_name(lemin, nvi), sender->ants_sent);
 	sender->ants_position[i] = nvi;
 	if (nvi == lemin->end_id)
 		return (true);
@@ -88,6 +75,7 @@ void	send_ants(t_list **graph, t_lemin *lemin)
 	int			i;
 	t_sender	sender;
 
+	ft_bzero(&sender, sizeof(t_sender));
 	sender.ants_position = ft_memalloc(sizeof(int) * (lemin->ants));
 	sender.path_lengths = size_paths(graph, lemin);
 	sender.shortest = ft_array_min(sender.path_lengths, lemin->flow);
@@ -96,13 +84,10 @@ void	send_ants(t_list **graph, t_lemin *lemin)
 	i = -1;
 	while (++i < lemin->ants)
 		sender.ants_position[i] = lemin->start_id;
-	sender.ants_sent = 0;
-	sender.ants_arrived = 0;
-	sender.switch_path = 0;
 	while (sender.ants_arrived < lemin->ants)
 	{
 		if (sender.ants_sent < lemin->ants)
-				sender.ants_sent += lemin->flow;
+				sender.ants_sent += sender.real_flow;
 		i = 0;
 		while (i < sender.ants_sent && i < lemin->ants)
 		{

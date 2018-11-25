@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/24 14:16:26 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/25 08:31:10 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ typedef struct		s_sender
 	int				switch_path;
 	int				*path_lengths;
 	int				shortest;
+	int				to_skip;
+	int				real_flow;
 }					t_sender;
 
 /*
@@ -67,7 +69,8 @@ t_bool				store_special_rooms(t_lemin *lemin, char *name, t_byte t);
 */
 
 void				print_rooms(t_rooms	*map);
-void				print_node_string(t_list *node);
+void	buf_print_list(t_list *node);
+void	print_ant(int i, char *room_name, int ants_sent);
 
 /*
 **	rooms.c
@@ -117,6 +120,7 @@ t_edge				**breadth_first_search(t_list **graph, int source, int sink, int size)
 t_bool				send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *sender);
 void				send_ants(t_list **graph, t_lemin *lemin);
 int					next_vertex_id(t_list *vertex);
+int		calculate_real_flow(t_sender *sender, int flow);
 
 /*
 **	lem_in.c
@@ -150,5 +154,6 @@ int		ft_array_min(int *array, int size);
 void	how_many_ants_to_send(t_lemin *lemin, t_sender *sender);
 int		too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_substract);
 int		repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ants_to_add);
+int		get_optimal_path(t_sender *sender, t_list *starting_edges, int flow);
 
 #endif
