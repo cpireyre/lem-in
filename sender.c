@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 14:50:59 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/25 15:45:36 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 16:17:03 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	send_ants(t_list **graph, t_lemin *lemin)
 	sender.shortest = ft_array_min(sender.path_lengths, lemin->flow);
 	sender.ants_to_send = ft_memalloc(sizeof(int) * lemin->flow);
 	how_many_ants_to_send(lemin, &sender);
+	clear_dumb_paths(&sender, (graph)[lemin->start_id], lemin->flow);
 	if (DEBUG)
 		print_paths_info(&sender, lemin->flow);
 	i = -1;
