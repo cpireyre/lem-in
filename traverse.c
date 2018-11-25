@@ -6,12 +6,11 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 10:14:33 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/21 08:58:38 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 09:47:51 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
-#include "graph.h"
 
 static void	link_path(t_list **graph, t_edge *edge, int sink)
 {

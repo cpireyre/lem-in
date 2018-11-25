@@ -6,12 +6,11 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 08:41:56 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 09:09:54 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 09:47:52 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
-#include "graph.h"
 
 t_list	*stdin_to_list(void)
 {

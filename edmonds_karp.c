@@ -6,12 +6,11 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:52 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 09:13:47 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 09:47:06 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
-#include "graph.h"
 
 /*
 **	t_list **graph = vertices

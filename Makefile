@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/11/25 08:35:04 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/11/25 09:46:43 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ NAME	:=	lem-in
 C_FILES		:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c \
 	count.c graph.c edmonds_karp.c splitcheck.c \
 	sender.c main.c traverse.c paths.c
-H_FILES		:=	lem_in.h graph.h
+H_FILES		:=	lem_in.h 
 OBJ			:=	$(C_FILES:.c=.o)
 
 DEPS		=	$(H_FILES) Makefile 

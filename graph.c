@@ -6,12 +6,11 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:50 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/21 08:57:36 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 09:47:00 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
-#include "graph.h"
 
 void	fill_edge(t_edge *edge, int source, int sink)
 {

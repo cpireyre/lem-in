@@ -6,12 +6,11 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 14:01:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 09:15:16 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 09:47:11 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
-#include "graph.h"
 
 int		count_path_length(t_list **graph, int source, int sink)
 {

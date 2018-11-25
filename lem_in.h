@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 09:18:35 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 09:46:51 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LEM_IN_H
 
 # include "libft.h"
-# include "graph.h"
 
 # define DEBUG		0
 
@@ -42,6 +41,18 @@ typedef struct		s_lemin
 	char			**pipes;
 	int				flow;
 }					t_lemin;
+
+typedef struct	s_edge
+{
+	int				flow;
+	int				source;
+	int				sink;
+	struct s_edge	*rev;
+	struct s_edge	*next;
+	struct s_edge	*previous;
+}				t_edge;
+
+
 
 typedef struct		s_sender
 {
@@ -154,5 +165,15 @@ void				how_many_ants_to_send(t_lemin *lemin, t_sender *sender);
 int					too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_substract);
 int					repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ants_to_add);
 int					get_optimal_path(t_sender *sender, t_list *starting_edges, int flow);
+
+/*
+**	graph.h
+*/
+
+void				fill_edge(t_edge *edge, int source, int sink);
+void				add_connections_to_graph(t_list **vertex, int vertex_nbr, char *connections);
+t_list				**build_graph(t_lemin *lemin);
+void				free_edge(void *ptr, size_t size);
+void				free_graph(t_list **graph, int size);
 
 #endif

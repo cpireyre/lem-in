@@ -6,12 +6,11 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 14:50:59 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/25 09:16:02 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 09:47:51 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
-#include "graph.h"
 
 int		calculate_real_flow(t_sender *sender, int flow)
 {
