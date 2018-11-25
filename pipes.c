@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:04:50 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 09:31:18 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 10:08:59 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,6 @@ static int				find_name_list(char *name, t_rooms *rooms)
 static inline t_bool	is_dash(char to_check)
 {
 	return (to_check == '-');
-}
-
-int						ft_strcountif(const char *str, t_bool (*check)(char))
-{
-	int		count;
-
-	count = 0;
-	while (*str)
-	{
-		count += check(*str);
-		str++;
-	}
-	return (count);
 }
 
 static inline t_bool	parse_pipes(t_list **ptr, char ***split, t_lemin *lemin)
