@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   paths.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 19:20:41 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 11:43:43 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 13:18:57 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,16 @@ int		repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ants_t
 {
 	int	i;
 
+	if (lemin->ants == 1)
+	{
+		i = -1;
+		while (++i < lemin->flow)
+			if (sender->shortest == sender->path_lengths[i])
+			{
+				sender->ants_to_send[i] = 1;
+				return (1);
+			}
+	} 
 	while (ants_to_add > 0)
 	{
 		i = -1;
