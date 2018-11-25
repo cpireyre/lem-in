@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 19:20:41 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 11:30:53 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 11:43:43 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		get_optimal_path(t_sender *sender, t_list *starting_edges, int flow)
 		sender->to_skip = 0;
 	skipping = 0;
 	edge = ((t_edge*)(starting_edges->content));
-	while (skipping < sender->to_skip || sender->ants_to_send[skipping] < 1)
+	while (skipping < sender->to_skip)
 	{
 		edge = ((t_edge*)(starting_edges->content));
 		if (((edge->flow > 0 && sender->ants_to_send[skipping] == 0)) || sender->ants_to_send[skipping])
