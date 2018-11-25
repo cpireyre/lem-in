@@ -3,10 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   paths.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 19:20:41 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 16:06:21 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/25 16:16:34 by cpireyre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +141,16 @@ int		repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ants_t
 {
 	int	i;
 
+	if (lemin->ants == 1)
+	{
+		i = -1;
+		while (++i < lemin->flow)
+			if (sender->shortest == sender->path_lengths[i])
+			{
+				sender->ants_to_send[i] = 1;
+				return (1);
+			}
+	} 
 	while (ants_to_add > 0)
 	{
 		i = -1;
@@ -146,6 +159,7 @@ int		repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ants_t
 			if (sender->ants_to_send[i] > 0 && sender->path_lengths[i] <= average)
 			{
 				sender->ants_to_send[i]++;
+				// sender->path_lengths[i]++;
 				ants_to_add--;
 				if (DEBUG > 2)
 					ft_printf("DEBUG: ants_to_add = %d", ants_to_add);
