@@ -24,7 +24,7 @@
 **		3 and up: much more than you wanted to know
 */
 
-# define DEBUG		1
+# define DEBUG		0
 
 # define CONNECTED	4
 # define START		2
@@ -146,6 +146,7 @@ t_bool				send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *sender);
 void				send_ants(t_list **graph, t_lemin *lemin);
 int					next_vertex_id(t_list *vertex);
 int					calculate_real_flow(t_sender *sender, int flow);
+char	*ft_find_room_name(t_lemin *lemin, int room_nb);
 
 /*
 **	lem_in.c
@@ -160,7 +161,7 @@ void				parse(t_list **usr_in, t_list **tmp, t_lemin *lemin);
 **	traverse.c
 */
 
-void				link_graph(t_list ***graph, int source, int sink);
+void				link_graph(t_list ***graph, int source, int sink, t_lemin *lemin);
 
 /*
 **	splitcheck.c
@@ -180,7 +181,7 @@ int					ft_array_min(int *array, int size);
 void				how_many_ants_to_send(t_lemin *lemin, t_sender *sender);
 int					too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_substract);
 int					repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ants_to_add);
-int					get_optimal_path(t_sender *sender, t_list *starting_edges, int flow);
+int					get_optimal_path(t_sender *sender, t_list *starting_edges);
 
 /*
 **	graph.h

@@ -10,51 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "lem_in.h"
 
-t_bool	reset_sender(int *ats, int to_skip, int flow)
+int		get_optimal_path(t_sender *sender, t_list *starting_edges)
 {
-	int	i;
+	int		skipped;
+	int		offset;
 
-	i = to_skip - 1;
-	while (++i < flow)
+	skipped = 0;
+	offset = 0;
+	while (skipped < sender->to_skip || !sender->ants_to_send[offset])
 	{
-		if (ats[i] != 0)
-			return (false);
-	}
-	return (true);
-}
-
-int		get_optimal_path(t_sender *sender, t_list *starting_edges, int flow)
-{
-	int		skipping;
-	t_edge	*edge;
-
-	if (reset_sender(sender->ants_to_send, sender->to_skip, flow))
-		sender->to_skip = 0;
-	skipping = 0;
-	edge = ((t_edge*)(starting_edges->content));
-	while (skipping < sender->to_skip)
-	{
-		edge = ((t_edge*)(starting_edges->content));
-		if (((edge->flow > 0 && sender->ants_to_send[skipping] == 0)) || sender->ants_to_send[skipping])
-			skipping++;
+		if (((t_edge*)(starting_edges->content))->flow)
+			skipped++;
 		starting_edges = starting_edges->next;
+		offset++;
 	}
-	edge = ((t_edge*)(starting_edges->content));
-	while (edge->flow != 1)
+	sender->ants_to_send[offset] -= 1;
+	if (sender->ants_to_send[offset] == 0)
 	{
-		edge = ((t_edge*)(starting_edges->content));
-		starting_edges = starting_edges->next;
-	}
-	sender->to_skip++;
-	sender->ants_to_send[skipping] -= 1;
-	if (sender->ants_to_send[skipping] == 0)
 		sender->real_flow--;
-	return (edge->sink);
+		sender->to_skip--;
+	}
+	if (sender->real_flow)
+		sender->to_skip = (sender->to_skip + 1) % sender->real_flow;
+	else
+		sender->to_skip = -1;
+	return (((t_edge*)(starting_edges->content))->sink);
 }
 
 int		*size_paths(t_list **graph, t_lemin *lemin)
@@ -72,7 +54,7 @@ int		*size_paths(t_list **graph, t_lemin *lemin)
 	while (i < lemin->flow)
 	{
 		edge = (t_edge*)edges_from_start->content;
-		if (edge->flow > 0)
+		if (edge->flow == 1)
 		{
 			app[i] = count_path_length(graph, edge->sink, lemin->end_id);
 			if (DEBUG > 1)

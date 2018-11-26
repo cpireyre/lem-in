@@ -22,7 +22,7 @@ NAME	:=	lem-in
 
 C_FILES		:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c \
 	count.c graph.c edmonds_karp.c splitcheck.c \
-	sender.c main.c traverse.c paths.c
+	sender.c main.c paths.c
 H_FILES		:=	lem_in.h 
 OBJ			:=	$(C_FILES:.c=.o)
 

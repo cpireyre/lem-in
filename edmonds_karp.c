@@ -15,7 +15,6 @@
 /*
 **	t_list **graph = vertices
 **	t_list *queue = vertices to be visited on each pass of the BFS
-**	will need some t_edge *find_end(t_edge **path) or something later
 */
 
 t_bool		edge_is_valid(t_edge *edge, t_edge **path, int source)
@@ -89,8 +88,12 @@ int			edmonds_karp(t_list ***max_flow_network, t_lemin *lemin)
 		{
 			edge->flow += 1;
 			edge->rev->flow -= 1;
+			if (DEBUG > 2)
+				ft_printf("DEBUG: Added flow btw %s & %s.\n", ft_find_room_name(lemin, edge->source), ft_find_room_name(lemin, edge->sink));
 			edge = path[edge->source];
 		}
+		if (DEBUG > 2)
+			ft_printf("DEBUG: Added flow btw %s & %s.\n", ft_find_room_name(lemin, edge->source), ft_find_room_name(lemin, edge->sink));
 		edge->flow += 1;
 		edge->rev->flow -= 1;
 		max_flow++;

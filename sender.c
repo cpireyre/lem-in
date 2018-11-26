@@ -57,7 +57,7 @@ t_bool	send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *sender)
 
 	on_start = (sender->ants_position[i] == lemin->start_id);
 	if (lemin->flow > 1 && on_start)
-		nvi = get_optimal_path(sender, vertex, lemin->flow);
+		nvi = get_optimal_path(sender, vertex);
 	else
 		nvi = next_vertex_id(vertex);
 	print_ant(i, ft_find_room_name(lemin, nvi), sender->ants_sent, lemin->ant_display);
@@ -79,9 +79,6 @@ void	send_ants(t_list **graph, t_lemin *lemin)
 	sender.shortest = ft_array_min(sender.path_lengths, lemin->flow);
 	sender.ants_to_send = ft_memalloc(sizeof(int) * lemin->flow);
 	how_many_ants_to_send(lemin, &sender);
-	clear_dumb_paths(&sender, (graph)[lemin->start_id], lemin->flow);
-	if (DEBUG)
-		print_paths_info(&sender, lemin->flow);
 	i = -1;
 	while (++i < lemin->ants)
 		sender.ants_position[i] = lemin->start_id;
@@ -92,11 +89,14 @@ void	send_ants(t_list **graph, t_lemin *lemin)
 		i = 0;
 		while (i < sender.ants_sent && i < lemin->ants)
 		{
+			clear_dumb_paths(&sender, (graph)[lemin->start_id], lemin->flow);
 			if (sender.ants_position[i] != lemin->end_id)
 				sender.ants_arrived += send_one_ant(graph[sender.ants_position[i]], lemin, i, &sender);
 			i++;
 		}
 		ft_putchar('\n');
+		if (DEBUG)
+			print_paths_info(&sender, lemin->flow);
 	}
 	free(sender.ants_to_send);
 	free(sender.path_lengths);

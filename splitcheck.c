@@ -19,10 +19,10 @@ void	clear_dumb_paths(t_sender *sender, t_list *start, int flow)
 	i = 0;
 	while (i < flow)
 	{
-		if (!sender->ants_to_send[i])
+		if (!sender->ants_to_send[i] && ((t_edge*)(start->content))->flow)
 		{
 			if (DEBUG)
-				ft_printf("DEBUG: Path %d (of flow %d, supposedly) is being cleared out.\n", i, ((t_edge*)(start->content))->flow);
+				ft_printf("DEBUG: Path %d (of flow %d, supposedly) is being cleared out.", i, ((t_edge*)(start->content))->flow);
 			((t_edge*)(start->content))->flow = 0;
 		}
 		i++;

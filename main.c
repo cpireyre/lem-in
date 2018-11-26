@@ -27,17 +27,12 @@ t_list	*stdin_to_list(void)
 void	solve(t_lemin *lemin)
 {
 	t_list		**s;
-	int			f;
 
 	s = build_graph(lemin);
-	f = shortest_path_length(&s, lemin->start_id, lemin->end_id, lemin->map_size);
-	lemin->flow = (f > 0) ? 1 : 0;
-	if (f > 0)
-		lemin->flow = 1 + edmonds_karp(&s, lemin);
-	if (f > 0)
+	lemin->flow = edmonds_karp(&s, lemin);
+	if (lemin->flow > 0)
 	{
 		ft_putchar('\n');
-		link_graph(&s, lemin->start_id, lemin->end_id);
 		send_ants(s, lemin);
 	}
 	else
