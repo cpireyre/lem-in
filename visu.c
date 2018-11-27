@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:56:06 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/27 14:04:04 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/27 14:26:43 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,11 @@ int		main()
 	t_list	*usr_in;
 	t_list	*tmp;
 
-	if (!(visu = malloc(sizeof(t_lemin))))
+	if (!(visu = ft_memalloc(sizeof(t_lemin))))
 		return (0);
 	usr_in = stdin_to_list();
 	tmp = usr_in;
-	while (usr_in)
-	{
-		ft_printf("%s\n", usr_in->content);
-		usr_in = usr_in->next;
-	}
-//	parse(&usr_in, &tmp, visu);
+	parse(&usr_in, &tmp, visu);
 	ft_init_mlx(visu);
 	mlx_key_hook(visu->mlx->w, key_events, visu);
 	mlx_hook(visu->mlx->w, 17, 0, exit_visu, visu);
