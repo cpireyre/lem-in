@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/27 14:36:35 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/27 15:52:35 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,15 @@ typedef struct			s_coord
 typedef struct		s_rooms
 {
 	char			*name;
-	t_coord			coord;
+	t_coord			*coord;
 	t_byte			type;
 	struct s_rooms	*next;
 }					t_rooms;
 
 typedef struct			s_minilibx
 {
+	int					w_height;
+	int					w_width;
 	void				*m_ptr;
 	void				*w;
 	t_image				img;
@@ -126,7 +128,7 @@ void				print_paths_info(t_sender *sender, int flow);
 
 t_bool				check_room_coordinate(char **name);
 t_bool				room_is_valid(char *name);
-t_rooms				*new_room(char *name_ptr, t_byte type);
+t_rooms				*new_room(char *name_ptr, t_byte type, t_coord *coord);
 char				*get_room_name(char *input);
 
 /*
@@ -212,7 +214,7 @@ void				visu(t_lemin *visu);
 void				ft_init_mlx(t_lemin *visu);
 int					key_events(int key, t_lemin *visu);
 int					exit_visu(t_lemin *visu);
-
+void				ft_create_image(t_lemin *visu);
 
 /*
 **	graph.h
