@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/27 14:17:51 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/27 14:36:35 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,7 @@
 # define END		3
 # define NORMAL		1
 
-typedef struct		s_rooms
-{
-	char			*name;
-	int				x;
-	int				y;
-	t_byte			type;
-	struct s_rooms	*next;
-}					t_rooms;
+
 
 typedef struct			s_image
 {
@@ -55,6 +48,14 @@ typedef struct			s_coord
 	int					x;
 	int					y;
 }						t_coord;
+
+typedef struct		s_rooms
+{
+	char			*name;
+	t_coord			coord;
+	t_byte			type;
+	struct s_rooms	*next;
+}					t_rooms;
 
 typedef struct			s_minilibx
 {
