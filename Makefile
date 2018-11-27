@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/11/27 12:05:45 by tboissel         ###   ########.fr        #
+#    Updated: 2018/11/27 14:01:53 by tboissel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,14 @@ NAME	:=	lem-in
 
 C_FILES		:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c \
 	count.c graph.c edmonds_karp.c splitcheck.c \
-	sender.c main.c traverse.c paths.c 
+	sender.c traverse.c paths.c
 H_FILES		:=	lem_in.h 
 OBJ			:=	$(C_FILES:.c=.o)
+MAIN		:= main.c
+MAINV		:= visu.c
+MAINO		:= main.o
+MAINVO		:= visu.o
 VISU		:= visu
-C_VISU     	:= visu.c
-OBJ_VISU	:= $(C_VISU:.c=.o)
 
 DEPS		=	$(H_FILES) Makefile 
 FRAME =  -L/usr/local/lib -I/usr/local/include -lmlx -framework OpenGL -framework AppKit
@@ -41,11 +43,11 @@ $(LIBFT): force
 	$(CC) $(CFLAGS) $(BFLAGS) $< -c -o $@ $(DEBUG)
 
 $(NAME): $(DEPS) $(LIBFT) $(OBJ) $(VISU)
-	$(CC) $(CFLAGS) $(BFLAGS) $(OBJ) $(INCLUDE) $(DEBUG) -o $@
+	$(CC) $(CFLAGS) $(BFLAGS) $(INCLUDE) $(FRAME) $(DEBUG) $(OBJ) $(MAINO) -o $@
 	#ctags -R # for ease of navigation with vim
 
-$(VISU) : $(OBJ_VISU)
-	$(CC) $(CFLAGS) $(OBJ_VISU) $(INCLUDE) $(FRAME) $(DEBUG) -o $(VISU)
+$(VISU) : $(DEPS) $(LIBFT) $(OBJ) $(MAINVO)
+	$(CC) $(CFLAGS) $(BFLAGS) $(INCLUDE) $(FRAME) $(DEBUG) $(OBJ) $(MAINVO) -o $@
 
 clean:
 	$(MAKE) clean -C $(LIBDIR)

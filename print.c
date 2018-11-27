@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 08:20:47 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 15:45:23 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/27 13:42:05 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+
+t_list	*stdin_to_list(void)
+{
+	t_list		*usr_in;
+	char		*l;
+
+	l = NULL;
+	usr_in = NULL;
+	while (ft_gnl(0, &l))
+		ft_lstappend(&usr_in, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
+	return (usr_in);
+}
 
 void	buf_print_list(t_list *node)
 {

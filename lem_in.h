@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/27 11:30:43 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/27 14:03:38 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 **		3 and up: much more than you wanted to know
 */
 
-# define DEBUG		1
+# define DEBUG		0
 
 # define CONNECTED	4
 # define START		2
@@ -35,6 +35,8 @@
 typedef struct		s_rooms
 {
 	char			*name;
+	int				x;
+	int				y;
 	t_byte			type;
 	struct s_rooms	*next;
 }					t_rooms;
@@ -73,6 +75,7 @@ typedef struct		s_lemin
 	char			**pipes;
 	int				flow;
 	char			*ant_display;	
+	t_minilibx		*mlx;
 }					t_lemin;
 
 typedef struct		s_edge
@@ -84,11 +87,6 @@ typedef struct		s_edge
 	struct s_edge	*next;
 	struct s_edge	*previous;
 }					t_edge;
-
-typedef struct		s_visu
-{
-	t_minilibx		*mlx;
-}					t_visu;
 
 typedef struct		s_sender
 {
@@ -208,10 +206,11 @@ int					get_optimal_path(t_sender *sender, t_list *starting_edges, int flow);
 **	visu.c
 */
 
-void				visu(t_visu *visu);
-void				ft_init_mlx(t_visu *visu);
-int					key_events(int key, t_visu *visu);
-int					exit_visu(t_visu *visu);
+void				parse_visu(t_list **usr_in, t_lemin *visu);
+void				visu(t_lemin *visu);
+void				ft_init_mlx(t_lemin *visu);
+int					key_events(int key, t_lemin *visu);
+int					exit_visu(t_lemin *visu);
 
 
 /*

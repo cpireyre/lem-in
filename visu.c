@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:56:06 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/27 12:07:21 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/27 14:04:04 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,33 @@
 
 int		main()
 {
-	t_visu *visu;
+	t_lemin	*visu;
+	t_list	*usr_in;
+	t_list	*tmp;
 
-	if (!(visu = malloc(sizeof(t_visu))))
+	if (!(visu = malloc(sizeof(t_lemin))))
 		return (0);
+	usr_in = stdin_to_list();
+	tmp = usr_in;
+	while (usr_in)
+	{
+		ft_printf("%s\n", usr_in->content);
+		usr_in = usr_in->next;
+	}
+//	parse(&usr_in, &tmp, visu);
 	ft_init_mlx(visu);
 	mlx_key_hook(visu->mlx->w, key_events, visu);
 	mlx_hook(visu->mlx->w, 17, 0, exit_visu, visu);
 	mlx_loop(visu->mlx->m_ptr);
 }
 
-int		exit_visu(t_visu *visu)
+int	exit_visu(t_lemin *visu)
 {
-	exit(0);
-	(void)visu;
+	exit (0);
+	(void) visu;
 }
 
-void	ft_init_mlx(t_visu *visu)
+void	ft_init_mlx(t_lemin *visu)
 {
 	if (!(visu->mlx = malloc(sizeof(t_minilibx))))
 		exit(0);
@@ -41,7 +51,7 @@ void	ft_init_mlx(t_visu *visu)
 	&visu->mlx->img.bpp, &visu->mlx->img.size_l, &visu->mlx->img.endian);
 }
 
-int		key_events(int key, t_visu *visu)
+int		key_events(int key, t_lemin *visu)
 {
 	if (key == 53)
 		exit(0);
