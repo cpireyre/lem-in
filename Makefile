@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/11/25 11:06:39 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/11/27 12:05:45 by tboissel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,15 @@ NAME	:=	lem-in
 
 C_FILES		:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c \
 	count.c graph.c edmonds_karp.c splitcheck.c \
-	sender.c main.c traverse.c paths.c
+	sender.c main.c traverse.c paths.c 
 H_FILES		:=	lem_in.h 
 OBJ			:=	$(C_FILES:.c=.o)
+VISU		:= visu
+C_VISU     	:= visu.c
+OBJ_VISU	:= $(C_VISU:.c=.o)
 
 DEPS		=	$(H_FILES) Makefile 
+FRAME =  -L/usr/local/lib -I/usr/local/include -lmlx -framework OpenGL -framework AppKit
 
 all: $(NAME)
 
@@ -36,9 +40,12 @@ $(LIBFT): force
 %.o: %.c $(DEPS)
 	$(CC) $(CFLAGS) $(BFLAGS) $< -c -o $@ $(DEBUG)
 
-$(NAME): $(DEPS) $(LIBFT) $(OBJ)
+$(NAME): $(DEPS) $(LIBFT) $(OBJ) $(VISU)
 	$(CC) $(CFLAGS) $(BFLAGS) $(OBJ) $(INCLUDE) $(DEBUG) -o $@
 	#ctags -R # for ease of navigation with vim
+
+$(VISU) : $(OBJ_VISU)
+	$(CC) $(CFLAGS) $(OBJ_VISU) $(INCLUDE) $(FRAME) $(DEBUG) -o $(VISU)
 
 clean:
 	$(MAKE) clean -C $(LIBDIR)

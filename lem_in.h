@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 16:21:28 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/11/27 11:30:43 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft.h"
 # include <stdlib.h>
+# include <mlx.h>
 
 /*
 **	Debug settings:
@@ -38,6 +39,28 @@ typedef struct		s_rooms
 	struct s_rooms	*next;
 }					t_rooms;
 
+typedef struct			s_image
+{
+	void				*img_ptr;
+	int					*data;
+	int					size_l;
+	int					bpp;
+	int					endian;
+}						t_image;
+
+typedef struct			s_coord
+{
+	int					x;
+	int					y;
+}						t_coord;
+
+typedef struct			s_minilibx
+{
+	void				*m_ptr;
+	void				*w;
+	t_image				img;
+}						t_minilibx;
+
 typedef struct		s_lemin
 {
 	int				start_id;
@@ -49,7 +72,7 @@ typedef struct		s_lemin
 	t_rooms			*rooms;
 	char			**pipes;
 	int				flow;
-	char			*ant_display;
+	char			*ant_display;	
 }					t_lemin;
 
 typedef struct		s_edge
@@ -61,6 +84,11 @@ typedef struct		s_edge
 	struct s_edge	*next;
 	struct s_edge	*previous;
 }					t_edge;
+
+typedef struct		s_visu
+{
+	t_minilibx		*mlx;
+}					t_visu;
 
 typedef struct		s_sender
 {
@@ -175,6 +203,16 @@ void				how_many_ants_to_send(t_lemin *lemin, t_sender *sender);
 int					too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_substract);
 int					repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ants_to_add);
 int					get_optimal_path(t_sender *sender, t_list *starting_edges, int flow);
+
+/*
+**	visu.c
+*/
+
+void				visu(t_visu *visu);
+void				ft_init_mlx(t_visu *visu);
+int					key_events(int key, t_visu *visu);
+int					exit_visu(t_visu *visu);
+
 
 /*
 **	graph.h
