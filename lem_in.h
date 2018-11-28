@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/28 11:55:57 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/28 17:15:13 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct			s_coord
 
 typedef struct		s_rooms
 {
+	int				ant_nb;
 	char			*name;
 	t_coord			*coord;
 	t_byte			type;
@@ -79,6 +80,8 @@ typedef struct		s_lemin
 	int				flow;
 	char			*ant_display;	
 	t_minilibx		*mlx;
+	t_list			*usr_in;
+	int				*ants_positions_v;
 }					t_lemin;
 
 typedef struct		s_edge
@@ -128,7 +131,7 @@ void				print_paths_info(t_sender *sender, int flow);
 
 t_bool				check_room_coordinate(char **name);
 t_bool				room_is_valid(char *name);
-t_rooms				*new_room(char *name_ptr, t_byte type, t_coord *coord);
+t_rooms				*new_room(char *name_ptr, t_byte type, t_coord *coord, t_lemin *lemin);
 char				*get_room_name(char *input);
 
 /*
@@ -219,6 +222,8 @@ void				ft_draw_point(t_coord point, t_lemin *lemin);
 void				ft_bresenham(t_coord p1, t_coord p2, t_lemin *visu);
 void				create_pipes(t_lemin *visu);
 void				ft_background(t_lemin *visu);
+void				add_ant(t_lemin *visu, char *line);
+int					get_room_id(t_rooms *rooms, char *room_name);
 
 /*
 **	graph.h

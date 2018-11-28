@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:07:17 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/27 15:53:02 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/28 13:21:33 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ t_bool				add_room(t_lemin **lemin, char *input, t_byte type)
 		ft_strdel(&room_name);
 		return (false);
 	}
-	new = new_room(room_name, type, &coord);
+	new = new_room(room_name, type, &coord, *lemin);
 	new->next = (*lemin)->rooms;
 	(*lemin)->rooms = new;
 	return (true);
