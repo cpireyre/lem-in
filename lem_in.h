@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/27 15:52:35 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/28 11:55:57 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,6 +215,10 @@ void				ft_init_mlx(t_lemin *visu);
 int					key_events(int key, t_lemin *visu);
 int					exit_visu(t_lemin *visu);
 void				ft_create_image(t_lemin *visu);
+void				ft_draw_point(t_coord point, t_lemin *lemin);
+void				ft_bresenham(t_coord p1, t_coord p2, t_lemin *visu);
+void				create_pipes(t_lemin *visu);
+void				ft_background(t_lemin *visu);
 
 /*
 **	graph.h
