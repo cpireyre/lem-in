@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/29 14:29:57 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/29 15:55:24 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define END		3
 # define NORMAL		1
 
+# define W			0xFFFFFF
 
 
 typedef struct			s_image
@@ -83,6 +84,8 @@ typedef struct		s_lemin
 	t_list			*usr_in;
 	t_list			*reset_usr_in;
 	int				*ants_positions_v;
+	t_bool			tuto;
+	t_bool			room_name;
 }					t_lemin;
 
 typedef struct		s_edge
@@ -225,6 +228,8 @@ void				create_pipes(t_lemin *visu);
 void				ft_background(t_lemin *visu);
 void				add_ant(t_lemin *visu, char *line);
 int					get_room_id(t_rooms *rooms, char *room_name);
+void				ft_tutorial(t_lemin *visu);
+void				ft_room_name(t_lemin *visu);
 
 /*
 **	graph.h
