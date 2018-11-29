@@ -6,11 +6,18 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:56:06 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/29 10:37:22 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/29 14:39:35 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+#include <time.h> 
+
+
+int	rand_a_b(int a, int b)
+{
+	return (rand() % (b - a) + a);
+}
 
 int		main()
 {
@@ -23,8 +30,8 @@ int		main()
 	if (!(visu = ft_memalloc(sizeof(t_lemin))))
 		return (0);
 	usr_in = stdin_to_list();
+	visu->reset_usr_in = usr_in;
 	buf_print_list(usr_in);
-	exit(0);
 	tmp = usr_in;
 	visu->usr_in = usr_in;
 	parse(&usr_in, &tmp, visu);
@@ -54,8 +61,7 @@ void		ft_background(t_lemin *visu)
 
 	i = -1;
 	while (++i < visu->mlx->w_width * visu->mlx->w_height)
-		visu->mlx->img.data[i] = 0x684821;
-
+		visu->mlx->img.data[i] = 0x89663E + rand_a_b(0, 5) * 0x0F0F0F;
 }
 
 t_coord		get_coordinates_room(int room_nb, t_lemin *lemin)
@@ -150,8 +156,6 @@ void	ft_move_ants(t_lemin *visu)
 			;
 		i--;
 	}
-	ft_bzero(visu->mlx->img.data, sizeof(int) * visu->mlx->w_height * visu->mlx->w_width);
-	ft_background(visu);
 	create_pipes(visu);
 	ft_create_image(visu);
 	mlx_put_image_to_window(visu->mlx->m_ptr, visu->mlx->w ,visu->mlx->img.img_ptr, 0, 0);
@@ -217,12 +221,44 @@ void	add_ant(t_lemin *visu, char *line)
 	}
 }
 
+void	empty_rooms(t_lemin *visu)
+{
+	t_rooms *rooms;
+
+	rooms = visu->rooms;
+	while (rooms)
+	{
+		if (rooms->type == START)
+			rooms->ant_nb = visu->ants;
+		else
+			rooms->ant_nb = 0;
+		rooms = rooms->next;
+	}
+}
+
+void	ft_reset(t_lemin *visu)
+{
+	int	i;
+
+	i = -1;
+	while (++i < visu->ants)
+		visu->ants_positions_v[i] = visu->start_id;
+	visu->usr_in = visu->reset_usr_in;
+	empty_rooms(visu);
+	create_pipes(visu);
+	ft_create_image(visu);
+	mlx_put_image_to_window(visu->mlx->m_ptr, visu->mlx->w ,visu->mlx->img.img_ptr, 0, 0);
+}
+
 int		key_events(int key, t_lemin *visu)
 {
 	if (key == 53)
 		exit(0);
-	if (key == 124)
+	else if (key == 124)
 		ft_move_ants(visu);
+	else if (key == 15)
+		ft_reset(visu);
+	ft_printf("key = %d\n", key);
 	(void)visu;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 08:20:47 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/29 09:40:04 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/29 13:32:34 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,12 @@ void	buf_print_list(t_list *node)
 
 void	print_ant(int i, char *room_name, int ants_sent, char *display)
 {
-	ft_putstr(display);
-	ft_putnbr(i + 1);
-	ft_putchar('-');
-	ft_putstr(room_name);
-	(i + 1 == ants_sent) ? 0 : ft_putchar(' ');
+	//ft_printf("%s%d-%s", display, i + 1, room_name);
+	 ft_putstr(display);
+	 ft_putnbr(i + 1);
+	 ft_putchar('-');
+	 ft_putstr(room_name);
+	(i + 1 == ants_sent) ? 0 : ft_printf(" ");
 //	ft_putstr("\x1b[0m");
 }
 

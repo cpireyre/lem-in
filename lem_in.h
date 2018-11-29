@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/28 17:15:13 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/29 14:29:57 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ typedef struct		s_lemin
 	char			*ant_display;	
 	t_minilibx		*mlx;
 	t_list			*usr_in;
+	t_list			*reset_usr_in;
 	int				*ants_positions_v;
 }					t_lemin;
 
