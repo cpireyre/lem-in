@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:56:06 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/29 17:05:15 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/29 17:26:07 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -322,13 +322,20 @@ int		key_events(int key, t_lemin *visu)
 	}
 	else if (key == 0)
 	{
+		if (!(visu->auto_mode))
+			system("say -v Thomas 'AUTOMATIC MODE ACTIVATED'");
+		else
+			system("say -v Thomas 'AUTOMATIC MODE DESACTIVATED'");
 		visu->time = time(NULL);
 		visu->auto_mode = !visu->auto_mode;
 	}
 	else if (key == 124)
 		ft_move_ants(visu);
 	else if (key == 15)
+	{
+		system("say -v Thomas 'Movements resetted'");
 		ft_reset(visu);
+	}
 	else if (key == 31)
 		visu->room_name = !(visu->room_name);
 	else
