@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:56:06 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/29 17:26:07 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/29 17:44:07 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,18 @@
 int	rand_a_b(int a, int b)
 {
 	return (rand() % (b - a) + a);
+}
+
+void	display_ant_nb(t_lemin *visu)
+{
+	t_rooms *rooms;
+
+	rooms = visu->rooms;
+	while (rooms)
+	{
+		mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, rooms->coord->x + 20 , rooms->coord->y + 20, 0xFF0000, ft_itoa(rooms->ant_nb));
+		rooms = rooms->next;
+	}
 }
 
 int		ft_loop_events(t_lemin *visu)
@@ -30,6 +42,7 @@ int		ft_loop_events(t_lemin *visu)
 		ft_tutorial(visu);
 	if (visu->room_name)
 		ft_room_name(visu);
+	display_ant_nb(visu);
 	return (0);
 }
 
@@ -129,7 +142,7 @@ void	ft_create_image(t_lemin *visu)
 		{
 			j = 0;
 			while (j++ < 60)
-				visu->mlx->img.data[visu->rooms->coord->x + i + (visu->rooms->coord->y + j) * visu->mlx->w_width] = visu->rooms->ant_nb * 300 * 0x000010;
+				visu->mlx->img.data[visu->rooms->coord->x + i + (visu->rooms->coord->y + j) * visu->mlx->w_width] = visu->rooms->ant_nb * 10 * 0x0F0F0F;
 		}
 		visu->rooms = visu->rooms->next;
 	}
