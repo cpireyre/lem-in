@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:56:06 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/28 18:04:25 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/29 10:37:22 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int		main()
 	if (!(visu = ft_memalloc(sizeof(t_lemin))))
 		return (0);
 	usr_in = stdin_to_list();
+	buf_print_list(usr_in);
+	exit(0);
 	tmp = usr_in;
 	visu->usr_in = usr_in;
 	parse(&usr_in, &tmp, visu);
@@ -107,7 +109,7 @@ void	ft_create_image(t_lemin *visu)
 		{
 			j = 0;
 			while (j++ < 60)
-				visu->mlx->img.data[visu->rooms->coord->x + i + (visu->rooms->coord->y + j) * visu->mlx->w_width] = visu->rooms->ant_nb * 0xB0B0B0;
+				visu->mlx->img.data[visu->rooms->coord->x + i + (visu->rooms->coord->y + j) * visu->mlx->w_width] = visu->rooms->ant_nb * 300 * 0x000010;
 		}
 		visu->rooms = visu->rooms->next;
 	}
@@ -132,13 +134,17 @@ void	ft_move_ants(t_lemin *visu)
 	int	i;
 
 	i = 0;
-	visu->usr_in = visu->usr_in->next;
+	if (visu->usr_in->next)
+		visu->usr_in = visu->usr_in->next;
+	else
+		return ;
 	while (visu->usr_in->content && ((char *)visu->usr_in->content)[0] != 'L')
 		visu->usr_in = visu->usr_in->next;
 	while (((char *)visu->usr_in->content)[i++])
 	{
 		if ((size_t)i >= ft_strlen(((char *)visu->usr_in->content)))
 			break ;
+		ft_printf("line sent to add_ant = %s\n", &(((char *)visu->usr_in->content)[i]));
 		add_ant(visu ,&(((char *)visu->usr_in->content)[i]));
 		while ((((char *)visu->usr_in->content)[i] && ((char *)visu->usr_in->content)[i++] != 'L'))
 			;

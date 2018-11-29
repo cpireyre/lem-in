@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/11/27 16:46:46 by tboissel         ###   ########.fr        #
+#    Updated: 2018/11/29 10:06:11 by tboissel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS	:=	-Wall -Wextra -Werror
 LIBDIR	:=	./libft
 LIBFT	:=	$(LIBDIR)/libft.a
 BFLAGS	:=	-I$(LIBDIR)/
-DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined -Og
+#DEBUG	:=	#-g3 -fsanitize=address -fsanitize=undefined -Og
 INCLUDE	:=	-lft -L$(LIBDIR)/
 NAME	:=	lem-in
 
@@ -42,7 +42,7 @@ $(LIBFT): force
 %.o: %.c $(DEPS)
 	$(CC) $(CFLAGS) $(BFLAGS) $< -c -o $@ $(DEBUG)
 
-$(NAME): $(DEPS) $(LIBFT) $(OBJ) $(VISU)
+$(NAME): $(DEPS) $(LIBFT) $(OBJ) $(MAINO) $(VISU)
 	$(CC) $(CFLAGS) $(BFLAGS) $(INCLUDE) $(FRAME) $(DEBUG) $(OBJ) $(MAINO) -o $@
 	#ctags -R # for ease of navigation with vim
 
@@ -51,11 +51,11 @@ $(VISU) : $(DEPS) $(LIBFT) $(OBJ) $(MAINVO)
 
 clean:
 	$(MAKE) clean -C $(LIBDIR)
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) $(MAINVO) $(MAINO)
 
 fclean: clean
 	make fclean -C libft/
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(VISU)
 	$(RM) tags
 
 re: fclean all

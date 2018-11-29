@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 08:20:47 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/27 13:42:05 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/29 09:40:04 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	print_ant(int i, char *room_name, int ants_sent, char *display)
 	ft_putchar('-');
 	ft_putstr(room_name);
 	(i + 1 == ants_sent) ? 0 : ft_putchar(' ');
-	ft_putstr("\x1b[0m");
+//	ft_putstr("\x1b[0m");
 }
 
 void	print_rooms(t_rooms *map)
