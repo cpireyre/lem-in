@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/29 15:55:24 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/11/29 16:51:56 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft.h"
 # include <stdlib.h>
 # include <mlx.h>
+# include <unistd.h>
 
 /*
 **	Debug settings:
@@ -86,6 +87,8 @@ typedef struct		s_lemin
 	int				*ants_positions_v;
 	t_bool			tuto;
 	t_bool			room_name;
+	t_bool			auto_mode;
+	time_t			time;
 }					t_lemin;
 
 typedef struct		s_edge
@@ -230,6 +233,7 @@ void				add_ant(t_lemin *visu, char *line);
 int					get_room_id(t_rooms *rooms, char *room_name);
 void				ft_tutorial(t_lemin *visu);
 void				ft_room_name(t_lemin *visu);
+void				ft_move_ants(t_lemin *visu);
 
 /*
 **	graph.h
