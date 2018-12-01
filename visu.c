@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:56:06 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/01 11:55:19 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/01 12:15:33 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,10 @@ void	ft_create_image(t_lemin *visu)
 		{
 			j = 0;
 			while (j++ < 60)
+			{
+				if (visu->rooms->coord->x + i + (visu->rooms->coord->y + j) * visu->mlx->w_width > 0 && visu->rooms->coord->x + i + (visu->rooms->coord->y + j) * visu->mlx->w_width < 1920000)
 				visu->mlx->img.data[visu->rooms->coord->x + i + (visu->rooms->coord->y + j) * visu->mlx->w_width] = visu->rooms->ant_nb * 10 * 0x0F0F0F;
+			}
 		}
 		visu->rooms = visu->rooms->next;
 	}
@@ -350,6 +353,7 @@ int		key_events(int key, t_lemin *visu)
 	}
 	else if (key == 15)
 	{
+		visu->mv_done = 0;
 		ft_reset(visu);
 		system("say -v Thomas 'Movements resetted'");
 	}
