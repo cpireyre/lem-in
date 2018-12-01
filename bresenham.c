@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 16:16:04 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/28 12:25:37 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/01 13:11:10 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void	ft_draw_point(t_coord point, t_lemin *lemin)
 		lemin->mlx->img.data[point.x + point.y * lemin->mlx->w_width] = 0;
 	}
 }
-
 
 void	ft_bresenham_high(t_coord p1, t_coord p2, t_lemin *visu)
 {
