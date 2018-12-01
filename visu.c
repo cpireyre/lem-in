@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:56:06 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/01 13:17:27 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/01 13:39:09 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	display_ant_nb(t_lemin *visu)
 	rooms = visu->rooms;
 	while (rooms)
 	{
-		mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, rooms->coord->x + 20, rooms->coord->y + 20, 0xFF0000, ft_itoa(rooms->ant_nb));
+		mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, rooms->coord->x + 20, \
+rooms->coord->y + 20, 0xFF0000, ft_itoa(rooms->ant_nb));
 		rooms = rooms->next;
 	}
 }
@@ -36,7 +37,8 @@ int		ft_loop_events(t_lemin *visu)
 		ft_move_ants(visu, REGULAR);
 	create_pipes(visu);
 	ft_create_image(visu);
-	mlx_put_image_to_window(visu->mlx->m_ptr, visu->mlx->w, visu->mlx->img.img_ptr, 0, 0);
+	mlx_put_image_to_window(visu->mlx->m_ptr, visu->mlx->w, \
+visu->mlx->img.img_ptr, 0, 0);
 	if (visu->tuto)
 		ft_tutorial(visu);
 	if (visu->room_name)
@@ -57,19 +59,15 @@ int		main(void)
 		return (0);
 	usr_in = stdin_to_list();
 	visu->reset_usr_in = usr_in;
-	buf_print_list(usr_in);
 	tmp = usr_in;
 	visu->usr_in = usr_in;
 	parse(&usr_in, &tmp, visu);
-	if (!((visu->ants_positions_v) = ft_memalloc(sizeof(int) * visu->ants)))
+	if (!((visu->ants_pos_v) = ft_memalloc(sizeof(int) * visu->ants)))
 		return (0);
 	while (++i < visu->ants)
-		visu->ants_positions_v[i] = visu->start_id;
+		visu->ants_pos_v[i] = visu->start_id;
 	ft_init_mlx(visu);
 	ft_background(visu);
-	create_pipes(visu);
-	ft_create_image(visu);
-	mlx_put_image_to_window(visu->mlx->m_ptr, visu->mlx->w, visu->mlx->img.img_ptr, 0, 0);
 	mlx_key_hook(visu->mlx->w, key_events, visu);
 	mlx_loop_hook(visu->mlx->m_ptr, ft_loop_events, visu);
 	mlx_loop(visu->mlx->m_ptr);
@@ -142,8 +140,12 @@ void	ft_create_image(t_lemin *visu)
 			j = 0;
 			while (j++ < 60)
 			{
-				if (visu->rooms->coord->x + i + (visu->rooms->coord->y + j) * visu->mlx->w_width > 0 && visu->rooms->coord->x + i + (visu->rooms->coord->y + j) * visu->mlx->w_width < 1920000)
-					visu->mlx->img.data[visu->rooms->coord->x + i + (visu->rooms->coord->y + j) * visu->mlx->w_width] = visu->rooms->ant_nb * 10 * 0x0F0F0F;
+				if (visu->rooms->coord->x + i + (visu->rooms->coord->y + j) * \
+visu->mlx->w_width > 0 && visu->rooms->coord->x + i + \
+(visu->rooms->coord->y + j) * visu->mlx->w_width < 1920000)
+					visu->mlx->img.data[visu->rooms->coord->x + i + \
+(visu->rooms->coord->y + j) * visu->mlx->w_width] = visu->rooms->ant_nb * 10 * \
+0x0F0F0F;
 			}
 		}
 		visu->rooms = visu->rooms->next;
@@ -158,8 +160,10 @@ void	ft_init_mlx(t_lemin *visu)
 	visu->mlx->w_height = 1200;
 	visu->mlx->w_width = 1600;
 	visu->mlx->m_ptr = mlx_init();
-	visu->mlx->w = mlx_new_window(visu->mlx->m_ptr, visu->mlx->w_width, visu->mlx->w_height, "Visualisateur lem-in");
-	visu->mlx->img.img_ptr = mlx_new_image(visu->mlx->m_ptr, visu->mlx->w_width, visu->mlx->w_height);
+	visu->mlx->w = mlx_new_window(visu->mlx->m_ptr, visu->mlx->w_width, \
+visu->mlx->w_height, "Visualisateur lem-in");
+	visu->mlx->img.img_ptr = mlx_new_image(visu->mlx->m_ptr, \
+visu->mlx->w_width, visu->mlx->w_height);
 	visu->mlx->img.data = (int *)mlx_get_data_addr(visu->mlx->img.img_ptr,
 	&visu->mlx->img.bpp, &visu->mlx->img.size_l, &visu->mlx->img.endian);
 }
@@ -167,7 +171,7 @@ void	ft_init_mlx(t_lemin *visu)
 void	ft_move_ants(t_lemin *visu, t_bool mode)
 {
 	int		i;
-	time_t 	time_now;
+	time_t	time_now;
 
 	time_now = time(NULL);
 	if (visu->auto_mode && time_now - visu->time < 1)
@@ -184,13 +188,15 @@ void	ft_move_ants(t_lemin *visu, t_bool mode)
 		if ((size_t)i >= ft_strlen(((char *)visu->usr_in->content)))
 			break ;
 		add_ant(visu, &(((char *)visu->usr_in->content)[i]));
-		while ((((char *)visu->usr_in->content)[i] && ((char *)visu->usr_in->content)[i++] != 'L'))
+		while ((((char *)visu->usr_in->content)[i] && \
+((char *)visu->usr_in->content)[i++] != 'L'))
 			;
 		i--;
 	}
 	create_pipes(visu);
 	ft_create_image(visu);
-	mlx_put_image_to_window(visu->mlx->m_ptr, visu->mlx->w, visu->mlx->img.img_ptr, 0, 0);
+	mlx_put_image_to_window(visu->mlx->m_ptr, visu->mlx->w, \
+visu->mlx->img.img_ptr, 0, 0);
 	visu->time = time(NULL);
 	if (mode == REGULAR)
 		visu->mv_done++;
@@ -219,7 +225,7 @@ void	substract_ant(t_lemin *visu, int ant_nb)
 	t_rooms *rooms;
 
 	rooms = visu->rooms;
-	room_id = visu->ants_positions_v[ant_nb - 1];
+	room_id = visu->ants_pos_v[ant_nb - 1];
 	while (rooms && room_id--)
 		rooms = rooms->next;
 	rooms->ant_nb--;
@@ -229,7 +235,7 @@ void	add_ant(t_lemin *visu, char *line)
 {
 	int		i;
 	int		j;
-	char	*room_name;
+	char	*r_name;
 	t_rooms	*rooms;
 	int		ant_nb;
 
@@ -240,13 +246,13 @@ void	add_ant(t_lemin *visu, char *line)
 	line = ft_strstr(line, "-");
 	while (line[j] && ft_isalnum(line[j]))
 		j++;
-	room_name = ft_strsub(line, 1, j - 1);
+	r_name = ft_strsub(line, 1, j - 1);
 	while (rooms)
 	{
-		if (!ft_strcmp(room_name, rooms->name))
+		if (!ft_strcmp(r_name, rooms->name))
 		{
 			substract_ant(visu, ant_nb);
-			visu->ants_positions_v[ant_nb - 1] = get_room_id(visu->rooms, room_name);
+			visu->ants_pos_v[ant_nb - 1] = get_room_id(visu->rooms, r_name);
 			rooms->ant_nb += 1;
 			return ;
 		}
@@ -275,12 +281,13 @@ void	ft_reset(t_lemin *visu)
 
 	i = -1;
 	while (++i < visu->ants)
-		visu->ants_positions_v[i] = visu->start_id;
+		visu->ants_pos_v[i] = visu->start_id;
 	visu->usr_in = visu->reset_usr_in;
 	empty_rooms(visu);
 	create_pipes(visu);
 	ft_create_image(visu);
-	mlx_put_image_to_window(visu->mlx->m_ptr, visu->mlx->w, visu->mlx->img.img_ptr, 0, 0);
+	mlx_put_image_to_window(visu->mlx->m_ptr, visu->mlx->w, \
+visu->mlx->img.img_ptr, 0, 0);
 }
 
 void	ft_room_name(t_lemin *visu)
@@ -297,25 +304,29 @@ void	ft_room_name(t_lemin *visu)
 			color = 0xD4AF37;
 		else
 			color = W;
-		mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, rooms->coord->x, rooms->coord->y - 20, color, rooms->name);
+		mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, rooms->coord->x, \
+rooms->coord->y - 20, color, rooms->name);
 		rooms = rooms->next;
 	}
 }
 
-void	ft_tutorial(t_lemin *visu)
+void	ft_tutorial(t_lemin *v)
 {
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1050, 10, W, "ESC");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1300, 10, W, "Quit visu");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1050, 40, W, "R");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1300, 40, W, "Reset");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1050, 70, W, "Right and leftß Arrows");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1300, 70, W, "Do/Rewind one set of moves");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1050, 100, W, "O");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1300, 100, W, "Display/Toggle room names");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1050, 130, W, "A");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1300, 130, W, "Automatic mode");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1050, 160, W, "Any other key");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1300, 160, W, "Toggle tutorial");
+	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1050, 10, W, "ESC");
+	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1300, 10, W, "Quit visu");
+	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1050, 40, W, "R");
+	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1300, 40, W, "Reset");
+	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1050, 70, W, "Right and left \
+Arrows");
+	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1300, 70, W, "Do/Rewind one \
+set of moves");
+	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1050, 100, W, "O");
+	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1300, 100, W, "Display/Toggle \
+room names");
+	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1050, 130, W, "A");
+	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1300, 130, W, "Automatic mode");
+	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1050, 160, W, "Any other key");
+	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1300, 160, W, "Toggle tutorial");
 }
 
 int		key_events(int key, t_lemin *visu)

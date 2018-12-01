@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/01 11:15:49 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/01 13:36:37 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ typedef struct		s_lemin
 	t_minilibx		*mlx;
 	t_list			*usr_in;
 	t_list			*reset_usr_in;
-	int				*ants_positions_v;
+	int				*ants_pos_v;
 	t_bool			tuto;
 	t_bool			room_name;
 	t_bool			auto_mode;
