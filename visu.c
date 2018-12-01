@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:56:06 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/01 14:30:36 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/01 15:38:31 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ void	ft_create_image(t_lemin *visu)
 visu->mlx->w_width > 0 && visu->rooms->coord->x + i + \
 (visu->rooms->coord->y + j) * visu->mlx->w_width < 1920000)
 					visu->mlx->img.data[visu->rooms->coord->x + i + \
-(visu->rooms->coord->y + j) * visu->mlx->w_width] = visu->rooms->ant_nb * 10 * \
+(visu->rooms->coord->y + j) * visu->mlx->w_width] = visu->rooms->ant_nb * visu->ants * \
 0x0F0F0F;
 			}
 		}
