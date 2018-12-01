@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:56:06 by tboissel          #+#    #+#             */
-/*   Updated: 2018/11/29 17:44:07 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/01 11:55:19 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	display_ant_nb(t_lemin *visu)
 int		ft_loop_events(t_lemin *visu)
 {
 	if (visu->auto_mode)
-		ft_move_ants(visu);
+		ft_move_ants(visu, REGULAR);
 	create_pipes(visu);
 	ft_create_image(visu);
 	mlx_put_image_to_window(visu->mlx->m_ptr, visu->mlx->w ,visu->mlx->img.img_ptr, 0, 0);
@@ -162,13 +162,12 @@ void	ft_init_mlx(t_lemin *visu)
 	&visu->mlx->img.bpp, &visu->mlx->img.size_l, &visu->mlx->img.endian);
 }
 
-void	ft_move_ants(t_lemin *visu)
+void	ft_move_ants(t_lemin *visu, t_bool mode)
 {
 	int	i;
 	time_t time_now;
 
 	time_now = time(NULL);
-	ft_printf("%d, %d\n", visu->auto_mode, time_now - visu->time);
 	if (visu->auto_mode && time_now - visu->time < 1)
 		return ;
 	i = 0;
@@ -182,7 +181,6 @@ void	ft_move_ants(t_lemin *visu)
 	{
 		if ((size_t)i >= ft_strlen(((char *)visu->usr_in->content)))
 			break ;
-		ft_printf("line sent to add_ant = %s\n", &(((char *)visu->usr_in->content)[i]));
 		add_ant(visu ,&(((char *)visu->usr_in->content)[i]));
 		while ((((char *)visu->usr_in->content)[i] && ((char *)visu->usr_in->content)[i++] != 'L'))
 			;
@@ -192,6 +190,8 @@ void	ft_move_ants(t_lemin *visu)
 	ft_create_image(visu);
 	mlx_put_image_to_window(visu->mlx->m_ptr, visu->mlx->w ,visu->mlx->img.img_ptr, 0, 0);
 	visu->time = time(NULL);
+	if (mode == REGULAR)
+		visu->mv_done++;
 }
 
 int		get_room_id(t_rooms *rooms, char *room_name)
@@ -216,7 +216,6 @@ void	substract_ant(t_lemin *visu, int ant_nb)
 	int	room_id;
 	t_rooms *rooms;
 
-	ft_printf("ant_nb = %d\n", ant_nb);
 	rooms = visu->rooms;
 	room_id = visu->ants_positions_v[ant_nb - 1];
 	while (rooms && room_id--)
@@ -303,31 +302,26 @@ void	ft_room_name(t_lemin *visu)
 
 void	ft_tutorial(t_lemin *visu)
 {
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1100, 10, W, "ESC");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1350, 10, W, "Quit visu");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1100, 40, W, "R");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1350, 40, W, "Reset");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1100, 70, W, "Right Arrow");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1350, 70, W, "Do next set of moves");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1100, 100, W, "O");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1350, 100, W, "Display/Toggle room names");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1100, 130, W, "A");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1350, 130, W, "Automatic mode");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1100, 160, W, "Any other key");
-	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1350, 160, W, "Toggle tutorial");
+	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1050, 10, W, "ESC");
+	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1300, 10, W, "Quit visu");
+	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1050, 40, W, "R");
+	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1300, 40, W, "Reset");
+	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1050, 70, W, "Right and leftß Arrows");
+	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1300, 70, W, "Do/Rewind one set of moves");
+	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1050, 100, W, "O");
+	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1300, 100, W, "Display/Toggle room names");
+	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1050, 130, W, "A");
+	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1300, 130, W, "Automatic mode");
+	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1050, 160, W, "Any other key");
+	mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, 1300, 160, W, "Toggle tutorial");
 }
 
-void	auto_mode(t_lemin *visu)
-{
-	while (1)
-	{
-		sleep(1);
-		ft_move_ants(visu);
-	}
-}
 
 int		key_events(int key, t_lemin *visu)
 {
+	t_byte	mv;
+
+	mv = visu->mv_done;
 	ft_printf("key = %d\n", key);
 	if (key == 53)
 	{
@@ -343,11 +337,21 @@ int		key_events(int key, t_lemin *visu)
 		visu->auto_mode = !visu->auto_mode;
 	}
 	else if (key == 124)
-		ft_move_ants(visu);
+		ft_move_ants(visu, REGULAR);
+	else if (key == 123)
+	{
+		ft_reset(visu);
+		if (visu->mv_done)
+		{
+			while (--mv)
+				ft_move_ants(visu, BACKWARDS);
+			visu->mv_done--;
+		}
+	}
 	else if (key == 15)
 	{
-		system("say -v Thomas 'Movements resetted'");
 		ft_reset(visu);
+		system("say -v Thomas 'Movements resetted'");
 	}
 	else if (key == 31)
 		visu->room_name = !(visu->room_name);

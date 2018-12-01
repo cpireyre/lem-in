@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/29 16:51:56 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/01 11:15:49 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@
 # define NORMAL		1
 
 # define W			0xFFFFFF
-
+# define REGULAR	true
+# define BACKWARDS	false
 
 typedef struct			s_image
 {
@@ -88,7 +89,9 @@ typedef struct		s_lemin
 	t_bool			tuto;
 	t_bool			room_name;
 	t_bool			auto_mode;
+	t_byte			mv_done;
 	time_t			time;
+	
 }					t_lemin;
 
 typedef struct		s_edge
@@ -233,7 +236,7 @@ void				add_ant(t_lemin *visu, char *line);
 int					get_room_id(t_rooms *rooms, char *room_name);
 void				ft_tutorial(t_lemin *visu);
 void				ft_room_name(t_lemin *visu);
-void				ft_move_ants(t_lemin *visu);
+void				ft_move_ants(t_lemin *visu, t_bool mode);
 
 /*
 **	graph.h
