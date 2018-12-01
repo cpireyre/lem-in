@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:56:06 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/01 13:39:09 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/01 14:30:36 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,9 +174,8 @@ void	ft_move_ants(t_lemin *visu, t_bool mode)
 	time_t	time_now;
 
 	time_now = time(NULL);
-	if (visu->auto_mode && time_now - visu->time < 1)
+	if (!(i = 0) && visu->auto_mode && time_now - visu->time < 1)
 		return ;
-	i = 0;
 	if (visu->usr_in->next)
 		visu->usr_in = visu->usr_in->next;
 	else
@@ -193,10 +192,6 @@ void	ft_move_ants(t_lemin *visu, t_bool mode)
 			;
 		i--;
 	}
-	create_pipes(visu);
-	ft_create_image(visu);
-	mlx_put_image_to_window(visu->mlx->m_ptr, visu->mlx->w, \
-visu->mlx->img.img_ptr, 0, 0);
 	visu->time = time(NULL);
 	if (mode == REGULAR)
 		visu->mv_done++;
@@ -284,10 +279,6 @@ void	ft_reset(t_lemin *visu)
 		visu->ants_pos_v[i] = visu->start_id;
 	visu->usr_in = visu->reset_usr_in;
 	empty_rooms(visu);
-	create_pipes(visu);
-	ft_create_image(visu);
-	mlx_put_image_to_window(visu->mlx->m_ptr, visu->mlx->w, \
-visu->mlx->img.img_ptr, 0, 0);
 }
 
 void	ft_room_name(t_lemin *visu)
@@ -329,26 +320,12 @@ room names");
 	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1300, 160, W, "Toggle tutorial");
 }
 
-int		key_events(int key, t_lemin *visu)
+int		key_others(int key, t_lemin *visu)
 {
-	t_byte	mv;
+	t_byte mv;
 
 	mv = visu->mv_done;
-	ft_printf("key = %d\n", key);
-	if (key == 53)
-	{
-		exit(0);
-	}
-	else if (key == 0)
-	{
-		if (!(visu->auto_mode))
-			system("say -v Thomas 'AUTOMATIC MODE ACTIVATED'");
-		else
-			system("say -v Thomas 'AUTOMATIC MODE DESACTIVATED'");
-		visu->time = time(NULL);
-		visu->auto_mode = !visu->auto_mode;
-	}
-	else if (key == 124)
+	if (key == 124)
 		ft_move_ants(visu, REGULAR);
 	else if (key == 123)
 	{
@@ -360,6 +337,17 @@ int		key_events(int key, t_lemin *visu)
 			visu->mv_done--;
 		}
 	}
+	else
+		visu->tuto = !(visu->tuto);
+	return (0);
+}
+
+int		key_events(int key, t_lemin *visu)
+{
+	if (key == 53)
+	{
+		exit(0);
+	}
 	else if (key == 15)
 	{
 		visu->mv_done = 0;
@@ -368,7 +356,16 @@ int		key_events(int key, t_lemin *visu)
 	}
 	else if (key == 31)
 		visu->room_name = !(visu->room_name);
+	else if (key == 0)
+	{
+		if (!(visu->auto_mode))
+			system("say -v Thomas 'AUTOMATIC MODE ACTIVATED'");
+		else
+			system("say -v Thomas 'AUTOMATIC MODE DESACTIVATED'");
+		visu->time = time(NULL);
+		visu->auto_mode = !visu->auto_mode;
+	}
 	else
-		visu->tuto = !(visu->tuto);
+		key_others(key, visu);
 	return (0);
 }
