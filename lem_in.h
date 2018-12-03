@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/03 11:55:26 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/03 13:42:54 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct		s_rooms
 {
 	int				ant_nb;
 	char			*name;
-	t_coord			*coord;
+	t_coord			coord;
 	t_byte			type;
 	struct s_rooms	*next;
 }					t_rooms;
@@ -83,7 +83,6 @@ typedef struct		s_lemin
 	int				flow;
 	char			*ant_display;	
 	t_list			*usr_in;
-	
 }					t_lemin;
 
 typedef struct		s_visu

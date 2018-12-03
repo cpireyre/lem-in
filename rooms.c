@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 08:06:24 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/28 13:24:17 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/03 12:56:21 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,8 @@ t_rooms	*new_room(char *name_ptr, t_byte type, t_coord *coord, t_lemin *lemin)
 	t_rooms	*new;
 
 	new = ft_memalloc(sizeof(t_rooms));
-	new->coord = ft_memalloc(sizeof(t_coord));
-	new->coord->x = coord->x;
-	new->coord->y = coord->y;
+	new->coord.x = coord->x;
+	new->coord.y = coord->y;
 	new->name = name_ptr;
 	new->type = type;
 	if (type == START)

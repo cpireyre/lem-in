@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:07:17 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/28 13:21:33 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/03 13:46:12 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ t_coord				get_coord(char *input)
 		coord.x = ft_atoi(splitted[i - 3]);
 		coord.y = ft_atoi(splitted[i - 2]);
 	}
+	free_split(splitted);
 	return (coord);
 }
 

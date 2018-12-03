@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:56:06 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/03 12:00:10 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/03 14:03:32 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,15 @@ int	rand_a_b(int a, int b)
 void	display_ant_nb(t_visu *visu)
 {
 	t_rooms *rooms;
+	char	*nb;
 
 	rooms = visu->lemin->rooms;
 	while (rooms)
 	{
-		mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, rooms->coord->x + 20, \
-rooms->coord->y + 20, 0xFF0000, ft_itoa(rooms->ant_nb));
+		nb = ft_itoa(rooms->ant_nb);
+		mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, rooms->coord.x + 20, \
+rooms->coord.y + 20, 0xFF0000, nb);
+		free(nb);
 		rooms = rooms->next;
 	}
 }
@@ -77,8 +80,14 @@ int		main(void)
 
 int	exit_visu(t_visu *visu)
 {
+	free(visu->reset_usr_in);
+	free(visu->ants_pos_v);
+	free_rooms(&visu->lemin->rooms);
+	free(visu->lemin->pipes);
+	free(visu->lemin->start_name);
+	free(visu->lemin->end_name);
+	free(visu->lemin);
 	exit(0);
-	(void)visu;
 }
 
 void		ft_background(t_visu *visu)
@@ -98,8 +107,8 @@ t_coord		get_coordinates_room(int room_nb, t_lemin *lemin)
 	rooms = lemin->rooms;
 	while (room_nb--)
 		lemin->rooms = lemin->rooms->next;
-	coord.x = lemin->rooms->coord->x + 30;
-	coord.y = lemin->rooms->coord->y + 30;
+	coord.x = lemin->rooms->coord.x + 30;
+	coord.y = lemin->rooms->coord.y + 30;
 	lemin->rooms = rooms;
 	return (coord);
 }
@@ -134,7 +143,7 @@ void	ft_create_image(t_visu *visu)
 	t_rooms	*rooms;
 
 	rooms = visu->lemin->rooms;
-	while (visu->lemin->rooms)
+	while (rooms)
 	{
 		i = 0;
 		while (i++ < 60)
@@ -142,16 +151,16 @@ void	ft_create_image(t_visu *visu)
 			j = 0;
 			while (j++ < 60)
 			{
-				if (visu->lemin->rooms->coord->x + i + (visu->lemin->rooms->coord->y + j) * \
-visu->mlx->w_width > 0 && visu->lemin->rooms->coord->x + i + \
-(visu->lemin->rooms->coord->y + j) * visu->mlx->w_width < 1920000)
-					visu->mlx->img.data[visu->lemin->rooms->coord->x + i + \
-(visu->lemin->rooms->coord->y + j) * visu->mlx->w_width] = visu->lemin->rooms->ant_nb * 0xFFFFFF;
+				if (rooms->coord.x + i + (rooms->coord.y + j) * \
+visu->mlx->w_width > 0 && rooms->coord.x + i + \
+(rooms->coord.y + j) * visu->mlx->w_width < 1920000)
+					visu->mlx->img.data[rooms->coord.x + i + \
+(rooms->coord.y + j) * visu->mlx->w_width] = rooms->ant_nb * 0xFFFFFF;
 			}
 		}
-		visu->lemin->rooms = visu->lemin->rooms->next;
+		rooms = rooms->next;
 	}
-	visu->lemin->rooms = rooms;
+	rooms = visu->lemin->rooms;
 }
 
 void	ft_init_mlx(t_visu *visu)
@@ -231,6 +240,7 @@ void	add_ant(t_visu *visu, char *line)
 {
 	int		i;
 	int		j;
+	char	*cut_line;
 	char	*r_name;
 	t_rooms	*rooms;
 	int		ant_nb;
@@ -239,10 +249,10 @@ void	add_ant(t_visu *visu, char *line)
 	rooms = visu->lemin->rooms;
 	i = -1;
 	j = 1;
-	line = ft_strstr(line, "-");
-	while (line[j] && ft_isalnum(line[j]))
+	cut_line = ft_strstr(line, "-");
+	while (cut_line[j] && ft_isalnum(cut_line[j]))
 		j++;
-	r_name = ft_strsub(line, 1, j - 1);
+	r_name = ft_strsub(cut_line, 1, j - 1);
 	while (rooms)
 	{
 		if (!ft_strcmp(r_name, rooms->name))
@@ -250,6 +260,7 @@ void	add_ant(t_visu *visu, char *line)
 			substract_ant(visu, ant_nb);
 			visu->ants_pos_v[ant_nb - 1] = get_room_id(visu->lemin->rooms, r_name);
 			rooms->ant_nb += 1;
+			free(r_name);
 			return ;
 		}
 		rooms = rooms->next;
@@ -296,8 +307,8 @@ void	ft_room_name(t_visu *visu)
 			color = 0xD4AF37;
 		else
 			color = W;
-		mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, rooms->coord->x, \
-rooms->coord->y - 20, color, rooms->name);
+		mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, rooms->coord.x, \
+rooms->coord.y - 20, color, rooms->name);
 		rooms = rooms->next;
 	}
 }
@@ -347,7 +358,7 @@ int		key_events(int key, t_visu *visu)
 {
 	if (key == 53)
 	{
-		exit(0);
+		exit_visu(visu);
 	}
 	else if (key == 15)
 	{
