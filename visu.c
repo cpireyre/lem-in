@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:56:06 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/03 14:11:29 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/03 15:01:09 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ int		main(void)
 
 int	exit_visu(t_visu *visu)
 {
-	free(visu->reset_usr_in);
 	free(visu->ants_pos_v);
 	free_rooms(&visu->lemin->rooms);
 	free(visu->lemin->pipes);
@@ -88,7 +87,6 @@ int	exit_visu(t_visu *visu)
 	free(visu->lemin->end_name);
 	free(visu->lemin->usr_in);
 	free(visu->lemin);
-	while (1);
 	exit(0);
 }
 
