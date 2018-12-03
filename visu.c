@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:56:06 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/03 11:32:34 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/03 12:00:10 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int	rand_a_b(int a, int b)
 	return (rand() % (b - a) + a);
 }
 
-void	display_ant_nb(t_lemin *visu)
+void	display_ant_nb(t_visu *visu)
 {
 	t_rooms *rooms;
 
-	rooms = visu->rooms;
+	rooms = visu->lemin->rooms;
 	while (rooms)
 	{
 		mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, rooms->coord->x + 20, \
@@ -31,7 +31,7 @@ rooms->coord->y + 20, 0xFF0000, ft_itoa(rooms->ant_nb));
 	}
 }
 
-int		ft_loop_events(t_lemin *visu)
+int		ft_loop_events(t_visu *visu)
 {
 	if (visu->auto_mode)
 		ft_move_ants(visu, REGULAR);
@@ -49,23 +49,25 @@ visu->mlx->img.img_ptr, 0, 0);
 
 int		main(void)
 {
-	t_lemin	*visu;
+	t_visu	*visu;
 	t_list	*usr_in;
 	t_list	*tmp;
 	int		i;
 
 	i = -1;
-	if (!(visu = ft_memalloc(sizeof(t_lemin))))
+	if (!(visu = ft_memalloc(sizeof(t_visu))))
+		return (0);
+	if (!(visu->lemin = ft_memalloc(sizeof(t_lemin))))
 		return (0);
 	usr_in = stdin_to_list();
 	visu->reset_usr_in = usr_in;
 	tmp = usr_in;
-	visu->usr_in = usr_in;
-	parse(&usr_in, &tmp, visu);
-	if (!((visu->ants_pos_v) = ft_memalloc(sizeof(int) * visu->ants)))
+	visu->lemin->usr_in = usr_in;
+	parse(&usr_in, &tmp, visu->lemin);
+	if (!((visu->ants_pos_v) = ft_memalloc(sizeof(int) * visu->lemin->ants)))
 		return (0);
-	while (++i < visu->ants)
-		visu->ants_pos_v[i] = visu->start_id;
+	while (++i < visu->lemin->ants)
+		visu->ants_pos_v[i] = visu->lemin->start_id;
 	ft_init_mlx(visu);
 	ft_background(visu);
 	mlx_key_hook(visu->mlx->w, key_events, visu);
@@ -73,13 +75,13 @@ int		main(void)
 	mlx_loop(visu->mlx->m_ptr);
 }
 
-int	exit_visu(t_lemin *visu)
+int	exit_visu(t_visu *visu)
 {
 	exit(0);
 	(void)visu;
 }
 
-void		ft_background(t_lemin *visu)
+void		ft_background(t_visu *visu)
 {
 	int		i;
 
@@ -102,7 +104,7 @@ t_coord		get_coordinates_room(int room_nb, t_lemin *lemin)
 	return (coord);
 }
 
-void	create_pipes(t_lemin *visu)
+void	create_pipes(t_visu *visu)
 {
 	int		i;
 	int		j;
@@ -110,29 +112,29 @@ void	create_pipes(t_lemin *visu)
 	t_coord	coord2;
 
 	i = -1;
-	while (++i < visu->map_size)
+	while (++i < visu->lemin->map_size)
 	{
 		j = -1;
 		while (++j < i)
 		{
-			if (visu->pipes[i][j] == CONNECTED)
+			if (visu->lemin->pipes[i][j] == CONNECTED)
 			{
-				coord1 = get_coordinates_room(i, visu);
-				coord2 = get_coordinates_room(j, visu);
+				coord1 = get_coordinates_room(i, visu->lemin);
+				coord2 = get_coordinates_room(j, visu->lemin);
 				ft_bresenham(coord1, coord2, visu);
 			}
 		}
 	}
 }
 
-void	ft_create_image(t_lemin *visu)
+void	ft_create_image(t_visu *visu)
 {
 	int		i;
 	int		j;
 	t_rooms	*rooms;
 
-	rooms = visu->rooms;
-	while (visu->rooms)
+	rooms = visu->lemin->rooms;
+	while (visu->lemin->rooms)
 	{
 		i = 0;
 		while (i++ < 60)
@@ -140,19 +142,19 @@ void	ft_create_image(t_lemin *visu)
 			j = 0;
 			while (j++ < 60)
 			{
-				if (visu->rooms->coord->x + i + (visu->rooms->coord->y + j) * \
-visu->mlx->w_width > 0 && visu->rooms->coord->x + i + \
-(visu->rooms->coord->y + j) * visu->mlx->w_width < 1920000)
-					visu->mlx->img.data[visu->rooms->coord->x + i + \
-(visu->rooms->coord->y + j) * visu->mlx->w_width] = visu->rooms->ant_nb * 0xFFFFFF;
+				if (visu->lemin->rooms->coord->x + i + (visu->lemin->rooms->coord->y + j) * \
+visu->mlx->w_width > 0 && visu->lemin->rooms->coord->x + i + \
+(visu->lemin->rooms->coord->y + j) * visu->mlx->w_width < 1920000)
+					visu->mlx->img.data[visu->lemin->rooms->coord->x + i + \
+(visu->lemin->rooms->coord->y + j) * visu->mlx->w_width] = visu->lemin->rooms->ant_nb * 0xFFFFFF;
 			}
 		}
-		visu->rooms = visu->rooms->next;
+		visu->lemin->rooms = visu->lemin->rooms->next;
 	}
-	visu->rooms = rooms;
+	visu->lemin->rooms = rooms;
 }
 
-void	ft_init_mlx(t_lemin *visu)
+void	ft_init_mlx(t_visu *visu)
 {
 	if (!(visu->mlx = malloc(sizeof(t_minilibx))))
 		exit(0);
@@ -167,7 +169,7 @@ visu->mlx->w_width, visu->mlx->w_height);
 	&visu->mlx->img.bpp, &visu->mlx->img.size_l, &visu->mlx->img.endian);
 }
 
-void	ft_move_ants(t_lemin *visu, t_bool mode)
+void	ft_move_ants(t_visu *visu, t_bool mode)
 {
 	int		i;
 	time_t	time_now;
@@ -175,19 +177,19 @@ void	ft_move_ants(t_lemin *visu, t_bool mode)
 	time_now = time(NULL);
 	if (!(i = 0) && visu->auto_mode && time_now - visu->time < 1)
 		return ;
-	if (visu->usr_in->next)
-		visu->usr_in = visu->usr_in->next;
+	if (visu->lemin->usr_in->next)
+		visu->lemin->usr_in = visu->lemin->usr_in->next;
 	else
 		return ;
-	while (visu->usr_in->content && ((char *)visu->usr_in->content)[0] != 'L')
-		visu->usr_in = visu->usr_in->next;
-	while (((char *)visu->usr_in->content)[i++])
+	while (visu->lemin->usr_in->content && ((char *)visu->lemin->usr_in->content)[0] != 'L')
+		visu->lemin->usr_in = visu->lemin->usr_in->next;
+	while (((char *)visu->lemin->usr_in->content)[i++])
 	{
-		if ((size_t)i >= ft_strlen(((char *)visu->usr_in->content)))
+		if ((size_t)i >= ft_strlen(((char *)visu->lemin->usr_in->content)))
 			break ;
-		add_ant(visu, &(((char *)visu->usr_in->content)[i]));
-		while ((((char *)visu->usr_in->content)[i] && \
-((char *)visu->usr_in->content)[i++] != 'L'))
+		add_ant(visu, &(((char *)visu->lemin->usr_in->content)[i]));
+		while ((((char *)visu->lemin->usr_in->content)[i] && \
+((char *)visu->lemin->usr_in->content)[i++] != 'L'))
 			;
 		i--;
 	}
@@ -213,19 +215,19 @@ int		get_room_id(t_rooms *rooms, char *room_name)
 	return (0);
 }
 
-void	substract_ant(t_lemin *visu, int ant_nb)
+void	substract_ant(t_visu *visu, int ant_nb)
 {
 	int		room_id;
 	t_rooms *rooms;
 
-	rooms = visu->rooms;
+	rooms = visu->lemin->rooms;
 	room_id = visu->ants_pos_v[ant_nb - 1];
 	while (rooms && room_id--)
 		rooms = rooms->next;
 	rooms->ant_nb--;
 }
 
-void	add_ant(t_lemin *visu, char *line)
+void	add_ant(t_visu *visu, char *line)
 {
 	int		i;
 	int		j;
@@ -234,7 +236,7 @@ void	add_ant(t_lemin *visu, char *line)
 	int		ant_nb;
 
 	ant_nb = ft_atoi(line);
-	rooms = visu->rooms;
+	rooms = visu->lemin->rooms;
 	i = -1;
 	j = 1;
 	line = ft_strstr(line, "-");
@@ -246,7 +248,7 @@ void	add_ant(t_lemin *visu, char *line)
 		if (!ft_strcmp(r_name, rooms->name))
 		{
 			substract_ant(visu, ant_nb);
-			visu->ants_pos_v[ant_nb - 1] = get_room_id(visu->rooms, r_name);
+			visu->ants_pos_v[ant_nb - 1] = get_room_id(visu->lemin->rooms, r_name);
 			rooms->ant_nb += 1;
 			return ;
 		}
@@ -254,38 +256,38 @@ void	add_ant(t_lemin *visu, char *line)
 	}
 }
 
-void	empty_rooms(t_lemin *visu)
+void	empty_rooms(t_visu *visu)
 {
 	t_rooms *rooms;
 
-	rooms = visu->rooms;
+	rooms = visu->lemin->rooms;
 	while (rooms)
 	{
 		if (rooms->type == START)
-			rooms->ant_nb = visu->ants;
+			rooms->ant_nb = visu->lemin->ants;
 		else
 			rooms->ant_nb = 0;
 		rooms = rooms->next;
 	}
 }
 
-void	ft_reset(t_lemin *visu)
+void	ft_reset(t_visu *visu)
 {
 	int	i;
 
 	i = -1;
-	while (++i < visu->ants)
-		visu->ants_pos_v[i] = visu->start_id;
-	visu->usr_in = visu->reset_usr_in;
+	while (++i < visu->lemin->ants)
+		visu->ants_pos_v[i] = visu->lemin->start_id;
+	visu->lemin->usr_in = visu->reset_usr_in;
 	empty_rooms(visu);
 }
 
-void	ft_room_name(t_lemin *visu)
+void	ft_room_name(t_visu *visu)
 {
 	t_rooms *rooms;
 	int		color;
 
-	rooms = visu->rooms;
+	rooms = visu->lemin->rooms;
 	while (rooms)
 	{
 		if (rooms->type == START)
@@ -300,7 +302,7 @@ rooms->coord->y - 20, color, rooms->name);
 	}
 }
 
-void	ft_tutorial(t_lemin *v)
+void	ft_tutorial(t_visu *v)
 {
 	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1050, 10, W, "ESC");
 	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1300, 10, W, "Quit visu");
@@ -319,7 +321,7 @@ room names");
 	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1300, 160, W, "Toggle tutorial");
 }
 
-int		key_others(int key, t_lemin *visu)
+int		key_others(int key, t_visu *visu)
 {
 	t_byte mv;
 
@@ -341,7 +343,7 @@ int		key_others(int key, t_lemin *visu)
 	return (0);
 }
 
-int		key_events(int key, t_lemin *visu)
+int		key_events(int key, t_visu *visu)
 {
 	if (key == 53)
 	{

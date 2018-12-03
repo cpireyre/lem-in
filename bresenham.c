@@ -6,13 +6,13 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 16:16:04 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/01 13:11:10 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/03 11:57:28 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	ft_bresenham_low(t_coord p1, t_coord p2, t_lemin *visu)
+void	ft_bresenham_low(t_coord p1, t_coord p2, t_visu *visu)
 {
 	t_coord	d;
 	t_coord	point;
@@ -41,7 +41,7 @@ void	ft_bresenham_low(t_coord p1, t_coord p2, t_lemin *visu)
 	}
 }
 
-void	ft_draw_point(t_coord point, t_lemin *lemin)
+void	ft_draw_point(t_coord point, t_visu *lemin)
 {
 	if (point.x >= 0 && point.x < lemin->mlx->w_width && point.y >= 0 &&
 	point.y < lemin->mlx->w_height)
@@ -50,7 +50,7 @@ void	ft_draw_point(t_coord point, t_lemin *lemin)
 	}
 }
 
-void	ft_bresenham_high(t_coord p1, t_coord p2, t_lemin *visu)
+void	ft_bresenham_high(t_coord p1, t_coord p2, t_visu *visu)
 {
 	t_coord	d;
 	t_coord	point;
@@ -79,7 +79,7 @@ void	ft_bresenham_high(t_coord p1, t_coord p2, t_lemin *visu)
 	}
 }
 
-void	ft_bresenham(t_coord p1, t_coord p2, t_lemin *visu)
+void	ft_bresenham(t_coord p1, t_coord p2, t_visu *visu)
 {
 	if (abs(p2.y - p1.y) < abs(p2.x - p1.x))
 	{

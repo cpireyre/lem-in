@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/01 13:36:37 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/03 11:55:26 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,17 +82,22 @@ typedef struct		s_lemin
 	char			**pipes;
 	int				flow;
 	char			*ant_display;	
-	t_minilibx		*mlx;
 	t_list			*usr_in;
+	
+}					t_lemin;
+
+typedef struct		s_visu
+{
+	t_lemin 		*lemin;
 	t_list			*reset_usr_in;
 	int				*ants_pos_v;
 	t_bool			tuto;
 	t_bool			room_name;
 	t_bool			auto_mode;
 	t_byte			mv_done;
+	t_minilibx		*mlx;
 	time_t			time;
-	
-}					t_lemin;
+}					t_visu;
 
 typedef struct		s_edge
 {
@@ -224,19 +229,19 @@ int					get_optimal_path(t_sender *sender, t_list *starting_edges, int flow);
 
 void				parse_visu(t_list **usr_in, t_lemin *visu);
 void				visu(t_lemin *visu);
-void				ft_init_mlx(t_lemin *visu);
-int					key_events(int key, t_lemin *visu);
-int					exit_visu(t_lemin *visu);
-void				ft_create_image(t_lemin *visu);
-void				ft_draw_point(t_coord point, t_lemin *lemin);
-void				ft_bresenham(t_coord p1, t_coord p2, t_lemin *visu);
-void				create_pipes(t_lemin *visu);
-void				ft_background(t_lemin *visu);
-void				add_ant(t_lemin *visu, char *line);
+void				ft_init_mlx(t_visu *visu);
+int					key_events(int key, t_visu *visu);
+int					exit_visu(t_visu *visu);
+void				ft_create_image(t_visu *visu);
+void				ft_draw_point(t_coord point, t_visu *lemin);
+void				ft_bresenham(t_coord p1, t_coord p2, t_visu *visu);
+void				create_pipes(t_visu *visu);
+void				ft_background(t_visu *visu);
+void				add_ant(t_visu *visu, char *line);
 int					get_room_id(t_rooms *rooms, char *room_name);
-void				ft_tutorial(t_lemin *visu);
-void				ft_room_name(t_lemin *visu);
-void				ft_move_ants(t_lemin *visu, t_bool mode);
+void				ft_tutorial(t_visu *visu);
+void				ft_room_name(t_visu *visu);
+void				ft_move_ants(t_visu *visu, t_bool mode);
 
 /*
 **	graph.h
