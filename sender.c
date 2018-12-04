@@ -57,7 +57,7 @@ t_bool	send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *sender)
 
 	on_start = (sender->ants_position[i] == lemin->start_id);
 	if (lemin->flow > 1 && on_start)
-		nvi = get_optimal_path(sender, vertex);
+		nvi = next_trajectory(sender);
 	else
 		nvi = next_vertex_id(vertex);
 	print_ant(i, ft_find_room_name(lemin, nvi), sender->ants_sent, lemin->ant_display);
@@ -79,6 +79,7 @@ void	send_ants(t_list **graph, t_lemin *lemin)
 	sender.shortest = ft_array_min(sender.path_lengths, lemin->flow);
 	sender.ants_to_send = ft_memalloc(sizeof(int) * lemin->flow);
 	how_many_ants_to_send(lemin, &sender);
+	sender.queue = queue_paths(&sender, graph[lemin->start_id], lemin->flow);
 	i = -1;
 	while (++i < lemin->ants)
 		sender.ants_position[i] = lemin->start_id;
@@ -100,5 +101,6 @@ void	send_ants(t_list **graph, t_lemin *lemin)
 	}
 	free(sender.ants_to_send);
 	free(sender.path_lengths);
+	ft_lstdel(&sender.queue, &free_trajectory);
 	free(sender.ants_position);
 }

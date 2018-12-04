@@ -77,8 +77,8 @@ typedef struct		s_sender
 	int				switch_path;
 	int				*path_lengths;
 	int				shortest;
-	int				to_skip;
 	int				real_flow;
+	t_list			*queue;
 }					t_sender;
 
 /*
@@ -181,7 +181,6 @@ int					ft_array_min(int *array, int size);
 void				how_many_ants_to_send(t_lemin *lemin, t_sender *sender);
 int					too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_substract);
 int					repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ants_to_add);
-int					get_optimal_path(t_sender *sender, t_list *starting_edges);
 
 /*
 **	graph.h
@@ -192,5 +191,13 @@ void				add_connections_to_graph(t_list **vertex, int vertex_nbr, char *connecti
 t_list				**build_graph(t_lemin *lemin);
 void				free_edge(void *ptr, size_t size);
 void				free_graph(t_list **graph, int size);
+
+/*
+**	trajectory.c
+*/
+
+t_list	*queue_paths(t_sender *sender, t_list *start_vtx, int flow);
+int		next_trajectory(t_sender *sender);
+void	free_trajectory(void *lol, size_t size);
 
 #endif

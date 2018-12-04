@@ -12,33 +12,6 @@
 
 #include "lem_in.h"
 
-int		get_optimal_path(t_sender *sender, t_list *starting_edges)
-{
-	int		skipped;
-	int		offset;
-
-	skipped = 0;
-	offset = 0;
-	while (skipped < sender->to_skip || !sender->ants_to_send[offset])
-	{
-		if (((t_edge*)(starting_edges->content))->flow)
-			skipped++;
-		starting_edges = starting_edges->next;
-		offset++;
-	}
-	sender->ants_to_send[offset] -= 1;
-	if (sender->ants_to_send[offset] == 0)
-	{
-		sender->real_flow--;
-		sender->to_skip--;
-	}
-	if (sender->real_flow)
-		sender->to_skip = (sender->to_skip + 1) % sender->real_flow;
-	else
-		sender->to_skip = -1;
-	return (((t_edge*)(starting_edges->content))->sink);
-}
-
 int		*size_paths(t_list **graph, t_lemin *lemin)
 {
 	int		*app;

@@ -16,13 +16,13 @@ CFLAGS	:=	-Wall -Wextra -Werror
 LIBDIR	:=	./libft
 LIBFT	:=	$(LIBDIR)/libft.a
 BFLAGS	:=	-I$(LIBDIR)/
-DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined -Og
+#DEBUG	:=	-g3 #-fsanitize=address -fsanitize=undefined -Og
 INCLUDE	:=	-lft -L$(LIBDIR)/
 NAME	:=	lem-in
 
 C_FILES		:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c \
 	count.c graph.c edmonds_karp.c splitcheck.c \
-	sender.c main.c paths.c
+	sender.c main.c paths.c trajectory.c
 H_FILES		:=	lem_in.h 
 OBJ			:=	$(C_FILES:.c=.o)
 
