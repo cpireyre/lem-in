@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/05 13:47:28 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/05 14:33:58 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,7 +223,7 @@ int					repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ant
 int					get_optimal_path(t_sender *sender, t_list *starting_edges, int flow);
 
 /*
-**	visu.c
+**	visu
 */
 
 void				parse_visu(t_list **usr_in, t_lemin *visu);
@@ -242,7 +242,10 @@ void				ft_tutorial(t_visu *visu);
 void				ft_room_name(t_visu *visu);
 void				ft_move_ants(t_visu *visu, t_bool mode);
 t_bool				test_mv_ants(t_visu *visu, time_t time_now);
-
+int					rand_a_b(int a, int b);
+void				display_ant_nb(t_visu *visu);
+int					ft_loop_events(t_visu *visu);
+void				empty_rooms(t_visu *visu);
 /*
 **	graph.h
 */

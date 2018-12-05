@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/11/29 10:06:11 by tboissel         ###   ########.fr        #
+#    Updated: 2018/12/05 14:37:28 by tboissel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ NAME	:=	lem-in
 
 C_FILES		:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c \
 	count.c graph.c edmonds_karp.c splitcheck.c bresenham.c \
-	sender.c traverse.c paths.c
+	sender.c traverse.c paths.c create_map.c events.c mv_visu.c init_utils_visu.c
 H_FILES		:=	lem_in.h 
 OBJ			:=	$(C_FILES:.c=.o)
 MAIN		:= main.c
