@@ -64,8 +64,6 @@ typedef struct		s_edge
 	int				source;
 	int				sink;
 	struct s_edge	*rev;
-	struct s_edge	*next;
-	struct s_edge	*previous;
 }					t_edge;
 
 typedef struct		s_sender
@@ -74,7 +72,6 @@ typedef struct		s_sender
 	int				ants_sent;
 	int				ants_arrived;
 	int				*ants_position;
-	int				switch_path;
 	int				*path_lengths;
 	int				shortest;
 	int				real_flow;

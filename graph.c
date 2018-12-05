@@ -18,8 +18,6 @@ static inline void	fill_edge(t_edge *edge, int source, int sink)
 	edge->sink = sink;
 	edge->flow = 0;
 	edge->rev = NULL;
-	edge->next = NULL;
-	edge->previous = NULL;
 }
 
 static void	add_connections_to_graph(t_list **vertex, int vertex_nbr, char *connections)
