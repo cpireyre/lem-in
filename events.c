@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:30:28 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/05 14:40:06 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/05 15:39:04 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,10 @@ set of moves");
 room names");
 	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1050, 130, W, "A");
 	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1300, 130, W, "Automatic mode");
-	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1050, 160, W, "Any other key");
-	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1300, 160, W, "Toggle tutorial");
+	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1050, 160, W, "Space");
+	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1300, 160, W, "Stop auto mode");
+	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1050, 190, W, "Any other key");
+	mlx_string_put(v->mlx->m_ptr, v->mlx->w, 1300, 190, W, "Toggle tutorial");
 }
 
 int		key_others(int key, t_visu *visu)
@@ -65,6 +67,11 @@ int		key_others(int key, t_visu *visu)
 	mv = visu->mv_done;
 	if (key == 124)
 		ft_move_ants(visu, REGULAR);
+	else if (key == 49)
+	{
+		if (visu->auto_mode)
+			visu->auto_mode = 0;
+	}
 	else if (key == 123)
 	{
 		ft_reset(visu);
