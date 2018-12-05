@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:56:06 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/03 15:01:09 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/05 13:49:35 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,14 +184,14 @@ void	ft_move_ants(t_visu *visu, t_bool mode)
 	time_t	time_now;
 
 	time_now = time(NULL);
-	if (!(i = 0) && visu->auto_mode && time_now - visu->time < 1)
+	i = 0;
+	if (test_mv_ants(visu, time_now))
 		return ;
-	if (visu->lemin->usr_in->next)
+	while (visu->lemin->usr_in->next && visu->lemin->usr_in->content && \
+((char *)visu->lemin->usr_in->content)[0] != 'L')
 		visu->lemin->usr_in = visu->lemin->usr_in->next;
-	else
+	if (!ft_strstr(visu->lemin->usr_in->content, "-"))
 		return ;
-	while (visu->lemin->usr_in->content && ((char *)visu->lemin->usr_in->content)[0] != 'L')
-		visu->lemin->usr_in = visu->lemin->usr_in->next;
 	while (((char *)visu->lemin->usr_in->content)[i++])
 	{
 		if ((size_t)i >= ft_strlen(((char *)visu->lemin->usr_in->content)))
@@ -205,6 +205,15 @@ void	ft_move_ants(t_visu *visu, t_bool mode)
 	visu->time = time(NULL);
 	if (mode == REGULAR)
 		visu->mv_done++;
+}
+
+t_bool	test_mv_ants(t_visu *visu, time_t time_now)
+{
+	if (visu->auto_mode && time_now - visu->time < 1)
+		return (true);
+	if (visu->lemin->usr_in->next)
+		visu->lemin->usr_in = visu->lemin->usr_in->next;
+	return (false);
 }
 
 int		get_room_id(t_rooms *rooms, char *room_name)
@@ -233,34 +242,33 @@ void	substract_ant(t_visu *visu, int ant_nb)
 	room_id = visu->ants_pos_v[ant_nb - 1];
 	while (rooms && room_id--)
 		rooms = rooms->next;
-	rooms->ant_nb--;
+	if (rooms->ant_nb)
+		rooms->ant_nb--;
 }
 
 void	add_ant(t_visu *visu, char *line)
 {
-	int		i;
 	int		j;
 	char	*cut_line;
-	char	*r_name;
+	char	*rn;
 	t_rooms	*rooms;
 	int		ant_nb;
 
 	ant_nb = ft_atoi(line);
 	rooms = visu->lemin->rooms;
-	i = -1;
 	j = 1;
 	cut_line = ft_strstr(line, "-");
 	while (cut_line[j] && ft_isalnum(cut_line[j]))
 		j++;
-	r_name = ft_strsub(cut_line, 1, j - 1);
+	rn = ft_strsub(cut_line, 1, j - 1);
 	while (rooms)
 	{
-		if (!ft_strcmp(r_name, rooms->name))
+		if (!ft_strcmp(rn, rooms->name))
 		{
 			substract_ant(visu, ant_nb);
-			visu->ants_pos_v[ant_nb - 1] = get_room_id(visu->lemin->rooms, r_name);
+			visu->ants_pos_v[ant_nb - 1] = get_room_id(visu->lemin->rooms, rn);
 			rooms->ant_nb += 1;
-			free(r_name);
+			free(rn);
 			return ;
 		}
 		rooms = rooms->next;

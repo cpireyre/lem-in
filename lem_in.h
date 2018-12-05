@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/03 13:42:54 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/05 13:47:28 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,6 +241,7 @@ int					get_room_id(t_rooms *rooms, char *room_name);
 void				ft_tutorial(t_visu *visu);
 void				ft_room_name(t_visu *visu);
 void				ft_move_ants(t_visu *visu, t_bool mode);
+t_bool				test_mv_ants(t_visu *visu, time_t time_now);
 
 /*
 **	graph.h
