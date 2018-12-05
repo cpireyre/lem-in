@@ -6,7 +6,7 @@ typedef struct	s_trajectory
 	int		sender_id;
 }				t_trajectory;
 
-t_list	*queue_paths(t_sender *sender, t_list *start_vtx, int flow)
+t_list	*enqueue_paths(t_sender *sender, t_list *start_vtx, int flow)
 {
 	t_list			*queue;
 	int				i;
@@ -14,14 +14,12 @@ t_list	*queue_paths(t_sender *sender, t_list *start_vtx, int flow)
 
 	i = 0;
 	queue = NULL;
-	while (i < flow && start_vtx) // change this to while (1)
+	while (1)
 	{
 		while (i < flow && sender->ants_to_send[i] == 0)
 			i++;
 		while (start_vtx && ((t_edge*)(start_vtx)->content)->flow == 0)
-		{
 			start_vtx = start_vtx->next;
-		}
 		if (i == flow || !start_vtx)
 			break ;
 		trajectory.direction = ((t_edge*)(start_vtx)->content);

@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/05 12:29:40 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/05 14:22:27 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,13 @@ int					calculate_real_flow(t_sender *sender, int flow);
 char				*ft_find_room_name(t_lemin *lemin, int room_nb);
 
 /*
+**	initsender.c
+*/
+
+void				init_sender(t_sender *sender, t_lemin *lemin, t_list **graph);
+void				free_sender(t_sender *sender);
+
+/*
 **	lem_in.c
 */
 
@@ -181,7 +188,7 @@ void				free_graph(t_list **graph, int size);
 **	trajectory.c
 */
 
-t_list				*queue_paths(t_sender *sender, t_list *start_vtx, int flow);
+t_list				*enqueue_paths(t_sender *sender, t_list *start_vtx, int flow);
 int					next_trajectory(t_sender *sender);
 
 /*
