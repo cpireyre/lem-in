@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 14:50:59 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/05 14:23:16 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/05 14:59:15 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,20 @@ int		next_vertex_id(t_list *vertex)
 	return (edge->sink);
 }
 
-static t_bool	send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *sender)
+static t_bool	send_one_ant(t_list *vtx, t_lemin *lmn, int i, t_sender *sendr)
 {
 	int		nvi;
 	t_bool	on_start;
 
-	on_start = (sender->ants_position[i] == lemin->start_id);
-	if (lemin->flow > 1 && on_start)
-		nvi = next_trajectory(sender);
+	on_start = (sendr->ants_position[i] == lmn->start_id);
+	if (lmn->flow > 1 && on_start)
+		nvi = next_trajectory(sendr);
 	else
-		nvi = next_vertex_id(vertex);
-	print_ant(i, ft_find_room_name(lemin, nvi), sender->ants_sent, lemin->ant_display);
-	sender->ants_position[i] = nvi;
-	if (nvi == lemin->end_id)
+		nvi = next_vertex_id(vtx);
+	print_ant(i, ft_find_room_name(lmn, nvi), \
+			sendr->ants_sent, lmn->ant_display);
+	sendr->ants_position[i] = nvi;
+	if (nvi == lmn->end_id)
 		return (true);
 	else
 		return (false);
@@ -86,7 +87,8 @@ void	send_ants(t_list **graph, t_lemin *lemin)
 		{
 			clear_dumb_paths(&sender, (graph)[lemin->start_id], lemin->flow);
 			if (sender.ants_position[i] != lemin->end_id)
-				sender.ants_arrived += send_one_ant(graph[sender.ants_position[i]], lemin, i, &sender);
+				sender.ants_arrived += send_one_ant( \
+						graph[sender.ants_position[i]], lemin, i, &sender);
 			i++;
 		}
 		ft_putchar('\n');

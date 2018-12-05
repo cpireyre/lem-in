@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/12/05 14:24:08 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/12/05 14:55:47 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS	:=	-Wall -Wextra -Werror
 LIBDIR	:=	./libft
 LIBFT	:=	$(LIBDIR)/libft.a
 BFLAGS	:=	-I$(LIBDIR)/ -Iinclude
-#DEBUG	:=	-g3 #-fsanitize=address -fsanitize=undefined -Og
+DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined -Og
 INCLUDE	:=	-lft -L$(LIBDIR)/ 
 NAME	:=	lem-in
 
@@ -29,6 +29,7 @@ OBJ_PATH	:= 	./obj/
 OBJ			=	$(addprefix $(OBJ_PATH),$(OBJ_NAME))
 OBJ_NAME	=	$(SRC_NAME:.c=.o)
 
+H_FILES		:=	include/lem_in.h
 DEPS		=	$(H_FILES) Makefile 
 
 all: $(NAME)

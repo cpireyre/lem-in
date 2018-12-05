@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:50 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 09:47:00 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/05 14:47:35 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,17 @@ static inline void	fill_edge(t_edge *edge, int source, int sink)
 	edge->rev = NULL;
 }
 
-static void	add_connections_to_graph(t_list **vertex, int vertex_nbr, char *connections)
+static void	add_connections_to_graph(t_list **vertex, int vtx_nb, char *links)
 {
 	t_edge	tmp;
 	int		i;
 
 	i = 0;
-	while (connections[i])
+	while (links[i])
 	{
-		if (connections[i] == CONNECTED)
+		if (links[i] == CONNECTED)
 		{
-			fill_edge(&tmp, vertex_nbr, i);
+			fill_edge(&tmp, vtx_nb, i);
 			ft_lstappend(vertex, ft_lstnew(&tmp, sizeof(t_edge)));
 		}
 		i++;

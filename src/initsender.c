@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 13:23:51 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/05 14:23:39 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/05 14:51:06 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	init_sender(t_sender *sender, t_lemin *lemin, t_list **graph)
 	sender->shortest = ft_array_min(sender->path_lengths, lemin->flow);
 	sender->ants_to_send = ft_memalloc(sizeof(int) * lemin->flow);
 	how_many_ants_to_send(lemin, sender);
+	sender->real_flow = calculate_real_flow(sender, lemin->flow);
 	clear_dumb_paths(sender, (graph)[lemin->start_id], lemin->flow);
 	sender->queue = enqueue_paths(sender, graph[lemin->start_id], lemin->flow);
 }

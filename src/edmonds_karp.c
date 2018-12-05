@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:52 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 11:19:33 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/05 14:34:54 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 **	t_list *queue = vertices to be visited on each pass of the BFS
 */
 
-static inline t_bool		edge_is_valid(t_edge *edge, t_edge **path, int source)
+static inline t_bool		edge_is_valid(t_edge *edge, t_edge **path, int src)
 {
-	if (!((path)[edge->sink]) && edge->sink != source && edge->flow < 1)
+	if (!((path)[edge->sink]) && edge->sink != src && edge->flow < 1)
 		return (true);
 	else
 		return (false);
@@ -65,7 +65,8 @@ t_edge		**breadth_first_search(t_list **graph, int source, int sink, int size)
 	while (queue)
 		bfs_step(&path, &queue, graph, source);
 	if (DEBUG > 2 && path[sink])
-		ft_printf("DEBUG: BFS done. path[sink] flows from %d to %d.", path[sink]->source, path[sink]->sink);
+		ft_printf("DEBUG: BFS done. path[sink] flows from %d to %d.", \
+			   	path[sink]->source, path[sink]->sink);
 	if (!path[sink])
 	{
 		free(path);
@@ -81,19 +82,16 @@ int			edmonds_karp(t_list ***max_flow_network, t_lemin *lemin)
 	int		max_flow;
 
 	max_flow = 0;
-	while ((path = breadth_first_search(*max_flow_network, lemin->start_id, lemin->end_id, lemin->map_size)))
+	while ((path = breadth_first_search(*max_flow_network, \
+					lemin->start_id, lemin->end_id, lemin->map_size)))
 	{
 		edge = path[lemin->end_id];
 		while (edge->source != lemin->start_id)
 		{
 			edge->flow += 1;
 			edge->rev->flow -= 1;
-			if (DEBUG > 2)
-				ft_printf("DEBUG: Added flow btw %s & %s.\n", ft_find_room_name(lemin, edge->source), ft_find_room_name(lemin, edge->sink));
 			edge = path[edge->source];
 		}
-		if (DEBUG > 2)
-			ft_printf("DEBUG: Added flow btw %s & %s.\n", ft_find_room_name(lemin, edge->source), ft_find_room_name(lemin, edge->sink));
 		edge->flow += 1;
 		edge->rev->flow -= 1;
 		max_flow++;

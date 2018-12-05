@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/05 14:22:27 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/05 15:05:15 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 **		3 and up: much more than you wanted to know
 */
 
-# define DEBUG		0
+# define DEBUG		4
 
 # define CONNECTED	4
 # define START		2
@@ -92,7 +92,7 @@ t_bool				store_special_rooms(t_lemin *lemin, char *name, t_byte t);
 
 void				print_rooms(t_rooms	*map);
 void				buf_print_list(t_list *node);
-void				print_ant(int i, char *room_name, int ants_sent, char *display);
+void				print_ant(int i, char *name, int sent, char *display);
 void				print_paths_info(t_sender *sender, int flow);
 
 /*
@@ -130,7 +130,7 @@ void				clear_dumb_paths(t_sender *sender, t_list *start, int flow);
 */
 
 int					edmonds_karp(t_list ***max_flow_network, t_lemin *lemin);
-t_edge				**breadth_first_search(t_list **graph, int source, int sink, int size);
+t_edge				**breadth_first_search(t_list **g, int s, int t, int size);
 
 /*
 **	sender.c
@@ -145,27 +145,27 @@ char				*ft_find_room_name(t_lemin *lemin, int room_nb);
 **	initsender.c
 */
 
-void				init_sender(t_sender *sender, t_lemin *lemin, t_list **graph);
+void				init_sender(t_sender *s, t_lemin *l, t_list **graph);
 void				free_sender(t_sender *sender);
 
 /*
 **	lem_in.c
 */
 
-void				quit_lem_in(t_list **lst, t_lemin *env, const char *err, int status);
+void				quit_lem_in(t_list **g, t_lemin *l, const char *e, int s);
 void				parse(t_list **usr_in, t_list **tmp, t_lemin *lemin);
 
 /*
 **	traverse.c
 */
 
-void				link_graph(t_list ***graph, int source, int sink, t_lemin *lemin);
+void				link_graph(t_list ***graph, int s, int t, t_lemin *l);
 
 /*
 **	splitcheck.c
 */
 
-int					shortest_path_length(t_list ***graph, int source, int sink, int size);
+int					shortest_path_length(t_list ***g, int s, int t, int size);
 int					alternate_count(t_edge **path, int source, int sink);
 
 /*
@@ -174,8 +174,8 @@ int					alternate_count(t_edge **path, int source, int sink);
 
 int					*size_paths(t_list **graph, t_lemin *lemin);
 void				how_many_ants_to_send(t_lemin *lemin, t_sender *sender);
-int					too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_substract);
-int					repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ants_to_add);
+int					too_many_ants_sent(t_lemin *l, t_sender *s, int subtract);
+int					repart_extra_ants(t_lemin *l, t_sender *s, int avg, int add);
 
 /*
 **	graph.c
@@ -188,7 +188,7 @@ void				free_graph(t_list **graph, int size);
 **	trajectory.c
 */
 
-t_list				*enqueue_paths(t_sender *sender, t_list *start_vtx, int flow);
+t_list				*enqueue_paths(t_sender *s, t_list *start_vtx, int flow);
 int					next_trajectory(t_sender *sender);
 
 /*
