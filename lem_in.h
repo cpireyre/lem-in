@@ -24,7 +24,7 @@
 **		3 and up: much more than you wanted to know
 */
 
-# define DEBUG		0
+# define DEBUG		3
 
 # define CONNECTED	4
 # define START		2
@@ -128,6 +128,8 @@ void				free_rooms(t_rooms **head);
 
 int					ft_size_list(t_rooms *rooms);
 int					count_split(char **split);
+int					count_path_length(t_list **graph, int source, int sink);
+void				clear_dumb_paths(t_sender *sender, t_list *start, int flow);
 
 /*
 **	edmonds_karp.c
@@ -167,8 +169,6 @@ void				link_graph(t_list ***graph, int source, int sink, t_lemin *lemin);
 
 int					shortest_path_length(t_list ***graph, int source, int sink, int size);
 int					alternate_count(t_edge **path, int source, int sink);
-int					count_path_length(t_list **graph, int source, int sink);
-void				clear_dumb_paths(t_sender *sender, t_list *start, int flow);
 
 /*
 **	paths.c
