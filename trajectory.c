@@ -20,7 +20,6 @@ t_list	*queue_paths(t_sender *sender, t_list *start_vtx, int flow)
 			i++;
 		while (start_vtx && ((t_edge*)(start_vtx)->content)->flow == 0)
 		{
-			ft_printf("ON AVANCE\n");
 			start_vtx = start_vtx->next;
 		}
 		if (i == flow || !start_vtx)
