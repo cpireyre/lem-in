@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/11/25 11:06:39 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/12/05 13:16:01 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,16 +15,19 @@ RM		:=	rm -f
 CFLAGS	:=	-Wall -Wextra -Werror
 LIBDIR	:=	./libft
 LIBFT	:=	$(LIBDIR)/libft.a
-BFLAGS	:=	-I$(LIBDIR)/
+BFLAGS	:=	-I$(LIBDIR)/ -Iinclude
 #DEBUG	:=	-g3 #-fsanitize=address -fsanitize=undefined -Og
-INCLUDE	:=	-lft -L$(LIBDIR)/
+INCLUDE	:=	-lft -L$(LIBDIR)/ 
 NAME	:=	lem-in
 
-C_FILES		:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c \
+SRC_PATH		= 	./src/
+SRC_NAME	:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c \
 	count.c graph.c edmonds_karp.c splitcheck.c \
 	sender.c main.c paths.c trajectory.c
-H_FILES		:=	lem_in.h 
-OBJ			:=	$(C_FILES:.c=.o)
+SRC				=	$(addprefix $(SRC_PATH),$(SRC_NAME))
+OBJ_PATH	:= 	./obj/
+OBJ			=	$(addprefix $(OBJ_PATH),$(OBJ_NAME))
+OBJ_NAME	=	$(SRC_NAME:.c=.o)
 
 DEPS		=	$(H_FILES) Makefile 
 
@@ -33,7 +36,8 @@ all: $(NAME)
 $(LIBFT): force
 	@$(MAKE) -C $(LIBDIR) 2> /dev/null
 
-%.o: %.c $(DEPS)
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c $(DEPS)
+	@mkdir $(OBJ_PATH) 2> /dev/null || true
 	$(CC) $(CFLAGS) $(BFLAGS) $< -c -o $@ $(DEBUG)
 
 $(NAME): $(DEPS) $(LIBFT) $(OBJ)
@@ -43,6 +47,7 @@ $(NAME): $(DEPS) $(LIBFT) $(OBJ)
 clean:
 	$(MAKE) clean -C $(LIBDIR)
 	$(RM) $(OBJ)
+	@rmdir $(OBJ_PATH) 2> /dev/null || true
 
 fclean: clean
 	make fclean -C libft/
