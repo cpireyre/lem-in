@@ -101,6 +101,6 @@ void	send_ants(t_list **graph, t_lemin *lemin)
 	}
 	free(sender.ants_to_send);
 	free(sender.path_lengths);
-	ft_lstdel(&sender.queue, &free_trajectory);
+	ft_lstdel(&sender.queue, &ft_free_node);
 	free(sender.ants_position);
 }

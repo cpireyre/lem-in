@@ -49,7 +49,7 @@ void		bfs_step(t_edge ***path, t_list **queue, t_list **graph, int source)
 		current_vertex = current_vertex->next;
 	}
 	tmp = (*queue)->next;
-	ft_lstdelone(queue, &free_node);
+	ft_lstdelone(queue, &ft_free_node);
 	*queue = tmp;
 }
 

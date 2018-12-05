@@ -119,9 +119,7 @@ t_bool				store_pipes(t_list **ptr, t_lemin *lemin);
 */
 
 void				free_lemin(t_lemin *addr);
-void				free_string(void *string, size_t size);
 void				free_split(char **split);
-void				free_node(void *ptr, size_t size);
 void				free_rooms(t_rooms **head);
 
 /*
@@ -183,13 +181,12 @@ int					too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_substra
 int					repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ants_to_add);
 
 /*
-**	graph.h
+**	graph.c
 */
 
 void				fill_edge(t_edge *edge, int source, int sink);
 void				add_connections_to_graph(t_list **vertex, int vertex_nbr, char *connections);
 t_list				**build_graph(t_lemin *lemin);
-void				free_edge(void *ptr, size_t size);
 void				free_graph(t_list **graph, int size);
 
 /*
@@ -198,6 +195,5 @@ void				free_graph(t_list **graph, int size);
 
 t_list	*queue_paths(t_sender *sender, t_list *start_vtx, int flow);
 int		next_trajectory(t_sender *sender);
-void	free_trajectory(void *lol, size_t size);
 
 #endif

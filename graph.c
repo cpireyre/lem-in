@@ -95,7 +95,7 @@ void	free_graph(t_list **graph, int size)
 	while (i < size)
 	{
 		if (graph[i])
-			ft_lstdel(&graph[i], &free_node);
+			ft_lstdel(&graph[i], &ft_free_node);
 		i++;
 	}
 	free(graph);

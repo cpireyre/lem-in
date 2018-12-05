@@ -12,12 +12,6 @@
 
 #include "lem_in.h"
 
-void	free_string(void *string, size_t size)
-{
-	(void)size;
-	ft_strdel((char**)&string);
-}
-
 void	free_rooms(t_rooms **head)
 {
 	t_rooms	*tmp;
@@ -49,12 +43,6 @@ void	free_split(char **split)
 		split = tmp;
 	}
 	free(ptr);
-}
-
-void	free_node(void *ptr, size_t size)
-{
-	free(ptr);
-	(void)size;
 }
 
 void	free_lemin(t_lemin *addr)

@@ -6,12 +6,6 @@ typedef struct	s_trajectory
 	int		sender_id;
 }				t_trajectory;
 
-void	free_trajectory(void *lol, size_t size)
-{
-	free(lol);
-	(void)size;
-}
-
 t_list	*queue_paths(t_sender *sender, t_list *start_vtx, int flow)
 {
 	t_list			*queue;
@@ -20,7 +14,7 @@ t_list	*queue_paths(t_sender *sender, t_list *start_vtx, int flow)
 
 	i = 0;
 	queue = NULL;
-	while (i < flow && start_vtx)
+	while (i < flow && start_vtx) // change this to while (1)
 	{
 		while (i < flow && sender->ants_to_send[i] == 0)
 			i++;
@@ -46,7 +40,7 @@ int		next_trajectory(t_sender *sender)
 
 	ptr = sender->queue->next;
 	ft_memcpy(&elem, sender->queue->content, sender->queue->content_size);
-	ft_lstdelone(&sender->queue, &free_trajectory);
+	ft_lstdelone(&sender->queue, &ft_free_node);
 	sender->queue = ptr;
 	if (sender->ants_to_send[elem.sender_id] > 0)
 	{

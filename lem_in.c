@@ -14,7 +14,7 @@
 
 void	quit_lem_in(t_list **lst, t_lemin *env, const char *err, int status)
 {
-	ft_lstdel(lst, &free_string);
+	ft_lstdel(lst, &ft_free_node);
 	free_lemin(env);
 	ft_exit(err, status);
 }
