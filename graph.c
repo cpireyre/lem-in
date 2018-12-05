@@ -12,7 +12,7 @@
 
 #include "lem_in.h"
 
-void	fill_edge(t_edge *edge, int source, int sink)
+static inline void	fill_edge(t_edge *edge, int source, int sink)
 {
 	edge->source = source;
 	edge->sink = sink;
@@ -22,7 +22,7 @@ void	fill_edge(t_edge *edge, int source, int sink)
 	edge->previous = NULL;
 }
 
-void	add_connections_to_graph(t_list **vertex, int vertex_nbr, char *connections)
+static void	add_connections_to_graph(t_list **vertex, int vertex_nbr, char *connections)
 {
 	t_edge	tmp;
 	int		i;
@@ -39,7 +39,7 @@ void	add_connections_to_graph(t_list **vertex, int vertex_nbr, char *connections
 	}
 }
 
-void	hook_up_rev_edges(t_list **graph, int vertices)
+static void	hook_up_rev_edges(t_list **graph, int vertices)
 {
 	t_list	*edges_from_vertex;
 	t_list	*edge_to_update;

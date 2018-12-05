@@ -62,7 +62,7 @@ t_bool				room_already_exists(t_rooms *map, char *room)
 	return (false);
 }
 
-t_bool				add_room(t_lemin **lemin, char *input, t_byte type)
+static t_bool				add_room(t_lemin **lemin, char *input, t_byte type)
 {
 	t_rooms *new;
 	char	*room_name;

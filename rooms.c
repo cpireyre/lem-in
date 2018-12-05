@@ -12,7 +12,7 @@
 
 #include "lem_in.h"
 
-t_bool	check_room_coordinate(char **name)
+static t_bool	check_room_coordinate(char **name)
 {
 	while (ft_isdigit(**name))
 		(*name)--;
@@ -27,7 +27,7 @@ t_bool	check_room_coordinate(char **name)
 	return (true);
 }
 
-t_bool	room_is_valid(char *name)
+static t_bool	room_is_valid(char *name)
 {
 	if (name[0] == 'L' || name[0] == '#')
 		return (false);

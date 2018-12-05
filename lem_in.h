@@ -86,7 +86,6 @@ typedef struct		s_sender
 */
 
 t_bool				store_ants(t_list **head, t_lemin *lemin);
-t_bool				add_room(t_lemin **lemin, char *input, t_byte type);
 void				store_rooms(t_list **head, t_lemin *lemin);
 t_bool				store_special_rooms(t_lemin *lemin, char *name, t_byte t);
 
@@ -103,8 +102,6 @@ void				print_paths_info(t_sender *sender, int flow);
 **	rooms.c
 */
 
-t_bool				check_room_coordinate(char **name);
-t_bool				room_is_valid(char *name);
 t_rooms				*new_room(char *name_ptr, t_byte type);
 char				*get_room_name(char *input);
 
@@ -142,19 +139,16 @@ t_edge				**breadth_first_search(t_list **graph, int source, int sink, int size)
 **	sender.c
 */
 
-t_bool				send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *sender);
 void				send_ants(t_list **graph, t_lemin *lemin);
 int					next_vertex_id(t_list *vertex);
 int					calculate_real_flow(t_sender *sender, int flow);
-char	*ft_find_room_name(t_lemin *lemin, int room_nb);
+char				*ft_find_room_name(t_lemin *lemin, int room_nb);
 
 /*
 **	lem_in.c
 */
 
 void				quit_lem_in(t_list **lst, t_lemin *env, const char *err, int status);
-t_bool				map_has_in_out(t_lemin *lemin);
-t_list				*stdin_to_list(void);
 void				parse(t_list **usr_in, t_list **tmp, t_lemin *lemin);
 
 /*
@@ -175,7 +169,6 @@ int					alternate_count(t_edge **path, int source, int sink);
 */
 
 int					*size_paths(t_list **graph, t_lemin *lemin);
-int					ft_array_min(int *array, int size);
 void				how_many_ants_to_send(t_lemin *lemin, t_sender *sender);
 int					too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_substract);
 int					repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ants_to_add);
@@ -184,8 +177,6 @@ int					repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ant
 **	graph.c
 */
 
-void				fill_edge(t_edge *edge, int source, int sink);
-void				add_connections_to_graph(t_list **vertex, int vertex_nbr, char *connections);
 t_list				**build_graph(t_lemin *lemin);
 void				free_graph(t_list **graph, int size);
 
@@ -193,7 +184,13 @@ void				free_graph(t_list **graph, int size);
 **	trajectory.c
 */
 
-t_list	*queue_paths(t_sender *sender, t_list *start_vtx, int flow);
-int		next_trajectory(t_sender *sender);
+t_list				*queue_paths(t_sender *sender, t_list *start_vtx, int flow);
+int					next_trajectory(t_sender *sender);
+
+/*
+**	main.c
+*/
+
+t_list				*stdin_to_list(void);
 
 #endif

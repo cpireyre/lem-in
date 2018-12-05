@@ -19,7 +19,7 @@ void	quit_lem_in(t_list **lst, t_lemin *env, const char *err, int status)
 	ft_exit(err, status);
 }
 
-t_bool	map_has_in_out(t_lemin *lemin)
+static t_bool	map_has_in_out(t_lemin *lemin)
 {
 	if (DEBUG > 1)
 		ft_printf("DEBUG: Start room: \"%s\", end room: \"%s\".\n",

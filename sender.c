@@ -50,7 +50,7 @@ int		next_vertex_id(t_list *vertex)
 	return (edge->sink);
 }
 
-t_bool	send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *sender)
+static t_bool	send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *sender)
 {
 	int		nvi;
 	t_bool	on_start;

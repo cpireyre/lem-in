@@ -17,7 +17,7 @@
 **	t_list *queue = vertices to be visited on each pass of the BFS
 */
 
-t_bool		edge_is_valid(t_edge *edge, t_edge **path, int source)
+static inline t_bool		edge_is_valid(t_edge *edge, t_edge **path, int source)
 {
 	if (!((path)[edge->sink]) && edge->sink != source && edge->flow < 1)
 		return (true);
