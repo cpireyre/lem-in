@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 16:21:28 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/05 12:29:40 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 **		3 and up: much more than you wanted to know
 */
 
-# define DEBUG		3
+# define DEBUG		0
 
 # define CONNECTED	4
 # define START		2
