@@ -6,17 +6,11 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 15:00:19 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/05 15:01:38 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/05 15:23:58 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
-
-typedef struct	s_trajectory
-{
-	t_edge	*direction;
-	int		sender_id;
-}				t_trajectory;
 
 t_list	*enqueue_paths(t_sender *sender, t_list *start_vtx, int flow)
 {
