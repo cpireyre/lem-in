@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/05 15:24:11 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/06 17:58:02 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 **		3 and up: much more than you wanted to know
 */
 
-# define DEBUG		0
+# define DEBUG		1
 
 # define CONNECTED	4
 # define START		2
@@ -192,6 +192,12 @@ t_list				**build_graph(t_lemin *lemin);
 
 t_list				*enqueue_paths(t_sender *s, t_list *start_vtx, int flow);
 int					next_trajectory(t_sender *sender);
+
+/*
+**	super.c
+*/
+
+void				prevent_superpositions(t_list ***g, int s, int sz, int t);
 
 /*
 **	main.c

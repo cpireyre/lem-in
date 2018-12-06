@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 19:20:41 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/05 14:52:54 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/06 18:25:01 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	clear_dumb_paths(t_sender *sender, t_list *start, int flow)
 		if (!sender->ants_to_send[i] && ((t_edge*)(start->content))->flow)
 		{
 			if (DEBUG)
-				ft_printf("DEBUG: Path %d (of flow %d) is being cleared out.", \
+				ft_printf("DEBUG: Path %d (of flow %d) cleared out.\n", \
 					   	i, ((t_edge*)(start->content))->flow);
 			((t_edge*)(start->content))->flow = 0;
 		}

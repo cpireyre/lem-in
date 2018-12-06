@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 08:41:56 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 15:45:06 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/06 17:59:10 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	solve(t_lemin *lemin)
 	if (lemin->flow > 0)
 	{
 		ft_putchar('\n');
+		prevent_superpositions(&s, lemin->start_id, lemin->map_size, lemin->end_id);
 		send_ants(s, lemin);
 	}
 	else
