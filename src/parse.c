@@ -23,7 +23,7 @@
 ** return (true) quand on trouve line type x-y et rien derriere;
 */
 
-t_bool				store_ants(t_list **head, t_lemin *lemin)
+t_bool				store_ants(t_list **head, int *leminants)
 {
 	while (((char*)(*head)->content)[0] == '#')
 	{
@@ -34,11 +34,11 @@ t_bool				store_ants(t_list **head, t_lemin *lemin)
 	}
 	if (ft_isint((char*)(*head)->content))
 	{
-		lemin->ants = ft_atoi((char*)(*head)->content);
+		*leminants = ft_atoi((char*)(*head)->content);
 		if (DEBUG > 1)
-			ft_printf("DEBUG: Stored %d ant%c.\n", lemin->ants, \
-					lemin->ants > 1 ? 's' : 0);
-		if (lemin->ants >= 0)
+			ft_printf("DEBUG: Stored %d ant%c.\n", *leminants, \
+					*leminants > 1 ? 's' : 0);
+		if (*leminants >= 0)
 			return (true);
 		else
 			return (false);

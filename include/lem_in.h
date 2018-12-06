@@ -88,7 +88,7 @@ typedef struct		s_trajectory
 **	parse.c
 */
 
-t_bool				store_ants(t_list **head, t_lemin *lemin);
+t_bool				store_ants(t_list **head, int *ants);
 void				store_rooms(t_list **head, t_lemin *lemin);
 t_bool				store_special_rooms(t_lemin *lemin, char *name, t_byte t);
 

@@ -31,7 +31,7 @@ void	parse(t_list **usr_in, t_list **tmp, t_lemin *lemin)
 {
 	if (!(*usr_in))
 		quit_lem_in(tmp, lemin, "ERROR: No arguments.\n", EXIT_FAILURE);
-	if (!(store_ants(usr_in, lemin)))
+	if (!(store_ants(usr_in, &lemin->ants)))
 		quit_lem_in(tmp, lemin, "ERROR: Invalid number of ants.\n", EXIT_FAILURE);
 	*usr_in = (*usr_in)->next;
 	store_rooms(usr_in, lemin);
