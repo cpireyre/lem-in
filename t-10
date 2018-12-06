@@ -1,0 +1,3086 @@
+DEBUG: Stored 10 ants.
+DEBUG: "Xct9-Drk1" invalid somehow.
+DEBUG: Start room: "Gr_1", end room: "I_l3".
+DEBUG: All rooms are stored. Processing pipes.
+10
+#Here is the number of lines required: 32
+##start
+Gr_1 3 3
+##end
+I_l3 6 6
+Svs2 9 9
+Dwo2 14 14
+Cqg4 15 15
+Siy5 18 18
+Ocw4 23 23
+Jjm1 25 25
+Eup1 29 29
+Got6 32 32
+S_x4 35 35
+Q__2 37 37
+Duh8 39 39
+Jcv0 42 42
+Frk9 45 45
+Tar3 47 47
+Epl5 52 52
+Ewk2 54 54
+Prv1 58 58
+Ngk0 61 61
+Yyd1 64 64
+Hiu4 68 68
+Quz1 71 71
+Dxy4 75 75
+Rpp5 80 80
+Ffs5 83 83
+Sby9 84 84
+Hsz8 88 88
+Rqr7 91 91
+Z_c1 95 95
+Xgt8 98 98
+Sgh1 102 102
+Wmk9 105 105
+Rwe4 108 108
+Nc_4 111 111
+Qvu3 115 115
+Syd7 118 118
+Vu_6 119 119
+Olp4 120 120
+Gwq3 124 124
+A_y5 125 125
+Tuh9 129 129
+Uzd5 131 131
+Oco9 133 133
+N_c7 137 137
+Yau1 140 140
+Mpq6 144 144
+Awx0 145 145
+Tda6 148 148
+Bqg5 151 151
+Tad7 153 153
+Unw7 156 156
+A__6 157 157
+Pnv1 161 161
+Dp_0 166 166
+Czh9 169 169
+E_i0 173 173
+Zbi2 174 174
+Rtl4 177 177
+Pxv3 181 181
+Sk_5 184 184
+Tel1 187 187
+Ryx6 191 191
+J_b4 193 193
+X_b5 196 196
+Bka5 200 200
+Sml4 204 204
+Yl_8 207 207
+Kln4 210 210
+Uvm2 214 214
+Yxp2 217 217
+It_6 222 222
+R_z8 223 223
+Kar5 225 225
+Rdn3 227 227
+Odt4 230 230
+X_a8 235 235
+Ejp1 236 236
+Ego9 238 238
+Z_a3 243 243
+Kny9 248 248
+Dgf6 249 249
+Pva1 251 251
+Ht_9 255 255
+Rsc8 258 258
+Xdq7 261 261
+Xgf2 264 264
+Fkm9 267 267
+Fr_4 271 271
+Wfk3 276 276
+Spw6 277 277
+Pua5 280 280
+Qvy3 284 284
+Dbl8 289 289
+Mlp3 293 293
+Qgp9 295 295
+Bmd6 296 296
+Dlz1 298 298
+Bek6 300 300
+Jtt6 305 305
+Cok6 309 309
+Hwd6 312 312
+Pai1 315 315
+K_u6 319 319
+Qgu8 322 322
+Oou2 323 323
+C_o8 325 325
+Mtq1 328 328
+Nuu6 332 332
+H_m2 334 334
+A_n8 337 337
+Kqo7 339 339
+Img6 341 341
+Znu1 343 343
+Uhl3 344 344
+Dvg6 348 348
+Ktx4 350 350
+Yu_8 354 354
+Rhq0 356 356
+Nwv3 360 360
+D_x2 362 362
+Wnz6 367 367
+Wgb6 371 371
+Cjm2 373 373
+Spp1 376 376
+Uzu3 377 377
+Kxs4 380 380
+Rzg8 382 382
+Tyz4 387 387
+Nm_7 388 388
+Fq_2 390 390
+Kyq6 395 395
+Nqj1 399 399
+Fsi6 402 402
+Jym3 404 404
+Swl1 407 407
+Vs_1 408 408
+Yfu3 411 411
+Qxz1 415 415
+Ogy7 420 420
+Jxn6 423 423
+Uln4 426 426
+Hze8 430 430
+Iyq9 432 432
+P_q9 436 436
+Cwo8 438 438
+Jkg1 440 440
+Kae6 443 443
+Tjc9 445 445
+Npn2 446 446
+Th_9 448 448
+Kwj7 451 451
+Ruj5 453 453
+Rej8 455 455
+Nil0 459 459
+Zwn2 462 462
+Cbn7 465 465
+Koe5 468 468
+Eya5 471 471
+Y_y9 475 475
+T_q4 479 479
+Jbt9 480 480
+Bbc8 483 483
+Hxi2 486 486
+Ook9 488 488
+Scm5 493 493
+Xyr6 496 496
+Wtj1 499 499
+Vqo0 503 503
+Ava8 508 508
+Wjs1 513 513
+Roe8 518 518
+Zfc1 519 519
+Gkt4 522 522
+Cnx1 524 524
+Hyy9 528 528
+Usr5 533 533
+Ggd6 536 536
+M_o8 539 539
+Aew8 543 543
+Xvv1 547 547
+Uba1 549 549
+Wsb9 551 551
+B_q9 554 554
+Gmd4 559 559
+Sze5 561 561
+Qlg8 563 563
+Fux8 565 565
+Pmf0 566 566
+Rqv9 569 569
+Swo9 573 573
+Dik4 576 576
+Nep6 580 580
+Ylz0 583 583
+Kxe6 584 584
+Psa0 586 586
+Ipy7 589 589
+Pbk1 593 593
+Cuk7 596 596
+Y_a0 597 597
+Wrd3 601 601
+Pvj5 604 604
+Jxv8 608 608
+U_y4 612 612
+Ouz1 615 615
+Kwa5 616 616
+Fmx1 619 619
+Uvc5 621 621
+Yas3 625 625
+Yl_9 627 627
+Nzw8 630 630
+Hcp4 632 632
+Shm3 635 635
+Nuj6 637 637
+Yga1 642 642
+Dl_7 645 645
+Uig9 648 648
+Pgp2 650 650
+Kux3 653 653
+Exu2 656 656
+Iyt6 661 661
+Bfz9 663 663
+Pc_7 665 665
+Vf_8 670 670
+Zmm2 674 674
+Yrs3 677 677
+Jrg4 681 681
+Ai_2 683 683
+Jra8 686 686
+Khh3 689 689
+Qnv2 693 693
+Rtg1 697 697
+Imq6 698 698
+Vy_5 703 703
+Oio4 706 706
+Khf8 711 711
+Pzp7 714 714
+Anp4 717 717
+Xy_2 720 720
+Frl5 723 723
+Csz3 725 725
+Kal6 729 729
+Zkk2 731 731
+Rvb4 734 734
+Qeb8 736 736
+Tlu6 737 737
+Sem7 741 741
+Czf3 742 742
+Ux_6 743 743
+Xx_8 744 744
+Nbv3 746 746
+V_e9 747 747
+Esv7 751 751
+Nmo8 753 753
+W_t1 755 755
+Web6 759 759
+Rzs3 761 761
+Hz_3 765 765
+Q_k9 768 768
+Pxu1 771 771
+Adk1 773 773
+Uks9 777 777
+Jys8 778 778
+Wct6 779 779
+Zdq7 784 784
+Edf4 789 789
+Urf0 793 793
+Hmy8 795 795
+Fwf7 800 800
+Kpn1 803 803
+Ahn2 806 806
+Plb9 807 807
+Ex_4 810 810
+Akv5 813 813
+Pvf7 815 815
+Q_g1 819 819
+Axg5 821 821
+Djr6 823 823
+Npe6 826 826
+Rhl3 829 829
+Wax3 834 834
+Pso1 835 835
+Ii_2 838 838
+S_g9 842 842
+Pog7 844 844
+F_s1 848 848
+Q_k8 852 852
+Tgk8 854 854
+Drc8 856 856
+Uo_2 861 861
+Dbv2 866 866
+Rli8 869 869
+N_l7 870 870
+Ks_6 873 873
+Isi7 876 876
+Zkl1 878 878
+Ekm7 881 881
+Bpo3 885 885
+Yiu1 888 888
+Cho0 891 891
+Nzp1 894 894
+Aab9 897 897
+H_w3 900 900
+Ua_7 903 903
+Por8 908 908
+Ea_7 911 911
+Hbo6 913 913
+Zii4 917 917
+Nul2 922 922
+Jvk4 925 925
+Iio0 926 926
+Pnk9 929 929
+Dfw2 931 931
+Ieo9 936 936
+Ac_0 937 937
+Sow4 940 940
+Wt_9 945 945
+Gfw0 949 949
+Ukv6 954 954
+F_i5 957 957
+Xtz6 959 959
+Wt_5 963 963
+H_u1 965 965
+Slq0 969 969
+Ixt6 972 972
+Q_p5 977 977
+Wka8 980 980
+Hbr9 983 983
+Pry1 987 987
+Xf_4 989 989
+Mbb3 993 993
+Ubf7 997 997
+Irn8 999 999
+Bcn5 1002 1002
+Img3 1004 1004
+Ooa8 1007 1007
+N_d3 1010 1010
+Tp_8 1013 1013
+J_g7 1016 1016
+Ttx6 1018 1018
+Sib7 1021 1021
+T_j1 1025 1025
+Aoh5 1028 1028
+Mov3 1029 1029
+Ana3 1032 1032
+Kcu5 1035 1035
+Bwh6 1039 1039
+Blz9 1041 1041
+Dyv9 1045 1045
+B_l9 1046 1046
+Fam8 1049 1049
+Yxg6 1051 1051
+Fea5 1054 1054
+Za_0 1057 1057
+Ptz1 1060 1060
+Vuf0 1062 1062
+Ic_4 1064 1064
+Wnd6 1067 1067
+Rkq1 1070 1070
+Mfk5 1072 1072
+Sdi3 1075 1075
+Gca7 1080 1080
+Zgy1 1081 1081
+Dxr2 1082 1082
+Mlt1 1083 1083
+Ezc0 1084 1084
+Aam1 1085 1085
+Blj0 1090 1090
+Ulg3 1093 1093
+Vfd7 1098 1098
+Anz7 1102 1102
+Ja_4 1103 1103
+Pji2 1108 1108
+Glg7 1111 1111
+Uqg9 1114 1114
+Pgm9 1118 1118
+Uuc1 1121 1121
+Xuj8 1125 1125
+Biz1 1128 1128
+Kzh4 1130 1130
+Qmk1 1133 1133
+Kyp7 1135 1135
+Rcm3 1138 1138
+Sos3 1139 1139
+Vtx4 1141 1141
+Fhh8 1143 1143
+Oki5 1147 1147
+T_a6 1149 1149
+Qrc0 1151 1151
+Wur4 1154 1154
+Fda6 1156 1156
+Flf4 1161 1161
+Zfv2 1165 1165
+H_t0 1170 1170
+Grn8 1173 1173
+Eae6 1176 1176
+Rki0 1181 1181
+Owp7 1186 1186
+Imv3 1188 1188
+Cue0 1190 1190
+Hxa9 1195 1195
+Aw_6 1198 1198
+Dlt8 1201 1201
+Yvd2 1203 1203
+Pez8 1207 1207
+Waf8 1211 1211
+Phw4 1212 1212
+Mu_5 1216 1216
+Mfl5 1221 1221
+Rbq9 1225 1225
+Maa3 1228 1228
+Knj7 1232 1232
+Iwf0 1234 1234
+Hzy0 1235 1235
+Mos9 1238 1238
+Tig3 1240 1240
+Px_4 1242 1242
+Nlj2 1247 1247
+Nxv0 1250 1250
+Nbb0 1253 1253
+Noj4 1257 1257
+Sdf9 1258 1258
+Jml3 1261 1261
+Y__6 1262 1262
+Vps7 1264 1264
+S_q2 1269 1269
+Qmt9 1274 1274
+Nnz1 1277 1277
+Tza0 1278 1278
+Uar4 1281 1281
+Vwm3 1282 1282
+Bfq2 1284 1284
+Inu9 1285 1285
+Thp7 1290 1290
+Rch5 1294 1294
+Ufm7 1297 1297
+S_p0 1299 1299
+Eij2 1303 1303
+Oct1 1306 1306
+Snv5 1307 1307
+Agd0 1311 1311
+Jye4 1314 1314
+Bwk3 1318 1318
+Igt0 1323 1323
+Jdd1 1325 1325
+Zqz0 1328 1328
+Vfm0 1329 1329
+Fio2 1332 1332
+X_t7 1335 1335
+Nyt4 1337 1337
+Vbq2 1341 1341
+Obj1 1342 1342
+Fga3 1345 1345
+Igl5 1349 1349
+R_c9 1353 1353
+Ghv0 1357 1357
+H_p0 1361 1361
+Znx1 1364 1364
+Hyk7 1366 1366
+Hsm6 1370 1370
+Mxq8 1372 1372
+Ne_5 1375 1375
+Fac0 1379 1379
+Zbu6 1383 1383
+Bff9 1388 1388
+Hsw8 1393 1393
+Fqu4 1396 1396
+Yok0 1401 1401
+Wpu1 1403 1403
+Dyg9 1408 1408
+Mqj7 1413 1413
+Wve6 1416 1416
+Fjn1 1419 1419
+Oeu1 1424 1424
+Gvc5 1429 1429
+Bby2 1432 1432
+Gao5 1435 1435
+Bjm7 1436 1436
+Xtm3 1439 1439
+Xlm0 1442 1442
+Qmh3 1446 1446
+P__7 1449 1449
+Srt2 1453 1453
+Phs8 1456 1456
+Crn6 1459 1459
+Zqp7 1464 1464
+Jpn6 1469 1469
+Juv8 1473 1473
+Bix9 1477 1477
+Xct9 1481 1481
+Bsq0 1486 1486
+Yrx9 1489 1489
+Nnm5 1492 1492
+Nfw8 1493 1493
+Ccg8 1498 1498
+Req7 1502 1502
+Jej1 1503 1503
+Wmn9 1505 1505
+Eof2 1508 1508
+Hjx1 1512 1512
+Uuj5 1514 1514
+Sky1 1515 1515
+Nhc0 1520 1520
+Pdn3 1523 1523
+Fsd9 1524 1524
+J_i0 1525 1525
+Awc5 1528 1528
+Udg7 1529 1529
+Axx5 1534 1534
+Snk7 1539 1539
+Hgu7 1541 1541
+Bon1 1542 1542
+Hjo0 1544 1544
+Opi2 1546 1546
+V_o0 1550 1550
+Fgx3 1554 1554
+Dnz0 1557 1557
+Gmd0 1559 1559
+J_z5 1561 1561
+Rqg3 1563 1563
+Rlu3 1566 1566
+Qts9 1569 1569
+B_b8 1571 1571
+Gfm7 1576 1576
+Hug3 1578 1578
+Pom2 1579 1579
+Vpl0 1582 1582
+Dji3 1584 1584
+Smj6 1587 1587
+Ek_6 1589 1589
+Aez2 1594 1594
+Rbv2 1596 1596
+Xu_5 1599 1599
+Kcn9 1603 1603
+Kvj5 1605 1605
+Gy_4 1607 1607
+Aty3 1610 1610
+Hzy4 1614 1614
+Xma9 1616 1616
+Dev0 1619 1619
+Isa4 1622 1622
+P_j5 1625 1625
+Idx4 1629 1629
+Qmb8 1632 1632
+Pcs5 1636 1636
+Gyo6 1637 1637
+Yrd3 1639 1639
+Mxn9 1643 1643
+Qmp9 1645 1645
+Ssi9 1649 1649
+Kgv8 1651 1651
+Txm0 1653 1653
+Qyf9 1655 1655
+Qnj8 1658 1658
+Adb2 1660 1660
+Rfs0 1662 1662
+Xnu5 1665 1665
+Pmp7 1667 1667
+Iar2 1670 1670
+Df_5 1673 1673
+Vpc0 1678 1678
+Mtc7 1680 1680
+Hjs8 1685 1685
+Ke_7 1687 1687
+Wtq8 1689 1689
+Uo_9 1694 1694
+Nhi5 1697 1697
+Rsu5 1700 1700
+Hwo5 1701 1701
+Ast6 1705 1705
+Qsc7 1709 1709
+Ulp3 1712 1712
+Cll0 1714 1714
+Xkh1 1719 1719
+V_q6 1720 1720
+W_h9 1723 1723
+H_l2 1726 1726
+Hao4 1729 1729
+Ksu4 1733 1733
+Hr_9 1737 1737
+Gep0 1740 1740
+Boj9 1741 1741
+Jq_5 1743 1743
+Jum8 1746 1746
+E__3 1751 1751
+Esj1 1755 1755
+Idz0 1758 1758
+Zju5 1761 1761
+Suy2 1764 1764
+Ojz0 1769 1769
+Pb_0 1774 1774
+Uv_3 1777 1777
+Nlw7 1780 1780
+Vil0 1784 1784
+Ysy4 1787 1787
+Vgv5 1790 1790
+Uhu3 1794 1794
+Hnt2 1797 1797
+Eag5 1801 1801
+Qs_9 1804 1804
+Hes8 1807 1807
+Rvr7 1808 1808
+Fv_6 1813 1813
+Jhq2 1814 1814
+Dvt1 1815 1815
+Rvx1 1817 1817
+B_q5 1819 1819
+Cgx9 1822 1822
+Cpk0 1824 1824
+Bes1 1828 1828
+Drj2 1833 1833
+Nel4 1837 1837
+Qii2 1840 1840
+Khw9 1842 1842
+Nha7 1845 1845
+Vij7 1847 1847
+Pde7 1850 1850
+Eqg5 1853 1853
+Snc1 1855 1855
+Wzd1 1856 1856
+Gfw2 1861 1861
+F_p1 1863 1863
+F_g0 1866 1866
+Aey0 1869 1869
+Kbs0 1873 1873
+His8 1877 1877
+Vqd8 1880 1880
+X__6 1884 1884
+Ydt1 1887 1887
+Eor1 1888 1888
+I_q8 1889 1889
+Fnm3 1891 1891
+Drk1 1896 1896
+Ish3 1899 1899
+Whb7 1901 1901
+Ity5 1904 1904
+Xct9-Drk1
+Wzd1-I_q8
+Qmt9-Eor1
+Dlt8-Ocw4
+Kwa5-Ydt1
+Pmf0-Kbs0
+Qgp9-S_x4
+Oou2-Aey0
+F_i5-Gfw2
+Iwf0-Jcv0
+Ja_4-Wzd1
+Hao4-Epl5
+P__7-Khw9
+Csz3-Prv1
+Tuh9-Ngk0
+Nyt4-Bes1
+Swo9-Rpp5
+Esj1-Ffs5
+Ufm7-Rqr7
+Yas3-Z_c1
+Dp_0-B_q5
+Bmd6-Xgt8
+Rvx1-Rwe4
+Dvt1-Rvx1
+Fv_6-Jhq2
+Nc_4-Fv_6
+Qvu3-Rvr7
+Hes8-Qvu3
+Vu_6-Syd7
+Eag5-Qs_9
+Hnt2-Eag5
+Uhu3-Hnt2
+Gwq3-Olp4
+Vil0-Uzd5
+Oco9-Vil0
+N_c7-Uv_3
+Pb_0-N_c7
+Awx0-Zju5
+Idz0-Awx0
+Esj1-Idz0
+Bqg5-Tda6
+E__3-Bqg5
+Tad7-E__3
+Jum8-Tad7
+Boj9-Jq_5
+Unw7-Hr_9
+Hao4-Ksu4
+Pnv1-Hao4
+H_l2-Pnv1
+W_h9-H_l2
+Xkh1-Dp_0
+Czh9-Xkh1
+Cll0-Czh9
+Gr_1-Cll0
+Ulp3-I_l3
+Rtl4-Qsc7
+Hwo5-Ast6
+Rsu5-Tel1
+Uo_9-Nhi5
+Ke_7-Wtq8
+X_b5-J_b4
+Df_5-X_b5
+Bka5-Df_5
+Iar2-Bka5
+Sml4-Iar2
+Xnu5-Pmp7
+Yl_8-Xnu5
+Yxp2-Uvm2
+Qnj8-R_z8
+Kar5-Qnj8
+Txm0-Qyf9
+Gyo6-Yrd3
+Dgf6-Kny9
+Qmb8-Pcs5
+Ht_9-Pva1
+Xdq7-Rsc8
+Xgf2-Xdq7
+Fkm9-Xgf2
+Idx4-Fkm9
+Wfk3-Fr_4
+Spw6-P_j5
+Isa4-Spw6
+Dev0-Isa4
+Xma9-Pua5
+Hzy4-Xma9
+Qvy3-Gy_4
+Kvj5-Qvy3
+Dbl8-Kcn9
+Aez2-Bmd6
+Dlz1-Aez2
+Smj6-Ek_6
+Dji3-Bek6
+Vpl0-Jtt6
+Pom2-Vpl0
+Hug3-Pom2
+Cok6-Hug3
+Oou2-Qgu8
+B_b8-C_o8
+H_m2-Nuu6
+Rlu3-Kqo7
+Rqg3-Rlu3
+J_z5-Rqg3
+Img6-J_z5
+Znu1-Img6
+Uhl3-Znu1
+Dvg6-Gmd0
+Ktx4-Dvg6
+Dnz0-Ktx4
+Yu_8-Fgx3
+Rhq0-Yu_8
+Hgu7-Wgb6
+Uzu3-Spp1
+Kxs4-Uzu3
+Snk7-Kxs4
+Rzg8-Snk7
+Axx5-Rzg8
+Nm_7-Tyz4
+Awc5-Nm_7
+Fq_2-J_i0
+Kyq6-Fq_2
+Fsi6-Fsd9
+Pdn3-Fsi6
+Vs_1-Swl1
+Yfu3-Vs_1
+Qxz1-Yfu3
+Uuj5-Ogy7
+Eof2-Uln4
+Wmn9-P_q9
+Jej1-Wmn9
+Req7-Jej1
+Ccg8-Cwo8
+Nfw8-Tjc9
+Nnm5-Nfw8
+Npn2-Nnm5
+Th_9-Npn2
+Bsq0-Yrx9
+Zqp7-Jpn6
+Ruj5-Crn6
+Rej8-Ruj5
+Nil0-Rej8
+Zwn2-Nil0
+Phs8-Zwn2
+Koe5-Cbn7
+P__7-Eya5
+Y_y9-P__7
+Xlm0-Qmh3
+T_q4-Xlm0
+Gao5-Bjm7
+Bby2-Gao5
+Bbc8-Oeu1
+Fjn1-Bbc8
+Wve6-Hxi2
+Mqj7-Wve6
+Ook9-Dyg9
+Wpu1-Xyr6
+Ava8-Vqo0
+Wjs1-Ava8
+Roe8-Wjs1
+Yok0-Zfc1
+Fqu4-Gkt4
+Hsw8-Fqu4
+Cnx1-Zbu6
+Fac0-Cnx1
+M_o8-Ggd6
+Hsm6-Mxq8
+Hyk7-Aew8
+Uba1-Xvv1
+Znx1-Uba1
+Gmd4-B_q9
+Ghv0-H_p0
+Sze5-Ghv0
+R_c9-Sze5
+Igl5-Fux8
+Rqv9-Pmf0
+Swo9-Rqv9
+Nep6-Dik4
+Vbq2-Ipy7
+Pbk1-Vfm0
+Cuk7-Zqz0
+Y_a0-Jdd1
+Jxv8-Pvj5
+Ouz1-U_y4
+Igt0-Kwa5
+Bwk3-Fmx1
+Uvc5-Bwk3
+Yl_9-Jye4
+Nzw8-Agd0
+Hcp4-Snv5
+Shm3-Hcp4
+Yga1-Nuj6
+Oct1-Yga1
+Eij2-Oct1
+S_p0-Eij2
+Dl_7-S_p0
+Uig9-Dl_7
+Rch5-Ufm7
+Thp7-Rch5
+Inu9-Exu2
+Iyt6-Bfq2
+Bfz9-Iyt6
+Uar4-Vf_8
+Qmt9-Zmm2
+Jrg4-Yrs3
+S_q2-Jrg4
+Vps7-S_q2
+Y__6-Vps7
+Ai_2-Y__6
+Qnv2-Khh3
+Jml3-Qnv2
+Vy_5-Nlj2
+Tig3-Oio4
+Mos9-Tig3
+Hzy0-Khf8
+Iwf0-Hzy0
+Anp4-Pzp7
+Rbq9-Maa3
+Xy_2-Rbq9
+Frl5-Xy_2
+Mu_5-Mfl5
+Kal6-Csz3
+Waf8-Rvb4
+Gr_1-Qeb8
+Yvd2-Pez8
+Tlu6-Yvd2
+Dlt8-Sem7
+Aw_6-Dlt8
+Czf3-Aw_6
+Hxa9-Ux_6
+Xx_8-Hxa9
+Cue0-Xx_8
+Imv3-Nbv3
+Owp7-Imv3
+V_e9-Rki0
+Eae6-V_e9
+H_t0-Grn8
+Nmo8-Fda6
+Wur4-Nmo8
+Qrc0-W_t1
+T_a6-Qrc0
+Web6-T_a6
+Rzs3-Web6
+Gr_1-Rzs3
+Oki5-I_l3
+Sos3-Vtx4
+Hz_3-Sos3
+Pxu1-Q_k9
+Adk1-Pxu1
+Qmk1-Jys8
+Wct6-Qmk1
+Zdq7-Wct6
+Biz1-Kzh4
+Xuj8-Biz1
+Edf4-Xuj8
+Uuc1-Edf4
+Fwf7-Hmy8
+Kpn1-Fwf7
+Ahn2-Anz7
+Vfd7-Ahn2
+Ulg3-Vfd7
+Gr_1-Blj0
+Ezc0-Aam1
+Plb9-Ezc0
+Ex_4-Plb9
+Mlt1-Ex_4
+Akv5-Mlt1
+Dxr2-Akv5
+Gca7-Zgy1
+Sdi3-Pvf7
+Mfk5-Sdi3
+Q_g1-Rkq1
+Wnd6-Q_g1
+Axg5-Wnd6
+Ic_4-Axg5
+Djr6-Ic_4
+Vuf0-Djr6
+Ptz1-Vuf0
+Rhl3-Npe6
+Fea5-Wax3
+Pso1-Yxg6
+Fam8-Pso1
+Ii_2-Fam8
+S_g9-Ii_2
+B_l9-S_g9
+Pog7-I_l3
+F_s1-Pog7
+Q_k8-Dyv9
+Drc8-Tgk8
+Bwh6-Drc8
+Kcu5-Uo_2
+Ana3-Kcu5
+Mov3-Ana3
+Dbv2-Mov3
+N_l7-T_j1
+Ttx6-Sib7
+Isi7-Ks_6
+Zkl1-Isi7
+Tp_8-Zkl1
+Yiu1-N_d3
+Cho0-Ooa8
+Nzp1-Img3
+Bcn5-Nzp1
+Aab9-Bcn5
+H_w3-Aab9
+Ubf7-Ea_7
+Pry1-Xf_4
+Q_p5-Nul2
+Jvk4-Q_p5
+Ixt6-Dfw2
+Ieo9-Slq0
+H_u1-Ieo9
+Wt_5-Ac_0
+Wt_9-Xtz6
+F_i5-Wt_9
+Gfw0-F_i5
+Gr_1-Gfw0
+Xtz6-Sow4
+Sow4-Wt_5
+Ac_0-H_u1
+Slq0-Ixt6
+Dfw2-Pnk9
+Pnk9-Iio0
+Iio0-Jvk4
+Nul2-Wka8
+Wka8-Zii4
+Zii4-Hbr9
+Hbr9-Pry1
+Xf_4-Hbo6
+Hbo6-Mbb3
+Mbb3-Ubf7
+Ea_7-Por8
+Por8-Irn8
+Irn8-Ua_7
+Ua_7-I_l3
+Gr_1-H_w3
+Img3-Cho0
+Ooa8-Yiu1
+N_d3-Bpo3
+Bpo3-Ekm7
+Ekm7-Tp_8
+Ks_6-J_g7
+J_g7-Ttx6
+Sib7-N_l7
+T_j1-Aoh5
+Aoh5-Rli8
+Rli8-Dbv2
+Uo_2-Bwh6
+Tgk8-Blz9
+Blz9-Q_k8
+Dyv9-F_s1
+Gr_1-B_l9
+Yxg6-Fea5
+Wax3-Za_0
+Za_0-Rhl3
+Npe6-Ptz1
+Rkq1-Mfk5
+Pvf7-Gca7
+Zgy1-Dxr2
+Aam1-I_l3
+Blj0-Ulg3
+Anz7-Ja_4
+Ja_4-Pji2
+Pji2-Kpn1
+Hmy8-Urf0
+Urf0-Glg7
+Glg7-Uqg9
+Uqg9-Pgm9
+Pgm9-Uuc1
+Kzh4-Zdq7
+Jys8-Kyp7
+Kyp7-Rcm3
+Rcm3-Uks9
+Uks9-Adk1
+Q_k9-Hz_3
+Vtx4-Fhh8
+Fhh8-Oki5
+W_t1-Wur4
+Fda6-Flf4
+Flf4-Esv7
+Esv7-Zfv2
+Zfv2-H_t0
+Grn8-Eae6
+Rki0-Owp7
+Nbv3-Cue0
+Ux_6-Czf3
+Sem7-Tlu6
+Pez8-I_l3
+Qeb8-Waf8
+Rvb4-Zkk2
+Zkk2-Kal6
+Csz3-Phw4
+Phw4-Mu_5
+Mfl5-Frl5
+Maa3-Knj7
+Knj7-Anp4
+Pzp7-Iwf0
+Khf8-Mos9
+Oio4-Px_4
+Px_4-Vy_5
+Nlj2-Imq6
+Imq6-Nxv0
+Nxv0-Ukv6
+Ukv6-I_l3
+Gr_1-Rtg1
+Rtg1-Nbb0
+Nbb0-Noj4
+Noj4-Sdf9
+Sdf9-Jml3
+Khh3-Jra8
+Jra8-Ai_2
+Yrs3-Qmt9
+Zmm2-Nnz1
+Nnz1-Tza0
+Tza0-Uar4
+Vf_8-Pc_7
+Pc_7-Vwm3
+Vwm3-Bfz9
+Bfq2-Inu9
+Exu2-Kux3
+Kux3-Pgp2
+Pgp2-Thp7
+Ufm7-Uig9
+Nuj6-Shm3
+Snv5-Nzw8
+Agd0-Yl_9
+Jye4-Yas3
+Yas3-Uvc5
+Fmx1-Igt0
+Kwa5-Ouz1
+U_y4-Jxv8
+Pvj5-Wrd3
+Wrd3-Y_a0
+Jdd1-Cuk7
+Zqz0-Pbk1
+Vfm0-Fio2
+Fio2-X_t7
+X_t7-Nyt4
+Nyt4-Vbq2
+Ipy7-Psa0
+Psa0-I_l3
+Gr_1-Kxe6
+Kxe6-Obj1
+Obj1-Ylz0
+Ylz0-Fga3
+Fga3-Nep6
+Dik4-Swo9
+Pmf0-Igl5
+Fux8-Qlg8
+Qlg8-R_c9
+H_p0-Gmd4
+B_q9-Wsb9
+Wsb9-Znx1
+Xvv1-Hyk7
+Aew8-Hsm6
+Mxq8-M_o8
+Ggd6-Usr5
+Usr5-Ne_5
+Ne_5-Hyy9
+Hyy9-Fac0
+Zbu6-Bff9
+Bff9-Hsw8
+Gkt4-Yok0
+Zfc1-Roe8
+Vqo0-Wtj1
+Wtj1-Wpu1
+Xyr6-Scm5
+Scm5-Ook9
+Dyg9-Mqj7
+Hxi2-Fjn1
+Oeu1-Gvc5
+Gvc5-Bby2
+Bjm7-Xtm3
+Xtm3-Jbt9
+Jbt9-T_q4
+Qmh3-Y_y9
+Eya5-Srt2
+Srt2-Koe5
+Cbn7-Phs8
+Crn6-Zqp7
+Jpn6-Kwj7
+Kwj7-Juv8
+Juv8-Bix9
+Bix9-Xct9
+Xct9-Bsq0
+Yrx9-I_l3
+Gr_1-Th_9
+Tjc9-Kae6
+Kae6-Jkg1
+Jkg1-Ccg8
+Cwo8-Req7
+P_q9-Iyq9
+Iyq9-Hze8
+Hze8-Eof2
+Uln4-Hjx1
+Hjx1-Jxn6
+Jxn6-Uuj5
+Ogy7-Qxz1
+Swl1-Jym3
+Jym3-Sky1
+Sky1-Nhc0
+Nhc0-Pdn3
+Fsd9-Nqj1
+Nqj1-Kyq6
+J_i0-Awc5
+Tyz4-Udg7
+Udg7-Axx5
+Spp1-Cjm2
+Cjm2-Hgu7
+Wgb6-Bon1
+Bon1-Wnz6
+Wnz6-Hjo0
+Hjo0-Opi2
+Opi2-V_o0
+V_o0-D_x2
+D_x2-Nwv3
+Nwv3-Rhq0
+Fgx3-Dnz0
+Gmd0-Uhl3
+Kqo7-A_n8
+A_n8-H_m2
+Nuu6-Mtq1
+Mtq1-Qts9
+Qts9-B_b8
+C_o8-Oou2
+Qgu8-K_u6
+K_u6-Gfm7
+Gfm7-Pai1
+Pai1-Hwd6
+Hwd6-Cok6
+Jtt6-Dji3
+Bek6-I_l3
+Gr_1-Smj6
+Ek_6-Dlz1
+Bmd6-Rbv2
+Rbv2-Qgp9
+Qgp9-Xu_5
+Xu_5-Mlp3
+Mlp3-Dbl8
+Kcn9-Kvj5
+Gy_4-Aty3
+Aty3-Hzy4
+Pua5-Dev0
+P_j5-Wfk3
+Fr_4-Idx4
+Rsc8-Ht_9
+Pva1-Qmb8
+Pcs5-Dgf6
+Kny9-Z_a3
+Z_a3-Gyo6
+Yrd3-Ego9
+Ego9-Mxn9
+Mxn9-Qmp9
+Qmp9-Ejp1
+Ejp1-Ssi9
+Ssi9-X_a8
+X_a8-Kgv8
+Kgv8-Txm0
+Qyf9-Odt4
+Odt4-Rdn3
+Rdn3-Kar5
+R_z8-Adb2
+Adb2-Rfs0
+Rfs0-It_6
+It_6-Yxp2
+Uvm2-Kln4
+Kln4-Yl_8
+Pmp7-Sml4
+J_b4-Vpc0
+Vpc0-Mtc7
+Mtc7-Hjs8
+Hjs8-Ke_7
+Wtq8-Ryx6
+Ryx6-Uo_9
+Nhi5-Rsu5
+Tel1-Hwo5
+Ast6-Sk_5
+Sk_5-Pxv3
+Pxv3-Rtl4
+Qsc7-Zbi2
+Zbi2-E_i0
+E_i0-Ulp3
+Dp_0-V_q6
+V_q6-W_h9
+Ksu4-A__6
+A__6-Unw7
+Hr_9-Gep0
+Gep0-Boj9
+Jq_5-Jum8
+Tda6-Esj1
+Zju5-Mpq6
+Mpq6-Suy2
+Suy2-Yau1
+Yau1-Ojz0
+Ojz0-Pb_0
+Uv_3-Nlw7
+Nlw7-Oco9
+Uzd5-Tuh9
+Tuh9-A_y5
+A_y5-Ysy4
+Ysy4-Gwq3
+Olp4-Vgv5
+Vgv5-Uhu3
+Qs_9-Vu_6
+Syd7-Hes8
+Rvr7-Nc_4
+Jhq2-Dvt1
+Rwe4-I_l3
+Dnz0-Wmk9
+Bbc8-Sgh1
+Mu_5-Hsz8
+Qeb8-Sby9
+Nlj2-Dxy4
+Hug3-Quz1
+Qvu3-Cgx9
+Wt_9-Hiu4
+Zju5-Cpk0
+Pji2-Yyd1
+Unw7-Drj2
+Ac_0-Nel4
+Agd0-Qii2
+Pc_7-Ewk2
+Rki0-Nha7
+It_6-Vij7
+Sdi3-Tar3
+Rqv9-Pde7
+Zgy1-Eqg5
+Ruj5-Snc1
+Nwv3-Frk9
+Axg5-Duh8
+Cok6-F_p1
+Ego9-F_g0
+Wct6-Q__2
+B_b8-Got6
+Hbo6-Eup1
+Wt_5-His8
+H_p0-Jjm1
+Jej1-Vqd8
+Pgp2-X__6
+Hz_3-Siy5
+Owp7-Cqg4
+Oki5-Dwo2
+Wt_5-Fnm3
+Jxv8-Ish3
+Pez8-Whb7
+Pc_7-Ity5
+Wka8-Svs2
+#Here is the number of lines required: 32
+DEBUG: Commencing breadth-first search.
+DEBUG: BFS done. path[sink] flows from 317 to 634.DEBUG: Added flow btw Ukv6 & I_l3.
+DEBUG: Added flow btw Nxv0 & Ukv6.
+DEBUG: Added flow btw Imq6 & Nxv0.
+DEBUG: Added flow btw Nlj2 & Imq6.
+DEBUG: Added flow btw Vy_5 & Nlj2.
+DEBUG: Added flow btw Px_4 & Vy_5.
+DEBUG: Added flow btw Oio4 & Px_4.
+DEBUG: Added flow btw Tig3 & Oio4.
+DEBUG: Added flow btw Mos9 & Tig3.
+DEBUG: Added flow btw Khf8 & Mos9.
+DEBUG: Added flow btw Hzy0 & Khf8.
+DEBUG: Added flow btw Iwf0 & Hzy0.
+DEBUG: Added flow btw Pzp7 & Iwf0.
+DEBUG: Added flow btw Anp4 & Pzp7.
+DEBUG: Added flow btw Knj7 & Anp4.
+DEBUG: Added flow btw Maa3 & Knj7.
+DEBUG: Added flow btw Rbq9 & Maa3.
+DEBUG: Added flow btw Xy_2 & Rbq9.
+DEBUG: Added flow btw Frl5 & Xy_2.
+DEBUG: Added flow btw Mfl5 & Frl5.
+DEBUG: Added flow btw Mu_5 & Mfl5.
+DEBUG: Added flow btw Phw4 & Mu_5.
+DEBUG: Added flow btw Csz3 & Phw4.
+DEBUG: Added flow btw Kal6 & Csz3.
+DEBUG: Added flow btw Zkk2 & Kal6.
+DEBUG: Added flow btw Rvb4 & Zkk2.
+DEBUG: Added flow btw Waf8 & Rvb4.
+DEBUG: Added flow btw Qeb8 & Waf8.
+DEBUG: Added flow btw Gr_1 & Qeb8.
+DEBUG: Commencing breadth-first search.
+DEBUG: BFS done. path[sink] flows from 332 to 634.DEBUG: Added flow btw Ua_7 & I_l3.
+DEBUG: Added flow btw Irn8 & Ua_7.
+DEBUG: Added flow btw Por8 & Irn8.
+DEBUG: Added flow btw Ea_7 & Por8.
+DEBUG: Added flow btw Ubf7 & Ea_7.
+DEBUG: Added flow btw Mbb3 & Ubf7.
+DEBUG: Added flow btw Hbo6 & Mbb3.
+DEBUG: Added flow btw Xf_4 & Hbo6.
+DEBUG: Added flow btw Pry1 & Xf_4.
+DEBUG: Added flow btw Hbr9 & Pry1.
+DEBUG: Added flow btw Zii4 & Hbr9.
+DEBUG: Added flow btw Wka8 & Zii4.
+DEBUG: Added flow btw Nul2 & Wka8.
+DEBUG: Added flow btw Q_p5 & Nul2.
+DEBUG: Added flow btw Jvk4 & Q_p5.
+DEBUG: Added flow btw Iio0 & Jvk4.
+DEBUG: Added flow btw Pnk9 & Iio0.
+DEBUG: Added flow btw Dfw2 & Pnk9.
+DEBUG: Added flow btw Ixt6 & Dfw2.
+DEBUG: Added flow btw Slq0 & Ixt6.
+DEBUG: Added flow btw Ieo9 & Slq0.
+DEBUG: Added flow btw H_u1 & Ieo9.
+DEBUG: Added flow btw Ac_0 & H_u1.
+DEBUG: Added flow btw Wt_5 & Ac_0.
+DEBUG: Added flow btw Sow4 & Wt_5.
+DEBUG: Added flow btw Xtz6 & Sow4.
+DEBUG: Added flow btw Wt_9 & Xtz6.
+DEBUG: Added flow btw F_i5 & Wt_9.
+DEBUG: Added flow btw Gfw0 & F_i5.
+DEBUG: Added flow btw Gr_1 & Gfw0.
+DEBUG: Commencing breadth-first search.
+DEBUG: BFS done. path[sink] flows from 231 to 634.DEBUG: Added flow btw Pez8 & I_l3.
+DEBUG: Added flow btw Yvd2 & Pez8.
+DEBUG: Added flow btw Tlu6 & Yvd2.
+DEBUG: Added flow btw Sem7 & Tlu6.
+DEBUG: Added flow btw Dlt8 & Sem7.
+DEBUG: Added flow btw Aw_6 & Dlt8.
+DEBUG: Added flow btw Czf3 & Aw_6.
+DEBUG: Added flow btw Ux_6 & Czf3.
+DEBUG: Added flow btw Hxa9 & Ux_6.
+DEBUG: Added flow btw Xx_8 & Hxa9.
+DEBUG: Added flow btw Cue0 & Xx_8.
+DEBUG: Added flow btw Nbv3 & Cue0.
+DEBUG: Added flow btw Imv3 & Nbv3.
+DEBUG: Added flow btw Owp7 & Imv3.
+DEBUG: Added flow btw Rki0 & Owp7.
+DEBUG: Added flow btw V_e9 & Rki0.
+DEBUG: Added flow btw Eae6 & V_e9.
+DEBUG: Added flow btw Grn8 & Eae6.
+DEBUG: Added flow btw H_t0 & Grn8.
+DEBUG: Added flow btw Zfv2 & H_t0.
+DEBUG: Added flow btw Esv7 & Zfv2.
+DEBUG: Added flow btw Flf4 & Esv7.
+DEBUG: Added flow btw Fda6 & Flf4.
+DEBUG: Added flow btw Nmo8 & Fda6.
+DEBUG: Added flow btw Wur4 & Nmo8.
+DEBUG: Added flow btw W_t1 & Wur4.
+DEBUG: Added flow btw Qrc0 & W_t1.
+DEBUG: Added flow btw T_a6 & Qrc0.
+DEBUG: Added flow btw Web6 & T_a6.
+DEBUG: Added flow btw Rzs3 & Web6.
+DEBUG: Added flow btw Gr_1 & Rzs3.
+DEBUG: Commencing breadth-first search.
+DEBUG: BFS done. path[sink] flows from 269 to 634.DEBUG: Added flow btw Aam1 & I_l3.
+DEBUG: Added flow btw Ezc0 & Aam1.
+DEBUG: Added flow btw Plb9 & Ezc0.
+DEBUG: Added flow btw Ex_4 & Plb9.
+DEBUG: Added flow btw Mlt1 & Ex_4.
+DEBUG: Added flow btw Akv5 & Mlt1.
+DEBUG: Added flow btw Dxr2 & Akv5.
+DEBUG: Added flow btw Zgy1 & Dxr2.
+DEBUG: Added flow btw Gca7 & Zgy1.
+DEBUG: Added flow btw Pvf7 & Gca7.
+DEBUG: Added flow btw Sdi3 & Pvf7.
+DEBUG: Added flow btw Mfk5 & Sdi3.
+DEBUG: Added flow btw Rkq1 & Mfk5.
+DEBUG: Added flow btw Q_g1 & Rkq1.
+DEBUG: Added flow btw Wnd6 & Q_g1.
+DEBUG: Added flow btw Axg5 & Wnd6.
+DEBUG: Added flow btw Ic_4 & Axg5.
+DEBUG: Added flow btw Djr6 & Ic_4.
+DEBUG: Added flow btw Vuf0 & Djr6.
+DEBUG: Added flow btw Ptz1 & Vuf0.
+DEBUG: Added flow btw Npe6 & Ptz1.
+DEBUG: Added flow btw Rhl3 & Npe6.
+DEBUG: Added flow btw Za_0 & Rhl3.
+DEBUG: Added flow btw Wax3 & Za_0.
+DEBUG: Added flow btw Fea5 & Wax3.
+DEBUG: Added flow btw Yxg6 & Fea5.
+DEBUG: Added flow btw Pso1 & Yxg6.
+DEBUG: Added flow btw Fam8 & Pso1.
+DEBUG: Added flow btw Ii_2 & Fam8.
+DEBUG: Added flow btw S_g9 & Ii_2.
+DEBUG: Added flow btw B_l9 & S_g9.
+DEBUG: Added flow btw Gr_1 & B_l9.
+DEBUG: Commencing breadth-first search.
+DEBUG: BFS done. path[sink] flows from 249 to 634.DEBUG: Added flow btw Oki5 & I_l3.
+DEBUG: Added flow btw Fhh8 & Oki5.
+DEBUG: Added flow btw Vtx4 & Fhh8.
+DEBUG: Added flow btw Sos3 & Vtx4.
+DEBUG: Added flow btw Hz_3 & Sos3.
+DEBUG: Added flow btw Q_k9 & Hz_3.
+DEBUG: Added flow btw Pxu1 & Q_k9.
+DEBUG: Added flow btw Adk1 & Pxu1.
+DEBUG: Added flow btw Uks9 & Adk1.
+DEBUG: Added flow btw Rcm3 & Uks9.
+DEBUG: Added flow btw Kyp7 & Rcm3.
+DEBUG: Added flow btw Jys8 & Kyp7.
+DEBUG: Added flow btw Qmk1 & Jys8.
+DEBUG: Added flow btw Wct6 & Qmk1.
+DEBUG: Added flow btw Zdq7 & Wct6.
+DEBUG: Added flow btw Kzh4 & Zdq7.
+DEBUG: Added flow btw Biz1 & Kzh4.
+DEBUG: Added flow btw Xuj8 & Biz1.
+DEBUG: Added flow btw Edf4 & Xuj8.
+DEBUG: Added flow btw Uuc1 & Edf4.
+DEBUG: Added flow btw Pgm9 & Uuc1.
+DEBUG: Added flow btw Uqg9 & Pgm9.
+DEBUG: Added flow btw Glg7 & Uqg9.
+DEBUG: Added flow btw Urf0 & Glg7.
+DEBUG: Added flow btw Hmy8 & Urf0.
+DEBUG: Added flow btw Fwf7 & Hmy8.
+DEBUG: Added flow btw Kpn1 & Fwf7.
+DEBUG: Added flow btw Pji2 & Kpn1.
+DEBUG: Added flow btw Ja_4 & Pji2.
+DEBUG: Added flow btw Anz7 & Ja_4.
+DEBUG: Added flow btw Ahn2 & Anz7.
+DEBUG: Added flow btw Vfd7 & Ahn2.
+DEBUG: Added flow btw Ulg3 & Vfd7.
+DEBUG: Added flow btw Blj0 & Ulg3.
+DEBUG: Added flow btw Gr_1 & Blj0.
+DEBUG: Commencing breadth-first search.
+DEBUG: BFS done. path[sink] flows from 351 to 634.DEBUG: Added flow btw Pog7 & I_l3.
+DEBUG: Added flow btw F_s1 & Pog7.
+DEBUG: Added flow btw Dyv9 & F_s1.
+DEBUG: Added flow btw Q_k8 & Dyv9.
+DEBUG: Added flow btw Blz9 & Q_k8.
+DEBUG: Added flow btw Tgk8 & Blz9.
+DEBUG: Added flow btw Drc8 & Tgk8.
+DEBUG: Added flow btw Bwh6 & Drc8.
+DEBUG: Added flow btw Uo_2 & Bwh6.
+DEBUG: Added flow btw Kcu5 & Uo_2.
+DEBUG: Added flow btw Ana3 & Kcu5.
+DEBUG: Added flow btw Mov3 & Ana3.
+DEBUG: Added flow btw Dbv2 & Mov3.
+DEBUG: Added flow btw Rli8 & Dbv2.
+DEBUG: Added flow btw Aoh5 & Rli8.
+DEBUG: Added flow btw T_j1 & Aoh5.
+DEBUG: Added flow btw N_l7 & T_j1.
+DEBUG: Added flow btw Sib7 & N_l7.
+DEBUG: Added flow btw Ttx6 & Sib7.
+DEBUG: Added flow btw J_g7 & Ttx6.
+DEBUG: Added flow btw Ks_6 & J_g7.
+DEBUG: Added flow btw Isi7 & Ks_6.
+DEBUG: Added flow btw Zkl1 & Isi7.
+DEBUG: Added flow btw Tp_8 & Zkl1.
+DEBUG: Added flow btw Ekm7 & Tp_8.
+DEBUG: Added flow btw Bpo3 & Ekm7.
+DEBUG: Added flow btw N_d3 & Bpo3.
+DEBUG: Added flow btw Yiu1 & N_d3.
+DEBUG: Added flow btw Ooa8 & Yiu1.
+DEBUG: Added flow btw Cho0 & Ooa8.
+DEBUG: Added flow btw Img3 & Cho0.
+DEBUG: Added flow btw Nzp1 & Img3.
+DEBUG: Added flow btw Bcn5 & Nzp1.
+DEBUG: Added flow btw Aab9 & Bcn5.
+DEBUG: Added flow btw H_w3 & Aab9.
+DEBUG: Added flow btw Gr_1 & H_w3.
+DEBUG: Commencing breadth-first search.
+DEBUG: BFS done. path[sink] flows from 602 to 634.DEBUG: Added flow btw Rwe4 & I_l3.
+DEBUG: Added flow btw Rvx1 & Rwe4.
+DEBUG: Added flow btw Dvt1 & Rvx1.
+DEBUG: Added flow btw Jhq2 & Dvt1.
+DEBUG: Added flow btw Fv_6 & Jhq2.
+DEBUG: Added flow btw Nc_4 & Fv_6.
+DEBUG: Added flow btw Rvr7 & Nc_4.
+DEBUG: Added flow btw Qvu3 & Rvr7.
+DEBUG: Added flow btw Hes8 & Qvu3.
+DEBUG: Added flow btw Syd7 & Hes8.
+DEBUG: Added flow btw Vu_6 & Syd7.
+DEBUG: Added flow btw Qs_9 & Vu_6.
+DEBUG: Added flow btw Eag5 & Qs_9.
+DEBUG: Added flow btw Hnt2 & Eag5.
+DEBUG: Added flow btw Uhu3 & Hnt2.
+DEBUG: Added flow btw Vgv5 & Uhu3.
+DEBUG: Added flow btw Olp4 & Vgv5.
+DEBUG: Added flow btw Gwq3 & Olp4.
+DEBUG: Added flow btw Ysy4 & Gwq3.
+DEBUG: Added flow btw A_y5 & Ysy4.
+DEBUG: Added flow btw Tuh9 & A_y5.
+DEBUG: Added flow btw Uzd5 & Tuh9.
+DEBUG: Added flow btw Vil0 & Uzd5.
+DEBUG: Added flow btw Oco9 & Vil0.
+DEBUG: Added flow btw Nlw7 & Oco9.
+DEBUG: Added flow btw Uv_3 & Nlw7.
+DEBUG: Added flow btw N_c7 & Uv_3.
+DEBUG: Added flow btw Pb_0 & N_c7.
+DEBUG: Added flow btw Ojz0 & Pb_0.
+DEBUG: Added flow btw Yau1 & Ojz0.
+DEBUG: Added flow btw Suy2 & Yau1.
+DEBUG: Added flow btw Mpq6 & Suy2.
+DEBUG: Added flow btw Zju5 & Mpq6.
+DEBUG: Added flow btw Awx0 & Zju5.
+DEBUG: Added flow btw Idz0 & Awx0.
+DEBUG: Added flow btw Esj1 & Idz0.
+DEBUG: Added flow btw Tda6 & Esj1.
+DEBUG: Added flow btw Bqg5 & Tda6.
+DEBUG: Added flow btw E__3 & Bqg5.
+DEBUG: Added flow btw Tad7 & E__3.
+DEBUG: Added flow btw Jum8 & Tad7.
+DEBUG: Added flow btw Jq_5 & Jum8.
+DEBUG: Added flow btw Boj9 & Jq_5.
+DEBUG: Added flow btw Gep0 & Boj9.
+DEBUG: Added flow btw Hr_9 & Gep0.
+DEBUG: Added flow btw Unw7 & Hr_9.
+DEBUG: Added flow btw A__6 & Unw7.
+DEBUG: Added flow btw Ksu4 & A__6.
+DEBUG: Added flow btw Hao4 & Ksu4.
+DEBUG: Added flow btw Pnv1 & Hao4.
+DEBUG: Added flow btw H_l2 & Pnv1.
+DEBUG: Added flow btw W_h9 & H_l2.
+DEBUG: Added flow btw V_q6 & W_h9.
+DEBUG: Added flow btw Dp_0 & V_q6.
+DEBUG: Added flow btw Xkh1 & Dp_0.
+DEBUG: Added flow btw Czh9 & Xkh1.
+DEBUG: Added flow btw Cll0 & Czh9.
+DEBUG: Added flow btw Gr_1 & Cll0.
+DEBUG: Commencing breadth-first search.
+DEBUG: BFS done. path[sink] flows from 440 to 634.DEBUG: Added flow btw Psa0 & I_l3.
+DEBUG: Added flow btw Ipy7 & Psa0.
+DEBUG: Added flow btw Vbq2 & Ipy7.
+DEBUG: Added flow btw Nyt4 & Vbq2.
+DEBUG: Added flow btw X_t7 & Nyt4.
+DEBUG: Added flow btw Fio2 & X_t7.
+DEBUG: Added flow btw Vfm0 & Fio2.
+DEBUG: Added flow btw Pbk1 & Vfm0.
+DEBUG: Added flow btw Zqz0 & Pbk1.
+DEBUG: Added flow btw Cuk7 & Zqz0.
+DEBUG: Added flow btw Jdd1 & Cuk7.
+DEBUG: Added flow btw Y_a0 & Jdd1.
+DEBUG: Added flow btw Wrd3 & Y_a0.
+DEBUG: Added flow btw Pvj5 & Wrd3.
+DEBUG: Added flow btw Jxv8 & Pvj5.
+DEBUG: Added flow btw U_y4 & Jxv8.
+DEBUG: Added flow btw Ouz1 & U_y4.
+DEBUG: Added flow btw Kwa5 & Ouz1.
+DEBUG: Added flow btw Igt0 & Kwa5.
+DEBUG: Added flow btw Fmx1 & Igt0.
+DEBUG: Added flow btw Bwk3 & Fmx1.
+DEBUG: Added flow btw Uvc5 & Bwk3.
+DEBUG: Added flow btw Yas3 & Uvc5.
+DEBUG: Added flow btw Jye4 & Yas3.
+DEBUG: Added flow btw Yl_9 & Jye4.
+DEBUG: Added flow btw Agd0 & Yl_9.
+DEBUG: Added flow btw Nzw8 & Agd0.
+DEBUG: Added flow btw Snv5 & Nzw8.
+DEBUG: Added flow btw Hcp4 & Snv5.
+DEBUG: Added flow btw Shm3 & Hcp4.
+DEBUG: Added flow btw Nuj6 & Shm3.
+DEBUG: Added flow btw Yga1 & Nuj6.
+DEBUG: Added flow btw Oct1 & Yga1.
+DEBUG: Added flow btw Eij2 & Oct1.
+DEBUG: Added flow btw S_p0 & Eij2.
+DEBUG: Added flow btw Dl_7 & S_p0.
+DEBUG: Added flow btw Uig9 & Dl_7.
+DEBUG: Added flow btw Ufm7 & Uig9.
+DEBUG: Added flow btw Rch5 & Ufm7.
+DEBUG: Added flow btw Thp7 & Rch5.
+DEBUG: Added flow btw Pgp2 & Thp7.
+DEBUG: Added flow btw Kux3 & Pgp2.
+DEBUG: Added flow btw Exu2 & Kux3.
+DEBUG: Added flow btw Inu9 & Exu2.
+DEBUG: Added flow btw Bfq2 & Inu9.
+DEBUG: Added flow btw Iyt6 & Bfq2.
+DEBUG: Added flow btw Bfz9 & Iyt6.
+DEBUG: Added flow btw Vwm3 & Bfz9.
+DEBUG: Added flow btw Pc_7 & Vwm3.
+DEBUG: Added flow btw Vf_8 & Pc_7.
+DEBUG: Added flow btw Uar4 & Vf_8.
+DEBUG: Added flow btw Tza0 & Uar4.
+DEBUG: Added flow btw Nnz1 & Tza0.
+DEBUG: Added flow btw Zmm2 & Nnz1.
+DEBUG: Added flow btw Qmt9 & Zmm2.
+DEBUG: Added flow btw Yrs3 & Qmt9.
+DEBUG: Added flow btw Jrg4 & Yrs3.
+DEBUG: Added flow btw S_q2 & Jrg4.
+DEBUG: Added flow btw Vps7 & S_q2.
+DEBUG: Added flow btw Y__6 & Vps7.
+DEBUG: Added flow btw Ai_2 & Y__6.
+DEBUG: Added flow btw Jra8 & Ai_2.
+DEBUG: Added flow btw Khh3 & Jra8.
+DEBUG: Added flow btw Qnv2 & Khh3.
+DEBUG: Added flow btw Jml3 & Qnv2.
+DEBUG: Added flow btw Sdf9 & Jml3.
+DEBUG: Added flow btw Noj4 & Sdf9.
+DEBUG: Added flow btw Nbb0 & Noj4.
+DEBUG: Added flow btw Rtg1 & Nbb0.
+DEBUG: Added flow btw Gr_1 & Rtg1.
+DEBUG: Commencing breadth-first search.
+DEBUG: BFS done. path[sink] flows from 144 to 634.DEBUG: Added flow btw Yrx9 & I_l3.
+DEBUG: Added flow btw Bsq0 & Yrx9.
+DEBUG: Added flow btw Xct9 & Bsq0.
+DEBUG: Added flow btw Bix9 & Xct9.
+DEBUG: Added flow btw Juv8 & Bix9.
+DEBUG: Added flow btw Kwj7 & Juv8.
+DEBUG: Added flow btw Jpn6 & Kwj7.
+DEBUG: Added flow btw Zqp7 & Jpn6.
+DEBUG: Added flow btw Crn6 & Zqp7.
+DEBUG: Added flow btw Ruj5 & Crn6.
+DEBUG: Added flow btw Rej8 & Ruj5.
+DEBUG: Added flow btw Nil0 & Rej8.
+DEBUG: Added flow btw Zwn2 & Nil0.
+DEBUG: Added flow btw Phs8 & Zwn2.
+DEBUG: Added flow btw Cbn7 & Phs8.
+DEBUG: Added flow btw Koe5 & Cbn7.
+DEBUG: Added flow btw Srt2 & Koe5.
+DEBUG: Added flow btw Eya5 & Srt2.
+DEBUG: Added flow btw P__7 & Eya5.
+DEBUG: Added flow btw Y_y9 & P__7.
+DEBUG: Added flow btw Qmh3 & Y_y9.
+DEBUG: Added flow btw Xlm0 & Qmh3.
+DEBUG: Added flow btw T_q4 & Xlm0.
+DEBUG: Added flow btw Jbt9 & T_q4.
+DEBUG: Added flow btw Xtm3 & Jbt9.
+DEBUG: Added flow btw Bjm7 & Xtm3.
+DEBUG: Added flow btw Gao5 & Bjm7.
+DEBUG: Added flow btw Bby2 & Gao5.
+DEBUG: Added flow btw Gvc5 & Bby2.
+DEBUG: Added flow btw Oeu1 & Gvc5.
+DEBUG: Added flow btw Bbc8 & Oeu1.
+DEBUG: Added flow btw Fjn1 & Bbc8.
+DEBUG: Added flow btw Hxi2 & Fjn1.
+DEBUG: Added flow btw Wve6 & Hxi2.
+DEBUG: Added flow btw Mqj7 & Wve6.
+DEBUG: Added flow btw Dyg9 & Mqj7.
+DEBUG: Added flow btw Ook9 & Dyg9.
+DEBUG: Added flow btw Scm5 & Ook9.
+DEBUG: Added flow btw Xyr6 & Scm5.
+DEBUG: Added flow btw Wpu1 & Xyr6.
+DEBUG: Added flow btw Wtj1 & Wpu1.
+DEBUG: Added flow btw Vqo0 & Wtj1.
+DEBUG: Added flow btw Ava8 & Vqo0.
+DEBUG: Added flow btw Wjs1 & Ava8.
+DEBUG: Added flow btw Roe8 & Wjs1.
+DEBUG: Added flow btw Zfc1 & Roe8.
+DEBUG: Added flow btw Yok0 & Zfc1.
+DEBUG: Added flow btw Gkt4 & Yok0.
+DEBUG: Added flow btw Fqu4 & Gkt4.
+DEBUG: Added flow btw Hsw8 & Fqu4.
+DEBUG: Added flow btw Bff9 & Hsw8.
+DEBUG: Added flow btw Zbu6 & Bff9.
+DEBUG: Added flow btw Cnx1 & Zbu6.
+DEBUG: Added flow btw Fac0 & Cnx1.
+DEBUG: Added flow btw Hyy9 & Fac0.
+DEBUG: Added flow btw Ne_5 & Hyy9.
+DEBUG: Added flow btw Usr5 & Ne_5.
+DEBUG: Added flow btw Ggd6 & Usr5.
+DEBUG: Added flow btw M_o8 & Ggd6.
+DEBUG: Added flow btw Mxq8 & M_o8.
+DEBUG: Added flow btw Hsm6 & Mxq8.
+DEBUG: Added flow btw Aew8 & Hsm6.
+DEBUG: Added flow btw Hyk7 & Aew8.
+DEBUG: Added flow btw Xvv1 & Hyk7.
+DEBUG: Added flow btw Uba1 & Xvv1.
+DEBUG: Added flow btw Znx1 & Uba1.
+DEBUG: Added flow btw Wsb9 & Znx1.
+DEBUG: Added flow btw B_q9 & Wsb9.
+DEBUG: Added flow btw Gmd4 & B_q9.
+DEBUG: Added flow btw H_p0 & Gmd4.
+DEBUG: Added flow btw Ghv0 & H_p0.
+DEBUG: Added flow btw Sze5 & Ghv0.
+DEBUG: Added flow btw R_c9 & Sze5.
+DEBUG: Added flow btw Qlg8 & R_c9.
+DEBUG: Added flow btw Fux8 & Qlg8.
+DEBUG: Added flow btw Igl5 & Fux8.
+DEBUG: Added flow btw Pmf0 & Igl5.
+DEBUG: Added flow btw Rqv9 & Pmf0.
+DEBUG: Added flow btw Swo9 & Rqv9.
+DEBUG: Added flow btw Dik4 & Swo9.
+DEBUG: Added flow btw Nep6 & Dik4.
+DEBUG: Added flow btw Fga3 & Nep6.
+DEBUG: Added flow btw Ylz0 & Fga3.
+DEBUG: Added flow btw Obj1 & Ylz0.
+DEBUG: Added flow btw Kxe6 & Obj1.
+DEBUG: Added flow btw Gr_1 & Kxe6.
+DEBUG: Commencing breadth-first search.
+DEBUG: BFS done. path[sink] flows from 64 to 634.DEBUG: Added flow btw Ulp3 & I_l3.
+DEBUG: Added flow btw E_i0 & Ulp3.
+DEBUG: Added flow btw Zbi2 & E_i0.
+DEBUG: Added flow btw Qsc7 & Zbi2.
+DEBUG: Added flow btw Rtl4 & Qsc7.
+DEBUG: Added flow btw Pxv3 & Rtl4.
+DEBUG: Added flow btw Sk_5 & Pxv3.
+DEBUG: Added flow btw Ast6 & Sk_5.
+DEBUG: Added flow btw Hwo5 & Ast6.
+DEBUG: Added flow btw Tel1 & Hwo5.
+DEBUG: Added flow btw Rsu5 & Tel1.
+DEBUG: Added flow btw Nhi5 & Rsu5.
+DEBUG: Added flow btw Uo_9 & Nhi5.
+DEBUG: Added flow btw Ryx6 & Uo_9.
+DEBUG: Added flow btw Wtq8 & Ryx6.
+DEBUG: Added flow btw Ke_7 & Wtq8.
+DEBUG: Added flow btw Hjs8 & Ke_7.
+DEBUG: Added flow btw Mtc7 & Hjs8.
+DEBUG: Added flow btw Vpc0 & Mtc7.
+DEBUG: Added flow btw J_b4 & Vpc0.
+DEBUG: Added flow btw X_b5 & J_b4.
+DEBUG: Added flow btw Df_5 & X_b5.
+DEBUG: Added flow btw Bka5 & Df_5.
+DEBUG: Added flow btw Iar2 & Bka5.
+DEBUG: Added flow btw Sml4 & Iar2.
+DEBUG: Added flow btw Pmp7 & Sml4.
+DEBUG: Added flow btw Xnu5 & Pmp7.
+DEBUG: Added flow btw Yl_8 & Xnu5.
+DEBUG: Added flow btw Kln4 & Yl_8.
+DEBUG: Added flow btw Uvm2 & Kln4.
+DEBUG: Added flow btw Yxp2 & Uvm2.
+DEBUG: Added flow btw It_6 & Yxp2.
+DEBUG: Added flow btw Rfs0 & It_6.
+DEBUG: Added flow btw Adb2 & Rfs0.
+DEBUG: Added flow btw R_z8 & Adb2.
+DEBUG: Added flow btw Qnj8 & R_z8.
+DEBUG: Added flow btw Kar5 & Qnj8.
+DEBUG: Added flow btw Rdn3 & Kar5.
+DEBUG: Added flow btw Odt4 & Rdn3.
+DEBUG: Added flow btw Qyf9 & Odt4.
+DEBUG: Added flow btw Txm0 & Qyf9.
+DEBUG: Added flow btw Kgv8 & Txm0.
+DEBUG: Added flow btw X_a8 & Kgv8.
+DEBUG: Added flow btw Ssi9 & X_a8.
+DEBUG: Added flow btw Ejp1 & Ssi9.
+DEBUG: Added flow btw Qmp9 & Ejp1.
+DEBUG: Added flow btw Mxn9 & Qmp9.
+DEBUG: Added flow btw Ego9 & Mxn9.
+DEBUG: Added flow btw Yrd3 & Ego9.
+DEBUG: Added flow btw Gyo6 & Yrd3.
+DEBUG: Added flow btw Z_a3 & Gyo6.
+DEBUG: Added flow btw Kny9 & Z_a3.
+DEBUG: Added flow btw Dgf6 & Kny9.
+DEBUG: Added flow btw Pcs5 & Dgf6.
+DEBUG: Added flow btw Qmb8 & Pcs5.
+DEBUG: Added flow btw Pva1 & Qmb8.
+DEBUG: Added flow btw Ht_9 & Pva1.
+DEBUG: Added flow btw Rsc8 & Ht_9.
+DEBUG: Added flow btw Xdq7 & Rsc8.
+DEBUG: Added flow btw Xgf2 & Xdq7.
+DEBUG: Added flow btw Fkm9 & Xgf2.
+DEBUG: Added flow btw Idx4 & Fkm9.
+DEBUG: Added flow btw Fr_4 & Idx4.
+DEBUG: Added flow btw Wfk3 & Fr_4.
+DEBUG: Added flow btw P_j5 & Wfk3.
+DEBUG: Added flow btw Spw6 & P_j5.
+DEBUG: Added flow btw Isa4 & Spw6.
+DEBUG: Added flow btw Dev0 & Isa4.
+DEBUG: Added flow btw Pua5 & Dev0.
+DEBUG: Added flow btw Xma9 & Pua5.
+DEBUG: Added flow btw Hzy4 & Xma9.
+DEBUG: Added flow btw Aty3 & Hzy4.
+DEBUG: Added flow btw Gy_4 & Aty3.
+DEBUG: Added flow btw Qvy3 & Gy_4.
+DEBUG: Added flow btw Kvj5 & Qvy3.
+DEBUG: Added flow btw Kcn9 & Kvj5.
+DEBUG: Added flow btw Dbl8 & Kcn9.
+DEBUG: Added flow btw Mlp3 & Dbl8.
+DEBUG: Added flow btw Xu_5 & Mlp3.
+DEBUG: Added flow btw Qgp9 & Xu_5.
+DEBUG: Added flow btw Rbv2 & Qgp9.
+DEBUG: Added flow btw Bmd6 & Rbv2.
+DEBUG: Added flow btw Aez2 & Bmd6.
+DEBUG: Added flow btw Dlz1 & Aez2.
+DEBUG: Added flow btw Ek_6 & Dlz1.
+DEBUG: Added flow btw Smj6 & Ek_6.
+DEBUG: Added flow btw Gr_1 & Smj6.
+DEBUG: Commencing breadth-first search.
+DEBUG: BFS done. path[sink] flows from 537 to 634.DEBUG: Added flow btw Bek6 & I_l3.
+DEBUG: Added flow btw Dji3 & Bek6.
+DEBUG: Added flow btw Jtt6 & Dji3.
+DEBUG: Added flow btw Vpl0 & Jtt6.
+DEBUG: Added flow btw Pom2 & Vpl0.
+DEBUG: Added flow btw Hug3 & Pom2.
+DEBUG: Added flow btw Cok6 & Hug3.
+DEBUG: Added flow btw Hwd6 & Cok6.
+DEBUG: Added flow btw Pai1 & Hwd6.
+DEBUG: Added flow btw Gfm7 & Pai1.
+DEBUG: Added flow btw K_u6 & Gfm7.
+DEBUG: Added flow btw Qgu8 & K_u6.
+DEBUG: Added flow btw Oou2 & Qgu8.
+DEBUG: Added flow btw C_o8 & Oou2.
+DEBUG: Added flow btw B_b8 & C_o8.
+DEBUG: Added flow btw Qts9 & B_b8.
+DEBUG: Added flow btw Mtq1 & Qts9.
+DEBUG: Added flow btw Nuu6 & Mtq1.
+DEBUG: Added flow btw H_m2 & Nuu6.
+DEBUG: Added flow btw A_n8 & H_m2.
+DEBUG: Added flow btw Kqo7 & A_n8.
+DEBUG: Added flow btw Rlu3 & Kqo7.
+DEBUG: Added flow btw Rqg3 & Rlu3.
+DEBUG: Added flow btw J_z5 & Rqg3.
+DEBUG: Added flow btw Img6 & J_z5.
+DEBUG: Added flow btw Znu1 & Img6.
+DEBUG: Added flow btw Uhl3 & Znu1.
+DEBUG: Added flow btw Gmd0 & Uhl3.
+DEBUG: Added flow btw Dvg6 & Gmd0.
+DEBUG: Added flow btw Ktx4 & Dvg6.
+DEBUG: Added flow btw Dnz0 & Ktx4.
+DEBUG: Added flow btw Fgx3 & Dnz0.
+DEBUG: Added flow btw Yu_8 & Fgx3.
+DEBUG: Added flow btw Rhq0 & Yu_8.
+DEBUG: Added flow btw Nwv3 & Rhq0.
+DEBUG: Added flow btw D_x2 & Nwv3.
+DEBUG: Added flow btw V_o0 & D_x2.
+DEBUG: Added flow btw Opi2 & V_o0.
+DEBUG: Added flow btw Hjo0 & Opi2.
+DEBUG: Added flow btw Wnz6 & Hjo0.
+DEBUG: Added flow btw Bon1 & Wnz6.
+DEBUG: Added flow btw Wgb6 & Bon1.
+DEBUG: Added flow btw Hgu7 & Wgb6.
+DEBUG: Added flow btw Cjm2 & Hgu7.
+DEBUG: Added flow btw Spp1 & Cjm2.
+DEBUG: Added flow btw Uzu3 & Spp1.
+DEBUG: Added flow btw Kxs4 & Uzu3.
+DEBUG: Added flow btw Snk7 & Kxs4.
+DEBUG: Added flow btw Rzg8 & Snk7.
+DEBUG: Added flow btw Axx5 & Rzg8.
+DEBUG: Added flow btw Udg7 & Axx5.
+DEBUG: Added flow btw Tyz4 & Udg7.
+DEBUG: Added flow btw Nm_7 & Tyz4.
+DEBUG: Added flow btw Awc5 & Nm_7.
+DEBUG: Added flow btw J_i0 & Awc5.
+DEBUG: Added flow btw Fq_2 & J_i0.
+DEBUG: Added flow btw Kyq6 & Fq_2.
+DEBUG: Added flow btw Nqj1 & Kyq6.
+DEBUG: Added flow btw Fsd9 & Nqj1.
+DEBUG: Added flow btw Fsi6 & Fsd9.
+DEBUG: Added flow btw Pdn3 & Fsi6.
+DEBUG: Added flow btw Nhc0 & Pdn3.
+DEBUG: Added flow btw Sky1 & Nhc0.
+DEBUG: Added flow btw Jym3 & Sky1.
+DEBUG: Added flow btw Swl1 & Jym3.
+DEBUG: Added flow btw Vs_1 & Swl1.
+DEBUG: Added flow btw Yfu3 & Vs_1.
+DEBUG: Added flow btw Qxz1 & Yfu3.
+DEBUG: Added flow btw Ogy7 & Qxz1.
+DEBUG: Added flow btw Uuj5 & Ogy7.
+DEBUG: Added flow btw Jxn6 & Uuj5.
+DEBUG: Added flow btw Hjx1 & Jxn6.
+DEBUG: Added flow btw Uln4 & Hjx1.
+DEBUG: Added flow btw Eof2 & Uln4.
+DEBUG: Added flow btw Hze8 & Eof2.
+DEBUG: Added flow btw Iyq9 & Hze8.
+DEBUG: Added flow btw P_q9 & Iyq9.
+DEBUG: Added flow btw Wmn9 & P_q9.
+DEBUG: Added flow btw Jej1 & Wmn9.
+DEBUG: Added flow btw Req7 & Jej1.
+DEBUG: Added flow btw Cwo8 & Req7.
+DEBUG: Added flow btw Ccg8 & Cwo8.
+DEBUG: Added flow btw Jkg1 & Ccg8.
+DEBUG: Added flow btw Kae6 & Jkg1.
+DEBUG: Added flow btw Tjc9 & Kae6.
+DEBUG: Added flow btw Nfw8 & Tjc9.
+DEBUG: Added flow btw Nnm5 & Nfw8.
+DEBUG: Added flow btw Npn2 & Nnm5.
+DEBUG: Added flow btw Th_9 & Npn2.
+DEBUG: Added flow btw Gr_1 & Th_9.
+DEBUG: Commencing breadth-first search.
+
+DEBUG: Computing number of ants to send per path.
+INFINI
+	Path 0 is 58 edges long.
+INFINI
+	Path 1 is 87 edges long.
+INFINI
+	Path 2 is 35 edges long.
+INFINI
+	Path 3 is 32 edges long.
+INFINI
+	Path 4 is 30 edges long.
+INFINI
+	Path 5 is 36 edges long.
+INFINI
+	Path 6 is 31 edges long.
+INFINI
+	Path 7 is 29 edges long.
+INFINI
+	Path 8 is 70 edges long.
+INFINI
+	Path 9 is 86 edges long.
+INFINI
+	Path 10 is 90 edges long.
+	Shortest path appears to be 29 edges long.
+DEBUG: 0 remaining ants, supposedly.
+i = 3
+DEBUG: Queued path 3: 635->63.
+i = 4
+DEBUG: Queued path 4: 635->107.
+i = 6
+DEBUG: Queued path 6: 635->268.
+i = 7
+DEBUG: Queued path 7: 635->286.
+i = 11
+DEBUG: Path 0 (of flow 1, supposedly) is being cleared out.DEBUG: Path 1 (of flow 1, supposedly) is being cleared out.DEBUG: Path 2 (of flow 1, supposedly) is being cleared out.DEBUG: Path 5 (of flow 1, supposedly) is being cleared out.DEBUG: Path 8 (of flow 1, supposedly) is being cleared out.DEBUG: Path 9 (of flow 1, supposedly) is being cleared out.DEBUG: Path 10 (of flow 1, supposedly) is being cleared out.DEBUG: Sending next ant to vertex 63. Queued the path again.
+L1-Cll0 DEBUG: Path 3 (of flow 1, supposedly) is being cleared out.DEBUG: Sending next ant to vertex 107. Queued the path again.
+L2-Smj6 DEBUG: Sending next ant to vertex 268. Queued the path again.
+L3-Blj0 DEBUG: Sending next ant to vertex 286. Queued the path again.
+L4-B_l9
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 2 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 1 ants.
+	In path 7 of length 29, we'll send 3 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Czh9 L2-Ek_6 L3-Ulg3 L4-S_g9 L5-Cll0 DEBUG: Sending next ant to vertex 107. Queued the path again.
+L6-Smj6 DEBUG: Sending next ant to vertex 268. Queued the path again.
+L7-Blj0 DEBUG: Path 6 (of flow 1, supposedly) is being cleared out.DEBUG: Sending next ant to vertex 286. Queued the path again.
+L8-B_l9
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 1 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Xkh1 L2-Dlz1 L3-Vfd7 L4-Ii_2 L5-Czh9 L6-Ek_6 L7-Ulg3 L8-S_g9 DEBUG: Sending next ant to vertex 107. Queued the path again.
+L9-Smj6 DEBUG: Path 4 (of flow 1, supposedly) is being cleared out.L10-Blj0 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Dp_0 L2-Aez2 L3-Ahn2 L4-Fam8 L5-Xkh1 L6-Dlz1 L7-Vfd7 L8-Ii_2 L9-Ek_6 L10-Ulg3 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-V_q6 L2-Bmd6 L3-Anz7 L4-Pso1 L5-Dp_0 L6-Aez2 L7-Ahn2 L8-Fam8 L9-Dlz1 L10-Vfd7 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-W_h9 L2-Rbv2 L3-Ja_4 L4-Yxg6 L5-V_q6 L6-Bmd6 L7-Anz7 L8-Pso1 L9-Aez2 L10-Ahn2 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-H_l2 L2-Qgp9 L3-Pji2 L4-Fea5 L5-W_h9 L6-Rbv2 L7-Ja_4 L8-Yxg6 L9-Bmd6 L10-Anz7 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Pnv1 L2-Xu_5 L3-Kpn1 L4-Wax3 L5-H_l2 L6-Qgp9 L7-Pji2 L8-Fea5 L9-Rbv2 L10-Ja_4 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Hao4 L2-Mlp3 L3-Fwf7 L4-Za_0 L5-Pnv1 L6-Xu_5 L7-Kpn1 L8-Wax3 L9-Qgp9 L10-Pji2 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Ksu4 L2-Dbl8 L3-Hmy8 L4-Rhl3 L5-Hao4 L6-Mlp3 L7-Fwf7 L8-Za_0 L9-Xu_5 L10-Kpn1 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-A__6 L2-Kcn9 L3-Urf0 L4-Npe6 L5-Ksu4 L6-Dbl8 L7-Hmy8 L8-Rhl3 L9-Mlp3 L10-Fwf7 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Unw7 L2-Kvj5 L3-Glg7 L4-Ptz1 L5-A__6 L6-Kcn9 L7-Urf0 L8-Npe6 L9-Dbl8 L10-Hmy8 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Hr_9 L2-Qvy3 L3-Uqg9 L4-Vuf0 L5-Unw7 L6-Kvj5 L7-Glg7 L8-Ptz1 L9-Kcn9 L10-Urf0 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Gep0 L2-Gy_4 L3-Pgm9 L4-Djr6 L5-Hr_9 L6-Qvy3 L7-Uqg9 L8-Vuf0 L9-Kvj5 L10-Glg7 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Boj9 L2-Aty3 L3-Uuc1 L4-Ic_4 L5-Gep0 L6-Gy_4 L7-Pgm9 L8-Djr6 L9-Qvy3 L10-Uqg9 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Jq_5 L2-Hzy4 L3-Edf4 L4-Axg5 L5-Boj9 L6-Aty3 L7-Uuc1 L8-Ic_4 L9-Gy_4 L10-Pgm9 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Jum8 L2-Xma9 L3-Xuj8 L4-Wnd6 L5-Jq_5 L6-Hzy4 L7-Edf4 L8-Axg5 L9-Aty3 L10-Uuc1 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Tad7 L2-Pua5 L3-Biz1 L4-Q_g1 L5-Jum8 L6-Xma9 L7-Xuj8 L8-Wnd6 L9-Hzy4 L10-Edf4 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-E__3 L2-Dev0 L3-Kzh4 L4-Rkq1 L5-Tad7 L6-Pua5 L7-Biz1 L8-Q_g1 L9-Xma9 L10-Xuj8 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Bqg5 L2-Isa4 L3-Zdq7 L4-Mfk5 L5-E__3 L6-Dev0 L7-Kzh4 L8-Rkq1 L9-Pua5 L10-Biz1 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Tda6 L2-Spw6 L3-Wct6 L4-Sdi3 L5-Bqg5 L6-Isa4 L7-Zdq7 L8-Mfk5 L9-Dev0 L10-Kzh4 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Esj1 L2-P_j5 L3-Qmk1 L4-Pvf7 L5-Tda6 L6-Spw6 L7-Wct6 L8-Sdi3 L9-Isa4 L10-Zdq7 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Idz0 L2-Wfk3 L3-Jys8 L4-Gca7 L5-Esj1 L6-P_j5 L7-Qmk1 L8-Pvf7 L9-Spw6 L10-Wct6 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Awx0 L2-Fr_4 L3-Kyp7 L4-Zgy1 L5-Idz0 L6-Wfk3 L7-Jys8 L8-Gca7 L9-P_j5 L10-Qmk1 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Zju5 L2-Idx4 L3-Rcm3 L4-Dxr2 L5-Awx0 L6-Fr_4 L7-Kyp7 L8-Zgy1 L9-Wfk3 L10-Jys8 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Mpq6 L2-Fkm9 L3-Uks9 L4-Akv5 L5-Zju5 L6-Idx4 L7-Rcm3 L8-Dxr2 L9-Fr_4 L10-Kyp7 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Suy2 L2-Xgf2 L3-Adk1 L4-Mlt1 L5-Mpq6 L6-Fkm9 L7-Uks9 L8-Akv5 L9-Idx4 L10-Rcm3 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Yau1 L2-Xdq7 L3-Pxu1 L4-Ex_4 L5-Suy2 L6-Xgf2 L7-Adk1 L8-Mlt1 L9-Fkm9 L10-Uks9 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Ojz0 L2-Rsc8 L3-Q_k9 L4-Plb9 L5-Yau1 L6-Xdq7 L7-Pxu1 L8-Ex_4 L9-Xgf2 L10-Adk1 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Pb_0 L2-Ht_9 L3-Hz_3 L4-Ezc0 L5-Ojz0 L6-Rsc8 L7-Q_k9 L8-Plb9 L9-Xdq7 L10-Pxu1 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-N_c7 L2-Pva1 L3-Sos3 L4-Aam1 L5-Pb_0 L6-Ht_9 L7-Hz_3 L8-Ezc0 L9-Rsc8 L10-Q_k9 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Uv_3 L2-Qmb8 L3-Vtx4 L4-I_l3 L5-N_c7 L6-Pva1 L7-Sos3 L8-Aam1 L9-Ht_9 L10-Hz_3 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Nlw7 L2-Pcs5 L3-Fhh8 L5-Uv_3 L6-Qmb8 L7-Vtx4 L8-I_l3 L9-Pva1 L10-Sos3 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Oco9 L2-Dgf6 L3-Oki5 L5-Nlw7 L6-Pcs5 L7-Fhh8 L9-Qmb8 L10-Vtx4 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Vil0 L2-Kny9 L3-I_l3 L5-Oco9 L6-Dgf6 L7-Oki5 L9-Pcs5 L10-Fhh8 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Uzd5 L2-Z_a3 L5-Vil0 L6-Kny9 L7-I_l3 L9-Dgf6 L10-Oki5 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Tuh9 L2-Gyo6 L5-Uzd5 L6-Z_a3 L9-Kny9 L10-I_l3 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-A_y5 L2-Yrd3 L5-Tuh9 L6-Gyo6 L9-Z_a3 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Ysy4 L2-Ego9 L5-A_y5 L6-Yrd3 L9-Gyo6 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Gwq3 L2-Mxn9 L5-Ysy4 L6-Ego9 L9-Yrd3 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Olp4 L2-Qmp9 L5-Gwq3 L6-Mxn9 L9-Ego9 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Vgv5 L2-Ejp1 L5-Olp4 L6-Qmp9 L9-Mxn9 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Uhu3 L2-Ssi9 L5-Vgv5 L6-Ejp1 L9-Qmp9 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Hnt2 L2-X_a8 L5-Uhu3 L6-Ssi9 L9-Ejp1 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Eag5 L2-Kgv8 L5-Hnt2 L6-X_a8 L9-Ssi9 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Qs_9 L2-Txm0 L5-Eag5 L6-Kgv8 L9-X_a8 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Vu_6 L2-Qyf9 L5-Qs_9 L6-Txm0 L9-Kgv8 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Syd7 L2-Odt4 L5-Vu_6 L6-Qyf9 L9-Txm0 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Hes8 L2-Rdn3 L5-Syd7 L6-Odt4 L9-Qyf9 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Qvu3 L2-Kar5 L5-Hes8 L6-Rdn3 L9-Odt4 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Rvr7 L2-Qnj8 L5-Qvu3 L6-Kar5 L9-Rdn3 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Nc_4 L2-R_z8 L5-Rvr7 L6-Qnj8 L9-Kar5 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Fv_6 L2-Adb2 L5-Nc_4 L6-R_z8 L9-Qnj8 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Jhq2 L2-Rfs0 L5-Fv_6 L6-Adb2 L9-R_z8 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Dvt1 L2-It_6 L5-Jhq2 L6-Rfs0 L9-Adb2 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Rvx1 L2-Yxp2 L5-Dvt1 L6-It_6 L9-Rfs0 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-Rwe4 L2-Uvm2 L5-Rvx1 L6-Yxp2 L9-It_6 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L1-I_l3 L2-Kln4 L5-Rwe4 L6-Uvm2 L9-Yxp2 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Yl_8 L5-I_l3 L6-Kln4 L9-Uvm2 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Xnu5 L6-Yl_8 L9-Kln4 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Pmp7 L6-Xnu5 L9-Yl_8 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Sml4 L6-Pmp7 L9-Xnu5 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Iar2 L6-Sml4 L9-Pmp7 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Bka5 L6-Iar2 L9-Sml4 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Df_5 L6-Bka5 L9-Iar2 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-X_b5 L6-Df_5 L9-Bka5 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-J_b4 L6-X_b5 L9-Df_5 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Vpc0 L6-J_b4 L9-X_b5 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Mtc7 L6-Vpc0 L9-J_b4 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Hjs8 L6-Mtc7 L9-Vpc0 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Ke_7 L6-Hjs8 L9-Mtc7 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Wtq8 L6-Ke_7 L9-Hjs8 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Ryx6 L6-Wtq8 L9-Ke_7 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Uo_9 L6-Ryx6 L9-Wtq8 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Nhi5 L6-Uo_9 L9-Ryx6 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Rsu5 L6-Nhi5 L9-Uo_9 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Tel1 L6-Rsu5 L9-Nhi5 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Hwo5 L6-Tel1 L9-Rsu5 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Ast6 L6-Hwo5 L9-Tel1 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Sk_5 L6-Ast6 L9-Hwo5 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Pxv3 L6-Sk_5 L9-Ast6 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Rtl4 L6-Pxv3 L9-Sk_5 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Qsc7 L6-Rtl4 L9-Pxv3 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Zbi2 L6-Qsc7 L9-Rtl4 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-E_i0 L6-Zbi2 L9-Qsc7 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-Ulp3 L6-E_i0 L9-Zbi2 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L2-I_l3 L6-Ulp3 L9-E_i0 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L6-I_l3 L9-Ulp3 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.
+L9-I_l3 
+DEBUG: Printing paths information...
+	In path 0 of length 58, we'll send 0 ants.
+	In path 1 of length 87, we'll send 0 ants.
+	In path 2 of length 35, we'll send 0 ants.
+	In path 3 of length 32, we'll send 0 ants.
+	In path 4 of length 30, we'll send 0 ants.
+	In path 5 of length 36, we'll send 0 ants.
+	In path 6 of length 31, we'll send 0 ants.
+	In path 7 of length 29, we'll send 2 ants.
+	In path 8 of length 70, we'll send 0 ants.
+	In path 9 of length 86, we'll send 0 ants.
+	In path 10 of length 90, we'll send 0 ants.

@@ -6,23 +6,11 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 08:41:56 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 15:45:06 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/03 14:50:26 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
-
-t_list	*stdin_to_list(void)
-{
-	t_list		*usr_in;
-	char		*l;
-
-	l = NULL;
-	usr_in = NULL;
-	while (ft_gnl(0, &l))
-		ft_lstappend(&usr_in, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
-	return (usr_in);
-}
 
 void	solve(t_lemin *lemin)
 {

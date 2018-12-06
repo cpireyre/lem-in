@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 15:41:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 11:19:49 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/03 14:42:45 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ void	parse(t_list **usr_in, t_list **tmp, t_lemin *lemin)
 		ft_printf("DEBUG: All rooms are stored. Processing pipes.\n");
 	}
 	if (!store_pipes(usr_in, lemin))
-		quit_lem_in(tmp, lemin, "ERROR: No pipes.\n", EXIT_FAILURE);
+	 	quit_lem_in(tmp, lemin, "ERROR: No pipes.\n", EXIT_FAILURE);
 }

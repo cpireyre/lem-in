@@ -6,7 +6,11 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
+<<<<<<< HEAD:include/lem_in.h
 /*   Updated: 2018/12/05 12:29:40 by tboissel         ###   ########.fr       */
+=======
+/*   Updated: 2018/12/05 14:33:58 by tboissel         ###   ########.fr       */
+>>>>>>> tboissel-dev:lem_in.h
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +19,8 @@
 
 # include "libft.h"
 # include <stdlib.h>
+# include <mlx.h>
+# include <unistd.h>
 
 /*
 **	Debug settings:
@@ -36,13 +42,42 @@
 # else
 #  define ANT_DISPLAY "\033[47m\033[30m🐜 "
 # endif
+# define W			0xFFFFFF
+# define REGULAR	true
+# define BACKWARDS	false
+
+typedef struct			s_image
+{
+	void				*img_ptr;
+	int					*data;
+	int					size_l;
+	int					bpp;
+	int					endian;
+}						t_image;
+
+typedef struct			s_coord
+{
+	int					x;
+	int					y;
+}						t_coord;
 
 typedef struct		s_rooms
 {
+	int				ant_nb;
 	char			*name;
+	t_coord			coord;
 	t_byte			type;
 	struct s_rooms	*next;
 }					t_rooms;
+
+typedef struct			s_minilibx
+{
+	int					w_height;
+	int					w_width;
+	void				*m_ptr;
+	void				*w;
+	t_image				img;
+}						t_minilibx;
 
 typedef struct		s_lemin
 {
@@ -55,8 +90,22 @@ typedef struct		s_lemin
 	t_rooms			*rooms;
 	char			**pipes;
 	int				flow;
-	char			*ant_display;
+	char			*ant_display;	
+	t_list			*usr_in;
 }					t_lemin;
+
+typedef struct		s_visu
+{
+	t_lemin 		*lemin;
+	t_list			*reset_usr_in;
+	int				*ants_pos_v;
+	t_bool			tuto;
+	t_bool			room_name;
+	t_bool			auto_mode;
+	t_byte			mv_done;
+	t_minilibx		*mlx;
+	time_t			time;
+}					t_visu;
 
 typedef struct		s_edge
 {
@@ -99,7 +148,13 @@ void				print_paths_info(t_sender *sender, int flow);
 **	rooms.c
 */
 
+<<<<<<< HEAD:include/lem_in.h
 t_rooms				*new_room(char *name_ptr, t_byte type);
+=======
+t_bool				check_room_coordinate(char **name);
+t_bool				room_is_valid(char *name);
+t_rooms				*new_room(char *name_ptr, t_byte type, t_coord *coord, t_lemin *lemin);
+>>>>>>> tboissel-dev:lem_in.h
 char				*get_room_name(char *input);
 
 /*
@@ -171,7 +226,35 @@ int					too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_substra
 int					repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ants_to_add);
 
 /*
+<<<<<<< HEAD:include/lem_in.h
 **	graph.c
+=======
+**	visu
+*/
+
+void				parse_visu(t_list **usr_in, t_lemin *visu);
+void				visu(t_lemin *visu);
+void				ft_init_mlx(t_visu *visu);
+int					key_events(int key, t_visu *visu);
+int					exit_visu(t_visu *visu);
+void				ft_create_image(t_visu *visu);
+void				ft_draw_point(t_coord point, t_visu *lemin);
+void				ft_bresenham(t_coord p1, t_coord p2, t_visu *visu);
+void				create_pipes(t_visu *visu);
+void				ft_background(t_visu *visu);
+void				add_ant(t_visu *visu, char *line);
+int					get_room_id(t_rooms *rooms, char *room_name);
+void				ft_tutorial(t_visu *visu);
+void				ft_room_name(t_visu *visu);
+void				ft_move_ants(t_visu *visu, t_bool mode);
+t_bool				test_mv_ants(t_visu *visu, time_t time_now);
+int					rand_a_b(int a, int b);
+void				display_ant_nb(t_visu *visu);
+int					ft_loop_events(t_visu *visu);
+void				empty_rooms(t_visu *visu);
+/*
+**	graph.h
+>>>>>>> tboissel-dev:lem_in.h
 */
 
 t_list				**build_graph(t_lemin *lemin);
