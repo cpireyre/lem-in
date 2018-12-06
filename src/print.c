@@ -36,7 +36,7 @@ void	print_ant(int i, char *room_name, int ants_sent, char *display)
 	ft_putstr(room_name);
 	(i + 1 == ants_sent) ? 0 : ft_putchar(' ');
 	if (!ft_strequ(display,"L"))
-			ft_putstr("\x1b[0m");
+			ft_putstr("\e[0m");
 }
 
 void	print_rooms(t_rooms *map)

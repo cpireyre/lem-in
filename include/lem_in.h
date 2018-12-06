@@ -24,18 +24,14 @@
 **		3 and up: much more than you wanted to know
 */
 
-# define DEBUG		4
+# define DEBUG		0
 
 # define CONNECTED	4
 # define START		2
 # define END		3
 # define NORMAL		1
 
-# if defined(__APPLE__) && defined(__MACH__)
-#  define ANT_DISPLAY "\x1b[47m\x1b[30m🐜 "
-# else
-#  define ANT_DISPLAY "\033[47m\033[30m🐜 "
-# endif
+# define ANT_DISPLAY "\e[47m\033[30m🐜 "
 
 typedef struct		s_rooms
 {

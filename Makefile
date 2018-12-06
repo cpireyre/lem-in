@@ -61,7 +61,7 @@ force:
 	@true # to shut up libft Makefile
 
 run: $(NAME)
-	./lem-in < tests/fucked_up
+	./lem-in -emoji < tests/fucked_up
 
 urn: run # typos will happen
 
