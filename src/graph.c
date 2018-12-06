@@ -96,5 +96,5 @@ void	free_graph(t_list **graph, int size)
 			ft_lstdel(&graph[i], &ft_free_node);
 		i++;
 	}
-	free(graph);
+	ft_memdel((void**)&graph);
 }

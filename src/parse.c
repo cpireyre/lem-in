@@ -95,7 +95,7 @@ t_bool				store_special_rooms(t_lemin *lemin, char *name, t_byte type)
 	{
 		if (lemin->end_name)
 		{
-			free(name);
+			ft_memdel((void**)&name);
 			return (false);
 		}
 		lemin->end_name = ft_strdup(name);
@@ -104,7 +104,7 @@ t_bool				store_special_rooms(t_lemin *lemin, char *name, t_byte type)
 	{
 		if (lemin->start_name)
 		{
-			free(name);
+			ft_memdel((void**)&name);
 			return (false);
 		}
 		lemin->start_name = ft_strdup(name);

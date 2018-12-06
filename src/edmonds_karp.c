@@ -69,7 +69,7 @@ t_edge		**breadth_first_search(t_list **graph, int source, int sink, int size)
 			   	path[sink]->source, path[sink]->sink);
 	if (!path[sink])
 	{
-		free(path);
+		ft_memdel((void**)&path);
 		return (NULL);
 	}
 	return (path);
@@ -95,7 +95,7 @@ int			edmonds_karp(t_list ***max_flow_network, t_lemin *lemin)
 		edge->flow += 1;
 		edge->rev->flow -= 1;
 		max_flow++;
-		free(path);
+		ft_memdel((void**)&path);
 	}
 	return (max_flow);
 }

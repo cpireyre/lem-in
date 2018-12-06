@@ -50,6 +50,6 @@ int		shortest_path_length(t_list ***graph, int source, int sink, int size)
 	edge->flow += 1;
 	edge->rev->flow -= 1;
 	len = count_path_length(*graph, source, sink);
-	free(first_path);
+	ft_memdel((void**)&first_path);
 	return (len);
 }

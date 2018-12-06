@@ -22,7 +22,7 @@ void	free_rooms(t_rooms **head)
 	{
 		tmp = ptr->next;
 		ft_strdel((char**)&ptr->name);
-		free(ptr);
+		ft_memdel((void**)&ptr);
 		ptr = tmp;
 	}
 }
@@ -42,13 +42,13 @@ void	free_split(char **split)
 		ft_strdel(split);
 		split = tmp;
 	}
-	free(ptr);
+	ft_memdel((void**)&ptr);
 }
 
 void	free_lemin(t_lemin *addr)
 {
-	free(addr->start_name);
-	free(addr->end_name);
+	ft_memdel((void**)&addr->start_name);
+	ft_memdel((void**)&addr->end_name);
 	free_rooms(&(addr)->rooms);
 	free_split(addr->pipes);
 }

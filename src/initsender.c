@@ -27,8 +27,8 @@ void	init_sender(t_sender *sender, t_lemin *lemin, t_list **graph)
 
 void	free_sender(t_sender *sender)
 {
-	free(sender->ants_to_send);
-	free(sender->path_lengths);
+	ft_memdel((void**)&sender->ants_to_send);
+	ft_memdel((void**)&sender->path_lengths);
 	ft_lstdel(&sender->queue, &ft_free_node);
-	free(sender->ants_position);
+	ft_memdel((void**)&sender->ants_position);
 }
