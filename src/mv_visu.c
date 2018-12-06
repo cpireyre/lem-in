@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:35:14 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/05 14:39:35 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/06 15:50:54 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,4 +105,6 @@ void	add_ant(t_visu *visu, char *line)
 		}
 		rooms = rooms->next;
 	}
+	if (!rooms)
+		exit(EXIT_FAILURE);
 }
