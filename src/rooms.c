@@ -6,13 +6,13 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 08:06:24 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/03 12:56:21 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/06 14:17:21 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static t_bool	check_room_coordinate(char **name)
+t_bool		check_room_coordinate(char **name)
 {
 	while (ft_isdigit(**name))
 		(*name)--;
@@ -27,7 +27,7 @@ static t_bool	check_room_coordinate(char **name)
 	return (true);
 }
 
-static t_bool	room_is_valid(char *name)
+t_bool		room_is_valid(char *name)
 {
 	if (name[0] == 'L' || name[0] == '#')
 		return (false);

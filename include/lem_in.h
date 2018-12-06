@@ -6,11 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-<<<<<<< HEAD:include/lem_in.h
-/*   Updated: 2018/12/05 12:29:40 by tboissel         ###   ########.fr       */
-=======
-/*   Updated: 2018/12/05 14:33:58 by tboissel         ###   ########.fr       */
->>>>>>> tboissel-dev:lem_in.h
+/*   Updated: 2018/12/06 14:07:23 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,13 +144,9 @@ void				print_paths_info(t_sender *sender, int flow);
 **	rooms.c
 */
 
-<<<<<<< HEAD:include/lem_in.h
-t_rooms				*new_room(char *name_ptr, t_byte type);
-=======
 t_bool				check_room_coordinate(char **name);
 t_bool				room_is_valid(char *name);
 t_rooms				*new_room(char *name_ptr, t_byte type, t_coord *coord, t_lemin *lemin);
->>>>>>> tboissel-dev:lem_in.h
 char				*get_room_name(char *input);
 
 /*
@@ -226,9 +218,6 @@ int					too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_substra
 int					repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ants_to_add);
 
 /*
-<<<<<<< HEAD:include/lem_in.h
-**	graph.c
-=======
 **	visu
 */
 
@@ -254,7 +243,6 @@ int					ft_loop_events(t_visu *visu);
 void				empty_rooms(t_visu *visu);
 /*
 **	graph.h
->>>>>>> tboissel-dev:lem_in.h
 */
 
 t_list				**build_graph(t_lemin *lemin);
