@@ -84,7 +84,6 @@ typedef struct		s_trajectory
 **	parse.c
 */
 
-t_bool				store_ants(t_list **head, int *ants);
 void				store_rooms(t_list **head, t_lemin *lemin);
 t_bool				store_special_rooms(t_lemin *lemin, char *name, t_byte t);
 
@@ -103,6 +102,7 @@ void				print_paths_info(t_sender *sender, int flow);
 
 t_rooms				*new_room(char *name_ptr, t_byte type);
 char				*get_room_name(char *input);
+int					find_name_list(char *name, t_rooms *rooms);
 
 /*
 **	pipes.c
@@ -117,6 +117,7 @@ t_bool				store_pipes(t_list **ptr, t_lemin *lemin);
 void				free_lemin(t_lemin *addr);
 void				free_split(char **split);
 void				free_rooms(t_rooms **head);
+void				free_graph(t_list **graph, int size);
 
 /*
 **	count.c
@@ -125,7 +126,7 @@ void				free_rooms(t_rooms **head);
 int					ft_size_list(t_rooms *rooms);
 int					count_split(char **split);
 int					count_path_length(t_list **graph, int source, int sink);
-void				clear_dumb_paths(t_sender *sender, t_list *start, int flow);
+int					*size_paths(t_list **graph, t_lemin *lemin);
 
 /*
 **	edmonds_karp.c
@@ -174,17 +175,16 @@ int					alternate_count(t_edge **path, int source, int sink);
 **	paths.c
 */
 
-int					*size_paths(t_list **graph, t_lemin *lemin);
 void				how_many_ants_to_send(t_lemin *lemin, t_sender *sender);
 int					too_many_ants_sent(t_lemin *l, t_sender *s, int subtract);
 int					repart_extra_ants(t_lemin *l, t_sender *s, int avg, int add);
+void				clear_dumb_paths(t_sender *sender, t_list *start, int flow);
 
 /*
 **	graph.c
 */
 
 t_list				**build_graph(t_lemin *lemin);
-void				free_graph(t_list **graph, int size);
 
 /*
 **	trajectory.c
@@ -198,5 +198,11 @@ int					next_trajectory(t_sender *sender);
 */
 
 t_list				*stdin_to_list(void);
+
+/*
+**	lem_in.c
+*/
+
+t_bool				store_ants(t_list **head, int *leminants);
 
 #endif

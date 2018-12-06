@@ -12,31 +12,23 @@
 
 #include "lem_in.h"
 
-int		*size_paths(t_list **graph, t_lemin *lemin)
+void	clear_dumb_paths(t_sender *sender, t_list *start, int flow)
 {
-	int		*app;
 	int		i;
-	t_list	*edges_from_start;
-	t_edge	*edge;
 
-	if (DEBUG > 2)
-		ft_printf("DEBUG: Computing number of ants to send per path.\n");
-	app = ft_memalloc(sizeof(int) * lemin->flow);
 	i = 0;
-	edges_from_start = graph[lemin->start_id];
-	while (i < lemin->flow)
+	while (i < flow)
 	{
-		edge = (t_edge*)edges_from_start->content;
-		if (edge->flow == 1)
+		if (!sender->ants_to_send[i] && ((t_edge*)(start->content))->flow)
 		{
-			app[i] = count_path_length(graph, edge->sink, lemin->end_id);
-			if (DEBUG > 1)
-				ft_printf("\tPath %d is %d edges long.\n", i, app[i]);
-			i++;
+			if (DEBUG)
+				ft_printf("DEBUG: Path %d (of flow %d) is being cleared out.", \
+					   	i, ((t_edge*)(start->content))->flow);
+			((t_edge*)(start->content))->flow = 0;
 		}
-		edges_from_start = edges_from_start->next;
+		i++;
+		start = start->next;
 	}
-	return (app);
 }
 
 void	how_many_ants_to_send(t_lemin *lemin, t_sender *sender)

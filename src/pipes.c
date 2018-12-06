@@ -37,31 +37,11 @@ static void				fill_diagonal_types(t_lemin *lemin)
 	lemin->rooms = tmp;
 }
 
-static int				find_name_list(char *name, t_rooms *rooms)
-{
-	int	i;
-
-	i = 0;
-	while (rooms)
-	{
-		if (!ft_strcmp(rooms->name, name))
-			return (i);
-		i++;
-		rooms = rooms->next;
-	}
-	return (-1);
-}
-
-static inline t_bool	is_dash(char to_check)
-{
-	return (to_check == '-');
-}
-
 static inline t_bool	parse_pipes(t_list **ptr, char ***split, t_lemin *lemin)
 {
 	int		rooms_to_connect[2];
 
-	if (ft_strcountif(((char*)(*ptr)->content), &is_dash) > 1 
+	if (ft_strcountif(((char*)(*ptr)->content), &ft_isdash) > 1 
 			|| count_split(*split) != 2)
 	{
 		free_split(*split);

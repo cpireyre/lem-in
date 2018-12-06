@@ -84,17 +84,3 @@ t_list	**build_graph(t_lemin *lemin)
 	hook_up_rev_edges(graph, vertices);
 	return (graph);
 }
-
-void	free_graph(t_list **graph, int size)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
-	{
-		if (graph[i])
-			ft_lstdel(&graph[i], &ft_free_node);
-		i++;
-	}
-	ft_memdel((void**)&graph);
-}

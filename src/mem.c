@@ -52,3 +52,17 @@ void	free_lemin(t_lemin *addr)
 	free_rooms(&(addr)->rooms);
 	free_split(addr->pipes);
 }
+
+void	free_graph(t_list **graph, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (graph[i])
+			ft_lstdel(&graph[i], &ft_free_node);
+		i++;
+	}
+	ft_memdel((void**)&graph);
+}

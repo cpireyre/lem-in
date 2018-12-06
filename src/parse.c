@@ -23,30 +23,6 @@
 ** return (true) quand on trouve line type x-y et rien derriere;
 */
 
-t_bool				store_ants(t_list **head, int *leminants)
-{
-	while (((char*)(*head)->content)[0] == '#')
-	{
-		if (ft_strequ((char*)(*head)->content, "##start")
-				|| ft_strequ((char*)(*head)->content, "##end"))
-			return (false);
-		(*head) = (*head)->next;
-	}
-	if (ft_isint((char*)(*head)->content))
-	{
-		*leminants = ft_atoi((char*)(*head)->content);
-		if (DEBUG > 1)
-			ft_printf("DEBUG: Stored %d ant%c.\n", *leminants, \
-					*leminants > 1 ? 's' : 0);
-		if (*leminants >= 0)
-			return (true);
-		else
-			return (false);
-	}
-	else
-		return (false);
-}
-
 t_bool				room_already_exists(t_rooms *map, char *room)
 {
 	while (map)

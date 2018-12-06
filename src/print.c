@@ -16,9 +16,9 @@ void	buf_print_list(t_list *node)
 {
 	t_buf	buffer;
 
-	buffer.pos = 0;
 	buffer.filedesc = 1;
 	buffer.written = 0;
+	buffer.pos = 0;
 	while (node)
 	{
 		putstr_buf(&buffer, (char*)node->content);
