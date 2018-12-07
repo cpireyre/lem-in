@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:20:51 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/07 12:34:50 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/07 12:55:33 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void		draw_square(t_coord r1, t_coord r2, t_visu *visu, int color)
 
 	center.x = (r1.x + r2.x) / 2;
 	center.y = (r1.y + r2.y) / 2;
-	ft_printf("color = %x\n", color);
 	i = -5;
 	while (++i < 5)
 	{
@@ -108,14 +107,14 @@ void		create_pipes(t_visu *visu)
 				coord1 = get_coordinates_room(i, visu->lemin);
 				coord2 = get_coordinates_room(j, visu->lemin);
 				ft_bresenham(coord1, coord2, visu);
-				draw_square(coord1, coord2, visu, W);
+				draw_square(coord1, coord2, visu, 0xFF5050);
 			}
 			if (visu->lemin->pipes[i][j] > CONNECTED)
 			{
 				coord1 = get_coordinates_room(i, visu->lemin);
 				coord2 = get_coordinates_room(j, visu->lemin);
 				ft_bresenham(coord1, coord2, visu);
-				draw_square(coord1, coord2, visu, 0xFF0000);
+				draw_square(coord1, coord2, visu, 0x56FF56);
 				visu->lemin->pipes[i][j]--;
 				visu->lemin->pipes[j][i]--;
 			}
