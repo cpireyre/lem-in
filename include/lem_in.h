@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/06 14:07:23 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/07 12:35:10 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 
 # define DEBUG		0
 
+# define MV			50
 # define CONNECTED	4
 # define START		2
 # define END		3
@@ -241,6 +242,8 @@ int					rand_a_b(int a, int b);
 void				display_ant_nb(t_visu *visu);
 int					ft_loop_events(t_visu *visu);
 void				empty_rooms(t_visu *visu);
+void				create_visu_mv(int x, int y, t_visu *visu);
+
 /*
 **	graph.h
 */

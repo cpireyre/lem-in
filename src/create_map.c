@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:20:51 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/05 15:34:32 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/07 12:34:50 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,26 @@ t_coord		get_coordinates_room(int room_nb, t_lemin *lemin)
 	return (coord);
 }
 
+void		draw_square(t_coord r1, t_coord r2, t_visu *visu, int color)
+{
+	int		i;
+	int		j;
+	t_coord center;
+
+	center.x = (r1.x + r2.x) / 2;
+	center.y = (r1.y + r2.y) / 2;
+	ft_printf("color = %x\n", color);
+	i = -5;
+	while (++i < 5)
+	{
+		j = -5;
+		while (++j < 5)
+		{
+			visu->mlx->img.data[center.x + i + (center.y + j) * visu->mlx->w_width] = color;
+		}
+	}
+}
+
 void		create_pipes(t_visu *visu)
 {
 	int		i;
@@ -88,6 +108,16 @@ void		create_pipes(t_visu *visu)
 				coord1 = get_coordinates_room(i, visu->lemin);
 				coord2 = get_coordinates_room(j, visu->lemin);
 				ft_bresenham(coord1, coord2, visu);
+				draw_square(coord1, coord2, visu, W);
+			}
+			if (visu->lemin->pipes[i][j] > CONNECTED)
+			{
+				coord1 = get_coordinates_room(i, visu->lemin);
+				coord2 = get_coordinates_room(j, visu->lemin);
+				ft_bresenham(coord1, coord2, visu);
+				draw_square(coord1, coord2, visu, 0xFF0000);
+				visu->lemin->pipes[i][j]--;
+				visu->lemin->pipes[j][i]--;
 			}
 		}
 	}

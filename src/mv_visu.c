@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:35:14 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/06 15:50:54 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/07 12:03:16 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,12 @@ void	substract_ant(t_visu *visu, int ant_nb)
 		rooms->ant_nb--;
 }
 
+void	create_visu_mv(int x, int y, t_visu *visu)
+{
+	visu->lemin->pipes[x][y] = MV;
+	visu->lemin->pipes[y][x] = MV;
+}
+
 void	add_ant(t_visu *visu, char *line)
 {
 	int		j;
@@ -85,6 +91,7 @@ void	add_ant(t_visu *visu, char *line)
 	char	*rn;
 	t_rooms	*rooms;
 	int		ant_nb;
+	int		start_pos;
 
 	ant_nb = ft_atoi(line);
 	rooms = visu->lemin->rooms;
@@ -93,12 +100,14 @@ void	add_ant(t_visu *visu, char *line)
 	while (cut_line[j] && ft_isalnum(cut_line[j]))
 		j++;
 	rn = ft_strsub(cut_line, 1, j - 1);
+	start_pos = visu->ants_pos_v[ant_nb - 1];
 	while (rooms)
 	{
 		if (!ft_strcmp(rn, rooms->name))
 		{
 			substract_ant(visu, ant_nb);
 			visu->ants_pos_v[ant_nb - 1] = get_room_id(visu->lemin->rooms, rn);
+			create_visu_mv(visu->ants_pos_v[ant_nb - 1], start_pos, visu);
 			rooms->ant_nb += 1;
 			free(rn);
 			return ;
