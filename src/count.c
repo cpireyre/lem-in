@@ -32,7 +32,7 @@ int		count_split(char **split)
 	return (i);
 }
 
-int		count_path_length(t_list **graph, int source, int sink)
+int		count_path_length(t_listarray graph, int source, int sink)
 {
 	int		len;
 	t_list	*vertex;
@@ -64,7 +64,7 @@ int		alternate_count(t_edge **path, int source, int sink)
 	return (len);
 }
 
-int		*size_paths(t_list **graph, t_lemin *lemin)
+int		*size_paths(t_listarray graph, t_lemin *lemin)
 {
 	int		*app;
 	int		i;

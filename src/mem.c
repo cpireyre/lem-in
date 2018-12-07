@@ -53,7 +53,7 @@ void	free_lemin(t_lemin *addr)
 	free_split(addr->pipes);
 }
 
-void	free_graph(t_list **graph, int size)
+void	free_graph(t_listarray graph, int size)
 {
 	int	i;
 

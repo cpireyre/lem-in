@@ -53,7 +53,7 @@ void		bfs_step(t_edge ***path, t_list **queue, t_list **graph, int source)
 	*queue = tmp;
 }
 
-t_edge		**breadth_first_search(t_list **graph, int source, int sink, int size)
+t_edge		**breadth_first_search(t_listarray graph, int source, int sink, int size)
 {
 	t_edge	**path;
 	t_list	*queue;
@@ -75,14 +75,14 @@ t_edge		**breadth_first_search(t_list **graph, int source, int sink, int size)
 	return (path);
 }
 
-int			edmonds_karp(t_list ***max_flow_network, t_lemin *lemin)
+int			edmonds_karp(t_listarray max_flow_network, t_lemin *lemin)
 {
 	t_edge	**path;
 	t_edge	*edge;
 	int		max_flow;
 
 	max_flow = 0;
-	while ((path = breadth_first_search(*max_flow_network, \
+	while ((path = breadth_first_search(max_flow_network, \
 					lemin->start_id, lemin->end_id, lemin->map_size)))
 	{
 		edge = path[lemin->end_id];

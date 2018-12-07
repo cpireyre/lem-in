@@ -65,7 +65,7 @@ static void	hook_up_rev_edges(t_list **graph, int vertices)
 	}
 }
 
-t_list	**build_graph(t_lemin *lemin)
+t_listarray		build_graph(t_lemin *lemin)
 {
 	int		vertices;
 	char	**connections_matrix;

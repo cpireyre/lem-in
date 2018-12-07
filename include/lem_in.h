@@ -125,21 +125,22 @@ void				free_graph(t_list **graph, int size);
 
 int					ft_size_list(t_rooms *rooms);
 int					count_split(char **split);
-int					count_path_length(t_list **graph, int source, int sink);
-int					*size_paths(t_list **graph, t_lemin *lemin);
+int					count_path_length(t_listarray graph, int source, int sink);
+int					*size_paths(t_listarray graph, t_lemin *lemin);
+int					alternate_count(t_edge **path, int source, int sink);
 
 /*
 **	edmonds_karp.c
 */
 
-int					edmonds_karp(t_list ***max_flow_network, t_lemin *lemin);
-t_edge				**breadth_first_search(t_list **g, int s, int t, int size);
+int					edmonds_karp(t_list **max_flow_network, t_lemin *lemin);
+t_edge				**breadth_first_search(t_listarray g, int s, int t, int size);
 
 /*
 **	sender.c
 */
 
-void				send_ants(t_list **graph, t_lemin *lemin);
+void				send_ants(t_listarray graph, t_lemin *lemin);
 int					next_vertex_id(t_list *vertex);
 int					calculate_real_flow(t_sender *sender, int flow);
 char				*ft_find_room_name(t_lemin *lemin, int room_nb);
@@ -159,19 +160,6 @@ void				quit_lem_in(t_list **g, t_lemin *l, const char *e, int s);
 void				parse(t_list **usr_in, t_list **tmp, t_lemin *lemin);
 
 /*
-**	traverse.c
-*/
-
-void				link_graph(t_list ***graph, int s, int t, t_lemin *l);
-
-/*
-**	splitcheck.c
-*/
-
-int					shortest_path_length(t_list ***g, int s, int t, int size);
-int					alternate_count(t_edge **path, int source, int sink);
-
-/*
 **	paths.c
 */
 
@@ -184,7 +172,7 @@ void				clear_dumb_paths(t_sender *sender, t_list *start, int flow);
 **	graph.c
 */
 
-t_list				**build_graph(t_lemin *lemin);
+t_listarray			build_graph(t_lemin *lemin);
 
 /*
 **	trajectory.c
@@ -194,10 +182,18 @@ t_list				*enqueue_paths(t_sender *s, t_list *start_vtx, int flow);
 int					next_trajectory(t_sender *sender);
 
 /*
+**	backwards.c
+*/
+
+int					prev_vertex_id(t_list *vertex);
+int					count_back_length(t_listarray graph, int source, int sink);
+
+
+/*
 **	super.c
 */
 
-void				prevent_superpositions(t_list ***g, int s, int sz, int t);
+int					prevent_superpositions(t_listarray g, int s, int sz, int t);
 
 /*
 **	main.c

@@ -29,11 +29,11 @@ void	solve(t_lemin *lemin)
 	t_list		**s;
 
 	s = build_graph(lemin);
-	lemin->flow = edmonds_karp(&s, lemin);
+	lemin->flow = edmonds_karp(s, lemin);
 	if (lemin->flow > 0)
 	{
 		ft_putchar('\n');
-		prevent_superpositions(&s, lemin->start_id, lemin->map_size, lemin->end_id);
+		prevent_superpositions(s, lemin->start_id, lemin->map_size, lemin->end_id);
 		send_ants(s, lemin);
 	}
 	else

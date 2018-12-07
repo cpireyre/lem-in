@@ -69,7 +69,7 @@ static t_bool	send_one_ant(t_list *vtx, t_lemin *lmn, int i, t_sender *sendr)
 		return (false);
 }
 
-void	send_ants(t_list **graph, t_lemin *lemin)
+void	send_ants(t_listarray graph, t_lemin *lemin)
 {
 	int			i;
 	t_sender	sender;
@@ -92,7 +92,7 @@ void	send_ants(t_list **graph, t_lemin *lemin)
 			i++;
 		}
 		ft_putchar('\n');
-		if (DEBUG)
+		if (DEBUG > 1)
 			print_paths_info(&sender, lemin->flow);
 	}
 	free_sender(&sender);
