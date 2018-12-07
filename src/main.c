@@ -33,7 +33,7 @@ void	solve(t_lemin *lemin)
 	if (lemin->flow > 0)
 	{
 		ft_putchar('\n');
-		/* lemin->flow -= prevent_superpositions(s, lemin->start_id, lemin->map_size, lemin->end_id); */
+		lemin->flow -= clear_super_paths(s, s[lemin->start_id], lemin->end_id);
 		send_ants(s, lemin);
 	}
 	else

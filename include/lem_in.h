@@ -24,7 +24,7 @@
 **		3 and up: much more than you wanted to know
 */
 
-# define DEBUG		1
+# define DEBUG		0
 
 # define CONNECTED	4
 # define START		2
@@ -195,7 +195,7 @@ int					count_back_length(t_listarray graph, int source, int sink);
 */
 
 void				zero_path(t_list *vertex, t_listarray graph, int sink);
-int					prevent_superpositions(t_listarray g, int s, int sz, int t);
+int					clear_super_paths(t_listarray graph, t_list *start, int end_id);
 
 /*
 **	main.c
