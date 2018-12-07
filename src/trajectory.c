@@ -31,7 +31,7 @@ t_list	*enqueue_paths(t_sender *sender, t_list *start_vtx, int flow)
 		trajectory.direction = ((t_edge*)(start_vtx)->content);
 		trajectory.sender_id = i;
 		ft_lstappend(&queue, ft_lstnew(&trajectory, sizeof(t_trajectory)));
-		if (DEBUG)
+		if (DEBUG > 1)
 				ft_printf("DEBUG: Queued path %d: %d->%d.\n", i, \
 					   	((t_edge*)(start_vtx)->content)->source,\
 					   	((t_edge*)(start_vtx)->content)->sink);
@@ -54,7 +54,7 @@ int		next_trajectory(t_sender *sender)
 	{
 		sender->ants_to_send[elem.sender_id]--;
 		ft_lstappend(&sender->queue, ft_lstnew(&elem, sizeof(t_trajectory)));
-		if (DEBUG)
+		if (DEBUG > 1)
 			ft_printf("DEBUG: Sending ant to vertex %d. Queued it again.\n", \
 				   	elem.direction->sink);
 	}

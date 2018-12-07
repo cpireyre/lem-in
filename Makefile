@@ -22,7 +22,7 @@ NAME	:=	lem-in
 
 SRC_PATH		= 	./src/
 SRC_NAME	:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c \
-	count.c graph.c edmonds_karp.c super.c \
+	count.c graph.c edmonds_karp.c super.c backwards.c \
 	sender.c main.c paths.c trajectory.c initsender.c
 SRC				=	$(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ_PATH	:= 	./obj/
@@ -61,9 +61,10 @@ force:
 	@true # to shut up libft Makefile
 
 run: $(NAME)
-	./lem-in < tests/super
+	./lem-in < tests/super_edges
 
 urn: run # typos will happen
+rnu: run # typos will happen
 
 tags: all
 	ctags -R
@@ -90,4 +91,4 @@ super: all
 	@grep L < a.out | wc -l
 	@$(RM) a.out a
 	
-.PHONY: all, re, clean, fclean, force, run, urn, tags, thousand, one, big, super, test
+.PHONY: all, re, clean, fclean, force, run, urn, tags, thousand, one, big, super, test, rnu

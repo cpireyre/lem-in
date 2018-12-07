@@ -12,7 +12,7 @@
 
 #include "lem_in.h"
 
-void	buf_print_list(t_list *node)
+void		buf_print_list(t_list *node)
 {
 	t_buf	buffer;
 
@@ -28,7 +28,7 @@ void	buf_print_list(t_list *node)
 	flush_buf(&buffer);
 }
 
-void	print_ant(int i, char *room_name, int ants_sent, char *display)
+void		print_ant(int i, char *room_name, int ants_sent, char *display)
 {
 	ft_putstr(display);
 	ft_putnbr(i + 1);
@@ -39,7 +39,7 @@ void	print_ant(int i, char *room_name, int ants_sent, char *display)
 			ft_putstr("\e[0m");
 }
 
-void	print_rooms(t_rooms *map)
+void		print_rooms(t_rooms *map)
 {
 	int		i;
 	char	*room_type;
@@ -65,7 +65,7 @@ void	print_rooms(t_rooms *map)
 	}
 }
 
-void	print_paths_info(t_sender *sender, int flow)
+void		print_paths_info(t_sender *sender, int flow)
 {
 	int i;
 
@@ -77,4 +77,10 @@ void	print_paths_info(t_sender *sender, int flow)
 			ft_printf("\tIn path %d of length %d, we'll send %d ants.\n", i, \
 				   	sender->path_lengths[i], sender->ants_to_send[i]);
 	}
+}
+
+void		print_edge(t_edge *edge)
+{
+	ft_printf("\tCurrent edge: %d->%d. Flow %d.\n", \
+			edge->source, edge->sink, edge->flow);
 }

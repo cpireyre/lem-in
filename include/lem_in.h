@@ -95,6 +95,7 @@ void				print_rooms(t_rooms	*map);
 void				buf_print_list(t_list *node);
 void				print_ant(int i, char *name, int sent, char *display);
 void				print_paths_info(t_sender *sender, int flow);
+void				print_edge(t_edge *edge);
 
 /*
 **	rooms.c
@@ -193,6 +194,7 @@ int					count_back_length(t_listarray graph, int source, int sink);
 **	super.c
 */
 
+void				zero_path(t_list *vertex, t_listarray graph, int sink);
 int					prevent_superpositions(t_listarray g, int s, int sz, int t);
 
 /*
