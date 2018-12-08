@@ -6,13 +6,13 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 14:50:59 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/06 14:00:31 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/08 15:01:25 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-int		calculate_real_flow(t_sender *sender, int flow)
+int				calculate_real_flow(t_sender *sender, int flow)
 {
 	int	i;
 	int res;
@@ -27,7 +27,7 @@ int		calculate_real_flow(t_sender *sender, int flow)
 	return (res);
 }
 
-char	*ft_find_room_name(t_lemin *lemin, int room_nb)
+char			*ft_find_room_name(t_lemin *lemin, int room_nb)
 {
 	t_rooms *tmp_rooms;
 
@@ -37,7 +37,7 @@ char	*ft_find_room_name(t_lemin *lemin, int room_nb)
 	return (tmp_rooms->name);
 }
 
-int		next_vertex_id(t_list *vertex)
+int				next_vertex_id(t_list *vertex)
 {
 	t_edge	*edge;
 
@@ -50,7 +50,8 @@ int		next_vertex_id(t_list *vertex)
 	return (edge->sink);
 }
 
-static t_bool	send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *sender)
+static t_bool	send_one_ant(t_list *vertex, t_lemin *lemin, int i, \
+t_sender *sender)
 {
 	int		nvi;
 	t_bool	on_start;
@@ -60,7 +61,8 @@ static t_bool	send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *send
 		nvi = next_trajectory(sender);
 	else
 		nvi = next_vertex_id(vertex);
-	print_ant(i, ft_find_room_name(lemin, nvi), sender->ants_sent, lemin->ant_display);
+	print_ant(i, ft_find_room_name(lemin, nvi), sender->ants_sent, \
+lemin->ant_display);
 	sender->ants_position[i] = nvi;
 	if (nvi == lemin->end_id)
 		return (true);
@@ -68,23 +70,29 @@ static t_bool	send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *send
 		return (false);
 }
 
-void	send_ants(t_list **graph, t_lemin *lemin)
+void			init_sender(t_sender *sender, t_lemin *lemin, t_list **graph)
+{
+	int	i;
+
+	ft_bzero(sender, sizeof(t_sender));
+	sender->ants_position = ft_memalloc(sizeof(int) * (lemin->ants));
+	sender->path_lengths = size_paths(graph, lemin);
+	sender->shortest = ft_array_min(sender->path_lengths, lemin->flow);
+	sender->ants_to_send = ft_memalloc(sizeof(int) * lemin->flow);
+	how_many_ants_to_send(lemin, sender);
+	clear_dumb_paths(sender, (graph)[lemin->start_id], lemin->flow);
+	sender->queue = queue_paths(sender, graph[lemin->start_id], lemin->flow);
+	i = -1;
+	while (++i < lemin->ants)
+		sender->ants_position[i] = lemin->start_id;
+}
+
+void			send_ants(t_list **graph, t_lemin *lemin)
 {
 	int			i;
 	t_sender	sender;
 
-	ft_bzero(&sender, sizeof(t_sender));
-	sender.ants_position = ft_memalloc(sizeof(int) * (lemin->ants));
-	sender.path_lengths = size_paths(graph, lemin);
-	sender.shortest = ft_array_min(sender.path_lengths, lemin->flow);
-	sender.ants_to_send = ft_memalloc(sizeof(int) * lemin->flow);
-	how_many_ants_to_send(lemin, &sender);	
-	clear_dumb_paths(&sender, (graph)[lemin->start_id], lemin->flow);
-	sender.queue = queue_paths(&sender, graph[lemin->start_id], lemin->flow);
-
-	i = -1;
-	while (++i < lemin->ants)
-		sender.ants_position[i] = lemin->start_id;
+	init_sender(&sender, lemin, graph);
 	while (sender.ants_arrived < lemin->ants)
 	{
 		if (sender.ants_sent < lemin->ants)
@@ -94,12 +102,11 @@ void	send_ants(t_list **graph, t_lemin *lemin)
 		{
 			clear_dumb_paths(&sender, (graph)[lemin->start_id], lemin->flow);
 			if (sender.ants_position[i] != lemin->end_id)
-				sender.ants_arrived += send_one_ant(graph[sender.ants_position[i]], lemin, i, &sender);
+				sender.ants_arrived += \
+send_one_ant(graph[sender.ants_position[i]], lemin, i, &sender);
 			i++;
 		}
 		ft_putchar('\n');
-		if (DEBUG)
-			print_paths_info(&sender, lemin->flow);
 	}
 	free(sender.ants_to_send);
 	free(sender.path_lengths);
