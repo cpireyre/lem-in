@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:20:51 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/07 12:55:33 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/08 11:12:57 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void		draw_square(t_coord r1, t_coord r2, t_visu *visu, int color)
 	int		i;
 	int		j;
 	t_coord center;
+	int		pos;
 
 	center.x = (r1.x + r2.x) / 2;
 	center.y = (r1.y + r2.y) / 2;
@@ -84,7 +85,9 @@ void		draw_square(t_coord r1, t_coord r2, t_visu *visu, int color)
 		j = -5;
 		while (++j < 5)
 		{
-			visu->mlx->img.data[center.x + i + (center.y + j) * visu->mlx->w_width] = color;
+			pos = center.x + i + (center.y + j) * visu->mlx->w_width;
+			if (pos > 0 && pos < visu->mlx->w_height * visu->mlx->w_width)
+				visu->mlx->img.data[center.x + i + (center.y + j) * visu->mlx->w_width] = color;
 		}
 	}
 }
