@@ -21,15 +21,15 @@ static inline void	fill_edge(t_edge *edge, int source, int sink)
 }
 
 static void			add_connections_to_graph(t_list **vertex, int vertex_nbr, \
-char *connections)
+char *links)
 {
 	t_edge	tmp;
 	int		i;
 
 	i = 0;
-	while (connections[i])
+	while (links[i])
 	{
-		if (connections[i] == CONNECTED)
+		if (links[i] == CONNECTED)
 		{
 			fill_edge(&tmp, vertex_nbr, i);
 			ft_lstappend(vertex, ft_lstnew(&tmp, sizeof(t_edge)));
@@ -68,10 +68,10 @@ static void			hook_up_rev_edges(t_list **graph, int vertices)
 
 t_list				**build_graph(t_lemin *lemin)
 {
-	int		vertices;
-	char	**connections_matrix;
-	t_list	**graph;
-	int		i;
+	int			vertices;
+	char		**connections_matrix;
+	t_listarray	graph;
+	int			i;
 
 	vertices = lemin->map_size;
 	connections_matrix = lemin->pipes;
@@ -84,18 +84,4 @@ t_list				**build_graph(t_lemin *lemin)
 	}
 	hook_up_rev_edges(graph, vertices);
 	return (graph);
-}
-
-void				free_graph(t_list **graph, int size)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
-	{
-		if (graph[i])
-			ft_lstdel(&graph[i], &ft_free_node);
-		i++;
-	}
-	free(graph);
 }

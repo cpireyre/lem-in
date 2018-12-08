@@ -19,6 +19,30 @@ void			quit_lem_in(t_list **lst, t_lemin *env, const char *err, int s)
 	ft_exit(err, s);
 }
 
+t_bool				store_ants(t_list **head, int *leminants)
+{
+	while (((char*)(*head)->content)[0] == '#')
+	{
+		if (ft_strequ((char*)(*head)->content, "##start")
+				|| ft_strequ((char*)(*head)->content, "##end"))
+			return (false);
+		(*head) = (*head)->next;
+	}
+	if (ft_isint((char*)(*head)->content))
+	{
+		*leminants = ft_atoi((char*)(*head)->content);
+		if (DEBUG > 1)
+			ft_printf("DEBUG: Stored %d ant%c.\n", *leminants, \
+					*leminants > 1 ? 's' : 0);
+		if (*leminants >= 0)
+			return (true);
+		else
+			return (false);
+	}
+	else
+		return (false);
+}
+
 static t_bool	map_has_in_out(t_lemin *lemin)
 {
 	if (DEBUG > 1)
@@ -31,7 +55,7 @@ void			parse(t_list **usr_in, t_list **tmp, t_lemin *lemin)
 {
 	if (!(*usr_in))
 		quit_lem_in(tmp, lemin, "ERROR: No arguments.\n", EXIT_FAILURE);
-	if (!(store_ants(usr_in, lemin)))
+	if (!(store_ants(usr_in, &lemin->ants)))
 		quit_lem_in(tmp, lemin, "ERROR: Invalid number of ants.\n", \
 EXIT_FAILURE);
 	*usr_in = (*usr_in)->next;

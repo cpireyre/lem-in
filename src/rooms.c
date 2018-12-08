@@ -84,3 +84,18 @@ char		*get_room_name(char *input)
 	else
 		return (NULL);
 }
+
+int				find_name_list(char *name, t_rooms *rooms)
+{
+	int	i;
+
+	i = 0;
+	while (rooms)
+	{
+		if (!ft_strcmp(rooms->name, name))
+			return (i);
+		i++;
+		rooms = rooms->next;
+	}
+	return (-1);
+}

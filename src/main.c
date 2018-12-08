@@ -17,10 +17,11 @@ void	solve(t_lemin *lemin)
 	t_list		**s;
 
 	s = build_graph(lemin);
-	lemin->flow = edmonds_karp(&s, lemin);
+	lemin->flow = edmonds_karp(s, lemin);
 	if (lemin->flow > 0)
 	{
 		ft_putchar('\n');
+		lemin->flow -= clear_super_paths(s, s[lemin->start_id], lemin->end_id);
 		send_ants(s, lemin);
 	}
 	else

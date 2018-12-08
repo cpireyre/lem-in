@@ -12,67 +12,59 @@
 
 #include "lem_in.h"
 
-int		*size_paths(t_list **graph, t_lemin *lemin)
+void	clear_dumb_paths(t_sender *sender, t_list *start, int flow)
 {
-	int		*app;
 	int		i;
-	t_list	*edges_from_start;
-	t_edge	*edge;
 
-	if (DEBUG > 2)
-		ft_printf("DEBUG: Computing number of ants to send per path.\n");
-	app = ft_memalloc(sizeof(int) * lemin->flow);
 	i = 0;
-	edges_from_start = graph[lemin->start_id];
-	while (i < lemin->flow)
+	while (i < flow)
 	{
-		edge = (t_edge*)edges_from_start->content;
-		if (edge->flow == 1)
+		if (!sender->ants_to_send[i] && ((t_edge*)(start->content))->flow)
 		{
-			app[i] = count_path_length(graph, edge->sink, lemin->end_id);
-			if (DEBUG > 1)
-				ft_printf("\tPath %d is %d edges long.\n", i, app[i]);
-			i++;
+			if (DEBUG)
+				ft_printf("DEBUG: Path %d (of flow %d) cleared out.\n", \
+					   	i, ((t_edge*)(start->content))->flow);
+			((t_edge*)(start->content))->flow = 0;
 		}
-		edges_from_start = edges_from_start->next;
+		i++;
+		start = start->next;
 	}
-	return (app);
 }
 
 void	how_many_ants_to_send(t_lemin *lemin, t_sender *sender)
 {
-	int	av;
+	int	avg;
 	int	ants_remaining;
 	int	i;
-	int	ants_average;
+	int	ants_avg;
 
-	ants_average = lemin->ants / lemin->flow;
+	ants_avg = lemin->ants / lemin->flow;
 	i = -1;
-	av = 0;
+	avg = 0;
 	ants_remaining = lemin->ants;
 	while (++i < lemin->flow)
-		av += sender->path_lengths[i];
-	av /= lemin->flow;
+		avg += sender->path_lengths[i];
+	avg /= lemin->flow;
 	i = -1;
 	while (++i < lemin->flow)
 	{
-		sender->ants_to_send[i] = ants_average - (sender->path_lengths[i] - av);
+		sender->ants_to_send[i] = ants_avg - (sender->path_lengths[i] - avg);
 		if (sender->ants_to_send[i] < 0)
 			sender->ants_to_send[i] = 0;
 		ants_remaining -= sender->ants_to_send[i];
 	}
-	if ((i = -1) && ants_remaining < 0)
+	if (ants_remaining < 0)
 		ants_remaining = too_many_ants_sent(lemin, sender, -ants_remaining);
+	i = -1;
 	if (ants_remaining)
-		ants_remaining = repart_extra_ants(lemin, sender, av, ants_remaining);
-	sender->real_flow = calculate_real_flow(sender, lemin->flow);
+		ants_remaining = repart_extra_ants(lemin, sender, avg, ants_remaining);
 }
 
-int		too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_sub)
+int		too_many_ants_sent(t_lemin *lemin, t_sender *sender, int to_subtract)
 {
 	int	i;
 
-	while (ants_to_sub > 0)
+	while (to_subtract > 0)
 	{
 		i = -1;
 		while (++i < lemin->flow)
@@ -80,11 +72,11 @@ int		too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_sub)
 			if (sender->ants_to_send[i] > 0)
 			{
 				sender->ants_to_send[i]--;
-				ants_to_sub--;
+				to_subtract--;
 			}
 		}
 	}
-	return (-ants_to_sub);
+	return (-to_subtract);
 }
 
 void	case_one_ant(t_lemin *lemin, t_sender *sender)

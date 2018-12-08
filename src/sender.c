@@ -50,38 +50,31 @@ int		next_vertex_id(t_list *vertex)
 	return (edge->sink);
 }
 
-static t_bool	send_one_ant(t_list *vertex, t_lemin *lemin, int i, t_sender *sender)
+static t_bool	send_one_ant(t_list *vtx, t_lemin *lmn, int i, t_sender *sendr)
 {
 	int		nvi;
 	t_bool	on_start;
 
-	on_start = (sender->ants_position[i] == lemin->start_id);
-	if (lemin->flow > 1 && on_start)
-		nvi = next_trajectory(sender);
+	on_start = (sendr->ants_position[i] == lmn->start_id);
+	if (lmn->flow > 1 && on_start)
+		nvi = next_trajectory(sendr);
 	else
-		nvi = next_vertex_id(vertex);
-	print_ant(i, ft_find_room_name(lemin, nvi), sender->ants_sent, lemin->ant_display);
-	sender->ants_position[i] = nvi;
-	if (nvi == lemin->end_id)
+		nvi = next_vertex_id(vtx);
+	print_ant(i, ft_find_room_name(lmn, nvi), \
+			sendr->ants_sent, lmn->ant_display);
+	sendr->ants_position[i] = nvi;
+	if (nvi == lmn->end_id)
 		return (true);
 	else
 		return (false);
 }
 
-void	send_ants(t_list **graph, t_lemin *lemin)
+void	send_ants(t_listarray graph, t_lemin *lemin)
 {
 	int			i;
 	t_sender	sender;
 
-	ft_bzero(&sender, sizeof(t_sender));
-	sender.ants_position = ft_memalloc(sizeof(int) * (lemin->ants));
-	sender.path_lengths = size_paths(graph, lemin);
-	sender.shortest = ft_array_min(sender.path_lengths, lemin->flow);
-	sender.ants_to_send = ft_memalloc(sizeof(int) * lemin->flow);
-	how_many_ants_to_send(lemin, &sender);	
-	clear_dumb_paths(&sender, (graph)[lemin->start_id], lemin->flow);
-	sender.queue = queue_paths(&sender, graph[lemin->start_id], lemin->flow);
-
+	init_sender(&sender, lemin, graph);
 	i = -1;
 	while (++i < lemin->ants)
 		sender.ants_position[i] = lemin->start_id;
@@ -94,15 +87,13 @@ void	send_ants(t_list **graph, t_lemin *lemin)
 		{
 			clear_dumb_paths(&sender, (graph)[lemin->start_id], lemin->flow);
 			if (sender.ants_position[i] != lemin->end_id)
-				sender.ants_arrived += send_one_ant(graph[sender.ants_position[i]], lemin, i, &sender);
+				sender.ants_arrived += send_one_ant( \
+						graph[sender.ants_position[i]], lemin, i, &sender);
 			i++;
 		}
 		ft_putchar('\n');
-		if (DEBUG)
+		if (DEBUG > 1)
 			print_paths_info(&sender, lemin->flow);
 	}
-	free(sender.ants_to_send);
-	free(sender.path_lengths);
-	ft_lstdel(&sender.queue, &ft_free_node);
-	free(sender.ants_position);
+	free_sender(&sender);
 }

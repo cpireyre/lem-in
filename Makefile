@@ -22,7 +22,7 @@ NAME	:=	lem-in
 
 SRC_PATH		= 	./src/
 SRC_NAME	:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c \
-	count.c graph.c edmonds_karp.c splitcheck.c \
+	count.c graph.c edmonds_karp.c \
 	sender.c paths.c trajectory.c create_map.c \
 	events.c mv_visu.c init_utils_visu.c bresenham.c visu_extra.c
 SRC				=	$(addprefix $(SRC_PATH),$(SRC_NAME))
@@ -37,6 +37,7 @@ MAINO		:= $(OBJ_PATH)main.o
 MAINVO		:= $(OBJ_PATH)visu.o
 VISU		:= visu
 
+H_FILES		:=	include/lem_in.h
 DEPS		=	$(H_FILES) Makefile 
 FRAME =  -L/usr/local/lib -I/usr/local/include -lmlx -framework OpenGL -framework AppKit
 
@@ -76,9 +77,10 @@ force:
 	@true # to shut up libft Makefile
 
 run: $(NAME)
-	./lem-in < tests/fucked_up
+	./lem-in < tests/super_edges
 
 urn: run # typos will happen
+rnu: run # typos will happen
 
 tags: all
 	ctags -R
@@ -105,4 +107,4 @@ super: all
 	@grep L < a.out | wc -l
 	@$(RM) a.out a
 	
-.PHONY: all, re, clean, fclean, force, run, urn, tags, thousand, one, big, super, test
+.PHONY: all, re, clean, fclean, force, run, urn, tags, thousand, one, big, super, test, rnu

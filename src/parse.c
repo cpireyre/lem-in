@@ -23,30 +23,6 @@
 ** return (true) quand on trouve line type x-y et rien derriere;
 */
 
-t_bool				store_ants(t_list **head, t_lemin *lemin)
-{
-	while (((char*)(*head)->content)[0] == '#')
-	{
-		if (ft_strequ((char*)(*head)->content, "##start")
-				|| ft_strequ((char*)(*head)->content, "##end"))
-			return (false);
-		(*head) = (*head)->next;
-	}
-	if (ft_isint((char*)(*head)->content))
-	{
-		lemin->ants = ft_atoi((char*)(*head)->content);
-		if (DEBUG > 1)
-			ft_printf("DEBUG: Stored %d ant%c.\n", lemin->ants, \
-					lemin->ants > 1 ? 's' : 0);
-		if (lemin->ants >= 0)
-			return (true);
-		else
-			return (false);
-	}
-	else
-		return (false);
-}
-
 t_bool				room_already_exists(t_rooms *map, char *room)
 {
 	while (map)
@@ -118,7 +94,7 @@ t_bool				store_special_rooms(t_lemin *lemin, char *name, t_byte type)
 	{
 		if (lemin->end_name)
 		{
-			free(name);
+			ft_memdel((void**)&name);
 			return (false);
 		}
 		lemin->end_name = ft_strdup(name);
@@ -127,7 +103,7 @@ t_bool				store_special_rooms(t_lemin *lemin, char *name, t_byte type)
 	{
 		if (lemin->start_name)
 		{
-			free(name);
+			ft_memdel((void**)&name);
 			return (false);
 		}
 		lemin->start_name = ft_strdup(name);
