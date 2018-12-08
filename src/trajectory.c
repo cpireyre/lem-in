@@ -1,10 +1,16 @@
-#include "lem_in.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   trajectory.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/08 12:00:16 by tboissel          #+#    #+#             */
+/*   Updated: 2018/12/08 12:01:04 by tboissel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-typedef struct	s_trajectory
-{
-	t_edge	*direction;
-	int		sender_id;
-}				t_trajectory;
+#include "lem_in.h"
 
 t_list	*queue_paths(t_sender *sender, t_list *start_vtx, int flow)
 {
@@ -14,7 +20,7 @@ t_list	*queue_paths(t_sender *sender, t_list *start_vtx, int flow)
 
 	i = 0;
 	queue = NULL;
-	while (i < flow && start_vtx) // change this to while (1)
+	while (i < flow && start_vtx)
 	{
 		while (i < flow && sender->ants_to_send[i] == 0)
 			i++;
@@ -27,8 +33,6 @@ t_list	*queue_paths(t_sender *sender, t_list *start_vtx, int flow)
 		trajectory.direction = ((t_edge*)(start_vtx)->content);
 		trajectory.sender_id = i;
 		ft_lstappend(&queue, ft_lstnew(&trajectory, sizeof(t_trajectory)));
-		if (DEBUG)
-				ft_printf("DEBUG: Queued path %d: %d->%d.\n", i, ((t_edge*)(start_vtx)->content)->source, ((t_edge*)(start_vtx)->content)->sink);
 		i++;
 		start_vtx = start_vtx->next;
 	}
@@ -49,7 +53,8 @@ int		next_trajectory(t_sender *sender)
 		sender->ants_to_send[elem.sender_id]--;
 		ft_lstappend(&sender->queue, ft_lstnew(&elem, sizeof(t_trajectory)));
 		if (DEBUG)
-			ft_printf("DEBUG: Sending next ant to vertex %d. Queued the path again.\n", elem.direction->sink);
+			ft_printf("DEBUG: Sending next ant to vertex %d. Queued the path \
+again.\n", elem.direction->sink);
 	}
 	else
 		sender->real_flow--;

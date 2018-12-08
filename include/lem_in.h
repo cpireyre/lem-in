@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/08 11:44:59 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/08 12:00:09 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,12 @@
 # define W			0xFFFFFF
 # define REGULAR	true
 # define BACKWARDS	false
+
+typedef struct	s_trajectory
+{
+	t_edge	*direction;
+	int		sender_id;
+}				t_trajectory;
 
 typedef struct			s_image
 {
