@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 19:20:41 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/05 11:25:18 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/08 13:23:10 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,48 +36,43 @@ int		*size_paths(t_list **graph, t_lemin *lemin)
 		}
 		edges_from_start = edges_from_start->next;
 	}
-	if (DEBUG > 2)
-		ft_printf("\tShortest path appears to be %d edges long.\n", ft_array_min(app, lemin->flow));
 	return (app);
 }
 
 void	how_many_ants_to_send(t_lemin *lemin, t_sender *sender)
 {
-	int	average;
+	int	av;
 	int	ants_remaining;
 	int	i;
 	int	ants_average;
 
 	ants_average = lemin->ants / lemin->flow;
 	i = -1;
-	average = 0;
+	av = 0;
 	ants_remaining = lemin->ants;
 	while (++i < lemin->flow)
-		average += sender->path_lengths[i];
-	average /= lemin->flow;
+		av += sender->path_lengths[i];
+	av /= lemin->flow;
 	i = -1;
 	while (++i < lemin->flow)
 	{
-		sender->ants_to_send[i] = ants_average - (sender->path_lengths[i] - average);
+		sender->ants_to_send[i] = ants_average - (sender->path_lengths[i] - av);
 		if (sender->ants_to_send[i] < 0)
 			sender->ants_to_send[i] = 0;
 		ants_remaining -= sender->ants_to_send[i];
 	}
-	if (ants_remaining < 0)
+	if ((i = -1) && ants_remaining < 0)
 		ants_remaining = too_many_ants_sent(lemin, sender, -ants_remaining);
-	if (DEBUG > 2)
-		ft_printf("DEBUG: %d remaining ants, supposedly.\n", ants_remaining);
-	i = -1;
 	if (ants_remaining)
-		ants_remaining = repart_extra_ants(lemin, sender, average, ants_remaining);
+		ants_remaining = repart_extra_ants(lemin, sender, av, ants_remaining);
 	sender->real_flow = calculate_real_flow(sender, lemin->flow);
 }
 
-int		too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_subtract)
+int		too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_sub)
 {
 	int	i;
 
-	while (ants_to_subtract > 0)
+	while (ants_to_sub > 0)
 	{
 		i = -1;
 		while (++i < lemin->flow)
@@ -85,39 +80,43 @@ int		too_many_ants_sent(t_lemin *lemin, t_sender *sender, int ants_to_subtract)
 			if (sender->ants_to_send[i] > 0)
 			{
 				sender->ants_to_send[i]--;
-				ants_to_subtract--;
+				ants_to_sub--;
 			}
 		}
 	}
-	return (-ants_to_subtract);
+	return (-ants_to_sub);
 }
 
-int		repart_extra_ants(t_lemin *lemin, t_sender *sender, int average, int ants_to_add)
+void	case_one_ant(t_lemin *lemin, t_sender *sender)
+{
+	int	i;
+
+	i = -1;
+	while (++i < lemin->flow)
+		if (sender->shortest == sender->path_lengths[i])
+			sender->ants_to_send[i] = 1;
+}
+
+int		repart_extra_ants(t_lemin *lemin, t_sender *sender, int av, \
+int ants_to_add)
 {
 	int	i;
 
 	if (lemin->ants == 1)
 	{
-		i = -1;
-		while (++i < lemin->flow)
-			if (sender->shortest == sender->path_lengths[i])
-			{
-				sender->ants_to_send[i] = 1;
-				return (1);
-			}
-	} 
+		case_one_ant(lemin, sender);
+		return (1);
+	}
 	while (ants_to_add > 0)
 	{
 		i = -1;
 		while (++i < lemin->flow)
 		{
-			if (sender->ants_to_send[i] > 0 && sender->path_lengths[i] <= average)
+			if (sender->ants_to_send[i] > 0 && sender->path_lengths[i] <= av)
 			{
 				sender->ants_to_send[i]++;
-				// sender->path_lengths[i]++;
+				sender->path_lengths[i]++;
 				ants_to_add--;
-				if (DEBUG > 2)
-					ft_printf("DEBUG: ants_to_add = %d", ants_to_add);
 				if (ants_to_add == 0)
 					break ;
 			}
