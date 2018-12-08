@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:20:51 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/08 11:12:57 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/08 11:44:18 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,26 +48,11 @@ visu->mlx->w_width > 0 && rooms->coord.x + i + \
 					visu->mlx->img.data[rooms->coord.x + i + \
 (rooms->coord.y + j) * visu->mlx->w_width] = \
 ((rooms->ant_nb * 0x000060) > 0x0000FF ? 0x0000FF : rooms->ant_nb * 0x000060);
-
 			}
 		}
 		rooms = rooms->next;
 	}
 	rooms = visu->lemin->rooms;
-}
-
-t_coord		get_coordinates_room(int room_nb, t_lemin *lemin)
-{
-	t_coord	coord;
-	t_rooms *rooms;
-
-	rooms = lemin->rooms;
-	while (room_nb--)
-		lemin->rooms = lemin->rooms->next;
-	coord.x = lemin->rooms->coord.x + 30;
-	coord.y = lemin->rooms->coord.y + 30;
-	lemin->rooms = rooms;
-	return (coord);
 }
 
 void		draw_square(t_coord r1, t_coord r2, t_visu *visu, int color)
@@ -87,39 +72,35 @@ void		draw_square(t_coord r1, t_coord r2, t_visu *visu, int color)
 		{
 			pos = center.x + i + (center.y + j) * visu->mlx->w_width;
 			if (pos > 0 && pos < visu->mlx->w_height * visu->mlx->w_width)
-				visu->mlx->img.data[center.x + i + (center.y + j) * visu->mlx->w_width] = color;
+				visu->mlx->img.data[center.x + i + (center.y + j) * \
+visu->mlx->w_width] = color;
 		}
 	}
 }
 
 void		create_pipes(t_visu *visu)
 {
-	int		i;
-	int		j;
+	t_coord ij;
 	t_coord	coord1;
 	t_coord	coord2;
 
-	i = -1;
-	while (++i < visu->lemin->map_size)
+	ij.x = -1;
+	while (++ij.x < visu->lemin->map_size)
 	{
-		j = -1;
-		while (++j < i)
+		ij.y = -1;
+		while (++ij.y < ij.x)
 		{
-			if (visu->lemin->pipes[i][j] == CONNECTED)
+			if (visu->lemin->pipes[ij.x][ij.y] == CONNECTED)
 			{
-				coord1 = get_coordinates_room(i, visu->lemin);
-				coord2 = get_coordinates_room(j, visu->lemin);
-				ft_bresenham(coord1, coord2, visu);
+				inner_pipes(visu, &coord1, &coord2, ij);
 				draw_square(coord1, coord2, visu, 0xFF5050);
 			}
-			if (visu->lemin->pipes[i][j] > CONNECTED)
+			else if (visu->lemin->pipes[ij.x][ij.y] > CONNECTED)
 			{
-				coord1 = get_coordinates_room(i, visu->lemin);
-				coord2 = get_coordinates_room(j, visu->lemin);
-				ft_bresenham(coord1, coord2, visu);
+				inner_pipes(visu, &coord1, &coord2, ij);
 				draw_square(coord1, coord2, visu, 0x56FF56);
-				visu->lemin->pipes[i][j]--;
-				visu->lemin->pipes[j][i]--;
+				visu->lemin->pipes[ij.x][ij.y]--;
+				visu->lemin->pipes[ij.x][ij.y]--;
 			}
 		}
 	}
