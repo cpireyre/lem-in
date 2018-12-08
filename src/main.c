@@ -16,11 +16,16 @@ t_list	*stdin_to_list(void)
 {
 	t_list		*usr_in;
 	char		*l;
+	int			ret;
 
 	l = NULL;
 	usr_in = NULL;
-	while (ft_gnl(0, &l))
+	while ((ret = ft_gnl(0, &l)))
+	{
+		if (ret == -1)
+			ft_exit("Error while reading file.", EXIT_FAILURE);
 		ft_lstappend(&usr_in, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
+	}
 	return (usr_in);
 }
 
