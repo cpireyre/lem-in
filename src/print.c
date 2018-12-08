@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 08:20:47 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/08 14:26:08 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/08 14:53:08 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_list	*stdin_to_list(void)
 	usr_in = NULL;
 	while ((ret = ft_gnl(0, &l)))
 	{
-		if (ret = -1)
+		if (ret == -1)
 			exit(EXIT_FAILURE);
 		ft_lstappend(&usr_in, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
 	}
