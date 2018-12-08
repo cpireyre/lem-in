@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/07 12:35:10 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/08 11:44:59 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -243,6 +243,11 @@ void				display_ant_nb(t_visu *visu);
 int					ft_loop_events(t_visu *visu);
 void				empty_rooms(t_visu *visu);
 void				create_visu_mv(int x, int y, t_visu *visu);
+void				inner_add_ant(t_visu *visu, char *cut_line, int ant_nb, int start_pos);
+void				substract_ant(t_visu *visu, int ant_nb);
+void				inner_pipes(t_visu *visu, t_coord *coord1, t_coord *coord2, \
+t_coord ij);
+t_coord				get_coordinates_room(int room_nb, t_lemin *lemin);
 
 /*
 **	graph.h

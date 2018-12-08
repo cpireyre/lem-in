@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/12/06 14:33:17 by tboissel         ###   ########.fr        #
+#    Updated: 2018/12/08 11:39:38 by tboissel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC_PATH		= 	./src/
 SRC_NAME	:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c \
 	count.c graph.c edmonds_karp.c splitcheck.c \
 	sender.c paths.c trajectory.c create_map.c \
-	events.c mv_visu.c init_utils_visu.c bresenham.c
+	events.c mv_visu.c init_utils_visu.c bresenham.c visu_extra.c
 SRC				=	$(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ_PATH	:= 	./obj/
 OBJ			=	$(addprefix $(OBJ_PATH),$(OBJ_NAME))
