@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:07:17 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 15:56:08 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/09 12:46:03 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,34 @@ t_bool				room_already_exists(t_rooms *map, char *room)
 	return (false);
 }
 
+t_coord				get_coord(char *input)
+{
+	int				i;
+	char			**splitted;
+	t_coord			coord;
+
+	coord.x = 0;
+	coord.y = 0;
+	splitted = ft_strsplit(input, ' ');
+	i = 0;
+	while (splitted[i++])
+		;
+	if (i > 3)
+	{
+		coord.x = ft_atoi(splitted[i - 3]);
+		coord.y = ft_atoi(splitted[i - 2]);
+	}
+	free_split(splitted);
+	return (coord);
+}
+
 static t_bool				add_room(t_lemin **lemin, char *input, t_byte type)
 {
 	t_rooms *new;
 	char	*room_name;
+	t_coord coord;
 
+	coord = get_coord(input);
 	room_name = get_room_name(input);
 	if (type == START || type == END)
 		if (!store_special_rooms(*lemin, room_name, type))
@@ -59,7 +82,7 @@ static t_bool				add_room(t_lemin **lemin, char *input, t_byte type)
 		ft_strdel(&room_name);
 		return (false);
 	}
-	new = new_room(room_name, type);
+	new = new_room(room_name, type, &coord, (*lemin)->ants);
 	new->next = (*lemin)->rooms;
 	(*lemin)->rooms = new;
 	return (true);

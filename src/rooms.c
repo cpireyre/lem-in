@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rooms.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 08:06:24 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/25 09:47:49 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/09 12:44:37 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,19 @@ static t_bool	room_is_valid(char *name)
 	return (true);
 }
 
-t_rooms	*new_room(char *name_ptr, t_byte type)
+t_rooms	*new_room(char *name_ptr, t_byte type, t_coord *coord, int ant_nb)
 {
 	t_rooms	*new;
 
 	new = ft_memalloc(sizeof(t_rooms));
+	new->coord.x = coord->x;
+	new->coord.y = coord->y;
 	new->name = name_ptr;
 	new->type = type;
+	if (type == START)
+		new->ant_nb = ant_nb;
+	else
+		new->ant_nb = 0;
 	new->next = NULL;
 	return (new);
 }

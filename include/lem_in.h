@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/09 11:46:21 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/09 12:45:30 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ void				print_edge(t_edge *edge);
 **	rooms.c
 */
 
-t_rooms				*new_room(char *name_ptr, t_byte type);
+t_rooms				*new_room(char *n, t_byte t, t_coord *coord, int ant_nb);
 char				*get_room_name(char *input);
 int					find_name_list(char *name, t_rooms *rooms);
 
