@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/09 13:25:35 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/09 13:29:34 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,7 +181,7 @@ int					alternate_count(t_edge **path, int source, int sink);
 */
 
 int					edmonds_karp(t_listarray max_flow_network, t_lemin *lemin);
-t_edge				**breadth_first_search(t_listarray g, int s, int t, int s);
+t_edge				**breadth_first_search(t_listarray g, int s, int t, int si);
 
 /*
 **	sender.c
@@ -284,5 +284,6 @@ void				substract_ant(t_visu *visu, int ant_nb);
 void				inner_pipes(t_visu *visu, t_coord *coord1, \
 t_coord *coord2, t_coord ij);
 t_coord				get_coordinates_room(int room_nb, t_lemin *lemin);
+t_coord				get_coord(char *input);
 
 #endif
