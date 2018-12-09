@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   backwards.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/09 12:55:55 by tboissel          #+#    #+#             */
+/*   Updated: 2018/12/09 12:56:04 by tboissel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
 
 int		prev_vertex_id(t_list *vertex)
@@ -32,4 +44,3 @@ int		count_back_length(t_listarray graph, int source, int sink)
 	}
 	return (len);
 }
-

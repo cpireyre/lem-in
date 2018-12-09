@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   trajectory.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 15:00:19 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/05 15:23:58 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/09 13:18:51 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ t_list	*enqueue_paths(t_sender *sender, t_list *start_vtx, int flow)
 		trajectory.sender_id = i;
 		ft_lstappend(&queue, ft_lstnew(&trajectory, sizeof(t_trajectory)));
 		if (DEBUG > 1)
-				ft_printf("DEBUG: Queued path %d: %d->%d.\n", i, \
-					   	((t_edge*)(start_vtx)->content)->source,\
-					   	((t_edge*)(start_vtx)->content)->sink);
+			ft_printf("DEBUG: Queued path %d: %d->%d.\n", i, \
+((t_edge*)(start_vtx)->content)->source,\
+((t_edge*)(start_vtx)->content)->sink);
 		i++;
 		start_vtx = start_vtx->next;
 	}
@@ -56,7 +56,7 @@ int		next_trajectory(t_sender *sender)
 		ft_lstappend(&sender->queue, ft_lstnew(&elem, sizeof(t_trajectory)));
 		if (DEBUG > 1)
 			ft_printf("DEBUG: Sending ant to vertex %d. Queued it again.\n", \
-				   	elem.direction->sink);
+elem.direction->sink);
 	}
 	else
 		sender->real_flow--;

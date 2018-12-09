@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graph.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:50 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/05 14:47:35 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/09 13:01:20 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static inline void	fill_edge(t_edge *edge, int source, int sink)
 	edge->rev = NULL;
 }
 
-static void	add_connections_to_graph(t_list **vertex, int vtx_nb, char *links)
+static void			add_connections_to_graph(t_list **vertex, \
+int vtx_nb, char *links)
 {
 	t_edge	tmp;
 	int		i;
@@ -37,35 +38,35 @@ static void	add_connections_to_graph(t_list **vertex, int vtx_nb, char *links)
 	}
 }
 
-static void	hook_up_rev_edges(t_list **graph, int vertices)
+static void			hook_up_rev_edges(t_list **graph, int vertices)
 {
-	t_list	*edges_from_vertex;
-	t_list	*edge_to_update;
+	t_list	*e_f_v;
+	t_list	*e_to_up;
 	int		i;
 	int		cur_edge_t;
 
 	i = 0;
 	while (i < vertices)
 	{
-		edges_from_vertex = graph[i];
-		while (edges_from_vertex)
+		e_f_v = graph[i];
+		while (e_f_v)
 		{
-			if (((t_edge*)(edges_from_vertex->content))->rev == NULL)
+			if (((t_edge*)(e_f_v->content))->rev == NULL)
 			{
-				cur_edge_t = ((t_edge*)(edges_from_vertex->content))->sink;
-				edge_to_update = graph[cur_edge_t];
-				while (((t_edge*)(edge_to_update->content))->sink != i)
-					edge_to_update = edge_to_update->next;
-				((t_edge*)edge_to_update->content)->rev = (t_edge*)edges_from_vertex->content;
-				((t_edge*)edges_from_vertex->content)->rev = (t_edge*)edge_to_update->content;
+				cur_edge_t = ((t_edge*)(e_f_v->content))->sink;
+				e_to_up = graph[cur_edge_t];
+				while (((t_edge*)(e_to_up->content))->sink != i)
+					e_to_up = e_to_up->next;
+				((t_edge*)e_to_up->content)->rev = (t_edge*)e_f_v->content;
+				((t_edge*)e_f_v->content)->rev = (t_edge*)e_to_up->content;
 			}
-			edges_from_vertex = edges_from_vertex->next;
+			e_f_v = e_f_v->next;
 		}
 		i++;
 	}
 }
 
-t_listarray		build_graph(t_lemin *lemin)
+t_listarray			build_graph(t_lemin *lemin)
 {
 	int			vertices;
 	char		**connections_matrix;

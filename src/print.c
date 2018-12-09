@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 08:20:47 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/05 14:54:38 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/09 13:04:34 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void		print_ant(int i, char *room_name, int ants_sent, char *display)
 	ft_putchar('-');
 	ft_putstr(room_name);
 	(i + 1 == ants_sent) ? 0 : ft_putchar(' ');
-	if (!ft_strequ(display,"L"))
-			ft_putstr("\e[0m");
+	if (!ft_strequ(display, "L"))
+		ft_putstr("\e[0m");
 }
 
 void		print_rooms(t_rooms *map)
@@ -72,10 +72,10 @@ void		print_paths_info(t_sender *sender, int flow)
 	if (DEBUG)
 	{
 		ft_printf("DEBUG: Printing paths information...\n");
-		i =  -1;
+		i = -1;
 		while (++i < flow)
 			ft_printf("\tIn path %d of length %d, we'll send %d ants.\n", i, \
-				   	sender->path_lengths[i], sender->ants_to_send[i]);
+		sender->path_lengths[i], sender->ants_to_send[i]);
 	}
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   edmonds_karp.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:52 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/05 14:34:54 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/09 12:57:43 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 **	t_list *queue = vertices to be visited on each pass of the BFS
 */
 
-static inline t_bool		edge_is_valid(t_edge *edge, t_edge **path, int src)
+static inline t_bool	edge_is_valid(t_edge *edge, t_edge **path, int src)
 {
 	if (!((path)[edge->sink]) && edge->sink != src && edge->flow < 1)
 		return (true);
@@ -25,7 +25,8 @@ static inline t_bool		edge_is_valid(t_edge *edge, t_edge **path, int src)
 		return (false);
 }
 
-void		bfs_step(t_edge ***path, t_list **queue, t_list **graph, int source)
+void					bfs_step(t_edge ***path, t_list **queue, \
+t_list **graph, int source)
 {
 	t_list	*current_vertex;
 	t_edge	*edge;
@@ -53,7 +54,8 @@ void		bfs_step(t_edge ***path, t_list **queue, t_list **graph, int source)
 	*queue = tmp;
 }
 
-t_edge		**breadth_first_search(t_listarray graph, int source, int sink, int size)
+t_edge					**breadth_first_search(t_listarray graph, int source, \
+int sink, int size)
 {
 	t_edge	**path;
 	t_list	*queue;
@@ -66,7 +68,7 @@ t_edge		**breadth_first_search(t_listarray graph, int source, int sink, int size
 		bfs_step(&path, &queue, graph, source);
 	if (DEBUG > 2 && path[sink])
 		ft_printf("DEBUG: BFS done. path[sink] flows from %d to %d.", \
-			   	path[sink]->source, path[sink]->sink);
+path[sink]->source, path[sink]->sink);
 	if (!path[sink])
 	{
 		ft_memdel((void**)&path);
@@ -75,7 +77,8 @@ t_edge		**breadth_first_search(t_listarray graph, int source, int sink, int size
 	return (path);
 }
 
-int			edmonds_karp(t_listarray max_flow_network, t_lemin *lemin)
+int						edmonds_karp(t_listarray max_flow_network, \
+t_lemin *lemin)
 {
 	t_edge	**path;
 	t_edge	*edge;

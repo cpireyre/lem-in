@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:04:50 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/05 14:53:44 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/09 13:09:51 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static inline t_bool	parse_pipes(t_list **ptr, char ***split, t_lemin *lemin)
 {
 	int		rooms_to_connect[2];
 
-	if (ft_strcountif(((char*)(*ptr)->content), &ft_isdash) > 1 
+	if (ft_strcountif(((char*)(*ptr)->content), &ft_isdash) > 1
 			|| count_split(*split) != 2)
 	{
 		free_split(*split);

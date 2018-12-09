@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 08:06:24 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/09 12:44:37 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/09 13:21:07 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ static t_bool	room_is_valid(char *name)
 	return (true);
 }
 
-t_rooms	*new_room(char *name_ptr, t_byte type, t_coord *coord, int ant_nb)
+t_rooms			*new_room(char *name_ptr, t_byte type, t_coord *coord, \
+int ant_nb)
 {
 	t_rooms	*new;
 
@@ -57,7 +58,7 @@ t_rooms	*new_room(char *name_ptr, t_byte type, t_coord *coord, int ant_nb)
 	return (new);
 }
 
-char	*get_room_name(char *input)
+char			*get_room_name(char *input)
 {
 	size_t	i;
 	char	*name;

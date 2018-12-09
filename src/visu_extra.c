@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/08 11:38:31 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/08 11:45:31 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/09 13:22:11 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,26 @@ t_coord	get_coordinates_room(int room_nb, t_lemin *lemin)
 	coord.x = lemin->rooms->coord.x + 30;
 	coord.y = lemin->rooms->coord.y + 30;
 	lemin->rooms = rooms;
+	return (coord);
+}
+
+t_coord	get_coord(char *input)
+{
+	int				i;
+	char			**splitted;
+	t_coord			coord;
+
+	coord.x = 0;
+	coord.y = 0;
+	splitted = ft_strsplit(input, ' ');
+	i = 0;
+	while (splitted[i++])
+		;
+	if (i > 3)
+	{
+		coord.x = ft_atoi(splitted[i - 3]);
+		coord.y = ft_atoi(splitted[i - 2]);
+	}
+	free_split(splitted);
 	return (coord);
 }

@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:07:17 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/09 12:46:03 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/09 13:11:29 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,28 +38,7 @@ t_bool				room_already_exists(t_rooms *map, char *room)
 	return (false);
 }
 
-t_coord				get_coord(char *input)
-{
-	int				i;
-	char			**splitted;
-	t_coord			coord;
-
-	coord.x = 0;
-	coord.y = 0;
-	splitted = ft_strsplit(input, ' ');
-	i = 0;
-	while (splitted[i++])
-		;
-	if (i > 3)
-	{
-		coord.x = ft_atoi(splitted[i - 3]);
-		coord.y = ft_atoi(splitted[i - 2]);
-	}
-	free_split(splitted);
-	return (coord);
-}
-
-static t_bool				add_room(t_lemin **lemin, char *input, t_byte type)
+static t_bool		add_room(t_lemin **lemin, char *input, t_byte type)
 {
 	t_rooms *new;
 	char	*room_name;

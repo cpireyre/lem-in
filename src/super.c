@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   super.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/09 13:11:59 by tboissel          #+#    #+#             */
+/*   Updated: 2018/12/09 13:12:07 by tboissel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
 
 static int		flow_to_vertex(t_list *vertex)
@@ -10,7 +22,8 @@ static int		flow_to_vertex(t_list *vertex)
 	{
 		edge = ((t_edge*)(vertex->content))->rev;
 		if (DEBUG)
-			ft_printf("\t...now looking at %d->%d. Flow %d.\n", edge->source, edge->sink, edge->flow);
+			ft_printf("\t...now looking at %d->%d. Flow %d.\n", edge->source, \
+edge->sink, edge->flow);
 		if (edge->flow == 1)
 			count++;
 		vertex = vertex->next;

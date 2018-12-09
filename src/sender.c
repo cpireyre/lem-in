@@ -6,13 +6,13 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 14:50:59 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/05 14:59:15 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/09 13:17:28 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-int		calculate_real_flow(t_sender *sender, int flow)
+int				calculate_real_flow(t_sender *sender, int flow)
 {
 	int	i;
 	int res;
@@ -27,7 +27,7 @@ int		calculate_real_flow(t_sender *sender, int flow)
 	return (res);
 }
 
-char	*ft_find_room_name(t_lemin *lemin, int room_nb)
+char			*ft_find_room_name(t_lemin *lemin, int room_nb)
 {
 	t_rooms *tmp_rooms;
 
@@ -37,7 +37,7 @@ char	*ft_find_room_name(t_lemin *lemin, int room_nb)
 	return (tmp_rooms->name);
 }
 
-int		next_vertex_id(t_list *vertex)
+int				next_vertex_id(t_list *vertex)
 {
 	t_edge	*edge;
 
@@ -69,7 +69,7 @@ static t_bool	send_one_ant(t_list *vtx, t_lemin *lmn, int i, t_sender *sendr)
 		return (false);
 }
 
-void	send_ants(t_listarray graph, t_lemin *lemin)
+void			send_ants(t_listarray graph, t_lemin *lemin)
 {
 	int			i;
 	t_sender	sender;
@@ -87,7 +87,7 @@ void	send_ants(t_listarray graph, t_lemin *lemin)
 		{
 			clear_dumb_paths(&sender, (graph)[lemin->start_id], lemin->flow);
 			if (sender.ants_position[i] != lemin->end_id)
-				sender.ants_arrived += send_one_ant( \
+				sender.ants_arrived += send_one_ant(\
 						graph[sender.ants_position[i]], lemin, i, &sender);
 			i++;
 		}
