@@ -181,7 +181,7 @@ int					alternate_count(t_edge **path, int source, int sink);
 **	edmonds_karp.c
 */
 
-int					edmonds_karp(t_list **max_flow_network, t_lemin *lemin);
+int					edmonds_karp(t_listarray max_flow_network, t_lemin *lemin);
 t_edge				**breadth_first_search(t_listarray g, int s, int t, int size);
 
 /*
