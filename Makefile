@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/12/06 18:24:33 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/12/09 11:42:21 by tboissel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,20 +19,25 @@ BFLAGS	:=	-I$(LIBDIR)/ -Iinclude
 DEBUG	:=	-g3 #-fsanitize=address -fsanitize=undefined -Og
 INCLUDE	:=	-lft -L$(LIBDIR)/ 
 NAME	:=	lem-in
-
+VISU	= visu
 SRC_PATH		= 	./src/
 SRC_NAME	:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c \
 	count.c graph.c edmonds_karp.c super.c backwards.c \
-	sender.c main.c paths.c trajectory.c initsender.c
+	sender.c paths.c trajectory.c initsender.c create_map.c events.c \
+	mv_visu.c init_utils_visu.c bresenham.c visu_extra.c
 SRC				=	$(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ_PATH	:= 	./obj/
 OBJ			=	$(addprefix $(OBJ_PATH),$(OBJ_NAME))
 OBJ_NAME	=	$(SRC_NAME:.c=.o)
-
+MAIN		= main.c
+MAINV		= visu.c
+MAINO		= $(OBJ_PATH)main.o
+MAINVO		= $(OBJ_PATH)visu.o
 H_FILES		:=	include/lem_in.h
 DEPS		=	$(H_FILES) Makefile 
+FRAME		= -L/usr/local/lib -I/usr/local/include -lmlx -framework OpenGL -framework AppKit
 
-all: $(NAME)
+all: $(NAME) $(VISU)
 
 $(LIBFT): force
 	@$(MAKE) -C $(LIBDIR) 2> /dev/null
@@ -41,9 +46,12 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c $(DEPS)
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
 	$(CC) $(CFLAGS) $(BFLAGS) $< -c -o $@ $(DEBUG)
 
-$(NAME): $(DEPS) $(LIBFT) $(OBJ)
-	$(CC) $(CFLAGS) $(BFLAGS) $(OBJ) $(INCLUDE) $(DEBUG) -o $@
-	#ctags -R # for ease of navigation with vim
+$(NAME): $(DEPS) $(LIBFT) $(OBJ) $(MAINO)
+	$(CC) $(CFLAGS) $(BFLAGS) $(INCLUDE) $(FRAME) $(OBJ) $(MAINO) $(DEBUG) -o $@
+		#ctags -R # for ease of navigation with vim
+
+$(VISU): $(DEPS) $(LIBFT) $(OBJ) $(MAINVO)
+	$(CC) $(CFLAGS) $(BFLAGS) $(INCLUDE) $(FRAME) $(OBJ) $(MAINVO) $(DEBUG) -o $@
 
 clean:
 	$(MAKE) clean -C $(LIBDIR)
