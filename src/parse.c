@@ -44,11 +44,7 @@ static t_bool		add_room(t_lemin **lemin, char *input, t_byte type)
 	char	*room_name;
 	t_coord coord;
 
-	coord = get_coord(input);
 	room_name = get_room_name(input);
-	if (type == START || type == END)
-		if (!store_special_rooms(*lemin, room_name, type))
-			return (false);
 	if (!room_name)
 	{
 		if (DEBUG > 1)
@@ -56,6 +52,10 @@ static t_bool		add_room(t_lemin **lemin, char *input, t_byte type)
 		ft_strdel(&room_name);
 		return (false);
 	}
+	coord = get_coord(input);
+	if (type == START || type == END)
+		if (!store_special_rooms(*lemin, room_name, type))
+			return (false);
 	if ((*lemin)->rooms && room_already_exists((*lemin)->rooms, room_name))
 	{
 		ft_strdel(&room_name);
