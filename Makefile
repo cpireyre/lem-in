@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/12/09 11:42:21 by tboissel         ###   ########.fr        #
+#    Updated: 2018/12/09 15:48:47 by tboissel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,4 +99,7 @@ super: all
 	@grep L < a.out | wc -l
 	@$(RM) a.out a
 	
-.PHONY: all, re, clean, fclean, force, run, urn, tags, thousand, one, big, super, test, rnu
+visutest: all
+	@./lem-in < tests/visu/snake_in_stairs | ./visu
+
+.PHONY: all, re, clean, fclean, force, run, urn, tags, thousand, one, big, super, test, rnu, visutest
