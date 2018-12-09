@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 19:20:41 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/09 13:09:14 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/09 15:12:49 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,6 @@ int		repart_extra_ants(t_lemin *lemin, t_sender *sender, int avg, int to_add)
 			if (sender->ants_to_send[i] > 0 && sender->path_lengths[i] <= avg)
 			{
 				sender->ants_to_send[i]++;
-				sender->path_lengths[i]++;
 				to_add--;
 				if (to_add == 0)
 					break ;

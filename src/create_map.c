@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:20:51 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/09 12:39:17 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/09 13:41:11 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void		ft_background(t_visu *visu)
 
 	i = -1;
 	while (++i < visu->mlx->w_width * visu->mlx->w_height)
-		visu->mlx->img.data[i] = 0x89663E + rand_a_b(0, 5) * 0x0F0F0F;
+		visu->mlx->img.data[i] = 0x99764E + rand_a_b(0, 4) * 0x0F0F0F;
 }
 
 void		ft_create_image(t_visu *visu)
