@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 10:56:06 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/05 14:37:36 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/11 15:19:42 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		main(void)
 		return (0);
 	if (!(visu->lemin = ft_memalloc(sizeof(t_lemin))))
 		return (0);
-	usr_in = stdin_to_list();
+	usr_in = ft_stdin_to_list();
 	visu->reset_usr_in = usr_in;
 	tmp = usr_in;
 	visu->lemin->usr_in = usr_in;

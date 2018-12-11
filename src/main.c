@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 08:41:56 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/09 15:06:51 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/11 15:19:27 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		main(int argc, char **argv)
 		lemin.ant_display = ANT_DISPLAY;
 	else
 		lemin.ant_display = "L";
-	usr_in = stdin_to_list();
+	usr_in = ft_stdin_to_list();
 	tmp = usr_in;
 	parse(&usr_in, &tmp, &lemin);
 	buf_print_list(tmp);

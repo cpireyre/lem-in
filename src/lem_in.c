@@ -6,14 +6,14 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 15:41:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/09 13:03:38 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/11 15:08:10 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 void			quit_lem_in(t_list **lst, t_lemin *env, \
-const char *err, int status)
+		const char *err, int status)
 {
 	ft_lstdel(lst, &ft_free_node);
 	free_lemin(env);
@@ -52,25 +52,13 @@ static t_bool	map_has_in_out(t_lemin *lemin)
 	return (lemin->start_name && lemin->end_name);
 }
 
-t_list			*stdin_to_list(void)
-{
-	t_list		*usr_in;
-	char		*l;
-
-	l = NULL;
-	usr_in = NULL;
-	while (ft_gnl(0, &l))
-		ft_lstappend(&usr_in, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
-	return (usr_in);
-}
-
 void			parse(t_list **usr_in, t_list **tmp, t_lemin *lemin)
 {
 	if (!(*usr_in))
 		quit_lem_in(tmp, lemin, "ERROR: No arguments.\n", EXIT_FAILURE);
 	if (!(store_ants(usr_in, &lemin->ants)))
 		quit_lem_in(tmp, lemin, "ERROR: Invalid number of ants.\n", \
-EXIT_FAILURE);
+				EXIT_FAILURE);
 	*usr_in = (*usr_in)->next;
 	store_rooms(usr_in, lemin);
 	if (!lemin->rooms || !map_has_in_out(lemin))
