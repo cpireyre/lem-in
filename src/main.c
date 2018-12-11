@@ -12,23 +12,6 @@
 
 #include "lem_in.h"
 
-t_list	*stdin_to_list(void)
-{
-	t_list		*usr_in;
-	char		*l;
-	int			ret;
-
-	l = NULL;
-	usr_in = NULL;
-	while ((ret = ft_gnl(0, &l)))
-	{
-		if (ret == -1)
-			ft_exit("Error while reading file.", EXIT_FAILURE);
-		ft_lstappend(&usr_in, ft_lstnew(l, sizeof(char) * (ft_strlen(l) + 1)));
-	}
-	return (usr_in);
-}
-
 void	solve(t_lemin *lemin)
 {
 	t_list		**s;
@@ -39,6 +22,7 @@ void	solve(t_lemin *lemin)
 	{
 		ft_putchar('\n');
 		lemin->flow -= clear_super_paths(s, s[lemin->start_id], lemin->end_id);
+		ft_lstdel(&lemin->path_lengths, &ft_free_node);
 		send_ants(s, lemin);
 	}
 	else
@@ -57,7 +41,7 @@ int		main(int argc, char **argv)
 		lemin.ant_display = ANT_DISPLAY;
 	else
 		lemin.ant_display = "L";
-	usr_in = stdin_to_list();
+	usr_in = ft_stdin_to_list();
 	tmp = usr_in;
 	parse(&usr_in, &tmp, &lemin);
 	buf_print_list(tmp);

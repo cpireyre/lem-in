@@ -112,3 +112,13 @@ int		repart_extra_ants(t_lemin *lemin, t_sender *sender, int avg, int to_add)
 	}
 	return (0);
 }
+
+void	how_many_redux(t_list *lengths, int ants)
+{
+	int		count;
+
+	count = ft_lstdepth(lengths);
+	(void)ants;
+	if (DEBUG)
+		ft_printf("DEBUG: %d paths.\n", count);
+}

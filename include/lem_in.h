@@ -24,7 +24,7 @@
 **		3 and up: much more than you wanted to know
 */
 
-# define DEBUG		0
+# define DEBUG		1
 
 # define CONNECTED	4
 # define START		2
@@ -52,6 +52,7 @@ typedef struct		s_lemin
 	char			**pipes;
 	int				flow;
 	char			*ant_display;
+	t_list			*path_lengths;
 }					t_lemin;
 
 typedef struct		s_edge
@@ -168,6 +169,7 @@ void				how_many_ants_to_send(t_lemin *lemin, t_sender *sender);
 int					too_many_ants_sent(t_lemin *l, t_sender *s, int subtract);
 int					repart_extra_ants(t_lemin *l, t_sender *s, int avg, int add);
 void				clear_dumb_paths(t_sender *sender, t_list *start, int flow);
+void				how_many_redux(t_list *lengths, int ants);
 
 /*
 **	graph.c
@@ -198,15 +200,15 @@ void				zero_path(t_list *vertex, t_listarray graph, int sink);
 int					clear_super_paths(t_listarray graph, t_list *start, int end_id);
 
 /*
-**	main.c
-*/
-
-t_list				*stdin_to_list(void);
-
-/*
 **	lem_in.c
 */
 
 t_bool				store_ants(t_list **head, int *leminants);
+
+/*
+**	analysis.c
+*/
+
+void	print_path_analysis(t_listarray graph, t_lemin *lemin, int flow);
 
 #endif

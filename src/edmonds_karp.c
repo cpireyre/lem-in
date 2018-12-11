@@ -75,26 +75,34 @@ t_edge		**breadth_first_search(t_listarray graph, int source, int sink, int size
 	return (path);
 }
 
+void		flow_through_path(t_edge **path, int start, int end)
+{
+	t_edge	*edge;
+
+	edge = path[end];
+	while (edge->source != start)
+	{
+		edge->flow += 1;
+		edge->rev->flow -= 1;
+		edge = path[edge->source];
+	}
+	edge->flow += 1;
+	edge->rev->flow -= 1;
+}
+
 int			edmonds_karp(t_listarray max_flow_network, t_lemin *lemin)
 {
 	t_edge	**path;
-	t_edge	*edge;
 	int		max_flow;
 
 	max_flow = 0;
 	while ((path = breadth_first_search(max_flow_network, \
 					lemin->start_id, lemin->end_id, lemin->map_size)))
 	{
-		edge = path[lemin->end_id];
-		while (edge->source != lemin->start_id)
-		{
-			edge->flow += 1;
-			edge->rev->flow -= 1;
-			edge = path[edge->source];
-		}
-		edge->flow += 1;
-		edge->rev->flow -= 1;
+		flow_through_path(path, lemin->start_id, lemin->end_id);
 		max_flow++;
+		lemin->flow = max_flow;
+		free(size_paths(max_flow_network, lemin));
 		ft_memdel((void**)&path);
 	}
 	return (max_flow);

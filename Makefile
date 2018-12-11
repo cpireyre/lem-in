@@ -23,7 +23,8 @@ NAME	:=	lem-in
 SRC_PATH		= 	./src/
 SRC_NAME	:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c \
 	count.c graph.c edmonds_karp.c super.c backwards.c \
-	sender.c main.c paths.c trajectory.c initsender.c
+	sender.c main.c paths.c trajectory.c initsender.c \
+	analysis.c
 SRC				=	$(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ_PATH	:= 	./obj/
 OBJ			=	$(addprefix $(OBJ_PATH),$(OBJ_NAME))
