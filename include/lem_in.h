@@ -24,7 +24,7 @@
 **		3 and up: much more than you wanted to know
 */
 
-# define DEBUG		1
+# define DEBUG		0
 
 # define CONNECTED	4
 # define START		2
@@ -135,7 +135,7 @@ int					alternate_count(t_edge **path, int source, int sink);
 **	edmonds_karp.c
 */
 
-int					edmonds_karp(t_listarray max_flow_network, t_lemin *lemin);
+int					edmonds_karp(t_listarray g, t_lemin *lemin, int stop);
 t_edge				**breadth_first_search(t_listarray g, int s, int t, int size);
 
 /*
@@ -178,6 +178,13 @@ void				how_many_redux(t_list *lengths, int ants);
 t_listarray			build_graph(t_lemin *lemin);
 
 /*
+**	edges.c
+*/
+
+void			printnode_edge(t_list *elem);
+void			flow_thru_edge(t_edge *edge);
+
+/*
 **	trajectory.c
 */
 
@@ -198,6 +205,8 @@ int					count_back_length(t_listarray graph, int source, int sink);
 
 void				zero_path(t_list *vertex, t_listarray graph, int sink);
 int					clear_super_paths(t_listarray graph, t_list *start, int end_id);
+t_bool				path_is_super(t_listarray graph, int end_id, t_list *vertex);
+int					flow_to_vertex(t_list *vertex);
 
 /*
 **	lem_in.c
@@ -209,6 +218,8 @@ t_bool				store_ants(t_list **head, int *leminants);
 **	analysis.c
 */
 
-void	print_path_analysis(t_listarray graph, t_lemin *lemin, int flow);
+int					print_path_analysis(t_listarray graph, t_lemin *lemin);
+void				del_edge(t_listarray graph, t_edge edge);
+void				cxl_super(t_listarray graph, t_edge *edge, int end);
 
 #endif

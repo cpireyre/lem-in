@@ -12,16 +12,34 @@
 
 #include "lem_in.h"
 
+t_listarray		metakarp(t_lemin *lemin)
+{
+	t_listarray	g;
+	int			steps;
+	t_lemin		cpy;
+
+	ft_memcpy(&cpy, lemin, sizeof(t_lemin));
+	g = build_graph(&cpy);
+	steps = edmonds_karp(g, &cpy, -1);
+	if (!steps)
+	{
+		free_graph(g, cpy.map_size);
+		return (NULL);
+	}
+	free_graph(g, cpy.map_size);
+	g = build_graph(lemin);
+	edmonds_karp(g, lemin, steps);
+	return (g);
+}
+
 void	solve(t_lemin *lemin)
 {
 	t_list		**s;
 
-	s = build_graph(lemin);
-	lemin->flow = edmonds_karp(s, lemin);
-	if (lemin->flow > 0)
+	s = metakarp(lemin);
+	if (s && lemin->flow > 0)
 	{
 		ft_putchar('\n');
-		lemin->flow -= clear_super_paths(s, s[lemin->start_id], lemin->end_id);
 		ft_lstdel(&lemin->path_lengths, &ft_free_node);
 		send_ants(s, lemin);
 	}

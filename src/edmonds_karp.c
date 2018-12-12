@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "lem_in.h"
+#include <limits.h>
 
 /*
 **	t_list **graph = vertices
@@ -32,7 +33,7 @@ void		bfs_step(t_edge ***path, t_list **queue, t_list **graph, int source)
 	int		vertex_no;
 	t_list	*tmp;
 
-	vertex_no = *(int*)(*queue)->content;
+vertex_no = *(int*)(*queue)->content;
 	current_vertex = graph[vertex_no];
 	if (DEBUG > 3)
 		ft_printf("\tVisiting vertex %d.\n", vertex_no);
@@ -75,35 +76,58 @@ t_edge		**breadth_first_search(t_listarray graph, int source, int sink, int size
 	return (path);
 }
 
-void		flow_through_path(t_edge **path, int start, int end)
+t_bool		flow_through_path(t_listarray graph, \
+		t_edge **path, int start, int end)
 {
 	t_edge	*edge;
+	t_bool	super;
 
+	super = false;
 	edge = path[end];
-	while (edge->source != start)
+	flow_thru_edge(edge);
+	if (edge->source == start)
+		return (false);
+	edge = path[edge->source];
+	while (edge->source != start && !super)
 	{
-		edge->flow += 1;
-		edge->rev->flow -= 1;
+		flow_thru_edge(edge);
+		if ((super = flow_to_vertex(graph[edge->sink]) > 1))
+			break ;
 		edge = path[edge->source];
 	}
-	edge->flow += 1;
-	edge->rev->flow -= 1;
+	if (super)
+		cxl_super(graph, edge, end);
+	else
+		flow_thru_edge(edge);
+	return (super);
 }
 
-int			edmonds_karp(t_listarray max_flow_network, t_lemin *lemin)
+int			edmonds_karp(t_listarray graph, t_lemin *lemin, \
+		int stop)
 {
 	t_edge	**path;
-	int		max_flow;
+	int		ret;
+	int		tmp;
+	int		min;
 
-	max_flow = 0;
-	while ((path = breadth_first_search(max_flow_network, \
+	min = INT_MAX;
+	ret = 0;
+	while (stop != lemin->flow && (path = breadth_first_search(graph, \
 					lemin->start_id, lemin->end_id, lemin->map_size)))
 	{
-		flow_through_path(path, lemin->start_id, lemin->end_id);
-		max_flow++;
-		lemin->flow = max_flow;
-		free(size_paths(max_flow_network, lemin));
-		ft_memdel((void**)&path);
+		if (flow_through_path(graph, path, lemin->start_id, lemin->end_id))
+			ft_memdel((void**)&path);
+		else
+		{
+			lemin->flow++;
+			tmp = print_path_analysis(graph, lemin);
+			if (tmp < min)
+			{
+				min = tmp;
+				ret = lemin->flow;
+			}
+			ft_memdel((void**)&path);
+		}
 	}
-	return (max_flow);
+	return (ret);
 }

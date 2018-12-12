@@ -21,7 +21,7 @@ void	clear_dumb_paths(t_sender *sender, t_list *start, int flow)
 	{
 		if (!sender->ants_to_send[i] && ((t_edge*)(start->content))->flow)
 		{
-			if (DEBUG)
+			if (DEBUG > 1)
 				ft_printf("DEBUG: Path %d (of flow %d) cleared out.\n", \
 					   	i, ((t_edge*)(start->content))->flow);
 			((t_edge*)(start->content))->flow = 0;

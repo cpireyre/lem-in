@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-static int		flow_to_vertex(t_list *vertex)
+int		flow_to_vertex(t_list *vertex)
 {
 	int		count;
 	t_edge	*edge;
@@ -22,7 +22,7 @@ void			zero_path(t_list *vertex, t_listarray graph, int sink)
 {
 	t_edge	*edge;
 
-	if (DEBUG > 1)
+	if (DEBUG)
 		ft_printf("DEBUG: Zeroing out path.\n");
 	while (vertex != graph[sink])
 	{
@@ -34,9 +34,10 @@ void			zero_path(t_list *vertex, t_listarray graph, int sink)
 				break ;
 			edge = ((t_edge*)(vertex->content));
 		}
-		if (DEBUG > 1)
+		if (DEBUG)
 			print_edge(edge);
 		edge->flow = 0;
+		edge->rev->flow = 0;
 		vertex = graph[edge->sink];
 	}
 }
