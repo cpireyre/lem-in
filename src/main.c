@@ -6,19 +6,12 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 08:41:56 by cpireyre          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2018/12/11 15:19:27 by cpireyre         ###   ########.fr       */
-=======
 /*   Updated: 2018/12/14 16:21:40 by cpireyre         ###   ########.fr       */
->>>>>>> super
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-<<<<<<< HEAD
-void	solve(t_lemin *lemin)
-=======
 t_listarray		metakarp(t_lemin *lemin)
 {
 	t_listarray	g;
@@ -40,7 +33,6 @@ t_listarray		metakarp(t_lemin *lemin)
 }
 
 void			solve(t_lemin *lemin)
->>>>>>> super
 {
 	t_list		**s;
 

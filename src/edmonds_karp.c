@@ -18,7 +18,7 @@
 **	t_list *queue = vertices to be visited on each pass of the BFS
 */
 
-static inline t_bool	edge_is_valid(t_edge *edge, t_edge **path, int src)
+static inline t_bool		edge_is_valid(t_edge *edge, t_edge **path, int src)
 {
 	if (!((path)[edge->sink]) && edge->sink != src && edge->flow < 1)
 		return (true);
@@ -26,7 +26,7 @@ static inline t_bool	edge_is_valid(t_edge *edge, t_edge **path, int src)
 		return (false);
 }
 
-void					bfs_step(t_edge ***path, t_list **queue, \
+void						bfs_step(t_edge ***path, t_list **queue, \
 t_list **graph, int source)
 {
 	t_list	*current_vertex;
@@ -55,8 +55,8 @@ t_list **graph, int source)
 	*queue = tmp;
 }
 
-t_edge					**breadth_first_search(t_listarray graph, int source, \
-int sink, int size)
+t_edge						**breadth_first_search(t_listarray graph, \
+int source, int sink, int size)
 {
 	t_edge	**path;
 	t_list	*queue;

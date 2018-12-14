@@ -12,7 +12,7 @@
 
 #include "lem_in.h"
 
-int		flow_to_vertex(t_list *vertex)
+int				flow_to_vertex(t_list *vertex)
 {
 	int		count;
 	t_edge	*edge;
