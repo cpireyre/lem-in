@@ -5,17 +5,34 @@ static inline int	expected_lines(int ants, int flow, int avg)
 	return ((ants - 1) / flow + avg);
 }
 
-void				lemin_upd_paths(t_lemin *lemin, int *sizes, int tabsize)
+t_bool				path_is_suspicious(t_edge **path, t_listarray graph, int source, int sink)
 {
-	int		idx;
+	t_list	*vertex;
+	t_edge	*next_edge;
+	t_edge	*edge;
 
-	idx = 0;
-	while (idx < tabsize)
+	next_edge = path[sink];
+	while (1)
 	{
-		ft_lstappend(&lemin->path_lengths, \
-				ft_lstnew(&sizes[idx], sizeof(int)));
-		idx++;
+		next_edge = path[next_edge->source];
+		if (!next_edge || next_edge->source == source)
+			break ;
+		if (DEBUG)
+			print_edge(next_edge);
+		vertex = graph[next_edge->source];
+		while (vertex)
+		{
+			edge = ((t_edge*)(vertex->content));
+			if (edge->flow == 1)
+			{
+				if (DEBUG)
+					ft_printf("DEBUG: Super detected?\n");
+				return (true);
+			}
+			vertex = vertex->next;
+		}
 	}
+	return (false);
 }
 
 int					print_path_analysis(t_listarray graph, t_lemin *lemin)

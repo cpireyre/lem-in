@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/12/06 18:24:33 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/12/14 14:36:17 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,6 @@ big: all
 	@grep -m 1 required < a
 	@time ./lem-in < a > a.out
 	@grep L < a.out | wc -l
-	@$(RM) a.out a
 
 super: all
 	@echo "\x1b[4mTesting run time on --big-superposition...\x1b[0m"
@@ -90,6 +89,5 @@ super: all
 	@grep -m 1 required < a
 	@time ./lem-in < a > a.out
 	@grep L < a.out | wc -l
-	@$(RM) a.out a
 	
 .PHONY: all, re, clean, fclean, force, run, urn, tags, thousand, one, big, super, test, rnu

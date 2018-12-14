@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/06 17:58:02 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/14 14:42:30 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 **		3 and up: much more than you wanted to know
 */
 
-# define DEBUG		0
+# define DEBUG		1
 
 # define CONNECTED	4
 # define START		2
@@ -221,5 +221,6 @@ t_bool				store_ants(t_list **head, int *leminants);
 int					print_path_analysis(t_listarray graph, t_lemin *lemin);
 void				del_edge(t_listarray graph, t_edge edge);
 void				cxl_super(t_listarray graph, t_edge *edge, int end);
+t_bool				path_is_suspicious(t_edge **path, t_listarray graph, int source, int sink);
 
 #endif

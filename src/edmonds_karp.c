@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:52 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/05 14:34:54 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/14 14:51:23 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ t_bool		flow_through_path(t_listarray graph, \
 	t_edge	*edge;
 	t_bool	super;
 
+	(void)graph;
 	super = false;
 	edge = path[end];
 	flow_thru_edge(edge);
@@ -91,14 +92,9 @@ t_bool		flow_through_path(t_listarray graph, \
 	while (edge->source != start && !super)
 	{
 		flow_thru_edge(edge);
-		if ((super = flow_to_vertex(graph[edge->sink]) > 1))
-			break ;
 		edge = path[edge->source];
 	}
-	if (super)
-		cxl_super(graph, edge, end);
-	else
-		flow_thru_edge(edge);
+	flow_thru_edge(edge);
 	return (super);
 }
 
@@ -115,10 +111,15 @@ int			edmonds_karp(t_listarray graph, t_lemin *lemin, \
 	while (stop != lemin->flow && (path = breadth_first_search(graph, \
 					lemin->start_id, lemin->end_id, lemin->map_size)))
 	{
-		if (flow_through_path(graph, path, lemin->start_id, lemin->end_id))
-			ft_memdel((void**)&path);
+		if (path_is_suspicious(path, graph, lemin->start_id, lemin->end_id))
+		{
+			t_edge	*fuck = path[lemin->end_id];
+			fuck = path[fuck->source];
+			del_edge(graph, *fuck);
+		}
 		else
 		{
+			flow_through_path(graph, path, lemin->start_id, lemin->end_id);
 			lemin->flow++;
 			tmp = print_path_analysis(graph, lemin);
 			if (tmp < min)
@@ -126,8 +127,8 @@ int			edmonds_karp(t_listarray graph, t_lemin *lemin, \
 				min = tmp;
 				ret = lemin->flow;
 			}
-			ft_memdel((void**)&path);
 		}
+		ft_memdel((void**)&path);
 	}
 	return (ret);
 }
