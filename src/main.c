@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 08:41:56 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/06 17:59:10 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/14 16:21:40 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_listarray		metakarp(t_lemin *lemin)
 	return (g);
 }
 
-void	solve(t_lemin *lemin)
+void			solve(t_lemin *lemin)
 {
 	t_list		**s;
 
@@ -48,7 +48,7 @@ void	solve(t_lemin *lemin)
 	free_graph(s, lemin->map_size);
 }
 
-int		main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
 	t_list		*usr_in;
 	t_list		*tmp;

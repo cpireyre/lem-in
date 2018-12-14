@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:50 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/05 14:47:35 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/14 16:19:26 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static inline void	fill_edge(t_edge *edge, int source, int sink)
 	edge->rev = NULL;
 }
 
-static void	add_connections_to_graph(t_list **vertex, int vtx_nb, char *links)
+static void			add_connections_to_graph(t_list **vertex, int vtx_nb, char *links)
 {
 	t_edge	tmp;
 	int		i;
@@ -37,7 +37,7 @@ static void	add_connections_to_graph(t_list **vertex, int vtx_nb, char *links)
 	}
 }
 
-static void	hook_up_rev_edges(t_list **graph, int vertices)
+static void			hook_up_rev_edges(t_list **graph, int vertices)
 {
 	t_list	*edges_from_vertex;
 	t_list	*edge_to_update;

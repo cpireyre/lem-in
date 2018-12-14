@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   analysis.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/14 16:15:59 by cpireyre          #+#    #+#             */
+/*   Updated: 2018/12/14 16:18:51 by cpireyre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
 
 static inline int	expected_lines(int ants, int flow, int avg)
@@ -5,7 +17,8 @@ static inline int	expected_lines(int ants, int flow, int avg)
 	return ((ants - 1) / flow + avg);
 }
 
-t_bool				path_is_suspicious(t_edge **path, t_listarray graph, int source, int sink)
+t_bool				path_is_suspicious(t_edge **path, t_listarray graph, \
+int source, int sink)
 {
 	t_list	*vertex;
 	t_edge	*next_edge;
@@ -24,11 +37,7 @@ t_bool				path_is_suspicious(t_edge **path, t_listarray graph, int source, int s
 		{
 			edge = ((t_edge*)(vertex->content));
 			if (edge->flow == 1)
-			{
-				if (DEBUG)
-					ft_printf("DEBUG: Super detected?\n");
 				return (true);
-			}
 			vertex = vertex->next;
 		}
 	}

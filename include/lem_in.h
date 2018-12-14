@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/14 14:42:30 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/14 16:15:18 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 **		3 and up: much more than you wanted to know
 */
 
-# define DEBUG		1
+# define DEBUG		0
 
 # define CONNECTED	4
 # define START		2
@@ -136,7 +136,7 @@ int					alternate_count(t_edge **path, int source, int sink);
 */
 
 int					edmonds_karp(t_listarray g, t_lemin *lemin, int stop);
-t_edge				**breadth_first_search(t_listarray g, int s, int t, int size);
+t_edge				**breadth_first_search(t_listarray g, int s, int t, int v);
 
 /*
 **	sender.c
@@ -167,7 +167,7 @@ void				parse(t_list **usr_in, t_list **tmp, t_lemin *lemin);
 
 void				how_many_ants_to_send(t_lemin *lemin, t_sender *sender);
 int					too_many_ants_sent(t_lemin *l, t_sender *s, int subtract);
-int					repart_extra_ants(t_lemin *l, t_sender *s, int avg, int add);
+int					repart_extra_ants(t_lemin *l, t_sender *s, int avg, int ad);
 void				clear_dumb_paths(t_sender *sender, t_list *start, int flow);
 void				how_many_redux(t_list *lengths, int ants);
 
@@ -181,8 +181,8 @@ t_listarray			build_graph(t_lemin *lemin);
 **	edges.c
 */
 
-void			printnode_edge(t_list *elem);
-void			flow_thru_edge(t_edge *edge);
+void				printnode_edge(t_list *elem);
+void				flow_thru_edge(t_edge *edge);
 
 /*
 **	trajectory.c
@@ -198,14 +198,13 @@ int					next_trajectory(t_sender *sender);
 int					prev_vertex_id(t_list *vertex);
 int					count_back_length(t_listarray graph, int source, int sink);
 
-
 /*
 **	super.c
 */
 
 void				zero_path(t_list *vertex, t_listarray graph, int sink);
-int					clear_super_paths(t_listarray graph, t_list *start, int end_id);
-t_bool				path_is_super(t_listarray graph, int end_id, t_list *vertex);
+int					clear_super_paths(t_listarray g, t_list *s, int e);
+t_bool				path_is_super(t_listarray g, int e, t_list *v);
 int					flow_to_vertex(t_list *vertex);
 
 /*
@@ -221,6 +220,6 @@ t_bool				store_ants(t_list **head, int *leminants);
 int					print_path_analysis(t_listarray graph, t_lemin *lemin);
 void				del_edge(t_listarray graph, t_edge edge);
 void				cxl_super(t_listarray graph, t_edge *edge, int end);
-t_bool				path_is_suspicious(t_edge **path, t_listarray graph, int source, int sink);
+t_bool				path_is_suspicious(t_edge **p, t_listarray g, int s, int t);
 
 #endif

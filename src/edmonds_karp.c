@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:52 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/14 14:51:23 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/14 16:31:46 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ static inline t_bool		edge_is_valid(t_edge *edge, t_edge **path, int src)
 		return (false);
 }
 
-void		bfs_step(t_edge ***path, t_list **queue, t_list **graph, int source)
+void						bfs_step(t_edge ***path, t_list **queue, t_list **graph, int source)
 {
 	t_list	*current_vertex;
 	t_edge	*edge;
 	int		vertex_no;
 	t_list	*tmp;
 
-vertex_no = *(int*)(*queue)->content;
+	vertex_no = *(int*)(*queue)->content;
 	current_vertex = graph[vertex_no];
 	if (DEBUG > 3)
 		ft_printf("\tVisiting vertex %d.\n", vertex_no);
@@ -54,7 +54,8 @@ vertex_no = *(int*)(*queue)->content;
 	*queue = tmp;
 }
 
-t_edge		**breadth_first_search(t_listarray graph, int source, int sink, int size)
+t_edge						**breadth_first_search(t_listarray graph, \
+int source, int sink, int size)
 {
 	t_edge	**path;
 	t_list	*queue;
@@ -76,8 +77,8 @@ t_edge		**breadth_first_search(t_listarray graph, int source, int sink, int size
 	return (path);
 }
 
-t_bool		flow_through_path(t_listarray graph, \
-		t_edge **path, int start, int end)
+t_bool						flow_through_path(t_listarray graph, \
+t_edge **path, int start, int end)
 {
 	t_edge	*edge;
 	t_bool	super;
@@ -98,37 +99,38 @@ t_bool		flow_through_path(t_listarray graph, \
 	return (super);
 }
 
-int			edmonds_karp(t_listarray graph, t_lemin *lemin, \
-		int stop)
+/*
+**	tab[0] = optimal number of EK steps
+**	tab[1] = most efficient solution found so far
+**	tab[2] = solution for current step
+*/
+
+int							edmonds_karp(t_listarray graph, t_lemin *lemin, \
+int stop)
 {
 	t_edge	**path;
-	int		ret;
-	int		tmp;
-	int		min;
+	t_edge	*to_del;
+	int		tab[3];
 
-	min = INT_MAX;
-	ret = 0;
+	tab[0] = 0;
+	tab[1] = INT_MAX;
 	while (stop != lemin->flow && (path = breadth_first_search(graph, \
 					lemin->start_id, lemin->end_id, lemin->map_size)))
 	{
 		if (path_is_suspicious(path, graph, lemin->start_id, lemin->end_id))
 		{
-			t_edge	*fuck = path[lemin->end_id];
-			fuck = path[fuck->source];
-			del_edge(graph, *fuck);
+			to_del = path[path[lemin->end_id]->source];
+			del_edge(graph, *to_del);
 		}
 		else
 		{
 			flow_through_path(graph, path, lemin->start_id, lemin->end_id);
 			lemin->flow++;
-			tmp = print_path_analysis(graph, lemin);
-			if (tmp < min)
-			{
-				min = tmp;
-				ret = lemin->flow;
-			}
+			tab[2] = print_path_analysis(graph, lemin);
+			if (tab[2] < tab[1] || (tab[1] = tab[2]))
+				tab[0] = lemin->flow;
 		}
 		ft_memdel((void**)&path);
 	}
-	return (ret);
+	return (tab[0]);
 }
