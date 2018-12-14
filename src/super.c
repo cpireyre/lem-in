@@ -12,7 +12,7 @@
 
 #include "lem_in.h"
 
-static int		flow_to_vertex(t_list *vertex)
+int		flow_to_vertex(t_list *vertex)
 {
 	int		count;
 	t_edge	*edge;
@@ -50,6 +50,7 @@ void			zero_path(t_list *vertex, t_listarray graph, int sink)
 		if (DEBUG)
 			print_edge(edge);
 		edge->flow = 0;
+		edge->rev->flow = 0;
 		vertex = graph[edge->sink];
 	}
 }
@@ -58,7 +59,7 @@ t_bool			path_is_super(t_listarray graph, int end_id, t_list *vertex)
 {
 	int		count;
 
-	if (DEBUG)
+	if (DEBUG > 1)
 		ft_printf("DEBUG: Checking superposed paths.\n");
 	while (vertex != graph[end_id])
 	{
@@ -83,7 +84,7 @@ int				clear_super_paths(t_listarray graph, t_list *start, int end_id)
 			sink_vtx = ((t_edge*)(start->content))->source;
 			if (path_is_super(graph, end_id, graph[sink_vtx]))
 			{
-				if (DEBUG)
+				if (DEBUG > 1)
 					ft_printf("\tFlagged vertex %d.\n", sink_vtx);
 				zero_path(graph[sink_vtx], graph, end_id);
 				ret++;

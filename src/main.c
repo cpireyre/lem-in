@@ -6,22 +6,49 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 08:41:56 by cpireyre          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2018/12/11 15:19:27 by cpireyre         ###   ########.fr       */
+=======
+/*   Updated: 2018/12/14 16:21:40 by cpireyre         ###   ########.fr       */
+>>>>>>> super
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
+<<<<<<< HEAD
 void	solve(t_lemin *lemin)
+=======
+t_listarray		metakarp(t_lemin *lemin)
+{
+	t_listarray	g;
+	int			steps;
+	t_lemin		cpy;
+
+	ft_memcpy(&cpy, lemin, sizeof(t_lemin));
+	g = build_graph(&cpy);
+	steps = edmonds_karp(g, &cpy, -1);
+	if (!steps)
+	{
+		free_graph(g, cpy.map_size);
+		return (NULL);
+	}
+	free_graph(g, cpy.map_size);
+	g = build_graph(lemin);
+	edmonds_karp(g, lemin, steps);
+	return (g);
+}
+
+void			solve(t_lemin *lemin)
+>>>>>>> super
 {
 	t_list		**s;
 
-	s = build_graph(lemin);
-	lemin->flow = edmonds_karp(s, lemin);
-	if (lemin->flow > 0)
+	s = metakarp(lemin);
+	if (s && lemin->flow > 0)
 	{
 		ft_putchar('\n');
-		lemin->flow -= clear_super_paths(s, s[lemin->start_id], lemin->end_id);
+		ft_lstdel(&lemin->path_lengths, &ft_free_node);
 		send_ants(s, lemin);
 	}
 	else
@@ -29,7 +56,7 @@ void	solve(t_lemin *lemin)
 	free_graph(s, lemin->map_size);
 }
 
-int		main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
 	t_list		*usr_in;
 	t_list		*tmp;

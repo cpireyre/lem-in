@@ -57,6 +57,8 @@ void	free_graph(t_listarray graph, int size)
 {
 	int	i;
 
+	if (!graph || !size)
+		return ;
 	i = 0;
 	while (i < size)
 	{

@@ -23,8 +23,9 @@ VISU	= visu
 SRC_PATH		= 	./src/
 SRC_NAME	:=	parse.c lem_in.c mem.c print.c rooms.c pipes.c \
 	count.c graph.c edmonds_karp.c super.c backwards.c \
-	sender.c paths.c trajectory.c initsender.c create_map.c events.c \
+	sender.c paths.c trajectory.c create_map.c events.c \
 	mv_visu.c init_utils_visu.c bresenham.c visu_extra.c
+	analysis.c edges.c
 SRC				=	$(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ_PATH	:= 	./obj/
 OBJ			=	$(addprefix $(OBJ_PATH),$(OBJ_NAME))
@@ -89,7 +90,6 @@ big: all
 	@grep -m 1 required < a
 	@time ./lem-in < a > a.out
 	@grep L < a.out | wc -l
-	@$(RM) a.out a
 
 super: all
 	@echo "\x1b[4mTesting run time on --big-superposition...\x1b[0m"
@@ -97,7 +97,6 @@ super: all
 	@grep -m 1 required < a
 	@time ./lem-in < a > a.out
 	@grep L < a.out | wc -l
-	@$(RM) a.out a
 	
 visutest: all
 	@./lem-in < tests/visu/snake_in_stairs | ./visu

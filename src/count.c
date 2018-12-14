@@ -71,8 +71,8 @@ int		*size_paths(t_listarray graph, t_lemin *lemin)
 	t_list	*edges_from_start;
 	t_edge	*edge;
 
-	if (DEBUG > 2)
-		ft_printf("DEBUG: Computing number of ants to send per path.\n");
+	if (DEBUG)
+		ft_printf("DEBUG: Computing lengths of all paths.\n");
 	app = ft_memalloc(sizeof(int) * lemin->flow);
 	i = 0;
 	edges_from_start = graph[lemin->start_id];
@@ -82,7 +82,7 @@ int		*size_paths(t_listarray graph, t_lemin *lemin)
 		if (edge->flow == 1)
 		{
 			app[i] = count_path_length(graph, edge->sink, lemin->end_id);
-			if (DEBUG > 1)
+			if (DEBUG)
 				ft_printf("\tPath %d is %d edges long.\n", i, app[i]);
 			i++;
 		}

@@ -6,11 +6,12 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:52 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/09 12:57:43 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/14 16:31:46 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+#include <limits.h>
 
 /*
 **	t_list **graph = vertices
@@ -77,28 +78,60 @@ path[sink]->source, path[sink]->sink);
 	return (path);
 }
 
-int						edmonds_karp(t_listarray max_flow_network, \
-t_lemin *lemin)
+t_bool						flow_through_path(t_listarray graph, \
+t_edge **path, int start, int end)
+{
+	t_edge	*edge;
+	t_bool	super;
+
+	(void)graph;
+	super = false;
+	edge = path[end];
+	flow_thru_edge(edge);
+	if (edge->source == start)
+		return (false);
+	edge = path[edge->source];
+	while (edge->source != start && !super)
+	{
+		flow_thru_edge(edge);
+		edge = path[edge->source];
+	}
+	flow_thru_edge(edge);
+	return (super);
+}
+
+/*
+**	tab[0] = optimal number of EK steps
+**	tab[1] = most efficient solution found so far
+**	tab[2] = solution for current step
+*/
+
+int							edmonds_karp(t_listarray graph, t_lemin *lemin, \
+int stop)
 {
 	t_edge	**path;
-	t_edge	*edge;
-	int		max_flow;
+	t_edge	*to_del;
+	int		tab[3];
 
-	max_flow = 0;
-	while ((path = breadth_first_search(max_flow_network, \
+	tab[0] = 0;
+	tab[1] = INT_MAX;
+	while (stop != lemin->flow && (path = breadth_first_search(graph, \
 					lemin->start_id, lemin->end_id, lemin->map_size)))
 	{
-		edge = path[lemin->end_id];
-		while (edge->source != lemin->start_id)
+		if (path_is_suspicious(path, graph, lemin->start_id, lemin->end_id))
 		{
-			edge->flow += 1;
-			edge->rev->flow -= 1;
-			edge = path[edge->source];
+			to_del = path[path[lemin->end_id]->source];
+			del_edge(graph, *to_del);
 		}
-		edge->flow += 1;
-		edge->rev->flow -= 1;
-		max_flow++;
+		else
+		{
+			flow_through_path(graph, path, lemin->start_id, lemin->end_id);
+			lemin->flow++;
+			tab[2] = print_path_analysis(graph, lemin);
+			if (tab[2] < tab[1] || (tab[1] = tab[2]))
+				tab[0] = lemin->flow;
+		}
 		ft_memdel((void**)&path);
 	}
-	return (max_flow);
+	return (tab[0]);
 }
