@@ -99,6 +99,6 @@ super: all
 	@grep L < a.out | wc -l
 	
 visutest: all
-	@./lem-in < tests/visu/snake_in_stairs | ./visu
+	@./lem-in < tests/mapvisu/snake_in_stairs | ./visu
 
 .PHONY: all, re, clean, fclean, force, run, urn, tags, thousand, one, big, super, test, rnu, visutest
