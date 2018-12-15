@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:36:23 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/05 14:38:53 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/15 11:13:33 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,9 @@ void		ft_room_name(t_visu *visu)
 	while (rooms)
 	{
 		if (rooms->type == START)
-			color = 0x00BB80;
+			color = 0;
 		else if (rooms->type == END)
-			color = 0xD4AF37;
+			color = 0xFF0000;
 		else
 			color = W;
 		mlx_string_put(visu->mlx->m_ptr, visu->mlx->w, rooms->coord.x, \
