@@ -45,6 +45,6 @@ for line in std:
     line_nb += 1
     error += checkdouble(line, line_nb, room_end)
 if error:
-    print("There are " + str(error) + " errors in your lemin output.")
+    print("\033[31mThere are " + str(error) + " errors in your lemin output.\033[0m")
 else:
-    print("Your lemin output is perfect! Well done!")
+    print("\033[32mYour lemin output is perfect! Well done!\033[0m")
