@@ -4,7 +4,7 @@ def     print_doubles(setted, mylist, line_nb, room_end):
     error = 0
     for room in setted:
         if (mylist.count(room) > 1 and room != room_end):
-            print("At line " + str(line_nb) + ' room named ' + room + ' is duplicated')
+            print("\033[031mAt line " + str(line_nb) + ' room named ' + room + ' is duplicated\033[0m')
             error += 1
     return (error)
 
@@ -44,7 +44,9 @@ error = 0
 for line in std:
     line_nb += 1
     error += checkdouble(line, line_nb, room_end)
-if error:
-    print("\033[31mThere are " + str(error) + " errors in your lemin output.\033[0m")
+if error == 1:
+    print("\033[31mThere's an error in your lem-in output.\033[0m")
+elif error > 1:
+    print("\033[31mThere are " + str(error) + " errors in your lem-in output.\033[0m")
 else:
-    print("\033[32mYour lemin output is perfect! Well done!\033[0m")
+    print("\033[32mYour lem-in output is perfect! Well done!\033[0m")
