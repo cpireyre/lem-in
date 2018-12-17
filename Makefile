@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/12/17 16:01:59 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/12/17 17:24:44 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ MAINO		= $(OBJ_PATH)main.o
 MAINVO		= $(OBJ_PATH)visu.o
 H_FILES		:=	include/lem_in.h
 DEPS		=	$(H_FILES) Makefile 
+TOOLDIR		:=	./tools
 FRAME		= -L/usr/local/lib -I/usr/local/include -lmlx -framework OpenGL -framework AppKit
 
 all: $(NAME) $(VISU)
@@ -70,7 +71,7 @@ force:
 	@true # to shut up libft Makefile
 
 run: $(NAME)
-	./lem-in < tests/super_edges
+	./lem-in < $(TOOLDIR)/super_edges
 
 urn: run # typos will happen
 rnu: run # typos will happen
@@ -79,26 +80,29 @@ tags: all
 	ctags -R
 
 test: $(NAME)
-	@sh lem-bench.sh
+	@sh $(TOOLDIR)/lem-bench.sh
 	@make big
 	@make super
 	@$(RM) bench.out
 
 big: all
 	@echo "\x1b[4mTesting run time on --big...\x1b[0m"
-	@./tests/generator --big > a
-	@grep -m 1 required < a
-	@time ./lem-in < a > a.out
-	@grep L < a.out | wc -l
+	@$(TOOLDIR)/generator --big > big.lemin
+	@grep -m 1 required < big.lemin
+	@time ./lem-in < big.lemin > big.lemin.out
+	@grep L < big.lemin.out | wc -l
+	@grep L < big.lemin.out | python $(TOOLDIR)/check_doubles.py
+	@echo "Output saved in \033[3mbig.lemin.out.\033[0m"
 
 super: all
 	@echo "\x1b[4mTesting run time on --big-superposition...\x1b[0m"
-	@./tests/generator --big-superposition > a
-	@grep -m 1 required < a
-	@time ./lem-in < a > a.out
-	@grep -c L < a.out
-	@grep L < a.out | python check_doubles.py
+	@$(TOOLDIR)/generator --big-superposition > super.lemin
+	@grep -m 1 required < super.lemin
+	@time ./lem-in < super.lemin > super.lemin.out
+	@grep -c L < super.lemin.out
+	@grep L < super.lemin.out | python $(TOOLDIR)/check_doubles.py
+	@echo "Output saved in \033[3msuper.lemin.out.\033[0m"
 
 visutest: all
-	@./lem-in < tests/mapvisu/snake_in_stairs | ./visu
+	@./lem-in < maps/mapvisu/snake_in_stairs | ./visu
 .PHONY: all, re, clean, fclean, force, run, urn, tags, thousand, one, big, super, test, rnu, visutest
