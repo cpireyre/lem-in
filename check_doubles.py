@@ -40,7 +40,6 @@ for char in last:
             if char == ' ':
                 break
         room_end = last[j:j+k]
-print(room_end)
 error = 0
 for line in std:
     line_nb += 1
