@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/12/17 15:46:56 by tboissel         ###   ########.fr        #
+#    Updated: 2018/12/17 16:01:59 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,8 +96,8 @@ super: all
 	@./tests/generator --big-superposition > a
 	@grep -m 1 required < a
 	@time ./lem-in < a > a.out
-	@grep L < a.out | wc -l
-	@cat a.out | grep L | python check_doubles.py
+	@grep -c L < a.out
+	@grep L < a.out | python check_doubles.py
 
 visutest: all
 	@./lem-in < tests/mapvisu/snake_in_stairs | ./visu
