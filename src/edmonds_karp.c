@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   edmonds_karp.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:46:52 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/05 14:34:54 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/17 14:04:09 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,6 @@ t_bool		flow_through_path(t_listarray graph, \
 			break ;
 		edge = path[edge->source];
 	}
-	if (super)
-		cxl_super(graph, edge, end);
-	else
 		flow_thru_edge(edge);
 	return (super);
 }

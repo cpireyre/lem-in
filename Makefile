@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/12/06 18:24:33 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/12/17 12:01:40 by tboissel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,6 +90,6 @@ super: all
 	@grep -m 1 required < a
 	@time ./lem-in < a > a.out
 	@grep L < a.out | wc -l
-	@$(RM) a.out a
+	@cat a.out | grep L | python check_doubles.py
 	
 .PHONY: all, re, clean, fclean, force, run, urn, tags, thousand, one, big, super, test, rnu
