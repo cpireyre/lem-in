@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 07:55:45 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/11/16 16:51:42 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/12/17 17:47:53 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,23 +43,6 @@ int		count_path_length(t_listarray graph, int source, int sink)
 	{
 		len++;
 		vertex = (graph)[next_vertex_id(vertex)];
-	}
-	return (len);
-}
-
-int		alternate_count(t_edge **path, int source, int sink)
-{
-	t_edge	*edge;
-	int		len;
-
-	len = 0;
-	if (!path)
-		return (-1);
-	edge = path[sink];
-	while (edge->source != source)
-	{
-		len++;
-		edge = path[edge->source];
 	}
 	return (len);
 }

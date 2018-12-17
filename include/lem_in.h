@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 13:41:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/12/15 12:37:52 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/17 17:48:10 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,7 +175,6 @@ int					ft_size_list(t_rooms *rooms);
 int					count_split(char **split);
 int					count_path_length(t_listarray graph, int source, int sink);
 int					*size_paths(t_listarray graph, t_lemin *lemin);
-int					alternate_count(t_edge **path, int source, int sink);
 
 /*
 **	edmonds_karp.c
@@ -248,9 +247,6 @@ int					count_back_length(t_listarray graph, int source, int sink);
 **	super.c
 */
 
-void				zero_path(t_list *vertex, t_listarray graph, int sink);
-int					clear_super_paths(t_listarray g, t_list *s, int e);
-t_bool				path_is_super(t_listarray g, int e, t_list *v);
 int					flow_to_vertex(t_list *vertex);
 
 /*
@@ -264,13 +260,11 @@ t_bool				store_ants(t_list **head, int *leminants);
 */
 
 int					print_path_analysis(t_listarray graph, t_lemin *lemin);
-void				del_edge(t_listarray graph, t_edge edge);
-void				cxl_super(t_listarray graph, t_edge *edge, int end);
-t_bool				path_is_suspicious(t_edge **p, t_listarray g, int s, int t);
 
 /*
 **	VISU
 */
+
 void				parse_visu(t_list **usr_in, t_lemin *visu);
 void				visu(t_lemin *visu);
 void				ft_init_mlx(t_visu *visu);

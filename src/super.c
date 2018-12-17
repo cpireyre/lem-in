@@ -6,7 +6,7 @@
 /*   By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/09 13:11:59 by tboissel          #+#    #+#             */
-/*   Updated: 2018/12/09 13:12:07 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/12/17 17:51:27 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,68 +29,4 @@ edge->sink, edge->flow);
 		vertex = vertex->next;
 	}
 	return (count);
-}
-
-void			zero_path(t_list *vertex, t_listarray graph, int sink)
-{
-	t_edge	*edge;
-
-	if (DEBUG)
-		ft_printf("DEBUG: Zeroing out path.\n");
-	while (vertex != graph[sink])
-	{
-		edge = ((t_edge*)(vertex->content));
-		while (edge->flow != 1)
-		{
-			vertex = vertex->next;
-			if (!vertex)
-				break ;
-			edge = ((t_edge*)(vertex->content));
-		}
-		if (DEBUG)
-			print_edge(edge);
-		edge->flow = 0;
-		edge->rev->flow = 0;
-		vertex = graph[edge->sink];
-	}
-}
-
-t_bool			path_is_super(t_listarray graph, int end_id, t_list *vertex)
-{
-	int		count;
-
-	if (DEBUG > 1)
-		ft_printf("DEBUG: Checking superposed paths.\n");
-	while (vertex != graph[end_id])
-	{
-		count = flow_to_vertex(vertex);
-		if (count > 1)
-			return (true);
-		vertex = graph[next_vertex_id(vertex)];
-	}
-	return (false);
-}
-
-int				clear_super_paths(t_listarray graph, t_list *start, int end_id)
-{
-	int		ret;
-	int		sink_vtx;
-
-	ret = 0;
-	while (start)
-	{
-		if (((t_edge*)(start->content))->flow)
-		{
-			sink_vtx = ((t_edge*)(start->content))->source;
-			if (path_is_super(graph, end_id, graph[sink_vtx]))
-			{
-				if (DEBUG > 1)
-					ft_printf("\tFlagged vertex %d.\n", sink_vtx);
-				zero_path(graph[sink_vtx], graph, end_id);
-				ret++;
-			}
-		}
-		start = start->next;
-	}
-	return (ret);
 }
