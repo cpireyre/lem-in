@@ -6,7 +6,7 @@
 #    By: tboissel <tboissel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/12/09 15:48:47 by tboissel         ###   ########.fr        #
+#    Updated: 2018/12/17 15:46:56 by tboissel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,8 +97,8 @@ super: all
 	@grep -m 1 required < a
 	@time ./lem-in < a > a.out
 	@grep L < a.out | wc -l
-	
+	@cat a.out | grep L | python check_doubles.py
+
 visutest: all
 	@./lem-in < tests/mapvisu/snake_in_stairs | ./visu
-
 .PHONY: all, re, clean, fclean, force, run, urn, tags, thousand, one, big, super, test, rnu, visutest
