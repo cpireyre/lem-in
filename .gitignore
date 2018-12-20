@@ -1,0 +1,5 @@
+*.o
+*.a
+lem-in
+visu
+*.dSYM

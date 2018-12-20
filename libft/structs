@@ -1,0 +1,28 @@
+# include <string.h>
+# include <stdlib.h>
+# include "inttypes.h"
+
+typedef struct			s_tree
+{
+	void			*content;
+	size_t			content_size;
+	struct s_tree	*parent;
+	struct s_tree	*sibling;
+	struct s_tree	*child;
+}						t_tree;
+
+typedef struct			s_list
+{
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
+}						t_list;
+
+typedef enum			e_bool
+{
+	false,
+	true
+}						t_bool;
+
+typedef unsigned char	t_byte;
+typedef unsigned int	t_uint;
